@@ -1,0 +1,6 @@
+#
+#   Luci: Hello, World!
+#   https://github.com/naegelejd/luci
+#
+
+print("Hello, World!");

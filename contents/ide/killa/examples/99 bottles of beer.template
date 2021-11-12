@@ -1,0 +1,46 @@
+//
+//  Killa: 99 bottles of beer
+//  https://github.com/ex/Killa
+//
+
+//----------------------------------------------------------------------------------------
+// 99 Bottles of beer: http://99-bottles-of-beer.net/lyrics.html
+function songOfBeers(beers) {
+    
+    function bottlesOfBeer(i)    { return i .. ' bottles of beer' }
+    function bottlesOnTheWall(i) { return bottlesOfBeer(i) .. ' on the wall' }
+    function takeOneDown()       { return '\nTake one down and pass it around, ' }
+
+    function createVerse(i) {
+        return function() {
+            return bottlesOnTheWall(i) .. ', ' .. bottlesOfBeer(i) .. '.'
+                   .. takeOneDown() .. bottlesOnTheWall(i - 1) .. '.\n'
+        }
+    }
+
+    // Create the closures that will sing the song.
+    var verses = []
+    for (var i = beers; i >= 0; i -= 1) {
+        if (i >= 2) {
+            table.insert(verses, createVerse(i));
+        }
+        else if (i == 1) {
+            table.insert(verses, function() {
+                return '1 bottle of beer on the wall, 1 bottle of beer.'
+                        .. takeOneDown() .. bottlesOnTheWall('no more') .. '.\n'
+            })
+        }
+        else {
+            table.insert(verses, function() {
+                return bottlesOnTheWall('No more') .. ', ' .. bottlesOfBeer('no more') 
+                       .. '.\nGo to the store and buy some more, ' 
+                       .. bottlesOnTheWall(99) .. '.\n'
+            })
+        }
+    }
+    return verses
+}
+
+for each (var k, verse in ipairs(songOfBeers(99))) {
+    print(verse())
+}

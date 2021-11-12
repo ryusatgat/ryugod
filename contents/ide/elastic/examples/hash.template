@@ -1,0 +1,109 @@
+/*
+    elastiC: hash
+    http://www.elasticworld.org/
+*/
+
+package hash;       // Let's create a package
+
+import basic;       // Import some basic functions and classes
+
+public class Hash extends basic.Object {
+    /*
+     * Hash table implementation
+     *
+     * There is a list of buckets. Every bucket has a list of
+     * pairs (key, value) with the same hash value.
+     */
+    local bucket;
+    static nbuckets = 1039;
+
+    // Initialization method.
+    // Automatically called.
+    method init( ) {
+        bucket = #[ ];      // An empty array
+    }
+
+    // Getter method for indexing by [key]:
+    // object[key]
+    method _getitem( key ) {
+        local hv;
+        local pair;
+
+        hv = basic.hash( key ) % nbuckets;
+        if (hv < basic.length( bucket ))
+        {
+            for (pair in bucket[hv])
+                if (pair[0] == key) return pair[1];
+        }
+
+        throw [basic.IndexError new "key " +
+                    basic.repr( key ) +
+                    " not found", key, self];
+    }
+
+    // Setter method for indexing by [key]:
+    // object[key] = val
+    method _setitem( key, val ) {
+        local hv;
+        local pair;
+
+        hv = basic.hash( key ) % nbuckets;
+        if (hv >= basic.length( bucket ))
+        {
+            bucket[hv] = #[ #[ key, val ] ];
+            return self;
+        }
+
+        for (pair in bucket[hv])
+        {
+            for (pair in bucket[hv])
+                if (pair[0] == key) {
+                    pair[1] = val;
+                    return self;
+                }
+
+            local l = basic.length( bucket[hv] );
+            bucket[hv][l] = #[ key, val ];
+            return self;
+        }
+    }
+
+    // A method giving all keys (returned as an array)
+    method keys( ) {
+        local keys = #[ ];
+
+        local b, pair;
+        for (b in bucket)
+        {
+            for (pair in b)
+                keys[basic.length(keys)] = pair[0];
+        }
+
+        return keys;
+    }
+}
+
+// Here we start to execute package code
+
+private ht = [Hash new];
+
+ht["Hello"]  = "World";                     // Map a string to a string
+ht["Larry"]  = "Wall";
+ht[12.6]     = #[ 8, "Goofy", 4.4 ];        // Map a float to an array
+ht["Dennis"] = "Ritchie";
+
+try {
+    basic.print( ht["Dennis"], '\n' );
+
+    // Let's use a wrong index ! ...
+    basic.print( ht["Lorry"], '\n' );
+} catch (basic.IndexError e) {
+    // ... and intercept it
+    basic.print( "Exception: ", [e getMessage], '\n' );
+    basic.print( "    index: ", [e getIndex], '\n' );
+}
+
+// Print all pairs (key, value)
+private k;
+for (k in [ht keys])
+    basic.print( k, " -> ", ht[k], '\n' );

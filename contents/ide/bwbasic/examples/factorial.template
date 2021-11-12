@@ -1,0 +1,11 @@
+REM
+REM     Bywater BASIC: Factorial
+REM
+
+f = 1
+FOR i = 0 TO 16
+    PRINT i; "! ="; f
+    f = f * (i + 1)
+NEXT i
+
+QUIT

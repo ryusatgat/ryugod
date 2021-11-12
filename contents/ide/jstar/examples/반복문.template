@@ -1,0 +1,8 @@
+//
+//  J*: for loop
+//  https://github.com/bamless/jstar
+//
+
+for var i = 0; i < 10; i += 1
+	print('Iteration {0}' % i)
+end

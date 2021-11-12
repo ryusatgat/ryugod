@@ -1,0 +1,58 @@
+// Myrddin: mandelbrot
+
+use std
+use bio
+
+/* Controls when we finish the iterations */
+const Bailout : flt64 = 16.0
+const Maxiter = 1000
+
+const main = {args : byte[:][:]
+    /* Declarations with types */
+    var x : flt64, y : flt64, i, f
+
+    /* create a buffered wrapper for stdio */
+    f = bio.mkfile(1, bio.Wr)
+    /* iterate over the range of interest, and draw the fractal */
+    for y = -39.0; y < 39.0; y = y + 1.0
+        for x = -39.0; x < 39.0; x = x + 1.0
+            i = mandelbrot(x/40.0, y/40.0)
+            if i == 0
+                bio.putc(f, '*')
+            else
+                bio.putc(f, ' ')
+            ;;
+        ;;
+        bio.putc(f, '\n')
+    ;;
+    bio.putc(f, '\n')
+    bio.flush(f)
+}
+
+const mandelbrot = {x, y
+    var cr, ci, zr, zi
+    var tmp, zr2, zi2
+    var i : int 
+
+    cr = y - 0.5
+    ci = x
+    zr = 0.0
+    zi = 0.0
+    i = 0 
+
+    while true
+        i++
+        tmp  = zr * zi
+        zr2 = zr * zr
+        zi2 = zi * zi
+        zr = zr2 - zi2 + cr
+        zi = tmp + tmp + ci
+        if zi2 + zr2 > Bailout
+            -> i
+        ;;
+        if i > Maxiter
+            -> 0
+        ;;
+    ;;
+    std.die("unreachable")
+}

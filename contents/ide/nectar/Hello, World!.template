@@ -1,0 +1,10 @@
+#
+#   Nectar: Hello, World!
+#   https://github.com/tasosxak/nectar-lang
+#
+
+func main() -> int {
+    say "Hello, World!";
+
+	return 0;
+}

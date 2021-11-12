@@ -1,0 +1,8 @@
+--
+$   SETL: Hello, World! 예제
+--
+
+a := 'Hello';
+b := 'World!';
+
+print(a + ', ' + b);

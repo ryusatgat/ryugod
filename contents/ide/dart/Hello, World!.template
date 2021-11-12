@@ -1,0 +1,7 @@
+/*
+    Dart(다트): Hello, World! 예제
+*/
+
+void main() {
+  print('Hello, World!');
+}

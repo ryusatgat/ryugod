@@ -1,0 +1,18 @@
+//
+//  Zig: memory leak detection
+//  https://ziglang.org/learn/samples/
+//
+
+const std = @import("std");
+
+pub fn main() !void {
+    var gpalloc = std.heap.GeneralPurposeAllocator(.{}){};
+    defer std.debug.assert(!gpalloc.deinit());
+
+    const alloc = &gpalloc.allocator;
+
+    const u32_ptr = try alloc.create(u32);
+    _ = u32_ptr; // silences unused variable error
+
+    // oops I forgot to free!
+}

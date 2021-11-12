@@ -1,0 +1,9 @@
+;;
+;;  Clojure(클로저) Hello, World! 예제
+;;
+
+(ns clojure.ryugod.hello
+   (:gen-class))
+(defn hello-world []
+   (println "Hello, World!"))
+(hello-world)

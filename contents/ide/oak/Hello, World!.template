@@ -1,0 +1,10 @@
+//
+//  Oak: Hello, World!
+//  https://github.com/adam-mcdaniel/oakc
+//
+
+#[std]
+
+fn main() {
+    putstrln("Hello, World!");
+}

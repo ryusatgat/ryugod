@@ -1,0 +1,21 @@
+'
+'   GW-BASIC: 99 bottles of beer
+'   http://www.rosettacode.org/
+'
+
+Dim As Integer bottles = 99
+Dim As String b = " bottles "
+ 
+Do
+    Print Str(bottles); b; "of beer hanging on the wall"  
+    Print Str(bottles); b; "of beer hanging on the wall" 
+    Print "And if one bottle of beer should accidently be drunk"
+    bottles -= 1
+    If bottles = 1 Then 
+        b = " bottle "
+    ElseIf bottles = 0 Then
+        b = " bottles "
+    End If
+    Print "There'll be"; bottles; b; "of beer hanging on the wall"
+    Print
+Loop Until bottles = 0 

@@ -1,0 +1,75 @@
+#
+#   Sink: samples
+#   https://github.com/velipso/sink
+#
+
+say str.replace 'hello world', 'l', 'A'
+say str.replace 'asdf', 'A', 'B'
+say str.replace 'AAAAAA', 'AA', 'B'
+
+def add x
+	say 'bad'
+end
+
+namespace foo
+	def add a, b
+		say "adding $a $b"
+		return a + b
+	end
+end
+
+say (foo.add 4, 5)
+
+def obj.test
+	say 'inside obj.test'
+end
+
+namespace obj2
+	using obj
+	test
+end
+
+namespace obj3
+	using obj
+end
+
+obj3.test
+
+# allow using before namespace exists
+using qux
+def qux.test
+	say 'q'
+end
+test
+
+var x = 'hello'
+x = x[0:2] ~ 'LL' ~ x[4:]
+say x # heLLo
+
+x = x ~ 1 ~ 2 && x[:]
+say x # heLLo
+
+enum zero, one, two, three
+
+say zero, one, two, three
+
+enum five = 5, six, seven, eight, ten = (10), eleven
+
+say five, six, seven, eight, ten, eleven
+
+enum twenty = eleven * 2 - 2
+say twenty
+
+def gettrace a
+	def gt1
+		def gt2
+			return stacktrace
+		end
+		return gt2
+	end
+	return pick a == 0, gt1, gettrace a - 1
+end
+
+for var i: gettrace 3
+	say i
+end

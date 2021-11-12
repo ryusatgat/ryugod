@@ -1,0 +1,12 @@
+/*
+   OZ(오즈): Hello, World! 예제
+*/
+
+functor
+import
+   Application
+   System
+define
+   {System.showInfo 'Hello, World!'}
+   {Application.exit 0}
+end

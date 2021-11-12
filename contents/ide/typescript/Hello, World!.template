@@ -1,0 +1,5 @@
+/* TypeScript(타입스크립트) 언어 Hello, World 예제 */
+
+let message: string = 'Hello, World!'
+
+console.log(message)

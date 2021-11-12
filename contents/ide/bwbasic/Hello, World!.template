@@ -1,0 +1,7 @@
+REM
+REM     Bywater BASIC: Hello, World!
+REM
+
+PRINT "Hello, World!"
+
+QUIT

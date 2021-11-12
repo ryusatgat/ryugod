@@ -1,0 +1,8 @@
+//
+//  Nice: Hello, World!
+//
+
+void main(String[] args)
+{
+    println("Hello, World!");
+}

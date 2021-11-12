@@ -1,0 +1,22 @@
+//
+//  LeekScript: primes
+//  https://github.com/leek-wars
+//
+
+let f = function(number) {
+	for (var k = 1; 36 * k * k - 12 * k < number; k += 1) {
+		if (number % (6 * k + 1) == 0) or (number % (6 * k - 1) == 0) {
+			return false
+		}
+	}
+	return true
+}
+
+var c = 2
+
+for var i = 5; i < 1000000; i += 6 do
+	if f(i) c++
+	if f(i + 2) c++
+end
+
+c

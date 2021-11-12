@@ -1,0 +1,24 @@
+/*
+    Next: functions
+    https://github.com/iamsubhranil/Next
+*/
+
+res = false
+
+fn hello() {
+    res = true
+}
+
+fn hello(x, y) {
+    if(x != "first" or y != "second") {
+        print("[Error] Expected x to be 'first' and y to be 'second'!\nReceived : ", x, " and ", y, "\n")
+    } else {
+        res = true
+    }
+}
+
+hello()
+hello("first", "second")
+if(res) {
+    print("Function calls are working properly!\n")
+}

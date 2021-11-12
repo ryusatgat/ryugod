@@ -1,0 +1,6 @@
+//
+//  LeekScript: Hello, World!
+//  https://github.com/leek-wars
+//
+
+System.print("Hello, World!")

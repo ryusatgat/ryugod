@@ -1,0 +1,6 @@
+#
+#   M4: Hello, World! 예제
+#
+
+define(`hello', `Hello, World!')
+hello

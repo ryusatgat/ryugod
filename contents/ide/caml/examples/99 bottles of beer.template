@@ -1,0 +1,21 @@
+(*
+    CAML: 99 bottles of beer
+    https://www.99-bottles-of-beer.net/
+*)
+
+let rec bottles =
+  function 1 -> print_string "1 bottle of beer on the wall, 1 bottle of beer\n";
+                print_string "Take one down, pass it around,\n";
+                print_string "no more bottles of beer on the wall\n"
+         | n -> print_int n;
+                print_string " bottles of beer on the wall, ";
+                print_int n;
+                print_string " bottles of beer\n";
+                print_string "Take one down and pass it around,\n";
+                print_int (n-1);
+                print_string " bottles of beer on the wall\n";
+                bottles (n-1)
+in
+   bottles 99;;
+
+flush stdout;;

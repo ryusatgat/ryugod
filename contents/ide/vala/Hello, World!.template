@@ -1,0 +1,5 @@
+// Vala(발라) Hello, World! 예제
+
+void main(){
+	stdout.printf("Hello, World!\n");
+}

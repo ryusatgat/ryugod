@@ -1,0 +1,38 @@
+![RYUGOD 로고](https://www.ryugod.com/contents/images/ryugod.png)
+# 마크다운
+## 특징
+- 문법이 간결하다.
+- 별도의 도구가 필요없다.
+- 다양한 형태로 변환이 가능하다.
+- 여러 플랫폼에서 사용할 수 있다.
+## 표 사례
+|구분|설명|종류|
+|-|-|-|
+|대칭키|암호화, 복호화 키가 동일하다|AES, SEED, HEIGHT 등|
+|비대칭키|암/복호화 키가 서로 다르다|RSA, DSA, ECC 등|
+## 언어 구문강조 사례
+```c
+#include <stdio.h>
+#include <math.h>
+
+void printPrime(int dest)
+{
+  int i, j;
+  int r;
+ 
+  for(i=2; i<=dest; i++) {
+    r = (int)sqrt(i) + 1;
+    for (j=2; j<r; j++)
+      if(i%j == 0) break;
+    if(r == j) printf("%d ", i);
+  }
+  printf("\n");
+}
+
+int main()
+{
+  printPrime(100);
+
+  return 0;
+}
+```

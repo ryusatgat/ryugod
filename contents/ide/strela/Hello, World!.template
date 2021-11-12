@@ -1,0 +1,13 @@
+/*
+    Strela: Hello, World!
+    https://github.com/sunverwerth/strela
+*/
+
+module Hello {
+    import Std.IO.*;
+
+    function main(args: String[]): int {
+        println("Hello, World!");
+        return 0;
+    }
+}

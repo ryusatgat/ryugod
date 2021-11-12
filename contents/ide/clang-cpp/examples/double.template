@@ -1,0 +1,17 @@
+/*
+    C++ 부동소수점 유의사항 예제
+*/
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double i = 89.95, j = 89.95;
+    j+=100;
+    j-=100;
+    
+    cout << (i == j ? "same":"diff") << endl;
+
+    return 0;
+}

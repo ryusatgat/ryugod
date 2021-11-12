@@ -1,0 +1,5 @@
+# SkyLark(스카이라크): Hello, World! 예제
+
+hello = "Hello, World!"
+
+print(hello)

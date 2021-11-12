@@ -1,0 +1,16 @@
+#
+#   StormScript: for loop
+#   https://github.com/stormprograms/StormScript
+#
+
+a: 0;
+b: 1;
+c: 0;
+
+for 25 {
+	printl c;
+	
+	c: a + b;
+	a: b;	
+	b: c;
+}

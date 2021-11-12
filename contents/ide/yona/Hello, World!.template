@@ -1,0 +1,6 @@
+#
+#   Yona: Hello, World!
+#   https://github.com/yona-lang/yona
+#
+
+IO::println "Hello, World!"

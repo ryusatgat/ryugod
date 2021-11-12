@@ -1,0 +1,28 @@
+//
+//  Par: conversion
+//  https://par-lang.org/
+//
+
+module Main
+
+interface ToInteger {
+  to_integer : T -> Int
+}
+
+impl ToInteger for Bool {
+  to_integer(b) = if b then 1 else 0
+}
+
+impl ToInteger for Float {
+  to_integer(f) = trunc(f)
+}
+
+zero? : A ~ ToInteger -> Bool
+zero?(x) = to_integer(x) == 0
+
+main : () -> ()
+main() =
+  let float_results = (to_integer(3.7), zero?(3.7))
+  let bool_results = (to_integer(false), zero?(false))
+  print(float_results)
+  print(bool_results)

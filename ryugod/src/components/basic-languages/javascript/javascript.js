@@ -1,0 +1,72 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+import { conf as tsConf, language as tsLanguage } from '../typescript/typescript.js';
+export var conf = tsConf;
+export var language = {
+    // Set defaultToken to invalid to see what you do not tokenize yet
+    defaultToken: 'invalid',
+    tokenPostfix: '.js',
+    keywords: [
+        'break',
+        'case',
+        'catch',
+        'continue',
+        'debugger',
+        'default',
+        'delete',
+        'do',
+        'else',
+        'export',
+        'extends',
+        'false',
+        'finally',
+        'for',
+        'from',
+        'get',
+        'if',
+        'import',
+        'in',
+        'instanceof',
+        'new',
+        'null',
+        'return',
+        'set',
+        'switch',
+        'symbol',
+        'this',
+        'throw',
+        'true',
+        'try',
+        'typeof',
+        'undefined',
+        'while',
+        'with',
+        'yield',
+        'await',
+        'of'
+    ],
+    builtins: [
+        'class',
+        'const',
+        'constructor',
+        'function',
+        'let',
+        'super',
+        'var',
+        'void',
+        'async',
+    ],
+    typeKeywords: [],
+    operators: tsLanguage.operators,
+    symbols: tsLanguage.symbols,
+    escapes: tsLanguage.escapes,
+    digits: tsLanguage.digits,
+    octaldigits: tsLanguage.octaldigits,
+    binarydigits: tsLanguage.binarydigits,
+    hexdigits: tsLanguage.hexdigits,
+    regexpctl: tsLanguage.regexpctl,
+    regexpesc: tsLanguage.regexpesc,
+    tokenizer: tsLanguage.tokenizer
+};

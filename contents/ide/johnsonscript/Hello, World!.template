@@ -1,0 +1,6 @@
+#
+#   JohnsonScript: Hello, World!
+#   https://github.com/amjohnson36/johnsonscript
+#
+
+print("Hello, World!"+\n).

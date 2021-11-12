@@ -1,0 +1,7 @@
+//
+//  Battlestar: Hello, World!
+//  https://github.com/xyproto/battlestar
+//
+
+const hello = "Hello, World!\n"
+print(hello)

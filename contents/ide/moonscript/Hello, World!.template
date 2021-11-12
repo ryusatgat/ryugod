@@ -1,0 +1,13 @@
+--
+--  MoonScript(문스크립트): Hello, World! 예제
+--
+
+class Thing
+  name: "unknown"
+
+class Person extends Thing
+  say_name: => print "Hello, #{@name}!"
+
+with Person!
+  .name = "World"
+  \say_name!

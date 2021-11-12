@@ -1,0 +1,16 @@
+//
+//  Par: undigitizer
+//  https://par-lang.org/
+//
+
+module Main
+
+to_num : [Int] -> Int
+to_num(digits) = match digits {
+  [] => 0
+  [d] => d
+  [d1, d2 | t] => to_num([d1 * 10 + d2 | t])
+}
+
+main : () -> ()
+main() = print(to_num([1, 3, 7]))

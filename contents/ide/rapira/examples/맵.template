@@ -1,0 +1,61 @@
+\
+\   Rapira: map, fiter, reduce
+\
+
+fun map(obj, transform)
+    if not is_seq(obj) or not is_fun(transform) then
+        return empty
+    fi
+    result := <* *>
+    for i from 1 to #obj do
+        result := result + <* transform(obj[i]) *>
+    od
+    return result
+end
+
+fun filter(obj, predicate)
+    if not is_seq(obj) or not is_fun(predicate) then
+        return empty
+    fi
+    result := <* *>
+    for i from 1 to #obj do
+        if predicate(obj[i]) then
+            result := result + <* obj[i] *>
+        fi
+    od
+    return result
+end
+
+fun reduce(obj, operation, initial_value)
+    if not is_seq(obj) or not is_fun(operation) then
+        return empty
+    fi
+    acc := initial_value
+    for i from 1 to #obj do
+        acc := operation(acc, obj[i])
+    od
+    return acc
+end
+
+fun is_even(num)
+    return num /% 2 = 0
+end
+
+fun power_of_two(num)
+    return 2 ** num
+end
+
+fun sum_pair(num1, num2)
+    return num1 + num2
+end
+
+values := <* 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 *>
+
+values := filter(values, is_even)
+output: values                                  \ <* 0, 2, 4, 6, 8, 10 *>
+
+values := map(values, power_of_two)
+output: values                                  \ <* 1, 4, 16, 64, 256, 1024 *>
+
+values := reduce(values, sum_pair, 0)
+output: values                                  \ 1365

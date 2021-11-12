@@ -1,0 +1,58 @@
+//
+//   Pup: array
+//   https://github.com/marxn/pupp
+//
+
+test := (x : int[])
+{
+    x[0] = 123;
+};
+
+
+test1 := (&x : int[])
+{
+    x[0] = 123;
+};
+
+
+test2 := (x : int)
+{
+    x = 456;
+};
+
+
+test3 := (&x : int)
+{
+    x = 456;
+};
+
+func := (args : map) using(&test, &test1, &test2, &test3): int
+{
+    def arr : int[10];
+    i := 0;
+
+    for i = 0; i < 10; i += 1
+    {
+        arr[i] = i;
+    }
+
+    print arr,NL;
+
+    if(true)
+    {
+        @test(arr);
+        print arr,NL;
+
+        @test1(arr);
+        print arr,NL;
+
+        @test2(arr[1]);
+        print arr,NL;
+
+        @test3(arr[1]);
+        print arr,NL;
+    }
+    return 0;
+};
+
+return func(args);

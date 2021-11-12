@@ -1,0 +1,6 @@
+;;
+;;  Closure(클로저) FizzBuzz 예제
+;;  출처: http://www.rosettacode.org/
+;;
+
+(doseq [x (range 1 101)] (println x (str (when (zero? (mod x 3)) "fizz") (when (zero? (mod x 5)) "buzz"))))

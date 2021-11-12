@@ -1,0 +1,24 @@
+#
+#   Nix: primes
+#   https://github.com/kelthuzadx/nyx
+#
+
+# general solution
+func prime(x){
+    for(i=2;i<x-1;i+=1){
+        if(x%i==0){
+            return false
+        }
+    }
+    return true
+} 
+
+for(i=1;i<1024;i+=1){
+    str = "the number "+i
+    if(prime(i)){
+        str+=" is prime"
+    }else{
+        str+=" is not prime"
+    }
+    println(str)
+}

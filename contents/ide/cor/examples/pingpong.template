@@ -1,0 +1,38 @@
+//
+//  Cor: ping-pong
+//  http://yosbelms.github.io/cor/
+//
+
+// Ping-pong example ported from Go
+// http://talks.golang.org/2013/advconc.slide#6
+// Using unbuffered channels to synchronize coroutines
+
+func player(name, table) go {
+    for {
+        ball = <- table
+        if table.closed {
+            console.log(name, 'Table is gone...')
+            return
+        }
+        ball.hits++
+
+        console.log(name, ball.hits)
+        timeout(500)
+
+        catch table <- ball { return }
+    }
+}
+
+func init() go {
+    table = chan()
+
+    // send to the channel inside a new coroutine
+    // to avoid blocking the current context
+    go {table <- (hits: 0)}
+
+    player('Ping', table)
+    player('Pong', table)
+
+    timeout(5000)
+    table.close()
+}

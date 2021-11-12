@@ -1,0 +1,5 @@
+#
+# Elixir(엘릭서): Hello, World! 예제
+#
+
+IO.puts("Hello, World!")

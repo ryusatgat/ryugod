@@ -1,0 +1,36 @@
+/*
+    P++: calculator
+    https://github.com/tumtumtum/pplusplus
+*/
+
+using "string.p++";
+using "stream.p++";
+using "bignumbers.p++":
+
+function main()
+{
+    var s : string;
+    var x : biginteger;
+    var y : biginteger;
+
+    println("Type in the first number:");
+
+    x := readln();
+
+    println("Type in the second number:");
+
+    y := readln();
+
+    print("Which operation (+ or *): ");
+
+    which(readln())
+    {
+        case "+":
+
+            println(x + y);
+
+        case "*":
+
+            println(x * y);
+    };
+};

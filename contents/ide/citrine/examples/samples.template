@@ -1,0 +1,56 @@
+#   Citrine: sample
+
+✎ write:  ‘<recursion>’, stop.
+☞ Roundabout ≔ Object new.
+Roundabout on: ‘circle:’ do: { :x
+✎ write: x, stop.
+(x < 3) true: { ⛏ recursive circle: x + 1. }.
+}.
+Roundabout circle: 1.
+
+✎ write:  ‘<do>’, stop.
+☞ x ≔ List ← 1 ; 2 ; 3.
+x do pop shift done.
+✎ write: x, stop.
+
+✎ write:  ‘<procedure>’, stop.
+☞ x ≔ 1.
+{
+(x = 1) true: { ✎ write: ‘x’, stop. }, break.
+✎ write: ‘y’, stop.
+} procedure.
+
+{
+(x = 1) true: { ✎ write: ‘x’, stop. }, break.
+✎ write: ‘y’, stop.
+} × 1.
+
+✎ write:  ‘<uppercase>’, stop.
+✎ write: ‘abc’ uppercase, stop.
+
+✎ write:  ‘<fill>’, stop.
+☞ x ≔ List new
+fill: 10 with: ‘X’.
+✎ write: x, stop.
+
+✎ write:  ‘<maximum>’, stop.
+☞ x ≔ List ← 8 ; 4 ; 2 ; 16.
+☞ y ≔ x maximum.
+✎ write: x, stop.
+
+✎ write:  ‘<whilst>’, stop.
+☞ x ≔ 0.
+{ x add: 1. } whilst: { ↲ (x < 6). }.
+✎ write: x, stop.
+
+✎ write:  ‘<each>’, stop.
+☞ x ≔ List ← 1 ; 2 ; 3.
+x each: { :x
+✎ write: x, stop.
+}.
+
+✎ write:  ‘<equals>’, stop.
+☞ x ≔ ‘abc’ = ‘abc’.
+✎ write: x, stop.
+☞ x ≔ ‘abc’ = ‘xxx’.
+✎ write: x, stop.

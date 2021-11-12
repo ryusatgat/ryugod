@@ -1,0 +1,7 @@
+/*
+    Ferite(페라이트) Hello, World 예제
+*/
+
+uses "console";
+
+Console.println("Hello, World!");

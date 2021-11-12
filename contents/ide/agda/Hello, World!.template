@@ -1,0 +1,14 @@
+--
+--  Agda: Hello, World!
+--
+
+open import Agda.Builtin.IO
+open import Agda.Builtin.String
+open import Agda.Builtin.Unit
+
+postulate putStrLn : String → IO ⊤
+{-# FOREIGN GHC import qualified Data.Text as T #-}
+{-# COMPILE GHC putStrLn = putStrLn . T.unpack #-}
+
+main : IO ⊤
+main = putStrLn "Hello, World!"

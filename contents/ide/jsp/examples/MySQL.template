@@ -1,0 +1,46 @@
+<!--
+    JSP MySQL 연동 예제
+
+    테스트를 위해서 콘솔에서 아래 명령 수행으로 MySQL 기동 후 실행하세요(Ctrl+Enter)
+
+    sudo service mysql start
+-->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>MySQL</title>
+    </head>
+<body>
+<%
+    Connection conn = null;
+    String url = "jdbc:mysql://localhost:3306/employees";
+    String id = "ryugod";
+    String pwd = "";
+
+    Class.forName("com.mysql.jdbc.Driver");
+    conn = DriverManager.getConnection(url, id, pwd);
+
+    out.println("<h1>MySQL DB 연결 성공</h1>");
+
+    String sql = "SELECT * FROM employees LIMIT 10";
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    pstmt = conn.prepareStatement(sql);
+    rs = pstmt.executeQuery();
+    while (rs.next()) {
+%>
+        <p><b><%=rs.getString("first_name")%></b> <%=rs.getString("birth_date")%></p>
+<%
+    }
+%>
+
+</body>
+</html>

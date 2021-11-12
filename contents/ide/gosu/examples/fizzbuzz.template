@@ -1,0 +1,8 @@
+/*
+    Gosu(고수): FizzBuzz 예제
+    출처: https://rosettacode.org/
+*/
+
+for (i in 1..100) { 
+    print(i % 5 == 0 ? i % 3 == 0 ? "FizzBuzz" : "Buzz" : i % 3 == 0 ? "Fizz" : i)
+}

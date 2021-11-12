@@ -1,0 +1,27 @@
+/*
+    Next: for_loops
+    https://github.com/iamsubhranil/Next
+*/
+
+res = true
+result = 0
+for(i=0; i<10; i++) {
+    result = result + i
+}
+
+println(result)
+
+result = 0
+
+for(i=0,j=1; i<j; i++) {
+    result = result + i + j
+}
+
+println(result)
+
+result = 0
+for(a=0; a<20; a++) {
+    result = result + a
+}
+
+println(result)

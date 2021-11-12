@@ -1,0 +1,106 @@
+/*
+    ICI: threads
+    https://github.com/ici-language/ici
+*/
+
+/*
+ * We use Ackerman's function to do work.
+ */
+static
+ack(x, y)
+{
+    return x > 0
+        ? ack(x - 1, y > 0 ? ack(x, y - 1) : 1)
+        : y + 1;
+}
+
+x := thread(ack, 2, 3);
+waitfor (x.result != NULL; x)
+    ;
+if (x.result != 9)
+    fail("incorrect result from func in other thread");
+
+static count;
+auto x, i, did_crit = 0;
+thread([func(){for (count = 0; count < 500; ++count);}]);
+while (count == NULL)
+    ;
+while (count < 500)
+{
+    critsect
+    {
+        x = count;
+        for (i = 0; i < 100; ++i)
+            ;
+        if (x != count)
+            fail("critsect was divisible");
+        did_crit = 1;
+    }
+}
+if (!did_crit)
+    printf("didn't execute critsect");
+
+
+static state = "ping";
+
+static
+t1()
+{
+    auto    i;
+
+    for (i = 0; i < 10; ++i)
+    {
+        waitfor (state == "ping"; "ping")
+        {
+            state = "pong";
+            wakeup("pong");
+        }
+    }
+    state = i;
+    wakeup("done");
+    wakeup("pong");
+}
+
+static
+t2()
+{
+    for (;;)
+    {
+        waitfor (state == "pong" && typeof(state) != "int"; "pong")
+        {
+            state = "ping";
+            wakeup("ping");
+        }
+    }
+}
+
+t1x := thread(t1);
+if (t1x.status != "active")
+    fail("thread status was not active");
+thread(t2);
+
+waitfor (typeof(state) == "int"; "done")
+    ;
+if (state != 10)
+    fail("failed to waitfor/wakeup correctly");
+if (t1x.status != "finished")
+    fail("thread status was not finished");
+
+error := NULL;
+x := thread(fail, "deliberate sub-thread failure");
+
+if (x.junk != NULL)
+    fail("non-existent thread key not NULL");
+
+try
+{
+    waitfor(x.result != NULL; x)
+        ;
+}
+onerror
+    ;
+if (error !~ #deliberate#)
+    fail("failed to propogate error from thread");
+    
+if (x.status != "failed")
+    fail("thread status was not failed");

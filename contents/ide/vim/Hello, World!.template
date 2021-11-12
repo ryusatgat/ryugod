@@ -1,0 +1,7 @@
+" Vim Script (빔스크립트) Hello, World! 예제
+
+let hello = "Hello, World!"
+echo hello
+
+sleep 5
+quit

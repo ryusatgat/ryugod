@@ -1,0 +1,8 @@
+{-
+    Elm(엘름): Hello, World! 예제
+-}
+
+import Html exposing (text)
+
+main =
+  text "Hello, World!"

@@ -1,0 +1,29 @@
+//
+//  ooc: FizzBuzz 예제
+//  출처: http://www.rosettacode.org/
+//
+
+fizz: func (n: Int) -> Bool {
+    if(n % 3 == 0) {
+        "Fizz" print()
+        return true
+    }
+    return false
+}
+ 
+buzz: func (n: Int) -> Bool {
+    if(n % 5 == 0) {
+        "Buzz" print()
+        return true
+    }
+    return false
+}
+ 
+main: func {
+    for(n in 1..100) {
+        fizz:= fizz(n)
+        buzz:= buzz(n)
+        fizz || buzz || printf("%d", n)
+        println()
+    }
+}

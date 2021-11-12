@@ -1,0 +1,5 @@
+;
+;   Logo(로고): Hello, World! 예제
+;
+
+print [Hello, World!]

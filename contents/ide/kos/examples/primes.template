@@ -1,0 +1,48 @@
+#
+#   Kos: prime
+#   https://github.com/kos-lang/kos
+#
+
+import base: print, range
+
+# Prime number generator with a fixed-size sieve
+fun primes(max_number)
+{
+    yield 2 # Yield the only even prime number from the generator
+
+    const sieve = [] # Empty array
+
+    # Set array size, fills with 'void' values.
+    # We set to half of the max number checked, because
+    # we ignore even numbers and only check odd numbers.
+    const len = max_number >> 1
+    sieve.resize(len)
+
+    # Find and yield all odd primes
+    for var value in range(3, max_number, 2) {
+
+        const idx = value >> 1
+
+        # Yield this number as prime if it hasn't been sifted-out
+        if ! sieve[idx] {
+
+            yield value
+
+            # Mark all multiplicities of this prime as non-primes
+            for var i in range(idx + value, len, value) {
+                sieve[i] = true # Mark a non-prime
+            }
+        }
+    }
+}
+
+print("Prime numbers:")
+
+var count = 0
+
+for var value in primes(7920) {
+    print("    \(value)")
+    count += 1
+}
+
+print("Printed \(count) primes")

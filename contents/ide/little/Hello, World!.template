@@ -1,0 +1,5 @@
+//
+//  Little(리틀): Hello, World! 예제
+//
+
+puts("Hello, World!");

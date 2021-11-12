@@ -1,0 +1,7 @@
+// Pawn: Hello, World!
+
+#include <console>
+main()
+{
+    printf("Hello, World!\n");
+}

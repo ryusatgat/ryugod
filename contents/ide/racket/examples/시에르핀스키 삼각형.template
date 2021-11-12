@@ -1,0 +1,19 @@
+; Racket(래킷) 피에르핀스키 삼각형 예제
+
+#lang racket
+(require 2htdp/image)
+(define-values (_)
+(save-image
+    (let sierpinski ([n 8])
+        (if (zero? n)
+            (triangle 2 'solid 'red)
+            (let ([t (sierpinski (- n 1))])
+            (freeze (above t (beside t t)))))) "image.png"))
+(define-values (sp out in err)
+(subprocess #f #f #f 
+    "/usr/bin/imshow" "image.png"))
+(display (port->string out))
+(close-input-port out)
+(close-output-port in)
+(close-input-port err)
+(subprocess-wait sp)

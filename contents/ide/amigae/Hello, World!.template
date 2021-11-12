@@ -1,0 +1,7 @@
+/*
+    Amiga E: Hello, World!
+*/
+
+PROC main()
+    WriteF('Hello, World!')
+ENDPROC

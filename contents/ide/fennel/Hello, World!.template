@@ -1,0 +1,6 @@
+;
+;   Fennel(페널): FizzBuzz 예제
+;   출처: https://www.99-bottles-of-beer.net/
+;
+
+(print "Hello, World!")

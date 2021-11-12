@@ -1,0 +1,13 @@
+#
+#   PIC: for statement
+#   https://www.gnu.org/software/plotutils/manual/en/html_node/pic2plot-Introduction.html
+#
+
+.PS
+pi = atan2(0, -1);
+for i = 0 to 2 * pi by 0.1 do {
+    "-" at (i/2, 0);
+    "." at (i/2, sin(i)/2);
+    ":" at (i/2, cos(i)/2);
+}
+.PE

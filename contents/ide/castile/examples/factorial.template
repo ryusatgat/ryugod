@@ -1,0 +1,26 @@
+/*
+    Castile: factorial
+    https://github.com/catseye/Castile
+*/
+
+factorial: integer -> integer
+fun factorial(a) {
+    if (a == 0) {
+        return 1
+    } else {
+        return a * factorial(a - 1)
+    }
+}
+
+fun main() {
+    n = 0 as integer|void;
+    s = "";
+    print("Enter integer to obtain factorial of it, or 'q' to quit.");
+    while true {
+        s = input(">> ");
+        if s == "q" { break; }
+        n = int(s);
+        typecase n is integer { print(str(factorial(n))); }
+        typecase n is void { print("Integer needed"); }
+    }
+}

@@ -1,0 +1,8 @@
+/*
+    Castile: Hello, World!
+    https://github.com/catseye/Castile
+*/
+
+fun main() {
+    print("Hello, World!")
+}

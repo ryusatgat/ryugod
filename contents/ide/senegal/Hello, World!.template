@@ -1,0 +1,12 @@
+//
+//  Senegal: Hello, World!
+//
+
+class Hello {
+    function say() {
+        println("Hello, World!");
+    }
+}
+
+var hello = Hello();
+hello.say();

@@ -1,0 +1,36 @@
+#
+#   JohnsonScript: fibonacci
+#   https://github.com/amjohnson36/johnsonscript
+#
+
+# Program to demonstrate recursion. Prints recursive fibonacci numbers from 0 - 15
+# make recursion : Displays the program
+# make recursionx: Executes the program
+
+def fib(var num)
+start
+    var return.
+    
+    if (num == 0) start
+        return = 0.
+    stop
+    
+    else if (num == 1) start 
+        return = 1.
+    stop
+
+    else start
+        return = fib(num-1) + fib(num-2).
+    stop
+stop
+
+def printFib(var num)
+start
+    var i = 0.
+    while (i < num) start
+        print(fib(i) + \n).
+        i = i + 1.
+    stop
+stop
+
+printFib(15).

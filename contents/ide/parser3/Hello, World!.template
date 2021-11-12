@@ -1,0 +1,5 @@
+#
+#   Parser3(파서3): Hello, World! 예제
+#
+
+$console:line[Hello, World!]

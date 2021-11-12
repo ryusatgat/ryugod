@@ -1,0 +1,35 @@
+//
+//  Luxury: Hello, World!
+//  https://github.com/strawberryhacker/luxury
+//
+
+syscall_print : asm (text: * char, size : u64) {
+    push %rbp
+    mov %rsp, %rbp
+    sub $16, %rsp
+    mov -16(%rbp), %rdx
+    mov -8(%rbp), %rsi
+    mov $1, %rax
+    mov $1, %rdi
+    syscall
+    leave
+    ret
+}
+
+print : func (text: * char) {
+    size := 0;
+    pointer := text;
+
+    while @pointer {
+        pointer += 1;
+        size += 1;  
+    }
+
+    syscall_print(text, size);
+}
+
+main : func () -> u64 {
+    print("Hello, World!\n");
+
+    return 0;
+}

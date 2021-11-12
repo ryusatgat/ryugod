@@ -1,0 +1,34 @@
+//
+//  LittleLang: functions
+//  https://github.com/benhoyt/littlelang
+//
+
+func add(a, b) {
+    return a + b
+}
+print(add(3, 4))
+// 7
+
+func make_adder(n) {
+    func adder(x) {
+        return x + n
+    }
+    return adder
+}
+add5 = make_adder(5)
+print(add5(7))
+// 12
+
+// Anonymous function, equivalent to "func plus(nums...)"
+plus = func(nums...) {
+    sum = 0
+    for n in nums {
+        sum = sum + n
+    }
+    return sum
+}
+print(plus(1, 2, 3))
+lst = [4, 5, 6]
+print(plus(lst...))
+// 6
+// 15

@@ -1,0 +1,11 @@
+#
+#   Terraform(테라폼): Hello, World!
+#
+
+terraform {
+    required_version = ">= 0.12.26"
+}
+
+output "hello" {
+    value = "Hello, World!"
+}

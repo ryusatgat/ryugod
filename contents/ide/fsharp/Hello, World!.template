@@ -1,0 +1,8 @@
+//
+//  F#: Hello, World! 예제
+//
+
+[<EntryPoint>]
+let main argv = 
+    printfn "Hello, World!"
+    0 

@@ -1,0 +1,8 @@
+#
+#   Feral: Hello, World!
+#   https://github.com/Feral-Lang/Feral
+#
+
+let io = import('std/io');
+
+io.println('Hello, World!');

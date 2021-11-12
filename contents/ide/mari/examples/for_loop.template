@@ -1,0 +1,22 @@
+declare function printf(format: i8*, ...args: any[]): i32;
+
+export function main(): i32 {
+    const rows = 6;
+    let x: i32;
+    let y: i32;
+
+    for (y = 0; y < rows; y += 1) {
+        for (x = 0; x < y; x += 1)
+            printf("%d ", x);
+        printf("\n");
+    }
+
+    for (x = 0; x < 10; x += 1) {
+        if (x % 2 == 0) {
+            printf("%d is even\n", x);
+            continue;
+        }
+        printf("%d is odd\n", x);
+    }
+    return (0);
+}

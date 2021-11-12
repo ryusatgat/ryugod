@@ -1,0 +1,9 @@
+// Solidity(솔리디티) 언어 Hello, World! 예제
+// SPDX-License-Identifier: RyuGod
+
+pragma solidity >=0.5.0;
+contract HelloWorld {
+    function get() public pure returns (string memory){
+        return 'Hello, World!';
+    }
+}

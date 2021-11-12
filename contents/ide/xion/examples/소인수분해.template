@@ -1,0 +1,31 @@
+//
+//  Xion(시온): facor 예제
+//  출처: https://github.com/kreativekorp/openxion
+//
+
+function factor theNumber
+	put empty into theFactors
+	repeat with theDivisor = 2 to the sqrt of theNumber
+		repeat while theNumber mod theDivisor is zero
+			put theDivisor & "*" after theFactors
+			divide theNumber by theDivisor
+		end repeat
+		if theNumber is one then exit repeat
+	end repeat
+	if theNumber is not one
+	then put theNumber after theFactors
+	else delete last char of theFactors
+	return theFactors
+end factor
+
+repeat with x = 2 to 36
+	put factor(x)
+end repeat
+
+put factor(101)
+put factor(1337)
+put factor(1429)
+put factor(2468)
+put factor(12345)
+put factor(30003)
+put factor(9699690)

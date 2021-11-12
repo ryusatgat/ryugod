@@ -1,0 +1,6 @@
+/*
+    Goat: Hello, World!
+    https://github.com/kniazkov/goat
+*/
+
+println("Hello, World!");

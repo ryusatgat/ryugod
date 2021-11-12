@@ -1,0 +1,4 @@
+00 REM
+00 REM ubasic: Hello, World! 예제
+10 PRINT "Hello, World!"
+20 STOP

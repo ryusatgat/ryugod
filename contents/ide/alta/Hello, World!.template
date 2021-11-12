@@ -1,0 +1,12 @@
+#
+#   Alta: Hello, World!
+#   https://github.com/alta-lang/alta
+#
+
+import printLine from "io"
+
+literal function main(): int {
+  printLine("Hello, World!")
+
+  return 0
+}

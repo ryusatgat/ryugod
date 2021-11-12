@@ -1,0 +1,20 @@
+#
+#   GEL: Eigenvalues 예제
+#   출처: https://sites.google.com/site/geniuswiki
+#
+
+# Start with the eigenvalues
+
+D = diag(1,2,3);
+
+do (
+      # Find some eigenvectors
+      do (
+        E = randint(11,3,3) - 5*ones(3,3)
+      ) while det(E) == 0;
+
+      # Make the matrix
+      A = E*D*E^-1;
+) while not IsMatrixInteger(A);
+
+A

@@ -1,0 +1,20 @@
+/*
+    AspectJ: Hello, World!
+
+*/
+
+public class Main {
+    public void sayHello() {
+        System.out.println("Hello, World!");
+    }
+
+    /**
+     * Test method: run time discovery can be intercepted
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        Main hello = new Main();
+        hello.sayHello();
+    }
+}

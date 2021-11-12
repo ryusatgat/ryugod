@@ -1,0 +1,9 @@
+#~
+    Objeck(오브젝크) 언어 Hello, World! 예제
+~#
+
+class Hello {
+  function : Main(args : String[]) ~ Nil {
+    "Hello, World!"->PrintLine();
+  }
+}

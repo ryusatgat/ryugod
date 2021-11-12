@@ -1,0 +1,35 @@
+// 
+//  Flax: fizzbuzz
+//  https://github.com/flax-lang/flax
+//
+
+export main
+import libc
+
+@entry fn main()
+{
+	var i = 0
+    var num = 99
+    
+	while i <= num
+	{
+		libc::printf("%02d:      ", i)
+
+		if i % 3 == 0
+		{
+			libc::printf("Fizz")
+		}
+		if i % 5 == 0
+		{
+			libc::printf("Buzz")
+		}
+
+		if i % 5 != 0 && i % 3 != 0
+		{
+			libc::printf("%d", i)
+		}
+
+		libc::printf("\n")
+		i += 1
+	}
+}

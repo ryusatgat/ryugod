@@ -1,0 +1,9 @@
+%
+%   Sisal(사이잘): Hello, World! 예제
+%
+
+define main
+
+function main(name: NULL returns array[character])
+  "Hello, World!"
+end function

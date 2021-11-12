@@ -1,0 +1,30 @@
+//
+//   Pup: function
+//   https://github.com/marxn/pupp
+//
+
+for i:=0; i<10; i+=1
+{
+    x:=10;
+
+    test := () using(x) : int 
+    {
+        test1 := () using(&x): int
+        {
+            x=x+1;
+            return x+1;
+        };
+
+        return test1()+1;
+    };
+
+    test1 := (&x : function)
+    {
+        print x(),NL;
+    };
+
+    @test1(test);
+    sleep 1000;
+}
+
+return 0;

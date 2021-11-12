@@ -1,0 +1,5 @@
+//
+//  Ring(링): Hello, World! 예제
+//
+
+see "Hello, World!" + nl

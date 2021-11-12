@@ -1,0 +1,6 @@
+//
+//  CoreScript: Hello, World!
+//  https://github.com/stephanbruny/corescript
+//
+
+print("Hello, World!")

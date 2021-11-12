@@ -1,0 +1,154 @@
+//
+//  CoreScript: examples
+//  https://github.com/stephanbruny/corescript
+//
+
+let flooball = 
+    match ({ foo: 'bar', bar: 'foo', nine: 11 }) {
+        case ({foo: some, bar: some, nine: some}) "jope";
+        default "nope";
+    }
+print (flooball);
+
+let call = fun (fn, a) fn(a);
+print(call(fun (x) x + 1, 3));
+
+let tab = {
+    mutable foo: 'bar',
+    fn: fun (cb) cb(tab),
+    bar: {
+        x: 1,
+        y: 2.5
+    }
+}
+
+function foo(a, b) b;
+
+async function blob(cb) {
+    let x = await waitAsync(10000);
+    return x;
+}
+
+function either(a, b) {
+    return fun (x) 
+        if (x) b; else a;
+}
+
+let eitherTrue = either(fun () print ("Wrong"), fun () print ("Correct"));
+eitherTrue(none)();
+eitherTrue(false)();
+eitherTrue(1 || false)();
+let yes = true;
+eitherTrue(1 && yes)();
+eitherTrue(1 && none)();
+eitherTrue(false || 3 > 2)();
+eitherTrue(1 && 0)();
+print("done")
+
+let tripple = fun (a) fun (b) fun (c) print(a, b, c);
+
+tripple("foo")(" bar")(" yeah!");
+
+let v = 6
+let vv = if (v > 5) "bigger"; else "smaller";
+print (vv)
+
+var idx = 0;
+
+function getWaiter(cnt) {
+    return agent {
+        max: cnt,
+        mutable count: 0,
+        mutable done: false
+        exec: fun () {
+            print("Wait ", this.count + 1, "/", cnt);
+            this.count <- this.count + 1;
+            if (this.count < cnt) this.exec();
+        };
+        receive doSomething: fun (a, b) {
+            this.wait(5000, fun () { print("did something") });
+            print("@doSomething ");
+        },
+        prom: async fun (a, b) {
+            return a;
+        },
+        wait: async fun(ms, cb) {
+            print("now waiting ", ms / 1000, " sec.")
+            let m = await waitAsync(ms);
+            if (cb != none) cb();
+            this.done <- true;
+        }
+    };
+}
+
+let Waiter = getWaiter(1);
+send Waiter doSomething(0);
+
+var isFinished = false;
+
+async function sleep(toggle) {
+    print("sleep()");
+    let fin = await waitAsync(10000);
+    toggle <- true;
+    return fin;
+}
+
+sleep(ref isFinished);
+var waitCount = 0;
+while (!isFinished) {
+    print("waiting...", waitCount);
+    wait(1000);
+    waitCount <- waitCount + 1;
+}
+
+let par = { foo: 'foo', bar: 'bar', sub: { lol: 'rofl' } };
+let chi = extend par { foo: 'oof' };
+let getBar = fun () { return { 1: 'bar' } };
+print(chi.foo, chi[getBar()[1]]);
+
+let list = array(1, 2, 3, 4);
+list.forEach(fun (k, v) { print(k, ": ", v) });
+print("Head: ", list.head());
+print("Tail: ", list.tail()[0]);
+let list2 = fun (i, v) { v * 2; } |> list.map;
+list2.tail().forEach(fun (i, v) print(v));
+
+let unsorted = array(5, 10, 21, 3, 44, 1);
+let sorted = unsorted.sort(fun (a, b) {
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
+});
+print(unsorted, sorted);
+
+let z = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+print(z.divide(5));
+print("Sliced: ", z.slice(10));
+
+function pow(x) {
+    return x * x;
+}
+
+print(-(pow(4)));
+
+function fizzBuzz(i) {
+    if (i % 3 == 0 && i % 5 == 0) return print("FizzBuzz");
+    if (i % 3 == 0) return print("Fizz");
+    if (i % 5 == 0) return print("Buzz");
+    print(i);
+}
+
+fizzBuzz(1);
+fizzBuzz(3);
+fizzBuzz(5);
+fizzBuzz(11);
+fizzBuzz(15);
+
+let matched =
+    match (array(1, 2, 3).reverse()) {
+        case (array(3, 2, 1)) "matched 3, 2, 1";
+        case (array(1, 2, 3)) "matched 1, 2, 3";
+        default "not matched";
+    }
+print(matched);
+"DONE." |> print;

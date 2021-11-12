@@ -1,0 +1,49 @@
+// ChaiScript has its own simple object model and works well with object
+// oriented C++
+
+
+// There is no difference between a function and a method, it's just syntactic sugar
+
+var s = "mystring".size() // returns 8
+var s2 = size("mystring") // returns 8
+
+// class syntax
+
+class MyClass
+{
+    // user data
+    var data
+
+    // constructor
+    def MyClass(x)
+    {
+        this.data = x
+    }
+    
+    // method
+    def getStuff(y)
+    {
+        return this.data + y
+    }
+}
+
+var obj = MyClass(10)
+obj.getStuff(15) // returns 25
+
+
+// You can extend user defined or C++ classes with additional functionality
+def string::isStringLong()
+{
+    return this.size() > 10;
+}
+
+print("Hello".isStringLong()) // returns false
+print("Hello World".isStringLong()) // returns true
+
+// You can also extend the user defined type above:
+def MyClass::getMoreStuff(d)
+{
+    return this.data * d
+}
+
+print(obj.getMoreStuff(10)) // returns 100

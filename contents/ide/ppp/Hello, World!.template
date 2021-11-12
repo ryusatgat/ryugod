@@ -1,0 +1,11 @@
+/*
+    P++: Hello, World!
+    https://github.com/tumtumtum/pplusplus
+*/
+
+using "stream.p++";
+
+function main() : integer
+{
+    println("Hello, World!");
+};

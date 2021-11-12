@@ -1,0 +1,11 @@
+##
+##  Joao: Hello, World!
+##  https://github.com/Altoids1/Joao
+##
+
+/main()
+{
+	String str = "World!";
+	
+	print("Hello, " .. str);
+}

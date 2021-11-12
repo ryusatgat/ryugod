@@ -1,0 +1,9 @@
+#
+#   Golo(골로): Hello, World! 예제
+#
+
+module hello
+
+function main = |args| {
+    println("Hello, World!")
+}

@@ -1,0 +1,10 @@
+/*
+	Yorick(요릭): FizzBuzz 예제
+	출처: http://www.rosettacode.org/
+*/
+
+output = swrite(format="%d", indgen(100));
+output(3::3) = "Fizz";
+output(5::5) = "Buzz";
+output(15::15) = "FizzBuzz";
+write, format="%s\n", output;

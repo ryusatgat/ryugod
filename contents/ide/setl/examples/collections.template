@@ -1,0 +1,45 @@
+--
+$   SETL: set 예제
+$   출처: https://www.linuxjournal.com/article/6805
+--
+
+A:={};               $ the empty set
+B:={A,{6,'abc'},3};  $ a random set
+C:={1..5};           $ all integers between 1 and 5
+print(A,B,C);
+
+A:={1,3,5,7};
+B:={3,6,8};
+print(A,B);
+print('union = ',A+B);
+print('intersection = ',A*B);
+print('difference = ',A-B);
+print('A plus 0 = ',A with 0);
+print('A  minus 5',A less 5);
+
+a:=3;
+B:={1,3,8,10};
+C:={3,10};
+print('does a belong to B? ',a in B, a notin B);
+print('is B a subset of C? ',B subset C);  
+print('is C a subset of B? ',B incs C);
+
+Z:={-10..10};  $ no infinite sets in SETL!
+E:={n: n in Z | n mod 2 = 0};
+print(E);
+
+A:={3,5,7};
+print( exists x in A | x mod 2 = 0 );
+print( forall x in A | x >= 2 );
+
+N:={1..50};
+P:={x: x in N | forall y in {2..x-1} | x mod y /=0};
+print(P);
+
+a:=[3,9,4.2];
+a:= a with 'abc';
+print(a,#a);
+a(8):=1;
+print(a,#a);
+b frome a;
+print(a,#a);

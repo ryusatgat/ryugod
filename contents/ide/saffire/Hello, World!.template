@@ -1,0 +1,8 @@
+/*
+    Saffire: Hello, World!
+    https://github.com/saffire
+*/
+
+import io;
+
+io.println("Hello, World!");

@@ -1,0 +1,5 @@
+/*
+    NetRexx(넷렉스): Hello, World! 예제
+*/
+
+say 'Hello, World!'

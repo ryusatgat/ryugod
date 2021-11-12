@@ -1,0 +1,8 @@
+// 
+//  Dafny(다프니): Hello, World! 예제
+//
+
+method Main ()
+{
+    print "Hello, World!\n";
+}

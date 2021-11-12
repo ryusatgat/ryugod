@@ -1,0 +1,11 @@
+#
+#   Raku(라쿠): FizzBuzz 예제
+#   출처: http://www.rosettacode.org/
+#
+
+for 1 .. 100 {
+    when $_ %% (3 & 5) { say 'FizzBuzz'; }
+    when $_ %% 3       { say 'Fizz'; }
+    when $_ %% 5       { say 'Buzz'; }
+    default            { .say; }
+}

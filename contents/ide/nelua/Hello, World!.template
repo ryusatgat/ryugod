@@ -1,0 +1,5 @@
+--
+--  Nelua(넬루아): Hlelo, World! 예제
+--
+
+print 'Hello World!'

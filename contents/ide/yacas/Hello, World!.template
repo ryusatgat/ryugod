@@ -1,0 +1,5 @@
+//
+//  Yacas(야카스): Hello, World! 예제
+//
+
+Echo({"Hello, World!" : Nl()});

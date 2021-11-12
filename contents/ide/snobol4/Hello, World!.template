@@ -1,0 +1,8 @@
+*
+*   Snobol4: Hello, World!
+*   https://sourceforge.net/projects/snobol4/
+*
+
+    a = 'Hello, World!'
+    OUTPUT = a
+END

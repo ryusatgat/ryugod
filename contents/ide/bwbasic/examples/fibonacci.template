@@ -1,0 +1,18 @@
+REM
+REM     Bywater BASIC: Fibonacci
+REM
+
+DIM F(16)
+F(1) = 1
+F(2) = 1
+FOR i = 3 TO 16
+    F(i) = F(i - 1) + F(i - 2)
+NEXT i
+S$ = ""
+FOR i = 1 TO 16
+    S$ = S$ + STR$(F(i)) + ","
+NEXT i
+S$ = S$ + " ..."
+PRINT S$
+
+QUIT

@@ -1,0 +1,27 @@
+#
+#   Hexiscript(헥시스크립트) 99 bottles of beer 예제
+#   출처: https://rosettacode.org/
+#
+
+fun bottles amount beverage location
+    let bottle " bottles of "
+    if   amount = 0; let amount "No more"
+    elif amount = 1; let bottle " bottle of "; endif
+    return amount + bottle + beverage + " " + location
+endfun
+ 
+fun take amount location
+    return "Take " + amount + " " + location
+endfun
+ 
+fun pass entity destination
+    return ", pass " + entity + " " + destination
+endfun
+ 
+let amount 99
+while amount > 0
+    println bottles amount "beer" "on the wall"
+    println bottles amount "beer" ""
+    println take "one" "down" + pass "it" "around"
+    println bottles (--amount) "beer" "on the wall\n"
+endwhile

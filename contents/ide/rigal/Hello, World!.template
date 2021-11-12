@@ -1,0 +1,8 @@
+--
+--  Rigal: Hello, World!
+--
+
+#MAIN
+    OPEN S ' ';
+    S<<'Hello, World!';
+##

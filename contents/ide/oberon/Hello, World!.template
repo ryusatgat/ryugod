@@ -1,0 +1,9 @@
+(*
+    Oberon: Hello, World!
+*)
+
+MODULE main;
+IMPORT Out;
+BEGIN
+    Out.String("Hello, World!"); Out.Ln
+END main.

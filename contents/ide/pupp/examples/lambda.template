@@ -1,0 +1,22 @@
+//
+//   Pup: lambda
+//   https://github.com/marxn/pupp
+//
+
+buildcounter := (start : int) : function
+{
+    x := start;
+    return () using(&x): int {x = x + 1; return x;};
+};
+
+def i : int;
+def counter : function;
+
+counter = buildcounter(0);
+
+for i=0; i<100; i=i+1
+{
+    print counter(),NL;
+}
+
+return 0;

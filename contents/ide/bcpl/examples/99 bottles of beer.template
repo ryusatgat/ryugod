@@ -1,0 +1,37 @@
+//
+//  BCPL: 100 doors 예제
+//  출처: http://www.rosettacode.org/
+//
+
+GET "libhdr"
+ 
+LET numBEr(n) BE
+    TEST n=0
+        THEN writes("No more")
+        ELSE writen(n)
+ 
+LET plural(n) BE
+    TEST n=1
+        THEN writes(" bottle")
+        ELSE writes(" bottles")
+ 
+LET bottles(n) BE
+$(  numBEr(n)
+    plural(n)
+$)
+ 
+LET verse(n) BE
+$(  bottles(n)
+    writes(" of BEer on the wall,*N")
+    bottles(n)
+    writes(" of BEer,*NTake ")
+    TEST n=1
+        THEN writes("it")
+        ELSE writes("one")
+    writes(" down and pass it around,*N")
+    bottles(n-1)
+    writes(" of BEer on the wall!*N*N")
+$)
+ 
+LET start() BE
+    FOR n = 99 TO 1 BY -1 DO verse(n)

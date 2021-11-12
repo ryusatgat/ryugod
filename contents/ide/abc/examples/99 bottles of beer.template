@@ -1,0 +1,26 @@
+\
+\   ABC: 99 bottles of beer
+\   http://www.99-bottles-of-beer.net/
+\
+
+PUT "by Whitey (whitey@netcom.com) - 10/13/96" IN author
+
+HOW TO RETURN verse n:
+   SELECT:
+      n = 0:
+         PUT "no more bottles of beer" IN s
+      n = 1:
+         PUT "1 bottle of beer" IN s
+      ELSE:
+         PUT "`n` bottles of beer" IN s
+   RETURN s
+
+HOW TO DRINK:
+   PUT 99 IN num
+   WHILE num > 0:
+      WRITE verse num, " on the wall, ", verse num, "," /
+      WRITE "take one down, pass it around," /
+      PUT num - 1 IN num
+      WRITE verse num, " on the wall." /
+
+DRINK

@@ -1,0 +1,20 @@
+//
+//  Par: price checker
+//  https://par-lang.org/
+//
+
+module Main
+
+prices : Map<String, Float>
+prices = {
+  "Candy" => 0.25
+  "Phone" => 599.99
+  "Coffee" => 4.50
+  "Juice" => 9
+}
+
+can_buy? : (String, Float) -> Bool
+can_buy?(item, budget) = get(prices, item) <= budget
+
+main : () -> ()
+main() = print(can_buy?("Phone", 300))

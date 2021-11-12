@@ -1,0 +1,10 @@
+/*
+    D언어: Hello, World! 예제
+*/
+
+import std.stdio;
+
+void main()
+{
+    writeln("Hello, World!");
+}

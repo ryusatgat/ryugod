@@ -1,0 +1,12 @@
+#
+#   Lemon: Hello, World!
+#   https://github.com/lemon-lang/lemon
+#
+
+import 'os';
+
+def hello(var name) {
+    print('Hello,', name + '!');
+}
+
+hello('World');

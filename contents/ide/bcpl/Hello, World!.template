@@ -1,0 +1,11 @@
+//
+// BCPL: Hello, World!
+//
+
+GET "libhdr"
+
+LET start() = VALOF
+{
+    writef ("Hello, World!*N")
+    RESULTIS 0
+}

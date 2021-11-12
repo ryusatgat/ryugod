@@ -1,0 +1,7 @@
+(*
+    Alice: Hello, World!
+*)
+
+print "Hello, World!\n";
+
+val _ = OS.Process.exit(OS.Process.success);

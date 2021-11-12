@@ -1,0 +1,5 @@
+#!newt
+//  NewtonScript: Hello, World!
+//
+
+print("Hello, World!\n");

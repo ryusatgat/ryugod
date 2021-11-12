@@ -1,0 +1,15 @@
+//
+//  J*: regular expression
+//  https://github.com/bamless/jstar
+//
+
+import re
+
+var message = '{lang} on {platform}!'
+var formatted = re.gsub(message, '{(%a+)}', fun(arg)
+	return { 
+		'lang' : 'J*', 'platform' : 'the Web'
+	}[arg]
+end)
+
+print(formatted)

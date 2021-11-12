@@ -1,0 +1,8 @@
+;;;
+;;; Arrow: Hello, World!
+;;; https://github.com/benhj/arrow
+;;;
+
+start {
+    prn "Hello, World!";
+}

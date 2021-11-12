@@ -1,0 +1,6 @@
+"
+    Monkey: Hello, World!
+    https://github.com/abhinav-upadhyay/cmonkey
+"
+
+puts "Hello, World!"

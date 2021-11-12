@@ -1,0 +1,9 @@
+//
+//  Sass: Hello, World! 예제
+//
+
+$c: "!"
+
+body:after
+    content: "Hello, " + World + $c
+    flex-flow: row + "-reverse" + " " + wrap

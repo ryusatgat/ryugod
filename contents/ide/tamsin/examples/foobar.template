@@ -1,0 +1,11 @@
+#
+#   Tamsin: foobar
+#   https://github.com/catseye/Tamsin
+#
+
+# This example Tamsin program was written by Chris Pressey, and is
+# hereby placed in the public domain.  It comes with NO WARRANTY.
+
+main = print_each_char(fo+ob+ar).
+print_each_char(X) = print_each_char_r @ X.
+print_each_char_r = any → C & print C & print_each_char_r | return 'ok'.

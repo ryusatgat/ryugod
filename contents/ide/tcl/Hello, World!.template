@@ -1,0 +1,3 @@
+# Tcl(티클) 언어 Hello, World! 예제
+
+puts {Hello, World!}

@@ -1,0 +1,62 @@
+//
+//  Slogan: objects
+//  https://github.com/vijaymathew/slogan
+//
+
+function financial_history(initial_balance)
+    let (balance = initial_balance,
+             incomes = #{}, expenditures = #{})
+    { function receive(amount, source)
+        { incomes[source] = total_received_from(source) + amount
+            balance = balance + amount } 
+        function spend(amount, reason)
+        { expenditures[reason] = total_spent_for(reason) + amount
+            balance = balance - amount }
+        function total_received_from(source)
+            hashtable_at(incomes, source, 0)
+        function total_spent_for(reason)
+            hashtable_at(expenditures, reason, 0)
+
+        ^(message)
+        | 'receive -> receive
+        | 'spend -> spend
+        | 'cash_on_hand -> balance
+        | 'total_received_from -> total_received_from
+        | 'total_spent_for -> total_spent_for }
+
+let fh = financial_history(100)
+fh.receive(120, 'rent)
+fh.receive(3400, 'salary)
+fh.spend(100, 'rent)
+fh.receive(102, 'interest)
+fh.spend(45, 'food)
+assert fh.cash_on_hand == 100+120+3400-100+102-45
+
+// subclassing
+function deductible_history(initial_balance)
+    let (super = financial_history(initial_balance),
+             deductible_expenditures = 0)
+    { function spend_deductible(amount, reason)
+        { super.spend(amount, reason)
+            deductible_expenditures =
+                deductible_expenditures + amount }
+        function spend(amount, reason, deductible_amount)
+        { super.spend(amount, reason)
+            deductible_expenditures =
+                deductible_expenditures + deductible_amount }
+
+        ^(message)
+        | 'spend -> spend
+        | 'spend_deductible -> spend_deductible
+        | 'total_deductions -> deductible_expenditures
+        | _ -> super(message) }
+
+let dh = deductible_history(100)
+dh.receive(120, 'rent)
+dh.receive(3400, 'salary)
+dh.spend(100, 'rent, 10)
+dh.receive(102, 'interest)
+dh.spend(45, 'food, 20)
+dh.spend_deductible(15, 'food)
+assert dh.cash_on_hand == 100+120+3400-100+102-45-15
+assert dh.total_deductions == 10+20+15

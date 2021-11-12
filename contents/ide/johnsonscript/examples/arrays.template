@@ -1,0 +1,27 @@
+#
+#   JohnsonScript: arrays
+#   https://github.com/amjohnson36/johnsonscript
+#
+
+def array(var arr) 
+start
+    var i = 0.
+    while (i < 15) start
+        if ((i % 2) == 0) start
+            setarray(arr, i, " is even").
+        stop
+        else start
+            setarray(arr, i, " is odd").
+        stop
+        i = i + 1.
+    stop 
+    
+    while (not (i == 0)) start
+        i = i - 1.
+        var b = getarray(arr, i).
+        print(i + b + \n).
+    stop
+stop
+
+var myArray = newarray(15).
+array(myArray).

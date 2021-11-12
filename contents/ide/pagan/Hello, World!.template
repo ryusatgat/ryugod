@@ -1,0 +1,6 @@
+/*
+    Pagan: Hello, World!
+    https://github.com/prwoodbury/pagan
+*/
+
+println("Hello, World!")

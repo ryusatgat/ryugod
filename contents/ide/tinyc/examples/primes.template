@@ -1,0 +1,27 @@
+/*
+    C 언어 소수 출력 예제
+ */
+
+#include <stdio.h>
+#include <math.h>
+
+void printPrime(int dest)
+{
+  int i, j;
+  int r;
+ 
+  for(i=2; i<=dest; i++) {
+    r = (int)sqrt(i) + 1;
+    for (j=2; j<r; j++)
+      if(i%j == 0) break;
+    if(r == j) printf("%d ", i);
+  }
+  printf("\n");
+}
+
+int main()
+{
+  printPrime(100);
+
+  return 0;
+}

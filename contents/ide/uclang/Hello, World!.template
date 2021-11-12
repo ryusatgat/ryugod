@@ -1,0 +1,12 @@
+//
+//  uclang: Hello, World!
+//  https://github.com/izuzanak/uclang
+//
+
+class Main
+{
+    static public main(argv)
+    {
+        "Hello, World!\n".print();
+    }
+}

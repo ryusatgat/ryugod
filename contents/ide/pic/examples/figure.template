@@ -1,0 +1,13 @@
+#
+#   PIC: figure
+#   https://www.gnu.org/software/plotutils/manual/en/html_node/pic2plot-Introduction.html
+#
+
+.PS
+box "START"; arrow; circle dashed filled; arrow
+circle diam 2 thickness 3 "This is a" "big, thick" "circle" dashed; up
+arrow from top of last circle; ellipse "loopback" dashed
+arrow dotted from left of last ellipse to top of last box
+arc cw radius 1/2 from top of last ellipse; arrow
+box "END"
+.PE

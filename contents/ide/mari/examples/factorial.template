@@ -1,0 +1,12 @@
+declare function printf(format: i8*, ...args: any[]): i32;
+
+function factorial(n: i32): i32 {
+    if (n > 1)
+        return (n * factorial(n - 1));
+    return (1);
+}
+
+export function main(): i32 {
+    printf("factorial of 10 is %d\n", factorial(10));
+    return (0);
+}

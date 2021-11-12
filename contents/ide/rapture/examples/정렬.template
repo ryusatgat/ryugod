@@ -1,0 +1,36 @@
+\
+\   Rapira: sort
+\
+
+proc SORT(<=NUMBERS)
+
+	NEW := <* *>
+
+	while NUMBERS /= <* *> do
+
+		MIN := NUMBERS[1]
+		IND := 1
+
+		for K from 2 to #NUMBERS do
+			if NUMBERS[K] < MIN then
+				MIN := NUMBERS[K]
+				IND := K
+			fi
+		od
+
+		NEW := NEW + <* MIN *>
+		NUMBERS[IND:IND] := <* *>
+
+	od
+
+	NUMBERS := NEW
+
+end
+
+DAYS := <* *>
+repeat 10 do
+	DAYS := DAYS + <* int_rand(31) *>
+od
+output: DAYS
+SORT(<=DAYS)
+output: DAYS

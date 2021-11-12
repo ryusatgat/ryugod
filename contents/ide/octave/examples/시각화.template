@@ -1,0 +1,22 @@
+# 옥타브 시각화 예제
+# 출처: https://www.ryugod.com
+
+tx = ty = linspace (-8, 8, 41);
+[xx, yy] = meshgrid (tx, ty);
+r = sqrt (xx .^ 2 + yy .^ 2) + eps;
+tz = sin (r) ./ r;
+mesh (tx, ty, tz);
+
+# 옥타브에서 plot을 표시하려면 아래 코드를 추가해주세요
+# 파일명: image.png
+# 이미지크기: 320px
+print image.png -S320
+system('imshow image.png')
+
+t = 0:0.1:10*pi;
+r = linspace (0, 1, numel (t));
+z = linspace (0, 1, numel (t));
+plot3 (r.*sin(t), r.*cos(t), z);
+
+print image.png -S320
+system('imshow image.png')

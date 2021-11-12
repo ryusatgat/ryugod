@@ -1,0 +1,15 @@
+\
+\   Rapira: factorial
+\
+
+fun factorial(number)
+ 
+   if number = 0 then
+      return 1
+   fi
+ 
+   return number * factorial(number - 1)
+ 
+end
+ 
+output: factorial(10)

@@ -1,0 +1,5 @@
+// Pure(퓨어) 언어 Hello, World! 예제
+
+using system;
+ 
+puts "Hello, World!";

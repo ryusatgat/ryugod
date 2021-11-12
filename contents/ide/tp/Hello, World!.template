@@ -1,0 +1,6 @@
+{ Pascal(파스칼) Hello, World 예제 }
+
+program Hello;
+begin
+  writeln ('Hello, World!');
+end.

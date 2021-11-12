@@ -1,0 +1,6 @@
+;
+;   Fe: Hello, World!
+;   https://github.com/rxi/fe
+;
+
+(print "Hello, World!")

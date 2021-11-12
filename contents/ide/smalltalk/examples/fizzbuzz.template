@@ -1,0 +1,12 @@
+" Smalltalk(스몰토크): FizzBuzz 예제     "
+" 출처: http://www.rosettacode.org/     "
+
+Integer extend [
+    fizzbuzz [
+        | fb |
+        fb := '%<Fizz|>1%<Buzz|>2' % {
+            self \\ 3 == 0.  self \\ 5 == 0 }.
+        ^fb isEmpty ifTrue: [ self ] ifFalse: [ fb ]
+    ]
+]
+1 to: 100 do: [ :i | i fizzbuzz displayNl ]

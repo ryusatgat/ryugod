@@ -1,0 +1,78 @@
+--
+--  Alore: complex
+--  https://github.com/JukkaL/alore
+--
+
+import math
+
+class Complex
+  const re as Float
+  const im as Float
+
+  -- Since we don't define a constructor, we get the default constructor
+  -- create(re, im).
+
+  -- Absolute value.
+  def abs() as Float
+    return Sqrt(re**2 + im**2)
+  end
+
+  -- Complex conjugate.
+  def conj() as Complex
+    return Complex(re, -im)
+  end
+
+  -- Conversion to string; allows Str(complex).
+  def _str() as Str
+    if im >= 0
+      return '({} + {}j)'.format(re, im)
+    else
+      return '({} - {}j)'.format(re, -im)
+    end
+  end
+
+  -- The "==" operation.
+  def _eq(n as Object) as Boolean
+    if n is Complex
+      var c = (n as Complex)    -- Downcast to Complex
+      return re == c.re and im == c.im
+    else
+      return False
+    end
+  end
+
+  -- The "+" operation.
+  def _add(c as Complex) as Complex
+    return Complex(re + c.re, im + c.im)
+  end
+
+  -- The "-" operation.
+  def _sub(c as Complex) as Complex
+    return Complex(re - c.re, im - c.im)
+  end
+
+  -- The "*" operation.
+  def _mul(c as Complex) as Complex
+      return Complex(re * c.re - im * c.im,
+                   im * c.re + re * c.im)
+  end
+
+  -- The "/" operation.
+  def _div(c as Complex) as Complex
+    var d = c.re**2 + c.im**2
+    return Complex((re * c.re + im * c.im) / d,
+                   (im * c.re - re * c.im) / d)
+  end
+end
+
+def Main() as void
+  var c1 = Complex(0.5, -2.0)
+  var c2 = Complex(1.5, 3.0)
+
+  Print(c1, '+', c2, '==', c1 + c2)
+  Print(c1, '-', c2, '==', c1 - c2)
+  Print(c1, '*', c2, '==', c1 * c2)
+  Print(c1, '/', c2, '==', c1 / c2)
+
+  Print('|{}|'.format(c1), '==', c1.abs())
+end

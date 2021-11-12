@@ -1,0 +1,35 @@
+##
+##  Joao: fibonacci
+##  https://github.com/Altoids1/Joao
+##
+
+/main()
+{	
+	Value a = 0;
+	Value b = 1;
+	Value sum = 0;
+	
+	while(true)
+	{
+		Value c = a + b;
+		
+		if(c > 4_000_000)
+		{
+			break;
+		}
+		
+		a = b;
+		b = c;
+
+		if(b % 2 == 0)
+		{
+			sum = sum + b;
+		}
+		
+		print(a,b);
+	}
+	
+	print("Sum:", sum );
+
+	return 0;
+}

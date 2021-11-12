@@ -1,0 +1,8 @@
+#
+#   Zion: Hello, World!
+#   https://github.com/zionlang/zion
+#
+
+fn main() {
+    print("Hello, World!")
+}

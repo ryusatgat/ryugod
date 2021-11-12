@@ -1,0 +1,41 @@
+-[
+    Avalon: quantum teleportation
+    https://github.com/avalon-lang
+
+- author     ntwali bashige
+- copyright  2018 (c) ntwali bashige
+- license    MIT license
+]-
+
+import io
+import quant
+
+def __main__ = (val args : [string]) -> void:
+    -- initialize quantum variables
+    val source = 0q1,
+        destination = 0q0,
+        ancilla = 0q0
+
+    -- create an entanglement between the destination and the ancilla
+    Quant.had(ref destination)
+    Quant.cx(ref destination, ref ancilla)
+
+    -- perform the teleportation
+    Quant.cx(ref source, ref ancilla)
+    Quant.had(ref source)
+
+    -- measure the source and the ancilla
+    var source_bit = cast(ref source) -> bit,
+        ancilla_bit = cast(ref ancilla) -> bit
+
+    -- perform phase correction on the destination
+    if source_bit == 0b1:
+        Quant.pz(ref destination)
+    if ancilla_bit == 0b1:
+        Quant.px(ref destination)
+
+    -- measure and print the destination which should contain <0q1>
+    var destination_bit = cast(ref destination) -> bit
+    Io.println(string(destination_bit))
+
+    return

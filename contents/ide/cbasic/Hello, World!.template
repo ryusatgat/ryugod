@@ -1,0 +1,7 @@
+'
+' Chipmunk Basic(칩멍크 베이식): Hello, World! 예제
+'
+
+PRINT "Hello, World!"
+EXIT
+END

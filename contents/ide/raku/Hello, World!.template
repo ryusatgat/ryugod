@@ -1,0 +1,4 @@
+#
+#   Raku(라쿠): Hello, World! 예제
+#
+ say "Hello, World!";

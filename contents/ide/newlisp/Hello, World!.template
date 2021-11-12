@@ -1,0 +1,6 @@
+;
+;   NewLisp(뉴리스프) Hello, World! 예제
+;
+
+(println "Hello, World!")
+(exit)

@@ -1,0 +1,8 @@
+//
+//  Smile: Hello, World!
+//  https://github.com/seanofw/smile
+//
+
+#include "stdio"
+
+print-line ("Hello, World!")

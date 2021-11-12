@@ -1,0 +1,6 @@
+//
+//  Felix: Hello, World!
+//  https://github.com/felix-lang/felix
+//
+
+println$ "Hello, World!";

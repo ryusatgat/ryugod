@@ -1,0 +1,48 @@
+// 
+//  Flax: for loop
+//  https://github.com/flax-lang/flax
+//
+
+export main
+import libc as _
+
+@entry fn main()
+{
+	do {
+		printf("\n>> ranges\n")
+
+		let r1 = 0 ... 3
+		let r2 = 0 ..< 1
+
+		printf("r1.l = %d, r1.u = %d\n", r1.begin, r1.end)
+		printf("r2.l = %d, r2.u = %d\n\n", r2.begin, r2.end)
+
+		for i, j in r1
+		{
+			printf("%d: i = %d\n", j, i)
+		}
+	}
+
+	do {
+		printf("\n>> for-in array\n")
+
+		let x = [ (1, "a"), (2, "b"), (3, "c"), (4, "d") ]
+		let fixed: [(int, int): 3] = [ (10, 2), (7, 3), (3, 2) ]
+
+		for (a, b), i in x
+		{
+			printf("%d: %d / %s\n", i, a, b)
+		}
+	}
+
+	do {
+		printf("\n>> for-in string\n")
+
+		for c, i in "woohoo"
+		{
+			printf("%d: '%c', ", i, c)
+		}
+
+		printf("\n")
+	}
+}

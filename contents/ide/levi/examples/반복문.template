@@ -1,0 +1,15 @@
+//
+//  Levi: while loop
+//  https://github.com/mm-project/levi_scripting_language
+//
+
+var i = 10;
+print i;
+while (i > 0) { 
+    print i;
+    i = i -1;
+}
+
+i = 10;
+while (i > 0) 
+    i = i -2;

@@ -1,0 +1,11 @@
+/*
+    Blossom: 9x9 table
+    https://github.com/cstanze/blossom
+*/
+
+for let i = 2; i <= 9; ++i {
+    println("-- ", i, " --");
+    for let j = 1; j <= 9; ++j {
+        println(i, " * ", j, " = ", i*j);
+    }
+}

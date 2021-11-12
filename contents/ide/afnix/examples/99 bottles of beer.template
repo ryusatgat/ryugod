@@ -1,0 +1,33 @@
+#
+#   AFNIX: bottles of beer
+#   https://www.99-bottles-of-beer.net/
+#
+
+const verse (i) {
+    if (> i 2) {
+        println i " bottles of beer on the wall."
+        println i " bottles of beer."
+        println "Take one down, pass it around."
+        trans j (- i 1)
+        println j " bottles appear on the wall!"
+        println
+        return
+    }
+    if (== i 2) {
+        println "Two bottles of beer on the wall."
+        println "Two bottles of beer."
+        println "Take one down, pass it around."
+        println "One bottle appears on the wall."
+        println
+        return
+    }
+    if (== i 1) {
+        println "One bottle of beer on the wall."
+        println "One bottle of beer."
+        println "Take it down, pass it around."
+        println "No more bottles of appear on the wall!"
+        return
+    }
+}
+
+loop (trans i 99) (>= i 1) (i:--) (verse i)

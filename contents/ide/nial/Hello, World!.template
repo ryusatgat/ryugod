@@ -1,0 +1,5 @@
+#
+#   Nial(나이얼): Hello, World! 예제
+#
+
+write 'Hello, World!';

@@ -1,0 +1,19 @@
+//
+//  Pepper: FizzBuzz
+//  https://github.com/dannyvankooten/pepper-lang
+//
+
+for (let i=0; i <= 100; i++) {
+    let div3 = i % 3 == 0;
+    let div5 = i % 5 == 0;
+    
+    if (div3 && div5) {
+        print("FizzBuzz");
+    } else if (div3) {
+        print("Fizz");
+    } else if (div5) {
+        print("Buzz");
+    } else {
+        print(i);
+    }
+}

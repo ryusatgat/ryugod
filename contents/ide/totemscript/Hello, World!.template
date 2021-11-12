@@ -1,0 +1,6 @@
+//
+//  TotemScript: Hello, World!
+//  https://github.com/tdsmale/TotemScript
+//
+
+print("Hello, World!");

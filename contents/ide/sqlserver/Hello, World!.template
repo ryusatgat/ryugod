@@ -1,0 +1,5 @@
+--
+-- 	SQL Server: Hello, World!
+--
+
+SELECT 'Hello,', ' World!'

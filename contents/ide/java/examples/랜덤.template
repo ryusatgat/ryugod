@@ -1,0 +1,10 @@
+import java.util.Random;
+
+class Main {
+	static public void main(String []args) {
+		Random random = new Random(-6732303926L);
+        for (int i=0; i<10; i++)
+            System.out.print(random.nextInt(10) + " ");
+        System.out.println();
+    }
+}

@@ -1,0 +1,11 @@
+#
+#   Tamsin: reverse
+#   https://github.com/catseye/Tamsin
+#
+
+# This example Tamsin program was written by Chris Pressey, and is
+# hereby placed in the public domain.  It comes with NO WARRANTY.
+
+main = reverse(pair(a, pair(b, pair(c, nil))), nil).
+reverse(pair(H, T), A) = reverse(T, pair(H, A)).
+reverse(nil, A) = A.

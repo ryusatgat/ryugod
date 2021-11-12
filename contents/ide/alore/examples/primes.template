@@ -1,0 +1,38 @@
+--
+--  Alore: primes
+--  https://github.com/JukkaL/alore
+--
+
+import math
+
+def Main(args)
+    if args == []
+        Print('Usage: primes.alo N')
+        Exit(1)
+    end
+
+    Primes(Int(args[0]))
+end
+
+
+def Primes(n)
+    -- Calculate a table a where a[i] == True iff i is a prime.
+    var a = [True] * (n + 1)
+    for i in 2 to Int(Sqrt(n)) + 1
+        if a[i]
+        var j = i * i
+        while j <= n
+            a[j] = False
+            j += i
+        end
+    end
+end
+
+  -- Display a list of primes.
+  var r = []
+  for i in 2 to n + 1
+    if a[i]
+      WriteLn(i)
+    end
+  end
+end

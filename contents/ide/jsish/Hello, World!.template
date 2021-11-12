@@ -1,0 +1,7 @@
+/*
+    Jsish(제이시) Hello, World! 예제
+*/
+
+function hello() {printf("Hello, World!\n");}
+
+hello()

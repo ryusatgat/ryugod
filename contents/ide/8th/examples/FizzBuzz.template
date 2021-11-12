@@ -1,0 +1,23 @@
+\
+\   8th: FizzBuzz
+\   https://8th-dev.com/
+\
+
+: prepend \ s --
+	r> s:+ >r ;
+
+: fizzbuzz \ n -- s
+	"" >r
+	dup 5 mod 0 = if "buzz" prepend then
+	dup 3 mod 0 = if "fizz" prepend then
+	r> dup s:len 0 =
+	if
+		drop >s
+	else
+		nip
+	then
+;
+
+( fizzbuzz . space ) 1 100 loop cr
+
+bye

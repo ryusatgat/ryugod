@@ -1,0 +1,41 @@
+//
+//  uclang: iterable objects
+//  https://github.com/izuzanak/uclang
+//
+
+import containers;
+import algorithms;
+
+class Main
+{
+    public map(a_value)
+    {
+        return "map(%d)" % a_value;
+    }
+
+    public Main()
+    {
+        array = [11,12,13,14,15];
+        dict = new Dict(Algo.zip([new Range(0,9),new Range("","a"*9,"a")]));
+        delegate = new Delegate(this,"map",1);
+
+        ("map: %s\n" % $Filter.map(new Range(4,0),array)[::]).print();
+        ("map: %s\n" % $Filter.map(new Range(9,0),dict)[::]).print();
+        ("map: %s\n" % $Filter.map(new Range(9,0),delegate)[::]).print();
+
+        "for: ".print();
+        for (value <- Filter.map(new Range(0,dict.length() - 1),dict))
+        {
+        ("\"%s\"," % value).print();
+        }
+        "\n".print();
+
+        ("slice: %s\n" % $(new Range([],[1,1,1,1,1,1],[1])[2:6:2])).print();
+        ("slice: %s\n" % $(new Range(0,10)[5:2:-1])).print();
+    }
+
+    static public main(argv)
+    {
+        new Main();
+    }
+}

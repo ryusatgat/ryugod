@@ -1,0 +1,21 @@
+//
+//  Oak: if else statement
+//  https://github.com/adam-mcdaniel/oakc
+//
+
+#[std]
+
+fn not(x: bool) -> num {
+    if x {
+        putstrln("x is true");
+        return 1
+    } else {
+        putstrln("x is false");
+        return 0
+    }
+}
+
+fn main() {
+    putnumln(not(true));
+    putnumln(not(false));
+}

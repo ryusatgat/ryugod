@@ -1,0 +1,22 @@
+#   Erlang(얼랭): Factorial 예제 (출처: http://www.rosettacode.org/)
+
+%% -*- erlang -*-
+%%! -sname main -mnesia debug verbose
+main([String]) ->
+    try
+        N = list_to_integer(String),
+        F = fac(N),
+        io:format("factorial ~w = ~w\n", [N,F])
+    catch
+        _:_ ->
+            usage()
+    end;
+main(_) ->
+    usage().
+
+usage() ->
+    io:format("usage: main integer\n"),
+    halt(1).
+
+fac(0) -> 1;
+fac(N) -> N * fac(N-1).

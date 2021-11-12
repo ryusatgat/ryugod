@@ -1,0 +1,202 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+export var conf = {
+    comments: {
+        lineComment: '#',
+    },
+    brackets: [
+        ['{', '}'],
+        ['[', ']'],
+        ['(', ')']
+    ],
+    autoClosingPairs: [
+        { open: '{', close: '}' },
+        { open: '[', close: ']' },
+        { open: '(', close: ')' },
+    ],
+    surroundingPairs: [
+        { open: '{', close: '}' },
+        { open: '[', close: ']' },
+        { open: '(', close: ')' },
+    ],
+    folding: {
+        offSide: true,
+        markers: {
+            start: new RegExp('^\\s*#region\\b'),
+            end: new RegExp('^\\s*#endregion\\b')
+        }
+    }
+};
+export var language = {
+    defaultToken: 'invalid',
+    tokenPostfix: '.szl',
+    keywords: [
+        'if',
+        'switch',
+        'while',
+        'do',
+        'break',
+        'continue',
+        'exit',
+        'for',
+        'map',
+        'range',
+        'global',
+        'local',
+        'export',
+        'eval',
+        'echo',
+        'get',
+        'hex',
+        'is',
+        'id',
+        'call',
+    ],
+    builtins: [
+        'repr',
+        'puts',
+        'archive.open',
+        'curl.encode',
+        'curl.get',
+        'dict.new',
+        'dict.get',
+        'dict.set',
+        'dir.create',
+        'dir.delete',
+        'cd',
+        'dir.list',
+        'ed25519.verify',
+        'ed25519.sign',
+        'ed25519.keypair',
+        'env.get',
+        'try',
+        'throw',
+        'backtrace',
+        'exec',
+        'load',
+        'source',
+        'ffi.void',
+        'ffi.string',
+        'ffi.cast',
+        'ffi.struct',
+        'ffi.dlopen',
+        'ffi.function',
+        'file.size',
+        'file.delete',
+        'file.lock',
+        'file.locked',
+        'open',
+        'isatty',
+        'sync',
+        'linenoise.read',
+        'linenoise.add',
+        'linenoise.save',
+        'linenoise.load',
+        'list.new',
+        'list.len',
+        'list.append',
+        'list.set',
+        'list.extend',
+        'list.index',
+        'list.range',
+        'list.in',
+        'list.reverse',
+        'list.join',
+        'zip',
+        'uniq',
+        'lzfse.compress',
+        'lzfse.decompress',
+        'path.exists',
+        'path.isdir',
+        'path.realpath',
+        'path.sep',
+        'path.join',
+        'poll.create',
+        'getpid',
+        'proc',
+        'return',
+        'stack',
+        'signal',
+        'kill',
+        'wait',
+        'stream.client',
+        'dgram.client',
+        'stream.server',
+        'dgram.server',
+        'str.len',
+        'byte.len',
+        'str.find',
+        'str.in',
+        'str.count',
+        'str.range',
+        'byte.range',
+        'str.tail',
+        'str.starts',
+        'str.ends',
+        'str.append',
+        'str.split',
+        'str.join',
+        'expand',
+        'format',
+        'ltrim',
+        'rtrim',
+        'trim',
+        'byte.ord',
+        'syscall',
+        'szl.interp',
+        'szl.this',
+        'sleep',
+        'time.now',
+        'time.timestamp',
+        'timer',
+        'tls.connect',
+        'tls.accept',
+        'zlib.crc32',
+        'zlib.deflate',
+        'zlib.inflate',
+        'zlib.gzip',
+        'zlib.gunzip',
+        'zstd.compress',
+        'zstd.decompress',
+    ],
+    typeKeywords: [
+
+    ],
+    brackets: [
+        { open: '{', close: '}', token: 'delimiter.curly' },
+        { open: '[', close: ']', token: 'delimiter.bracket' },
+        { open: '(', close: ')', token: 'delimiter.parenthesis' }
+    ],
+    tokenizer: {
+        root: [
+            { include: '@whitespace' },
+            { include: '@numbers' },
+            [/\$/, 'tag'],
+            [/[,:;!~@%^&*+\\|'"-`]/, 'delimiter'],
+            [/[{}\[\]()]/, '@brackets'],            
+            [
+                /[a-zA-Z_][\w.]*/,
+                {
+                    cases: {
+                        '@keywords': 'keyword',
+                        '@builtins': 'type.identifier',
+                        '@typeKeywords': 'keyword.flow',
+                        '@default': 'identifier'
+                    }
+                }
+            ]
+        ],
+        // Deal with white space, including single and multi-line comments
+        whitespace: [
+            [/\s+/, 'white'],
+            [/(#.*$)/, 'comment'],
+        ],
+        // Recognize hex, negatives, decimals, imaginaries, longs, and scientific notation
+        numbers: [
+            [/-?0x([abcdef]|[ABCDEF]|\d)+[lL]?/, 'number.hex'],
+            [/-?(\d*\.)?\d+([eE][+\-]?\d+)?[jJ]?[lL]?/, 'number']
+        ],
+    }
+};

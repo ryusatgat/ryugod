@@ -1,0 +1,86 @@
+//
+//  C2: samples
+//  http://c2lang.org
+//
+
+module samples;
+
+import stdio as io;
+
+
+func void foo() {io.printf("foo\n");}
+func void bar() {io.printf("bar\n");}
+func void faa() {io.printf("faa\n");}
+
+func i32 haveMorfaa() { return 0; }
+
+func void test0() {
+    if (10) foo();
+}
+
+func void test1() {
+    if (2) foo();
+    else bar();
+}
+
+func void test2() {
+    if (haveMorfaa())
+        foo();
+}
+
+func void test3() {
+    // HMM semicolon is inserted after next line
+    if (2) foo();
+    else bar();
+}
+
+func void test4() {
+    if (2) {
+        foo();
+    } else {
+        bar();
+    }
+}
+
+func void test5() {
+    if (3) {
+        foo();
+    } else {
+        bar();
+    }
+
+    if (1) if (2) foo();
+        else bar();
+
+    if (1) {
+        if (2) foo();
+        else bar();
+    } else {
+
+    }
+}
+
+func void test6() {
+    if (1) if (2) foo();
+        else bar();
+    else faa();
+}
+
+public func i32 main() { 
+    test1();
+    test2();
+    test3();
+    test4();
+    test5();
+
+    for (10; 0; 20) {
+        test6();
+    }
+
+    for (;;) {
+        io.printf("for loop\n");
+        break;
+    }
+
+    return 0; 
+}

@@ -1,0 +1,28 @@
+#
+#   Seq: base count
+#   https://seq-lang.org/
+#
+
+from bio import *
+
+@tuple
+class BaseCount:
+    A: int
+    C: int
+    G: int
+    T: int
+
+    def __add__(self, other: BaseCount):
+        a1, c1, g1, t1 = self
+        a2, c2, g2, t2 = other
+        return (a1 + a2, c1 + c2, g1 + g2, t1 + t2)
+
+def count_bases(s):
+    match s:
+        case 'A*': return count_bases(s[1:]) + (1,0,0,0)
+        case 'C*': return count_bases(s[1:]) + (0,1,0,0)
+        case 'G*': return count_bases(s[1:]) + (0,0,1,0)
+        case 'T*': return count_bases(s[1:]) + (0,0,0,1)
+        case _: return BaseCount(0,0,0,0)
+
+print(count_bases(s'ACCGGGTTTT'))

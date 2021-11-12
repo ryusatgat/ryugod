@@ -1,0 +1,8 @@
+machine Main
+{
+    start state Init {
+        entry {
+            print format ("Hello, World!");
+        }
+    }
+}

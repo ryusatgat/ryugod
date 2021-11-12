@@ -1,0 +1,11 @@
+//
+//  Agora: Hello, World!
+//
+
+fmt := import("fmt")
+
+func greet(name) {
+	fmt.Println("Hello,", name + "!")
+}
+
+greet("World")

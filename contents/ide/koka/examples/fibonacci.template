@@ -1,0 +1,19 @@
+//
+//  Koka: fibonacci
+//  https://github.com/koka-lang/koka
+//
+
+module fibonacci
+
+public fun main() {
+    val n = 256
+    println("The " ++ n.show ++ "th fibonacci number is " ++ fibonacci(n).show)
+}
+
+fun fibonacci(n : int) : div int {
+    fib(n, 0, 1)
+}
+
+fun fib(n : int, x1 : int, x2 : int) : div int {
+    if (n<=0) then x1 else fib(n - 1, x2, x1+x2)
+}

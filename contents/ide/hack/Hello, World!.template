@@ -1,0 +1,11 @@
+#
+#   Hack(핵): Hello, World! 예제
+#
+
+namespace main;
+
+<<__EntryPoint>>
+function main(): void {
+  echo "Hello, World!\n";
+  exit(0);
+}

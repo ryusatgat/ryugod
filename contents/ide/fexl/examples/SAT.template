@@ -1,0 +1,73 @@
+#
+#   Fexl: SAT
+#   https://github.com/chkoreff/Fexl
+#
+
+# (SAT n f) return a list of solutions for function f with n variables.
+\SAT=
+	(@\SAT\n\f
+	\n=n \f=f
+	le n 0 (f [[]] []);
+	\try=(\x map (cons x) (SAT (- n 1) (f x)))
+	append (try T) (try F)
+	)
+
+# Print the solutions.
+\show_solutions=
+	(\list
+	say "["
+	each list
+		(\vars
+		put "[" (each vars put) put "]" nl
+		)
+	say "]"
+	)
+
+# Demo function.
+\SAT=
+	(\n\f
+	\list=(SAT n f)
+	show_solutions list
+	nl
+	)
+
+say "SAT 0 T"
+SAT 0 T
+
+say "SAT 0 F"
+SAT 0 F
+
+say "SAT 2 (\a\b and a b)"
+SAT 2 (\a\b and a b)
+
+say "SAT 2 (\a\b or a b)"
+SAT 2 (\a\b or a b)
+
+say "SAT 2 (\a\b or (not a) b)"
+SAT 2 (\a\b or (not a) b)
+
+say "SAT 4 (\a\b\c\d (and (or (and a d) c) (not (and b d))))"
+SAT 4 (\a\b\c\d (and (or (and a d) c) (not (and b d))))
+
+say "SAT 17 ..."
+SAT 17
+	(\_1\_2\_3\_4\_5\_6\_7\_8\_9\_10\_11\_12\_13\_14\_15\_16\_17
+	and (_1);
+	and (_2);
+	and (not _3);
+	and (_4);
+	and (_5);
+	and (not _6);
+	and (_7);
+	and (_8);
+	and (not _9);
+	and (_10);
+	and (not _11);
+	and (_12);
+	and (_13);
+	and (_14);
+	and (_15);
+	and (_16);
+	and (_17);
+	T
+	)

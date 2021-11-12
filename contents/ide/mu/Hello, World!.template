@@ -1,0 +1,6 @@
+#
+#   Mu: Hello, World!
+#   http://mu-script.org/
+#
+
+print("Hello, World!")

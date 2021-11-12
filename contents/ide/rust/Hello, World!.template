@@ -1,0 +1,7 @@
+//
+//  Rust(러스트): Hello, World! 예제
+//
+
+fn main() {
+    println!("Hello, World!");
+}

@@ -1,0 +1,28 @@
+#
+#   Buzz: samples
+#   https://the.swarming.buzz/
+#
+
+# Assignment and arithmetic operations
+a = 3 + 7
+
+# Looping
+i = 0
+while(i < a) i = i + 1
+
+# Branching
+if(a == 10) i = 0
+
+# Tables
+t = {}
+t.b = 9
+
+# Function definition
+function f(a) {
+  return a
+}
+
+# Function call
+x = f(9)
+
+log(x)

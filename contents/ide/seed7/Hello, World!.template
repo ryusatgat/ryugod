@@ -1,0 +1,11 @@
+(*
+    Seed7(씨드7): Hello, World! 예제
+*)
+
+$ include "seed7_05.s7i";
+  include "stdio.s7i";
+
+const proc: main is func
+begin
+    writeln("Hello, World!");
+end func;

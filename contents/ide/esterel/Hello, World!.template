@@ -1,0 +1,21 @@
+%
+%  Esterel: Hello, World!
+%  언어의 특성상 화면 출력이 없습니다
+%
+
+module SPEED:
+input Centimeter, Second;
+relation Centimeter # Second;
+output Speed : integer;
+    loop
+        var Distance := 0 : integer in
+            abort
+                every Centimeter do
+                    Distance := Distance+1
+                end every
+                when Second do
+                emit Speed(Distance)
+            end abort
+        end var
+    end loop
+end module

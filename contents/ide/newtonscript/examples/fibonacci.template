@@ -1,0 +1,18 @@
+#!newt
+//  NewtonScript: fibonacci
+//  https://github.com/gnue/NEWT0
+//
+
+func fib(n)
+begin
+        if 2 < n then
+                return fib(n - 1) + fib(n - 2);
+
+        return n;
+end;
+
+
+for i := 0 to 21 do print(fib(i) & "\n");
+
+
+fib(20);

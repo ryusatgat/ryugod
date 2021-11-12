@@ -1,0 +1,9 @@
+//
+//  ParaSail: Hello, World!
+//
+
+import PSL::Short_Names::*, *
+
+func main() is
+    Println("Hello, World!");
+end func main;

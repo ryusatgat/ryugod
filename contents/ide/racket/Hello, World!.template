@@ -1,0 +1,4 @@
+; Racket(래킷) Hello, World! 예제
+
+#lang racket
+"Hello, World!"

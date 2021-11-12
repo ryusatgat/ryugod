@@ -1,0 +1,5 @@
+// Scilab(싸이랩) Hello, World! 예제
+
+s = "Hello, World!"
+
+disp(s) 

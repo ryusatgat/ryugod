@@ -1,0 +1,520 @@
+***
+*** Hanoi Tower puzzle
+*** (running example of the "Strategy Language" chapter of the manual)
+***
+
+mod HANOI is
+  protecting NAT-LIST .
+
+  sorts Post Hanoi Game .
+  subsort Post < Hanoi .
+
+  op (_) [_] : Nat NatList -> Post [ctor] .
+  op empty   : -> Hanoi [ctor] .
+  op __      : Hanoi Hanoi -> Hanoi [ctor assoc comm id: empty] .
+
+  vars S T D1 D2 N : Nat .
+  vars L1 L2       : NatList .
+  vars H H'        : Hanoi .
+
+  crl [move] : (S) [L1 D1] (T) [L2 D2] => (S) [L1] (T) [L2 D2 D1] if D2 > D1 .
+  rl  [move] : (S) [L1 D1] (T) [nil]   => (S) [L1] (T) [D1] .
+endm
+
+srew [3] in HANOI : (0)[3 2 1] (1)[nil] (2)[nil] using move .
+***(
+Maude> srew [3] in HANOI : (0)[3 2 1] (1)[nil] (2)[nil] using move .
+srewrite [3] in HANOI : (0)[3 2 1] (1)[nil] (2)[nil] using move .
+
+Solution 1
+rewrites: 1 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2] (1)[1] (2)[nil]
+
+Solution 2
+rewrites: 2 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2] (1)[nil] (2)[1]
+
+No more solutions.
+rewrites: 2 in 0ms cpu (1ms real) (~ rewrites/second)
+
+Maude> srew (0)[3 2 1] (1)[nil] (2)[nil] using move[T <- 2] .
+srewrite in HANOI : (0)[3 2 1] (1)[nil] (2)[nil] using move[T <- 2] .
+
+Solution 1
+rewrites: 1 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2] (1)[nil] (2)[1]
+
+No more solutions.
+rewrites: 1 in 0ms cpu (0ms real) (~ rewrites/second)
+)
+
+mod HANOI-COUNT is
+  protecting HANOI .
+
+  op <_,_> : Hanoi Nat -> Game [ctor] .
+
+  vars H H' : Hanoi .
+  var  N : Nat .
+
+ crl [step] : < H, N > => < H', s N > if H => H' .
+  rl [cancel] : N => 0 [nonexec] .
+  rl [inc] : N => s N [nonexec] .
+endm
+
+***(
+Maude> srew < (0)[3 2 1] (1)[nil] (2)[nil], 0 > using step{all} .
+srewrite in HANOI-COUNT : < (0)[3 2 1] (1)[nil] (2)[nil],0 > using step{all} .
+
+Solution 1
+rewrites: 3 in 0ms cpu (0ms real) (~ rewrites/second)
+result Game: < (0)[3 2] (1)[1] (2)[nil],1 >
+
+Solution 2
+rewrites: 4 in 0ms cpu (0ms real) (~ rewrites/second)
+result Game: < (0)[3 2] (1)[nil] (2)[1],1 >
+
+No more solutions.
+rewrites: 4 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew 1 using cancel .
+srewrite in HANOI-COUNT : 1 using cancel .
+
+Solution 1
+rewrites: 1 in 0ms cpu (0ms real) (~ rewrites/second)
+result Zero: 0
+
+Solution 2
+rewrites: 2 in 0ms cpu (0ms real) (~ rewrites/second)
+result NzNat: 1
+
+No more solutions.
+rewrites: 2 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew 1 using top(cancel) .
+srewrite in HANOI-COUNT : 1 using top(cancel) .
+
+Solution 1
+rewrites: 1 in 0ms cpu (0ms real) (~ rewrites/second)
+result Zero: 0
+
+No more solutions.
+rewrites: 1 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew (0)[nil] (1)[nil] (2)[3 2 1] using match (N)[3 2 1] H s.t. N =/= 0 .
+srewrite in HANOI-COUNT : (0)[nil] (1)[nil] (2)[3 2 1] using
+    match H (N)[3 2 1] such that N =/= 0 = true .
+
+Solution 1
+rewrites: 1 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[nil] (1)[nil] (2)[3 2 1]
+
+No more solutions.
+rewrites: 1 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew (0)[nil] (1)[nil] (2)[3 2 1] using xmatch (0)[nil] (2)[3 2 1] .
+srewrite in HANOI-COUNT : (0)[nil] (1)[nil] (2)[3 2 1] using xmatch (0)[nil] (2)[3 2 1] .
+
+Solution 1
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[nil] (1)[nil] (2)[3 2 1]
+
+No more solutions.
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew (0)[nil] (1)[nil] (2)[3 2 1] using match (0)[nil] (2)[3 2 1] .
+srewrite in HANOI-COUNT : (0)[nil] (1)[nil] (2)[3 2 1] using match (0)[nil] (2)[3 2 1] .
+
+No solution.
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew in HANOI : (0)[nil] (1)[nil] (2)[3 2 1] using amatch 3 L1 1 .
+srewrite in HANOI : (0)[nil] (1)[nil] (2)[3 2 1] using amatch 3 L1 1 .
+
+Solution 1
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[nil] (1)[nil] (2)[3 2 1]
+
+No more solutions.
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew (0)[3 2 1] (1)[nil] (2)[nil] using move ; move .
+srewrite in HANOI : (0)[3 2 1] (1)[nil] (2)[nil] using move ; move .
+
+Solution 1
+rewrites: 6 in 3ms cpu (1ms real) (1867 rewrites/second)
+result Hanoi: (0)[3 2 1] (1)[nil] (2)[nil]
+
+Solution 2
+rewrites: 9 in 3ms cpu (1ms real) (2801 rewrites/second)
+result Hanoi: (0)[3] (1)[1] (2)[2]
+
+Solution 3
+rewrites: 11 in 3ms cpu (1ms real) (3424 rewrites/second)
+result Hanoi: (0)[3 2] (1)[nil] (2)[1]
+
+Solution 4
+rewrites: 11 in 3ms cpu (1ms real) (3424 rewrites/second)
+result Hanoi: (0)[3] (1)[2] (2)[1]
+
+Solution 5
+rewrites: 12 in 3ms cpu (1ms real) (3735 rewrites/second)
+result Hanoi: (0)[3 2] (1)[1] (2)[nil]
+
+No more solutions.
+rewrites: 12 in 3ms cpu (1ms real) (3735 rewrites/second)
+
+Maude> srew (0)[3 2] (1)[1] (2)[nil] using move[S <- 0] | move[T <- 0] .
+srewrite in HANOI : (0)[3 2] (1)[1] (2)[nil] using move[S <- 0] | move[T <- 0] .
+
+Solution 1
+rewrites: 4 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2 1] (1)[nil] (2)[nil]
+
+Solution 2
+rewrites: 4 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[1] (2)[2]
+
+No more solutions.
+rewrites: 4 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew (0)[3 2 1] (1)[nil] (2)[nil] using move * .
+srewrite in HANOI-COUNT : (0)[3 2 1] (1)[nil] (2)[nil] using move * .
+
+Solution 1
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2 1] (1)[nil] (2)[nil]
+
+Solution 2
+rewrites: 2 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2] (1)[1] (2)[nil]
+
+Solution 3
+rewrites: 3 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2] (1)[nil] (2)[1]
+
+Solution 4
+rewrites: 11 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[1] (2)[2]
+
+Solution 5
+rewrites: 13 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[2] (2)[1]
+
+Solution 6
+rewrites: 22 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[3 1] (1)[nil] (2)[2]
+
+Solution 7
+rewrites: 27 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[nil] (2)[2 1]
+
+Solution 8
+rewrites: 37 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[3 1] (1)[2] (2)[nil]
+
+Solution 9
+rewrites: 41 in 0ms cpu (2ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[2 1] (2)[nil]
+
+Solution 10
+rewrites: 44 in 0ms cpu (2ms real) (~ rewrites/second)
+result Hanoi: (0)[nil] (1)[3] (2)[2 1]
+
+Solution 11
+rewrites: 54 in 3ms cpu (2ms real) (16564 rewrites/second)
+result Hanoi: (0)[nil] (1)[2 1] (2)[3]
+
+Solution 12
+rewrites: 54 in 3ms cpu (2ms real) (16564 rewrites/second)
+result Hanoi: (0)[nil] (1)[3 1] (2)[2]
+
+Solution 13
+rewrites: 61 in 3ms cpu (3ms real) (18711 rewrites/second)
+result Hanoi: (0)[1] (1)[3] (2)[2]
+
+Solution 14
+rewrites: 61 in 3ms cpu (3ms real) (18711 rewrites/second)
+result Hanoi: (0)[nil] (1)[2] (2)[3 1]
+
+Solution 15
+rewrites: 72 in 3ms cpu (3ms real) (22085 rewrites/second)
+result Hanoi: (0)[1] (1)[2] (2)[3]
+
+Solution 16
+rewrites: 76 in 3ms cpu (3ms real) (23312 rewrites/second)
+result Hanoi: (0)[2] (1)[3 1] (2)[nil]
+
+Solution 17
+rewrites: 82 in 3ms cpu (3ms real) (25153 rewrites/second)
+result Hanoi: (0)[2] (1)[nil] (2)[3 1]
+
+Solution 18
+rewrites: 94 in 3ms cpu (3ms real) (28834 rewrites/second)
+result Hanoi: (0)[2 1] (1)[3] (2)[nil]
+
+Solution 19
+rewrites: 95 in 3ms cpu (4ms real) (29141 rewrites/second)
+result Hanoi: (0)[1] (1)[3 2] (2)[nil]
+
+Solution 20
+rewrites: 96 in 3ms cpu (4ms real) (29447 rewrites/second)
+result Hanoi: (0)[1] (1)[nil] (2)[3 2]
+
+Solution 21
+rewrites: 101 in 3ms cpu (4ms real) (30981 rewrites/second)
+result Hanoi: (0)[2 1] (1)[nil] (2)[3]
+
+Solution 22
+rewrites: 105 in 3ms cpu (4ms real) (32208 rewrites/second)
+result Hanoi: (0)[2] (1)[3] (2)[1]
+
+Solution 23
+rewrites: 112 in 3ms cpu (4ms real) (34355 rewrites/second)
+result Hanoi: (0)[nil] (1)[3 2 1] (2)[nil]
+
+Solution 24
+rewrites: 114 in 3ms cpu (4ms real) (34969 rewrites/second)
+result Hanoi: (0)[2] (1)[1] (2)[3]
+
+Solution 25
+rewrites: 114 in 3ms cpu (5ms real) (34969 rewrites/second)
+result Hanoi: (0)[nil] (1)[nil] (2)[3 2 1]
+
+Solution 26
+rewrites: 123 in 3ms cpu (5ms real) (37730 rewrites/second)
+result Hanoi: (0)[nil] (1)[3 2] (2)[1]
+
+Solution 27
+rewrites: 129 in 3ms cpu (5ms real) (39570 rewrites/second)
+result Hanoi: (0)[nil] (1)[1] (2)[3 2]
+
+No more solutions.
+rewrites: 150 in 6ms cpu (5ms real) (22942 rewrites/second)
+
+Maude> srew (0)[3 2 1] using idle .
+srewrite in HANOI-COUNT : (0)[3 2 1] using idle .
+
+Solution 1
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+result Post: (0)[3 2 1]
+
+No more solutions.
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew (0)[3 2 1] using fail .
+srewrite in HANOI-COUNT : (0)[3 2 1] using fail .
+
+No solution.
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew in HANOI : (0)[3 2] (1)[1] (2)[nil] using (move[T <- 2] ? idle : move) * .
+srewrite in HANOI : (0)[3 2] (1)[1] (2)[nil] using (move[T <- 2] ? idle : move)* .
+
+Solution 1
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2] (1)[1] (2)[nil]
+
+Solution 2
+rewrites: 2 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[1] (2)[2]
+
+Solution 3
+rewrites: 2 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2] (1)[nil] (2)[1]
+
+Solution 4
+rewrites: 7 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[nil] (2)[2 1]
+
+Solution 5
+rewrites: 11 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2 1] (1)[nil] (2)[nil]
+
+Solution 6
+rewrites: 12 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[2] (2)[1]
+
+Solution 7
+rewrites: 19 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[3 1] (1)[nil] (2)[2]
+
+Solution 8
+rewrites: 20 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[nil] (1)[3] (2)[2 1]
+
+Solution 9
+rewrites: 35 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[3 1] (1)[2] (2)[nil]
+
+Solution 10
+rewrites: 36 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[2 1] (2)[nil]
+
+Solution 11
+rewrites: 36 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[nil] (1)[3 1] (2)[2]
+
+Solution 12
+rewrites: 42 in 0ms cpu (2ms real) (~ rewrites/second)
+result Hanoi: (0)[1] (1)[3] (2)[2]
+
+Solution 13
+rewrites: 46 in 0ms cpu (2ms real) (~ rewrites/second)
+result Hanoi: (0)[nil] (1)[2 1] (2)[3]
+
+Solution 14
+rewrites: 48 in 3ms cpu (2ms real) (14594 rewrites/second)
+result Hanoi: (0)[nil] (1)[2] (2)[3 1]
+
+Solution 15
+rewrites: 54 in 3ms cpu (2ms real) (16418 rewrites/second)
+result Hanoi: (0)[2] (1)[nil] (2)[3 1]
+
+Solution 16
+rewrites: 54 in 3ms cpu (2ms real) (16418 rewrites/second)
+result Hanoi: (0)[1] (1)[2] (2)[3]
+
+Solution 17
+rewrites: 63 in 3ms cpu (3ms real) (19154 rewrites/second)
+result Hanoi: (0)[2 1] (1)[nil] (2)[3]
+
+Solution 18
+rewrites: 64 in 3ms cpu (3ms real) (19458 rewrites/second)
+result Hanoi: (0)[1] (1)[nil] (2)[3 2]
+
+Solution 19
+rewrites: 66 in 3ms cpu (3ms real) (20066 rewrites/second)
+result Hanoi: (0)[2] (1)[1] (2)[3]
+
+Solution 20
+rewrites: 72 in 3ms cpu (3ms real) (21891 rewrites/second)
+result Hanoi: (0)[nil] (1)[nil] (2)[3 2 1]
+
+Solution 21
+rewrites: 72 in 3ms cpu (3ms real) (21891 rewrites/second)
+result Hanoi: (0)[nil] (1)[1] (2)[3 2]
+
+No more solutions.
+rewrites: 76 in 3ms cpu (3ms real) (23107 rewrites/second)
+
+Maude> srew (0)[3 2 1] (1)[nil] (2)[nil] using move[S <- 0] ! .
+srewrite in HANOI : (0)[3 2 1] (1)[nil] (2)[nil] using move[S <- 0] ! .
+
+Solution 1
+rewrites: 10 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[1] (2)[2]
+
+Solution 2
+rewrites: 10 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[2] (2)[1]
+
+No more solutions.
+rewrites: 10 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew (0)[3] (1)[1] (2)[2] using test(move[S <- 0]) .
+srewrite in HANOI : (0)[3] (1)[1] (2)[2] using test(move[S <- 0]) .
+
+No solution.
+rewrites: 2 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew (0)[3] (1)[1] (2)[2] using test(move[S <- 1]) .
+srewrite in HANOI : (0)[3] (1)[1] (2)[2] using test(move[S <- 1]) .
+
+Solution 1
+rewrites: 2 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3] (1)[1] (2)[2]
+
+No more solutions.
+rewrites: 2 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew [1] in HANOI-COUNT : < (0)[3 2 1] (1) [nil] (2)[nil], 0 >
+          using (matchrew < H, N > by H using move, N using top(inc)) * ;
+            amatch (2)[3 2 1] .
+srewrite [1] in HANOI-COUNT : < (0)[3 2 1] (1)[nil] (2)[nil],0 > using
+    (matchrew < H,N > by H using move, N using top(inc))* ; amatch (2)[3 2 1] .
+
+Solution 1
+rewrites: 523 in 9ms cpu (7ms real) (52673 rewrites/second)
+result Game: < (0)[nil] (1)[nil] (2)[3 2 1],7 >
+
+Maude> srew 1 using inc .
+srewrite in HANOI-COUNT : 1 using inc .
+
+Solution 1
+rewrites: 1 in 0ms cpu (0ms real) (~ rewrites/second)
+result NzNat: 2
+
+No more solutions.
+rewrites: 2 in 0ms cpu (0ms real) (~ rewrites/second)
+
+Maude> srew (0)[3 2 1] (1)[nil] (2)[nil] using one(move * ; amatch (2)[3 2 1]) .
+srewrite in HANOI-COUNT : (0)[3 2 1] (1)[nil] (2)[nil] using one(move * ; amatch (2)[3 2 1]) .
+
+Solution 1
+rewrites: 121 in 0ms cpu (1ms real) (~ rewrites/second)
+result Hanoi: (0)[nil] (1)[nil] (2)[3 2 1]
+
+No more solutions.
+rewrites: 121 in 0ms cpu (1ms real) (~ rewrites/second)
+
+Maude> srew (0)[3 2 1] (1)[nil] (2)[nil] using move * ; amatch (2)[3 2 1] .
+srewrite in HANOI-COUNT : (0)[3 2 1] (1)[nil] (2)[nil] using move * ; amatch (2)[3 2 1] .
+
+Solution 1
+rewrites: 121 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[nil] (1)[nil] (2)[3 2 1]
+
+No more solutions.
+rewrites: 150 in 0ms cpu (1ms real) (~ rewrites/second)
+
+Maude> srew (0)[3 2 1] (1)[nil] (2)[nil] using one(move) * .
+srewrite in HANOI-COUNT : (0)[3 2 1] (1)[nil] (2)[nil] using one(move) * .
+
+Solution 1
+rewrites: 0 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2 1] (1)[nil] (2)[nil]
+
+Solution 2
+rewrites: 1 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[3 2] (1)[1] (2)[nil]
+
+No more solutions.
+rewrites: 4 in 0ms cpu (0ms real) (~ rewrites/second)
+)
+
+fmod HANOI-AUX is
+  protecting SET{Nat} .
+
+  op third : Nat Nat ~> Nat .
+
+  vars N M K : Nat .
+
+  ceq third(N, M) = K if N, M, K := 0, 1, 2 .
+endfm
+
+smod HANOI-SOLVE is
+  protecting HANOI .
+  protecting HANOI-AUX .
+
+  strat moveAll : Nat Nat Nat @ Hanoi .
+
+  vars S T C M : Nat .
+
+  sd moveAll(S, S, C) := idle .
+  sd moveAll(S, T, 0) := idle .
+  sd moveAll(S, T, s(C)) := moveAll(S, third(S, T), C) ;
+                            move[S <- S, T <- T] ;
+                            moveAll(third(S, T), T, C) .
+endsm
+
+***(
+Maude> srew (0)[3 2 1] (1)[nil] (2)[nil] using moveAll(0, 2, 3) .
+srewrite in HANOI-SOLVE : (0)[3 2 1] (1)[nil] (2)[nil] using moveAll(0, 2, 3) .
+
+Solution 1
+rewrites: 24 in 0ms cpu (0ms real) (~ rewrites/second)
+result Hanoi: (0)[nil] (1)[nil] (2)[3 2 1]
+
+No more solutions.
+rewrites: 24 in 0ms cpu (0ms real) (~ rewrites/second)
+)

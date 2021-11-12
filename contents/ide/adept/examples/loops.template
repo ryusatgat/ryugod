@@ -1,0 +1,37 @@
+//
+//  Adept: loops
+//  https://github.com/AdeptLanguage
+//
+
+import basics
+
+func main(in argc int, in argv **ubyte) int {
+    countup int = 0
+
+    while continue {
+        countup += 1
+        printf('%d\n', countup)
+        unless countup == 10, continue
+    }
+
+    // More traditional version
+    for(i int = 0; i < 10; i++){
+        printf("%d ", i)
+    }
+    newline()
+
+    // More traditional version, Single Line
+    for(i int = 0; i < 10; i++), printf("%d ", i)
+    newline()
+
+    // Without parentheses
+    for i int = 0; i < 10; i++ {
+        printf("%d ", i)
+    }
+
+    // Without parentheses, Single Line
+    for i int = 0; i < 10; i++, printf("%d ", i)
+    newline()
+
+    return 0
+}

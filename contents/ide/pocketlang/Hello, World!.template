@@ -1,0 +1,6 @@
+#
+#   Pocketlang: Hello, World!
+#   https://github.com/ThakeeNathees/pocketlang
+#
+
+print('Hello, World!')

@@ -1,0 +1,37 @@
+#
+#   Blue: class
+#   https://github.com/elechak/blue
+#
+
+Dog = sys.class();
+
+Dog._  =  func{
+    arg name | name = "Fido" ;
+    this.name = name;
+    sys.print("A dog named " , name ," was Created\n");
+};
+
+Dog.__  =  func{
+    sys.print( this.name," ran away\n");
+};
+
+Dog.speak = func{
+    sys.print( "woof woof.  My name is " , this.name , "\n" );
+};
+
+
+
+kippy = Dog( "Kippy");
+
+kippy.speak();
+
+kippy.speak = func{
+    sys.print( "yipe yipe.  My name is " , this.name , "\n" );
+};
+
+kippy.speak();
+
+
+del kippy.speak;
+
+kippy.speak();

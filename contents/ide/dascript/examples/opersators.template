@@ -1,0 +1,36 @@
+/*
+    daScript: operators
+    https://github.com/GaijinEntertainment/daScript
+*/
+
+struct TestObjectFooNative
+    fooData : int
+
+struct TestObjectBarNative
+    fooPtr: TestObjectFooNative?
+    barData: float
+
+def test
+    var a: TestObjectFooNative?
+    var b: TestObjectBarNative?
+    var idummy: int
+    var fdummy: float
+    a?.fooData ?? idummy = 1 // will return reference to idummy, since a is null
+    assert(idummy == 1)
+
+    a = new TestObjectFooNative
+    a?.fooData ?? idummy = 2 // will return reference to a.fooData, since a is now not null
+    assert(a.fooData == 2 && idummy == 1)
+
+    b = new TestObjectBarNative
+    b?.fooPtr?.fooData ?? idummy = 3 // will return reference to idummy, since while b is not null, but b.?barData is still null
+    assert(idummy == 3)
+
+    b.fooPtr <- a
+    b?.fooPtr?.fooData ?? idummy = 4 // will return reference to b.fooPtr.fooData
+    assert(b.fooPtr.fooData == 4 && idummy == 3)
+    print("b.fooPtr.fooData:{b.fooPtr.fooData}, idummy:{idummy}\n")
+
+[export]
+def main
+    test()

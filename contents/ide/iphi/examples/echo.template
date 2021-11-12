@@ -1,0 +1,11 @@
+(*
+    Iphigeneia: echo
+    https://github.com/catseye/Iphigeneia
+*)
+
+var x in
+    while x /= 32 do
+        begin
+            x := input c in c;
+            print x
+        end

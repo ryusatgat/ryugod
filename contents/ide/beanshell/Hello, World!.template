@@ -1,0 +1,12 @@
+//
+//  BeanShell: Hello, World!
+//
+
+class Hello {
+    public say() {
+        print("Hello, World!");
+    }
+}
+
+Hello hello = new Hello();
+hello.say();

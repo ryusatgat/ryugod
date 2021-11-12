@@ -1,0 +1,36 @@
+#
+#   Luci: iteration
+#   https://github.com/naegelejd/luci
+#
+
+mystring = "I love Luci";
+newstring = "";
+mylist = range(len(mystring));
+mymap = {};
+
+for i in range(len(mystring)) {
+    newstring = newstring + mystring[i];
+    mylist[i] = mystring[i];
+
+    c = mystring[i];
+    print(c);
+    if (!contains(mymap, c)) {
+        mymap[c] = 0;
+    }
+    mymap[c] = mymap[c] + 1;
+}
+
+print("newstring:");
+for c in newstring {
+    print(c);
+}
+
+print("mylist:");
+for c in mylist {
+    print(c);
+}
+
+print("mymap:");
+for k in mymap {
+    print(k, mymap[k]);
+}

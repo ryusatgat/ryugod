@@ -1,0 +1,28 @@
+-[
+    Avalon: FizzBuzz
+    https://github.com/avalon-lang
+]-
+
+import io
+
+def __main__ = (val args : [string]) -> void:
+    -- the buzz counter
+    var buzzer = 1
+    
+    -- we keep looping so long as the buzzer is less than 101
+    while buzzer < 101:
+        -- We print "Fizz" or "Buzz" or "FizzBuzz" or the number depending on our divisor
+        if buzzer % 15 == 0:
+            Io.println("FizzBuzz")
+        elif buzzer % 3 == 0:
+            Io.println("Fizz")
+        elif buzzer % 5 == 0:
+            Io.println("Buzz")
+        else:
+            Io.println(string(buzzer))
+
+        -- we don't forget to increment the buzzer else we end up with infinite loop
+        buzzer = buzzer + 1
+
+    -- we end execution
+    return

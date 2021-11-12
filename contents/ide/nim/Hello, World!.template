@@ -1,0 +1,3 @@
+# Nim(님): Hello, World! 예제
+
+echo "Hello, World!"

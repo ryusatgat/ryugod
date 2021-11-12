@@ -1,0 +1,13 @@
+#
+#   Boo: Array
+#   https://rosettacode.org/
+#
+
+myArray as (int) = (1, 2, 3)
+fixedArray as (int) = array(int, 1)
+
+myArray[0] = 10
+
+myArray = myArray + fixedArray
+ 
+print myArray[0]

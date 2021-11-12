@@ -1,0 +1,39 @@
+<!-- React(리액트) Hello, World! 예제 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>React</title>
+    </head>
+    <body>
+        <div id="app">
+        </div>   
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>     
+        <script>
+            const e = React.createElement;
+
+            class HelloButton extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = { visible: false };
+                }
+
+                render() {
+                    if (this.state.visible) {
+                        return 'Hello, World!';
+                    }
+
+                    return e(
+                        'button',
+                        { onClick: () => this.setState({ visible: true }) },
+                        'hello'
+                    );
+                }
+            }
+
+            const domContainer = document.querySelector('#app');
+            ReactDOM.render(e(HelloButton), domContainer);
+        </script>
+    </body>
+</html>

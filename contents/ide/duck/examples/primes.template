@@ -1,0 +1,23 @@
+;
+;   Duck: primes
+;   https://github.com/gregtour/duck-lang
+;
+
+function display_primes(limit)
+	count = 0
+	numbers = []
+	for i = 2 to limit do
+		numbers[i] = 1
+	loop
+	for i = 2 to limit do
+		if numbers[i] == 1 then
+			count = count + 1
+			for j = 2 to limit/i do
+				numbers[i*j] = 0
+			loop
+			duck.println(i)
+		end
+	loop
+end
+
+display_primes(100)

@@ -1,0 +1,36 @@
+#
+#   DuckScript: iteration
+#   https://github.com/sagiegurari/duckscript
+#
+
+# Simple example iteration over the list of letters:
+args = array a b c
+
+for arg in ${args}
+    echo current arg is: ${arg}
+end
+
+released = release ${args}
+echo Array released: ${released}
+
+# Example nested loops:
+values = array 1 2 3
+for i in ${values}
+    for j in ${values}
+        echo i: ${i} j: ${j}
+    end
+end
+
+released = release ${values}
+echo Array released: ${released}
+
+values = range 1 10
+
+for i in ${values}
+    for j in ${values}
+        echo i: ${i} j: ${j}
+    end
+end
+
+released = release ${values}
+echo Array released: ${released}

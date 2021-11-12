@@ -1,0 +1,28 @@
+(*
+    Modula-2(모듈라-2): 99 bottles of beer 예제
+*)
+
+MODULE main ;
+FROM StrIO IMPORT WriteString, WriteLn ;
+FROM NumberIO IMPORT WriteInt ;
+
+VAR     nr      : CARDINAL;
+ 
+BEGIN
+    nr := 99;
+    REPEAT
+        WriteInt (nr, 4);
+        WriteString (" bottles of beer on the wall");
+        WriteLn;
+        WriteInt (nr, 4);
+        WriteString (" bottles of beer");
+        WriteLn;
+        WriteString ("Take one down, pass it around");
+        WriteLn;
+        DEC (nr);
+        WriteInt (nr, 4);
+        WriteString (" bottles of beer on the wall");
+        WriteLn;
+        WriteLn
+    UNTIL nr = 0
+END main.

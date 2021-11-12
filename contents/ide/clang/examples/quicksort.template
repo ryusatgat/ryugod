@@ -1,0 +1,32 @@
+/*
+    C 언어 퀵소트 예제
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int static compare (const void* first, const void* second)
+{
+    int a = *(int *)first;
+    int b = *(int *)second;
+    
+    return a > b ? 1: (a < b ? -1:0);
+}
+
+int main()
+{
+    int arr[] = {32, 6, 15, 87, 32, 21, 72, 46, 68, 68, 10, 3, 8, 1};
+    int size = sizeof(arr) / sizeof(int);
+    
+    printf("before sorting: ");
+    for (int i=0; i<size; i++) printf("%d ", arr[i]);
+    
+    printf("\nafter sorting: ");
+
+    qsort(arr, size, sizeof(int), compare);
+
+    for (int i=0; i<size; i++) printf("%d ", arr[i]);
+    printf("\n");
+
+    return 0;
+}

@@ -1,0 +1,11 @@
+/*
+    Digital Mars D: Hello, World!
+    https://github.com/dlang
+*/
+
+import std.stdio;
+
+void main()
+{
+    writeln("Hello, World!");
+}

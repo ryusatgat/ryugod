@@ -1,0 +1,25 @@
+#
+#   ABS: Hello, World!
+#   https://github.com/abs-lang/abs
+#
+
+echo("10 power of 10 is:")
+echo(10 ** 10)
+
+echo(rand(100000))
+
+a = "1.2.3.4.5.6.7"
+    .split(".")
+    .map(int)
+    .map(f(x) {x * 10})
+echo(a)
+
+echo("[1, 2, 3] is an " + type([1, 2, 3]))
+
+a = 0
+
+while a < 100 {
+    a = a + 1
+}
+
+echo(a)

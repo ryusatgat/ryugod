@@ -1,0 +1,30 @@
+#
+#   Knight: fibonacci
+#   https://github.com/sampersand/knight
+#
+
+# We need a global variable to keep track of how deeply nested we are.
+# This is analogous to having a global "stack of n"s.
+; = _fib_recur 0
+; = fib BLOCK {
+	IF (< n 2) {
+		n # fib(0) and fib(1) = n
+	} {
+		# convert fib(n-1) + fib(n-2) into fib(n) + fib(n-1)
+		; = n (- n 1)
+		# Push the value of `n - 1` onto the "stack of `n`s"
+		; EVAL (++ "=_fib_stack_" _fib_recur "- n 1")
+		; = _fib_recur (+ _fib_recur 1)
+
+		# Get the result of `fib(n)` (ie `fib(n-1)`, as we converted earlier)
+		; = tmp (CALL fib)
+		# Pop the `n - 1` off the stack and assign it to `n`.
+		; = _fib_recur (- _fib_recur 1)
+		; = n EVAL (+ "_fib_stack_" _fib_recur)
+		# return `tmp + fib(n-1)` (ie `fib(n-2)`, as we converted earlier)
+		: + tmp (CALL fib)
+	}
+}
+
+; = n 10
+: OUTPUT CALL fib

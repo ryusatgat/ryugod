@@ -1,0 +1,19 @@
+%
+%   Picat(파이캣): 99 bottles of beer 예제
+%   출처: https://rosettacode.org/
+%
+
+beer1(N) => 
+   Beer = N,
+   while (Beer > 0)
+       printf("%d bottles of beer on the wall,\n", Beer),
+       printf("%d bottles of beer.\n", Beer),
+       printf("Take one down, pass it around.\n"),
+       printf("%d bottles of beer.\n", Beer-1),
+       Beer := Beer -1
+   end,
+   print("0 more bottles of beer on the wall.\n"),
+   nl.
+
+main =>
+    beer1(99).

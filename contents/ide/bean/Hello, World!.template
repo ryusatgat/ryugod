@@ -1,0 +1,6 @@
+//
+//  Bean: Hello, World!
+//  https://github.com/lanzhiheng/bean
+//
+
+print("Hello, World!")

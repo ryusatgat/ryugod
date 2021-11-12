@@ -1,0 +1,13 @@
+;
+;   WardScript: ascii code
+;   https://github.com/LuisAlbizo/WardScript
+;
+
+char := 32;
+
+loop
+	print(spresent(char), ": ", char, 10);
+	char := char + 1;
+	if char>126 then exit;
+	end
+end

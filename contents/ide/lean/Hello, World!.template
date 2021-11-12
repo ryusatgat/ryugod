@@ -1,0 +1,10 @@
+--
+--  Lean(린): Hello, World! 예제
+--
+
+import system.io
+
+open io
+
+def main : io unit :=
+    put_str "Hello, World!\n"

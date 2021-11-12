@@ -1,0 +1,16 @@
+//
+//  Conure: function
+//  https://github.com/MichaelSDavid/conure-lang
+//
+
+fnc fib(n) {
+    if (n < 2) return n;
+    return fib(n - 2) + fib(n - 1);
+}
+
+let start = time(); // Built-in exec-time function
+// TODO: Increase margin of switching to sci-notation
+write(fib(10));
+// Upwards of 'fib(25)' can take up to 5 minutes to finish execution 
+// (3 seconds without debug info, like Python) (TODO: optimize recursion)
+write(time() - start);

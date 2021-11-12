@@ -1,0 +1,45 @@
+/*
+    elastiC: closure
+    http://www.elasticworld.org/
+*/
+
+package closure;
+
+import basic;
+import array;
+
+// a function mapping an operation element-wise over a sequence
+function map( sequence, oper )
+{
+	local result = #[];
+
+	local el;
+	for (el in sequence)
+		array.push( result, oper( el ) );
+	return result;
+}
+
+/*
+ * return the sequence obtained by applying the
+ * exponentiation operator (x**y) to each element
+ */
+function pow( sequence, y )
+{
+	/*
+	 * We pass a closure referencing our argument y
+	 * as the operation.
+	 */
+	return map( sequence,
+				function( x )
+				{
+					return x ** y;
+				} );
+}
+
+private aSeq       = #[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+private squareSeq  = pow( aSeq, 2 );
+private cubeSeq    = pow( aSeq, 3 );
+
+basic.print( "Original sequence: ", aSeq, "\n" );
+basic.print( "sequence ** 2    : ", squareSeq, "\n" );
+basic.print( "sequence ** 3    : ", cubeSeq, "\n" );

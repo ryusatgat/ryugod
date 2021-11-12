@@ -1,0 +1,5 @@
+'
+'  MY-BASIC(마이-베이식): Hello, World! 예제
+'
+
+print("Hello, World!");

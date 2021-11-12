@@ -1,0 +1,7 @@
+// Pike(파이크) Hello, World! 템플릿
+
+int main()
+{
+  write("Hello, World!\n");
+  return 0;
+}

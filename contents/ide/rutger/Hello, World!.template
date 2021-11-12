@@ -1,0 +1,5 @@
+//
+//  Rutger(럿거): Hello, World! 예제
+//
+
+Print["Hello, World!"];

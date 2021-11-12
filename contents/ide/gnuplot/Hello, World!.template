@@ -1,0 +1,5 @@
+#
+#   Gnuplot(그누플롯) Hello, World! 예제
+#
+
+print "Hello, World!"

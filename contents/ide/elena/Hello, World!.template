@@ -1,0 +1,8 @@
+/*
+    ELENA(엘레나) Hello, World! 예제
+*/
+
+public program()
+{
+    console.writeLine:"Hello, World!"
+}

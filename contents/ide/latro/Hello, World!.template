@@ -1,0 +1,12 @@
+//
+//  Latro: Hello, World!
+//  https://github.com/Zoetermeer/latro
+//
+
+module Main {
+    import IO
+
+    main(_) = {
+        println("Hello, World")
+    }
+}

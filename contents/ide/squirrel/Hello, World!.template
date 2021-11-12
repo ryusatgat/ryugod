@@ -1,0 +1,5 @@
+/*
+	Squirrel(스퀴럴) Hello, World! 예제
+*/
+
+print("Hello, World!\n");

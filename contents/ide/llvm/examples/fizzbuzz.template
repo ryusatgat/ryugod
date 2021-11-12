@@ -1,0 +1,55 @@
+;
+;   LLVM-IR: FizzBuzz 예제
+;   출처: https://gist.github.com/forked-from-1kasper
+;
+
+@.fizz = private unnamed_addr constant [6 x i8] c"fizz \00"
+@.buzz = private unnamed_addr constant [6 x i8] c"buzz \00"
+@.integer = private unnamed_addr constant [4 x i8] c"%d \00"
+
+@nl = private unnamed_addr constant [2 x i8] c"\0A\00"
+
+declare i32 @printf(i8* noalias nocapture, ...) nounwind
+
+define void @fizzbuzz(i32 %n) {
+    %fizz = getelementptr [6 x i8], [6 x i8]* @.fizz, i64 0, i64 0
+    %buzz = getelementptr [6 x i8], [6 x i8]* @.buzz, i64 0, i64 0
+    %integer = getelementptr [4 x i8], [4 x i8]* @.integer, i64 0, i64 0
+
+    %A = urem i32 %n, 3
+    %B = urem i32 %n, 5
+
+    %three = icmp eq i32 %A, 0
+    %five = icmp eq i32 %B, 0
+
+    br i1 %three, label %fizz_entry_point, label %buzz_check
+    buzz_check:
+    br i1 %five, label %buzz_entry_point, label %no_entry_point
+
+    fizz_entry_point: call i32 (i8*, ...) @printf(i8* %fizz)
+    br i1 %five, label %buzz_entry_point, label %done
+
+    buzz_entry_point: call i32 (i8*, ...) @printf(i8* %buzz)
+    br label %done
+
+    no_entry_point: call i32 (i8*, ...) @printf(i8* %integer, i32 %n) ret void
+    done: ret void
+}
+
+define i32 @main() {
+    header:
+        br label %loop
+
+    loop:
+        %idx = phi i32 [ 1, %header ], [ %nextidx, %loop ]
+        %nextidx = add i32 %idx, 1
+
+        call void @fizzbuzz(i32 %idx)
+        %cond = icmp eq i32 %idx, 100
+        br i1 %cond, label %end, label %loop
+
+    end:
+        %nl = getelementptr [2 x i8], [2 x i8]* @nl, i64 0, i64 0
+        call i32 (i8*, ...) @printf(i8* %nl)
+        ret i32 0
+}

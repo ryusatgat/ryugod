@@ -1,0 +1,7 @@
+#
+#   CoffeeScript(커피스크립트): FizzBuzz 예제
+#   출처: http://www.rosettacode.org/
+#
+
+for i in [1..100]
+  console.log(['Fizz' if i % 3 is 0] + ['Buzz' if i % 5 is 0] or i)

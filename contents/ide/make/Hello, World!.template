@@ -1,0 +1,10 @@
+#
+#   Make: Hello, World!
+#
+
+$(info Hello, World!)
+
+.PHONY: main
+
+main:
+	@:

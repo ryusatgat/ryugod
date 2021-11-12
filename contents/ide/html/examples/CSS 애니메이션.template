@@ -1,0 +1,48 @@
+<!--
+    Cyclon Eye CSS 애니메이션 예제
+    출처: https://developer.mozilla.org/ko/docs/Web/CSS/animation
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.polling_message {
+  color: white;
+  float: left;
+  margin-right: 2%;
+  }
+
+.view_port {
+  background-color: black;
+  height: 25px;
+  width: 120px;  
+  overflow: hidden;
+}
+
+.cylon_eye {
+  background-color: red;
+  background-image: linear-gradient(to right,
+      rgba(0, 0, 0, .9) 15%,
+      rgba(0, 0, 0, .1) 50%,
+      rgba(0, 0, 0, .9) 85%);
+  color: white;
+  height: 100%;
+  width: 20%;
+
+  -webkit-animation: 2s linear 0s infinite alternate move_eye;
+          animation: 2s linear 0s infinite alternate move_eye;
+}
+
+@-webkit-keyframes move_eye { from { margin-left: -20%; } to { margin-left: 100%; }  }
+        @keyframes move_eye { from { margin-left: -20%; } to { margin-left: 100%; }  }
+</style>
+</head>
+<body>
+  <div class="view_port">
+    <div class="polling_message">
+      CSS 애니메이션
+    </div>
+    <div class="cylon_eye"></div>
+  </div>
+</body>
+</html>

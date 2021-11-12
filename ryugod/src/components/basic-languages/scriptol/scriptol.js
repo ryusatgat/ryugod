@@ -1,0 +1,271 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+import { languages } from '../fillers/monaco-editor-core.js';
+export var conf = {
+    comments: {
+        lineComment: ['//', '#'],
+        blockComment: ["/*", "*/"]
+    },
+    brackets: [
+        ['{', '}'],
+        ['[', ']'],
+        ['(', ')']
+    ],
+    autoClosingPairs: [
+        { open: '{', close: '}' },
+        { open: '[', close: ']' },
+        { open: '(', close: ')' },
+        { open: '"', close: '"', notIn: ['string'] },
+        { open: "'", close: "'", notIn: ['string', 'comment'] },
+        { open: 'if', close: '/if', },
+        { open: 'for', close: '/for', },
+        { open: 'while', close: '/while', },
+        { open: 'do', close: '/do', },
+        { open: 'to', close: '/to', },
+        { open: 'switch', close: '/switch', },
+        { open: 'enum', close: '/enum', },
+    ],
+    surroundingPairs: [
+        { open: '{', close: '}' },
+        { open: '[', close: ']' },
+        { open: '(', close: ')' },
+        { open: '"', close: '"' },
+        { open: "'", close: "'" },
+        { open: 'if', close: '/if', },
+        { open: 'for', close: '/for', },
+        { open: 'while', close: '/while', },
+        { open: 'do', close: '/do', },
+        { open: 'to', close: '/to', },
+        { open: 'switch', close: '/switch', },
+        { open: 'enum', close: '/enum', },
+    ],
+    onEnterRules: [
+        {
+            beforeText: new RegExp('^\\s*(?:for|if|else|do|enum).*?\\s*$'),
+            action: { indentAction: languages.IndentAction.Indent }
+        }
+    ],
+    folding: {
+        offSide: true,
+        markers: {
+            start: new RegExp('^\\s*#region\\b'),
+            end: new RegExp('^\\s*#endregion\\b')
+        }
+    }
+};
+export var language = {
+    defaultToken: 'invalid',
+    tokenPostfix: '.sol',
+    keywords: [
+        'alias',
+        'always',
+        'and',
+        'array',
+        'await',
+        'as',
+        'async',
+        'bool',
+        'boolean',
+        'break',
+        'byte',
+        'case',
+        'catch',
+        'char',
+        'class',
+        'const',
+        'continue',
+        'define',
+        'dict',
+        'do',
+        'echo',
+        'else',
+        'enum',
+        'error',
+        'exception',
+        'false',
+        'file',
+        'finally',
+        'float',
+        'for',
+        'forever',
+        'from',
+        'function',
+        'global',
+        'if',
+        'import',
+        'in',
+        'include',
+        'int',
+        'integer',
+        'is',
+        'let',
+        'long',
+        'mod',
+        'nan',
+        'natural',
+        'new',
+        'nil',
+        'not',
+        'null',
+        'number',
+        'or',
+        'print',
+        'private',
+        'protected',
+        'public',
+        'react',
+        'real',
+        'return',
+        'script',
+        'scriptol',
+        'sol',
+        'static',
+        'step',
+        'super',
+        'switch',
+        'text',
+        'this',
+        'to',
+        'true',
+        'try',
+        'undefined',
+        'until',
+        'var',
+        'void',
+        'while',
+        'yield',
+        'zero',
+        '/if',
+        '/for',
+        '/while',
+        '/do',
+        '/to',
+        '/switch',
+        '/enum',
+    ],
+    builtins: [
+        'die',
+        'exit',
+        'min',
+        'max',
+        'plural',
+        'range',
+        'str',
+        'swap',
+        'pad',
+        'chr',
+        'ord',
+        'intval',
+        'doubleval',
+        'naturalval',
+        'strval',
+        'str',
+        'boolval',
+        'exec',
+        'file_exists',
+        'filesize',
+        'filetime',
+        'filetype',
+        'rename',
+        'system',
+        'unlink',
+        'require',
+        'chdir',
+        'mkdir',
+        'rmdir',
+        'getcwd',
+        'abs',
+        'acos',
+        'asin',
+        'atan',
+        'ceil',
+        'cos',
+        'exp',
+        'floor',
+        'fmod',
+        'log',
+        'pow',
+        'rand',
+        'randomize',
+        'round',
+        'sin',
+        'sqrt',
+        'tan',
+        'time',
+        'localtime',
+        'tm_sec',
+        'tm_min',
+        'tm_hour',
+        'tm_mday',
+        'tm_mon',
+        'tm_year',
+        'tm_wday',
+        'tm_yday',
+        'tm_isdst',
+    ],
+    typeKeywords: [],
+    brackets: [
+        { open: '{', close: '}', token: 'delimiter.curly' },
+        { open: '[', close: ']', token: 'delimiter.bracket' },
+        { open: '(', close: ')', token: 'delimiter.parenthesis' }
+    ],
+    tokenizer: {
+        root: [
+            { include: '@whitespace' },
+            { include: '@numbers' },
+            { include: '@strings' },
+            [/[,:;]/, 'delimiter'],
+            [/[{}\[\]()]/, '@brackets'],
+            [/@[a-zA-Z_]\w*/, 'tag'],
+            [
+                /\/?[a-zA-Z_]\w*/,
+                {
+                    cases: {
+                        '@keywords': 'keyword',
+                        '@builtins': 'type.identifier',
+                        '@default': 'identifier'
+                    }
+                }
+            ]
+        ],
+        // Deal with white space, including single and multi-line comments
+        whitespace: [
+            [/\s+/, 'white'],
+            [/((\/\/|#).*$)/, 'comment'],
+            [/\/\*/, 'comment', '@comment'],
+        ],
+        comment: [
+            [/[^\/*]+/, 'comment'],
+            [/\*\//, 'comment', '@pop'],
+            [/[\/*]/, 'comment']
+        ],
+        // Recognize hex, negatives, decimals, imaginaries, longs, and scientific notation
+        numbers: [
+            [/-?0x([abcdef]|[ABCDEF]|\d)+[lL]?/, 'number.hex'],
+            [/-?(\d*\.)?\d+([eE][+\-]?\d+)?[jJ]?[lL]?/, 'number']
+        ],
+        // Recognize strings, including those broken across lines with \ (but not without)
+        strings: [
+            [/'$/, 'string.escape', '@popall'],
+            [/'/, 'string.escape', '@stringBody'],
+            [/"$/, 'string.escape', '@popall'],
+            [/"/, 'string.escape', '@dblStringBody']
+        ],
+        stringBody: [
+            [/[^\\']+$/, 'string', '@popall'],
+            [/[^\\']+/, 'string'],
+            [/\\./, 'string'],
+            [/'/, 'string.escape', '@popall'],
+            [/\\$/, 'string']
+        ],
+        dblStringBody: [
+            [/[^\\"]+$/, 'string', '@popall'],
+            [/[^\\"]+/, 'string'],
+            [/\\./, 'string'],
+            [/"/, 'string.escape', '@popall'],
+            [/\\$/, 'string']
+        ]
+    }
+};

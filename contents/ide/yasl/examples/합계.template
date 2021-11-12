@@ -1,0 +1,23 @@
+#
+#   YASL: summary
+#   https://github.com/yasl-lang/yasl
+#
+
+/* The challenge is to find all the pairs of two 
+ * integers in an unsorted array 
+ * `ls` that sum up to a given number `t`.
+ * This can be done in linear time in the length 
+ * of `ls`, as shown below.
+ */
+
+const fn twosum(const ls, const target) {
+	const mapped_values = { target - val : val for  val <- ls }
+	for val <- ls {
+		if mapped_values[val] !== undef {
+			return "#{mapped_values[val]} + #{val} == #{target}"
+		}
+	}
+	return 'not found'
+}
+
+echo twosum([1, 2, 13, 4, 5], 17)

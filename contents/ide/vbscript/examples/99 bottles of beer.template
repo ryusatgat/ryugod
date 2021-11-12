@@ -1,0 +1,22 @@
+'
+'   VBScript: 99 bottles of beer 예제
+'   출처: https://www.99-bottles-of-beer.net/
+'
+
+For i = 99 To 0 Step -1
+    Select Case i
+        Case 1
+            msg i & " Bottle of beer on the wall, " & i & " bottle of beer."
+            msg "Take one down and pass it around, no more bottles of beer on the wall."
+        Case 0
+            msg "No more bottle of beer on the wall. No more bottles of beer..."
+            msg "Go to the store and buy some more... 99 bottles of beer."
+        Case Else
+            msg i & " Bottles of beer on the wall, " & i & " bottles of beer."
+            msg "Take one down and pass it around, " & i - 1 & " bottles of beer on the wall."
+    End Select
+Next
+
+Sub msg(message)
+    WScript.Echo message + " 99 Bottles of Beer"
+End Sub

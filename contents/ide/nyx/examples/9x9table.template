@@ -1,0 +1,22 @@
+#
+#   Nix: 9x9 table
+#   https://github.com/kelthuzadx/nyx
+#
+
+a = 1
+while(a<=9){
+    b = 1
+    while(b<=a){
+        print(b+"x"+a+"="+a*b+" ")
+        b  +=1
+    }
+    println()
+    a +=1
+}
+
+for(a:range(1,10)){
+    for(b=1;b<=a;b+=1){
+        print(b+"x"+a+"="+a*b+" ")
+    }
+    println()
+}

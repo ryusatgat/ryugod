@@ -1,0 +1,22 @@
+#
+#   Alma: square
+#   https://github.com/cassowarii/alma
+#
+
+def main (
+    use
+        def say-message [
+            "The "  print
+                    print
+            " of "  print
+            dup     print
+            " is "  print
+        ]
+    in
+        4 "double" say-message double println
+        4 "square" say-message square println
+    end
+)
+
+def double ( 2 * )
+def square ( dup * )

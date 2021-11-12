@@ -1,0 +1,26 @@
+#
+#   Blue: clone
+#   https://github.com/elechak/blue
+#
+
+dog = "Hello\n";
+dog.name   = "kippy";
+dog.age      = 16;
+dog.bark    = func{sys.print("bark\n");};
+dog2 = sys.clone(dog);
+
+dog2.bark();
+
+
+Dog = sys.class(dog);
+
+Dog._ = func{"creating a Dog\n".print();};
+Dog.__ = func{"destroying a Dog\n".print();};
+
+kip = Dog();
+
+kip.bark();
+
+
+dog.print();
+dog2.print();

@@ -1,0 +1,8 @@
+//
+//  Nuua: Hello, World!
+//  https://github.com/nuua-io/Nuua
+//
+
+fun main(argv: [string]) {
+    print "Hello, World!"
+}

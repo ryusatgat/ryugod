@@ -1,0 +1,37 @@
+# Python(파이썬) MySQL 연동 예제
+
+import os
+
+# 예제 실행을 위해 MySQL을 기동시키는 명령어입니다
+os.system("ps -ef | grep mysqld | grep -v grep > /dev/null || (echo 'Starting mysql...' && (sudo service mysql start))")
+
+# My-SQL 커넥터 설치
+os.system("sudo pip3 install mysql-connector-python")
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host = "localhost",
+    user = "ryugod",
+    database = "ryugod",
+)
+
+mycursor = mydb.cursor()
+
+# 테이블 생성
+sql = "CREATE TABLE IF NOT EXISTS example (col varchar(3))"
+mycursor.execute(sql)
+
+# INSERT
+for i in range(10):
+    print(f'INSERT INTO example VALUES ({i})')
+    mycursor.execute(f'INSERT INTO example VALUES ({i})')
+
+mydb.commit()
+
+# SELECT
+mycursor.execute("SELECT col FROM example WHERE col > 4")
+
+myresult = mycursor.fetchall()
+
+print(list(x for x in myresult))

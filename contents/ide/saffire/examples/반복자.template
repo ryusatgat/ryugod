@@ -1,0 +1,12 @@
+/*
+    Saffire: list, iterator
+    https://github.com/saffire
+*/
+
+import io;
+
+// Even a string is a datastructure that can be iterated
+foreach ("mystring" as v) {
+    // v is a string with one character
+    io.print(v, "\n");
+}

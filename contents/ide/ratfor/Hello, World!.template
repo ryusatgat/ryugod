@@ -1,0 +1,12 @@
+#
+#   Ratfor(랫포): Hello, World! 예제
+#
+
+integer i
+for (i = 0; i < 5; i = i + 1)
+{
+   write(6, 200)
+}
+stop
+200 format("Hello, World!")
+end

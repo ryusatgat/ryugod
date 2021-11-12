@@ -1,0 +1,6 @@
+//
+//  LittleLang: Hello, World!
+//  https://github.com/benhoyt/littlelang
+//
+
+print("Hello, World!")

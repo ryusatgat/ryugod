@@ -1,0 +1,29 @@
+/*
+    Kenaf: fibonacci
+    https://github.com/edmundmk/kenaf
+*/
+
+--
+--  fib.kf
+--  Based on code from scriptorium
+--  https://github.com/r-lyeh-archived/scriptorium
+--
+
+def fibr( n )
+    if n < 2 then return n end
+    return fibr( n - 1 ) + fibr( n - 2 )
+end
+
+print( "%d\n", fibr( 20 ) )
+
+def fibi( n )
+    var last, curr = 0, 1
+    n -= 1
+    while n > 0 do
+        n -= 1
+        last, curr = curr, last + curr
+    end
+    return curr
+end
+
+print( "%d\n", fibi( 20 ) )

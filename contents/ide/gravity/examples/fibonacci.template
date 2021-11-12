@@ -1,0 +1,15 @@
+//
+//  Gravity: fibonacci
+//  https://github.com/marcobambini/gravity
+//
+
+class foo {
+	static func fibonacci (n) {
+		if (n<2) return n;
+		return fibonacci(n-2) + fibonacci(n-1);
+	}
+}
+
+func main() {
+	System.print(foo.fibonacci(20));
+}

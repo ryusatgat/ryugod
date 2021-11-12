@@ -1,0 +1,6 @@
+#
+#   Algae: Hello, World!
+#   https://sourceforge.net/projects/algae/
+#
+
+printf("Hello, World!\n");

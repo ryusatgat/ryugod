@@ -1,0 +1,78 @@
+/*
+    Pagan: functions
+    https://github.com/prwoodbury/pagan
+*/
+
+// A function which takes three arguments and returns a function
+// taking one parameter
+function f(first, second, third) {
+    println("f() called: first = ", first, ", second = ", second,
+            ", third = ", third)
+    
+    // f has a local function fLoc which takes one argument
+    // and adds it to first, second, and third (updating their values)
+    function fLoc(param) {
+        println("fLoc() called: param = ", param)
+    
+        // fLoc has a local function fLocLoc which returns a struct
+        // containing three values
+        function fLocLoc(s1, s2, s3) {
+        println("fLocLoc() called: s1 = ", s1, ", s2 = ", s2,
+                ", s3 = ", s3)
+        struct {
+            var firstS = s1
+            var secondS = s2
+            var thirdS = s3
+        }
+        }
+    
+        // Add param to the three variables
+        first = first + param
+        second = second + param
+        third = third + param
+        
+        // Return a struct containing the new values
+        fLocLoc(first, second, third)
+    }
+    
+    
+    // Return an (anonymous) function taking one parameter
+    function (param) {
+        // Call fLoc, updating the values of first, second, and third
+        fLoc(param)
+    }
+}
+
+// A function which takes a function taking no arguments as a parameter
+function g(func) {
+    println("g() called")  
+    
+    // Call the passed function
+    func()
+}
+
+// Call f with the initial values of first, second, and third
+println(" <1> Calling: f(1, 2, 3)")
+var fResult = f(1, 2, 3)
+
+// Call fResult with the update value
+println(" <2> Calling: fResult(1)")
+var fResultResult = fResult(1)
+
+println(" <3> Values of fResultResult: s1 = ", fResultResult.s1,
+        ", s2 = ", fResultResult.s2, ", s3 = ", fResultResult.s3)
+
+// Call fResult again with a different value
+println(" <4> Calling: fResult(10)")
+var fResultResult2 = fResult(10)
+
+println(" <5> Values of fResultResult2: s1 = ", fResultResult2.s1,
+        ", s2 = ", fResultResult2.s2, ", s3 = ", fResultResult2.s3)
+
+// Call f again and immediately call the result
+println(" <6> Calling: f(4, 5, 6)(5)")
+f(4, 5, 6)(5)
+
+// Pass an anonymous function as a parameter to a function
+println(" <7> Calling: g(function () { ... }")
+g(function () { println("calling anonymous function") })

@@ -1,0 +1,6 @@
+;
+;   Carp(카프): Hello, World! 예제
+;
+
+(defn main []
+    (println* "Hello, World!"))

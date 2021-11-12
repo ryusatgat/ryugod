@@ -1,0 +1,43 @@
+// ChaiScript supports normal functional programming paradigms, with automatic overload resolution
+
+var plus = `+` // get a reference to the function object representing all known `+` functions
+
+print(plus("a", "b")) // prints "ab"
+print(plus(1 , 3)) // prints "4"
+// print(plus("a" , 3)) // generates a runtime error, no string + int operator available
+
+// Back ticks are only necessary for capturing operator functions
+
+var my_print = print
+my_print(10) // prints 10
+
+// ChaiScript supports lambda functions
+
+var my_fun = fun(x) { return x + 2; }
+my_fun(5) // returns 7
+
+// ChaiScript supports function introspection
+my_print(my_fun.get_arity()) // prints 1
+
+my_print(`+`.get_arity()) // prints -1 (+ represents both the unary plus and the binary plus, so -1 is returned)
+
+// to see all versions that the `+` operation represents:
+var print_arg_types = fun(f)
+{
+  var join_str = ", "
+  print("${f.get_param_types()[0].name();} (${f.get_param_types().drop(1).map(name).join(join_str)})")
+}
+
+`+`.get_contained_functions().for_each(print_arg_types)
+
+
+// Note that these functions can be passed back and forth to c++ also
+// If you have in your C++:
+// void someFunc(const std::function<int (int)> &t_func) { 
+//   std::cout << t_func(4);
+// }
+//
+// chai.add(fun(someFunc), "someFunc");
+//
+// Then in ChaiScript you could call:
+// someFumc(my_fun); // prints 6

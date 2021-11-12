@@ -1,0 +1,16 @@
+#
+#  R 99 bottles of beer 예제
+#  출처: http://www.rosettacode.org/
+#
+
+song = function(bottles){
+ 
+  for(i in bottles:1){ 
+    cat(bottles," bottles of beer on the wall \n", bottles, " bottles of beer \nTake one down, pass it around \n",
+        bottles-1, " bottles of beer on the wall \n"," \n" ,sep="")
+ 
+        bottles = bottles - 1
+  } 
+}
+ 
+song(99)

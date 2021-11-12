@@ -1,0 +1,16 @@
+#
+#   DuckScript: functions
+#   https://github.com/sagiegurari/duckscript
+#
+
+function print_first_and_second_argument
+    echo ${1} ${2}
+    return printed
+end
+
+function run_flow
+    status = print_first_and_second_argument hello world
+    echo The printout status is: ${status}
+end
+
+run_flow

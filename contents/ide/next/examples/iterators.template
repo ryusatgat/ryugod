@@ -1,0 +1,21 @@
+/*
+    Next: iterators
+    https://github.com/iamsubhranil/Next
+*/
+
+sum =0
+
+for(i in [2, 3, 4]) {
+    sum = sum + i
+}
+
+println(sum)
+
+a = ["k", "m", "n"]
+for(i in a) {
+    if(i == "n") {
+        a[3] = 9
+    }
+}
+
+println(a)

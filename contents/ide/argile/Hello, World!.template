@@ -1,0 +1,7 @@
+(:
+    Argile: Hello, World!
+:)
+
+use std
+
+printf "Hello, World!\n"

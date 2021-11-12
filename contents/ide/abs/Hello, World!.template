@@ -1,0 +1,6 @@
+#
+#   ABS: Hello, World!
+#   https://github.com/abs-lang/abs
+#
+
+echo("Hello, World!")

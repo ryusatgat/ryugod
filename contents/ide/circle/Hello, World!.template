@@ -1,0 +1,12 @@
+/*
+    Circle: Hello, World!
+    https://www.circle-lang.org/
+*/
+
+#include <cstdio>
+
+int main(int argc, char** argv) {
+    printf("Hello, World!\n");
+    @meta printf("@meta Hello, World!\n");
+    return 0;
+}

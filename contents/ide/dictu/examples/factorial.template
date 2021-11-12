@@ -1,0 +1,19 @@
+//
+//  Dictu: factorial
+//  https://github.com/dictu-lang/Dictu
+//
+
+var amount = input("Enter a number: ").toNumber().unwrap();
+var num = 1;
+
+if (amount > 0) {
+    for (var i = 1; i < amount + 1; i += 1) {
+        num *= i;
+    }
+
+    print("Factorial of {} is {}".format(amount, num));
+} else if (amount == 0) {
+    print("The factorial of 0 is 1");
+} else {
+    print("Can't factorial a negative!");
+}

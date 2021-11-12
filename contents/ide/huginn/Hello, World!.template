@@ -1,0 +1,12 @@
+#
+#   Huginn(후긴): Hello, World! 예제
+#
+
+main( argv_ ) {
+    if ( size( argv_ ) > 1 ) {
+        print( "Hello, {}!\n".format( argv_[1] ) );
+    } else {
+        print( "Hello, World!\n" );
+    }
+    return ( 0 );
+}

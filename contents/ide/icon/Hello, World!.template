@@ -1,0 +1,7 @@
+#
+# Icon(아이콘) 언어 Hello, World! 예제
+#
+
+procedure main()
+   write("Hello, World!");
+end

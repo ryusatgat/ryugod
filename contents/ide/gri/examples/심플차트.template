@@ -1,0 +1,15 @@
+#
+#   Gri: simple chart
+#   https://sourceforge.net/projects/gri
+#
+
+read columns x y
+0.05 12.5 
+0.25 19
+0.5  15
+0.75 15
+0.95 13
+
+# Note that a blank line ended the data set
+draw curve
+draw title "simple chart"

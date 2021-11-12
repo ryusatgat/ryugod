@@ -1,0 +1,11 @@
+#
+#   ArkScript: fibonacci
+#   https://github.com/ArkScript-lang/Ark
+#
+
+(let fibo (fun (n)
+    (if (< n 2)
+        n
+        (+ (fibo (- n 1)) (fibo (- n 2))))))
+
+(print (fibo 28))  # display 317811

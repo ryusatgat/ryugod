@@ -1,0 +1,10 @@
+//
+//  Clipper(habour): Hello, World!
+//  https://harbour.github.io/
+//
+
+PROCEDURE Main()
+
+   ? "Hello, World!"
+
+   RETURN

@@ -1,0 +1,21 @@
+/*
+    Strela: fibonacci
+    https://github.com/sunverwerth/strela
+*/
+
+module Fibonacci {
+    import Std.IO.*;
+
+    function fibonacci(i: int): int {
+        if (i < 2) return i;
+        return fibonacci(i-1) + fibonacci(i-2);
+    }
+
+    function main(args: String[]): int {
+        println("Calculating fibonacci(30).");
+        println("This may take a while...");
+        print("fibonacci(30) is ");
+        println(fibonacci(30));
+        return 0;
+    }
+}

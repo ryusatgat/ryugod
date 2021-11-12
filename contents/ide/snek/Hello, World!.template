@@ -1,0 +1,8 @@
+#
+#   Snek: Hello, World!
+#   https://sneklang.org/
+#
+
+str = "Hello, World!"
+
+print(str)

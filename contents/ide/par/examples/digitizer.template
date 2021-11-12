@@ -1,0 +1,17 @@
+//
+//  Par: digitizer
+//  https://par-lang.org/
+//
+
+module Main
+
+to_digits : (Int, [Int]) -> [Int]
+to_digits(num, accum) =
+  if num < 10 then
+    [num | accum]
+  else
+    let digit = num % 10
+    to_digits(trunc(num / 10), [digit | accum])
+
+main : () -> ()
+main() = print(to_digits(137, []))

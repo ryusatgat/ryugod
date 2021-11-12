@@ -1,0 +1,7 @@
+//
+//  PROMELA(프로멜라): Hello, World! 예제
+//
+
+active proctype main() {
+    printf("Hello, World!\n");
+}

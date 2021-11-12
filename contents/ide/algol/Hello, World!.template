@@ -1,0 +1,3 @@
+# Algol68: Hello, World! #
+
+printf(($gl$, "Hello, World!"))

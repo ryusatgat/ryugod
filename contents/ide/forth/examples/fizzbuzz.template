@@ -1,0 +1,16 @@
+\
+\   Forth(포스): FizzBuzz 예제
+\   출처: http://www.rosettacode.org/
+\
+
+: fizz ( n -- ) drop ." Fizz" ;
+: buzz ( n -- ) drop ." Buzz" ;
+: fb   ( n -- ) drop ." FizzBuzz" ;
+: vector create does> ( n -- )
+  over 15 mod cells + @ execute ;
+vector .fizzbuzz
+  ' fb   , ' . ,    ' . ,
+  ' fizz , ' . ,    ' buzz ,
+  ' fizz , ' . ,    ' . ,
+  ' fizz , ' buzz , ' . ,
+  ' fizz , ' . ,    ' . ,

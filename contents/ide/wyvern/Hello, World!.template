@@ -1,0 +1,7 @@
+//
+//  Wyvern(와이번): Hello, World! 예제
+//
+
+require stdout
+
+stdout.print("Hello, World!\n")

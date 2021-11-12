@@ -1,0 +1,11 @@
+#
+#   Mirth: Hello, World!
+#   https://github.com/mirth-lang/mirth
+#
+
+module(main)
+import(prelude)
+import(platform.posix)
+
+target-c99("main.c",
+    "Hello, World!" str-print-ln!)

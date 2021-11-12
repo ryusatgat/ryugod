@@ -1,0 +1,11 @@
+//
+//  Jsonnet(제이슨넷): Hello, World! 예제
+//
+
+{
+  person1: {
+    name: "World",
+    welcome: "Hello, " + self.name + "!",
+  },
+  person2: self.person1 { name: "Alice" },
+}

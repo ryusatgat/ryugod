@@ -1,0 +1,6 @@
+#
+#   Sparkling: Hello, World!
+#   https://github.com/H2CO3/Sparkling
+#
+
+stdout.printf("Hello, World!\n");

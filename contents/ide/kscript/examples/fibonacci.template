@@ -1,0 +1,14 @@
+#
+#   kscript: fibonicci
+#   https://github.com/ChemicalDevelopment/kscript
+#
+
+func fib(n) {
+    if n == 0 || n == 1 {
+        ret n
+    } else {
+        ret ...(n - 1) + ...(n - 2)
+    }
+}
+
+print (fib(20))

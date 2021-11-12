@@ -1,0 +1,9 @@
+//
+//  RPL/2: Hello, World!
+//  http://www.rpl2.net/
+//
+
+MAIN
+<<
+    "Hello, World!" disp
+>>

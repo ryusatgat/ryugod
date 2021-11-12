@@ -1,0 +1,6 @@
+#
+#   Amber: Hello, World!
+#   https://github.com/nineties/amber
+#
+
+puts("Hello, World!")

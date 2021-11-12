@@ -1,0 +1,50 @@
+/* Go(고) 언어 switch 구문 예제 */
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func main() {
+
+    i := 2
+    fmt.Print(i, " 숫자는 다음처럼 읽습니다: ")
+    switch i {
+    case 1:
+        fmt.Println("하나")
+    case 2:
+        fmt.Println("둘")
+    case 3:
+        fmt.Println("셋")
+    }
+
+    switch time.Now().Weekday() {
+    case time.Saturday, time.Sunday:
+        fmt.Println("주말입니다")
+    default:
+        fmt.Println("주중입니다")
+    }
+
+    t := time.Now()
+    switch {
+    case t.Hour() < 12:
+        fmt.Println("오전입니다")
+    default:
+        fmt.Println("오후입니다")
+    }
+
+    whatAmI := func(i interface{}) {
+        switch t := i.(type) {
+        case bool:
+            fmt.Println("bool")
+        case int:
+            fmt.Println("int")
+        default:
+            fmt.Printf("형식을 판단할 수 없습니다: %T\n", t)
+        }
+    }
+    whatAmI(true)
+    whatAmI(1)
+    whatAmI("hey")
+}

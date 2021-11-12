@@ -1,0 +1,14 @@
+(*
+    Alice: 99 bottles of beer
+*)
+
+fun bottles 0 = ()
+  | bottles x = ( print (Int.toString x ^ " bottles of beer on the wall\n");
+                  print (Int.toString x ^ " bottles of beer\n");
+                  print "Take one down, pass it around\n";
+                  print (Int.toString (x-1) ^ " bottles of beer on the wall\n");
+                  bottles (x-1)
+                )
+val _ = bottles(99)
+
+val _ = OS.Process.exit(OS.Process.success);

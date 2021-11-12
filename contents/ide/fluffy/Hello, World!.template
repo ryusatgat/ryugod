@@ -1,0 +1,11 @@
+/*
+    Fluffy: fibonacci
+    https://github.com/MatzeB/fluffy/
+*/
+
+func main(argc : int, argv : byte* * ) : int:
+    printf("Hello, World!\n")
+
+    return 0
+
+export main

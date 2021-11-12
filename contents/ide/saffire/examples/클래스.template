@@ -1,0 +1,23 @@
+/*
+    Saffire: class
+    https://github.com/saffire
+*/
+
+import io;
+
+class Foo {
+	public property FOOBAR = "foobar";
+
+	protected property a = 1;
+
+	public method ctor() {
+		// Constructor
+	}
+
+	public method foo() {
+		return self.a;
+	}
+}
+
+f = Foo();
+io.print ("The value is: ", f.foo(), "\n");

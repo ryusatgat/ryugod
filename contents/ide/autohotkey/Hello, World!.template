@@ -1,0 +1,5 @@
+;
+; AutoHotKey: Hello, World!
+;
+
+MsgBox, Hello, World!

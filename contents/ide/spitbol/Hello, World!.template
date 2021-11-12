@@ -1,0 +1,6 @@
+*
+*   Snobol4(스노볼4) Hello, World! 예제
+*
+
+    output = 'Hello, World!'
+end

@@ -1,0 +1,6 @@
+/*
+    Noumenon: Hello, World!
+    https://github.com/twied/noumenon
+*/
+
+println("Hello, World!");

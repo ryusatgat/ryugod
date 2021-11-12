@@ -1,0 +1,10 @@
+//
+//  Yacas(야카스): 99 bottles of beer 예제
+//  출처: https://rosettacode.org/
+//
+
+For (b := 99, b > 0, b--) 
+  Echo({b, "bottle(s) of beer on the wall," : Nl(),
+        b, "bottle(s) of beer." : Nl(),
+        "Take one down, pass it around," : Nl(),
+        b - 1, "bottle(s) of beer on the wall." : Nl()});

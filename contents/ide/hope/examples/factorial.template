@@ -1,0 +1,8 @@
+!
+!   Hope: factorial
+!   https://github.com/dmbaturin/hope
+!
+
+dec fact : num -> num;
+--- fact 0 <= 1;
+--- fact n <= n*fact(n-1);

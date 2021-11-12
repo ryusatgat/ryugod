@@ -1,0 +1,37 @@
+;;;
+;;; Arrow: fibonacci
+;;; https://github.com/benhj/arrow
+;;;
+
+;;; Note, all int types are signed 64 bit
+
+fn fib () {
+    
+    ;;; create some variables to store state
+    1 -> x;
+    x -> oldx;
+    x -> olderx;
+
+    ;;; perform the sequence a number of times
+    repeat 70 times {
+
+        pr x;
+        pr " ";
+
+        oldx -> olderx;
+        x -> oldx;
+
+        ;;; compute new x value
+        (olderx + oldx) -> x;
+    }
+
+    prn " ";
+
+}
+
+start {
+    
+    prn "Calling block fib";
+    fib();
+
+}

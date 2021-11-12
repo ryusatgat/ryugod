@@ -1,0 +1,5 @@
+--
+--  Euphoria(유포리아): Hello, World! 예제
+--
+
+puts(1, "Hello, World!\n")

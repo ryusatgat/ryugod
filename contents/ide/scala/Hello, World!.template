@@ -1,0 +1,7 @@
+/*
+    Scala(스칼라): Hello, World! 예제
+*/
+
+object main extends App {
+  println("Hello, World!")
+}

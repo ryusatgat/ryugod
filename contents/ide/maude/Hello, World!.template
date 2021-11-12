@@ -1,0 +1,10 @@
+***
+*** Maude: Hello, World!
+***
+
+fmod main is
+protecting STRING .
+   op hello : -> String .
+   eq hello = "Hello, World." .
+endfm
+red hello .

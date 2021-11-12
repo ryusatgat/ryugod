@@ -1,0 +1,8 @@
+/*
+    Clover: Hello, World!
+    https://github.com/ab25cq/clover
+*/
+
+String msg = "Hello, World!"
+
+println(msg)

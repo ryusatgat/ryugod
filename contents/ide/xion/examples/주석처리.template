@@ -1,0 +1,33 @@
+//
+//  Xion(시온): comments 예제
+//  출처: https://github.com/kreativekorp/openxion/
+//
+
+put 5
+put 6 -- this is a comment
+put 7 ∞∞ this is a block comment
+it can go on forever
+and ever
+and ever
+and ever
+until another ∞∞ + 3
+put "Hello"
+∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞
+COMMENT COMMENT
+∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞
+put "Goodbye"--another comment
+put 3.14159
+-- ∞ by itself should still work
+put ∞
+put 7
+put ∞∞ this is a ∞ comment ∞∞ ∞
+put 8
+#this should continue working ∞∞∞∞∞∞∞∞∞∞
+put 9
+put∞∞comment2222∞∞∞∞10
+put 11
+put∞∞ ∞∞12
+put 13
+put ∞ ∞∞ ∞∞,∞
+
+∞∞∞ ending block∞3

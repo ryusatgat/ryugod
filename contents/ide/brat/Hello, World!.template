@@ -1,0 +1,5 @@
+#
+#   Brat: Hello, World!
+#
+
+p "Hello, World!"

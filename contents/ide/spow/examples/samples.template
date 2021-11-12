@@ -1,0 +1,19 @@
+#
+#   Spow: samples
+#   https://github.com/Gioyik/Spow
+#
+
+(head {1 2 3})
+(tail {1 2 3})
+(define x {* 3 (+ 2 2)})
+(println x)
+(println (eval x))
+
+(println {1 2 (+ 2 1)})
+(println {1 2 \(+ 2 1)})
+
+(println {1 2 \{3 4}})
+(println {1 2 @{3 4}})
+
+(println (dict-get [:foo 12 :bar 43] :foo))
+(println (dict-set [:x 1 :y 2] :z 3))

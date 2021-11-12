@@ -1,0 +1,15 @@
+%
+%   Mercury: Hello, World!
+%
+
+:- module main.
+:- interface.
+
+:- import_module io.
+
+:- pred main(io::di, io::uo) is det.
+
+:- implementation.
+
+main(!IO) :-
+    write_string("Hello, World!\n", !IO).

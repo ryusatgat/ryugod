@@ -1,0 +1,25 @@
+#
+#   Rk: loop statement
+#   https://github.com/aaronryank/rk-lang
+#
+
+rk:start
+    int i = 0 j = 0 max
+    key chr
+
+    print: "Enter size: "
+    read: max
+
+    print: "Enter character: "
+    read: chr
+
+    while i <= max do
+        while j < i do
+            print: chr
+            int j = j + 1
+        done
+        j = 0
+        i = i + 1
+        print: "^n"
+    done
+rk:end

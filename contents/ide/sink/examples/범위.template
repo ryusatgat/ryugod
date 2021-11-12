@@ -1,0 +1,44 @@
+#
+#   Sink: range
+#   https://github.com/velipso/sink
+#
+
+for var v, i: range 3
+	say v, i
+	# 0 0
+	# 1 1
+	# 2 2
+end
+
+for var v, i: range 2, 5
+	say v, i
+	# 2 0
+	# 3 1
+	# 4 2
+end
+
+for var v, i: range 4, 10, 2
+	say v, i
+	# 4 0
+	# 6 1
+	# 8 2
+end
+
+for var v, i: range -1.25, -2.75, -0.5
+	say v, i
+	# -1.25 0
+	# -1.75 1
+	# -2.25 2
+end
+
+say range 5     # {0, 1, 2, 3, 4}
+say range -1    # {}
+say range 3.4   # {0, 1, 2, 3}
+
+say range 2, 5    # {2, 3, 4}
+say range -1, 5   # {-1, 0, 1, 2, 3, 4}
+say range 1.5, 3  # {1.5, 2.5}
+
+say range 0, 10, 3       # {0, 3, 6, 9}
+say range -1, -2, -0.25  # {-1, -1.25, -1.5, -1.75}
+say range 0, 2.25, 0.25  # {0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2}

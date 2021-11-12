@@ -1,0 +1,5 @@
+#
+#   Pyret(파이릿) Hello, World! 예제
+#
+
+print("Hello, World!\n")

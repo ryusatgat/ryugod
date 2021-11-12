@@ -1,0 +1,14 @@
+/*
+    JerryScript: Hello, World
+    https://github.com/jerryscript-project
+*/
+
+console = {
+    log: print,
+    error: print,
+    warn: print,
+}
+
+const str = "Hello, World!"
+
+console.log(`${str}`)

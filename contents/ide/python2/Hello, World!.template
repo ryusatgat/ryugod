@@ -1,0 +1,4 @@
+#-*- coding: utf-8 -*-
+# Python(파이썬) 2.7 Hello, World! 예제
+
+print "Hello, World!"

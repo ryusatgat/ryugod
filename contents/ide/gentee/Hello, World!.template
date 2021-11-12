@@ -1,0 +1,14 @@
+//
+//  Gentee(젠티): Hello, World! 예제
+//  출처: https://github.com/gentee/gentee
+//
+
+run {
+    str name = "World"
+    Println(`Hello, %{ ?(*name>0, name, `World`) }!` )
+}
+
+/* Shorter versions
+run : ||"Hello, World!\r\n"
+run : $ echo "Hello, World!"
+*/

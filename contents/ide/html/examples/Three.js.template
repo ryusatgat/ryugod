@@ -1,0 +1,54 @@
+<!--
+    Three.js 예제
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Three.js</title>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script>
+    <script>
+      let camera, scene, renderer;
+      let geometry, material, mesh;
+
+      init();
+
+      function init() {
+        camera = new THREE.PerspectiveCamera(
+          20,
+          window.innerWidth / window.innerHeight,
+          0.01,
+          10
+        );
+        camera.position.z = 1;
+
+        scene = new THREE.Scene();
+
+        geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+        material = new THREE.MeshNormalMaterial();
+
+        mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setAnimationLoop(animation);
+        document.body.appendChild(renderer.domElement);
+      }
+
+      function animation(time) {
+        mesh.rotation.x = time / 2000;
+        mesh.rotation.y = time / 1000;
+
+        renderer.render(scene, camera);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+// Genie(지니) Hello, World! 예제
+
+[indent=4]
+
+class Main
+	def run()
+		stdout.printf("Hello, World!\n")
+
+init
+	var sample = new Main()
+	sample.run()

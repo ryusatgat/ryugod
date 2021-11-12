@@ -1,0 +1,13 @@
+<v,<.g10" bottles of beer on the wall"+550   <
+c>:|
+  $<v,<.g10" bottles of beer"+550
+    >:|
+     $<v,<"take one down, pass it around"+550
+       >:|
+         >$01g1-:01p                     v
+v,<.g10" bottles of beer on the wall"+550<
+>:|
+  >$55+,0`                                   |
+                                             @
+
+"   Befunge: 99 bottles of beer   "

@@ -1,0 +1,9 @@
+(*
+    Modula-3(모듈라-3): Hello, World! 예제
+*)
+
+MODULE Main;
+IMPORT IO;
+BEGIN
+  IO.Put("Hello, World!\n")
+END Main.

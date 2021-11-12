@@ -1,0 +1,8 @@
+--
+--  Curry(커리): Hello, World! 예제
+--
+
+module Main where
+import IO
+
+main = putStrLn "Hello, World!"

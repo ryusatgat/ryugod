@@ -1,0 +1,15 @@
+#
+#   Mu: quick sort
+#   http://mu-script.org/
+#
+
+fn qsort(data)
+    let [x, ..data] = tbl(data)
+    if (len(data) == 0)
+        return [x]
+
+    let small = filter(fn(y) -> y <  x, data)
+    let large = filter(fn(y) -> y >= x, data)
+    return qsort(small) ++ [x] ++ qsort(large)
+
+print(qsort([1,5,2,8,6,4,5,2,9]))

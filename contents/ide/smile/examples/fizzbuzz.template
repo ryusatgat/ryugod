@@ -1,0 +1,14 @@
+//
+//  Smile: FizzBuzz
+//  https://github.com/seanofw/smile
+//
+
+#include "stdio"
+
+Number.divisible-by? = |number other| number mod other == 0
+
+1..30 each |number|
+	print-line (if number divisible-by? 3 and number divisible-by? 5 then "FizzBuzz"
+		else if number divisible-by? 3 then "Fizz"
+		else if number divisible-by? 5 then "Buzz"
+		else number)

@@ -1,0 +1,11 @@
+/*
+    Falcon(팔콘) 99 bottles of beer 예제
+    출처: http://www.rosettacode.org/
+*/
+
+for i in [99:1]
+    > i, " bottles of beer on the wall"
+    > i, " bottles of beer"
+    > "Take one down, pass it around"
+    > i-1, " bottles of beer on the wall\n"
+end

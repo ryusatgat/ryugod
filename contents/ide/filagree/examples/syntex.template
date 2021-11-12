@@ -1,0 +1,416 @@
+/*
+    Filagree: test syntax
+    https://github.com/ys1382/filagree
+*/
+
+# test_syntax.fg ###################################################################
+
+tester = [
+	'tested':0,
+	'passed':0,
+
+	'test' : function(self, title, code, expected)
+		answer = code()
+		if answer == expected then
+			result = 'passed'
+			self.passed = self.passed + 1
+		else
+			result = 'failed'
+		end
+		sys.print('#' + (self.tested+1) + ' ' + title + ': ' + result)
+		self.tested = self.tested + 1
+	end,
+
+	'done' : function(self)
+		sys.print('unit tests done -- ' + self.passed +'/'+ self.tested +' passed')
+	end
+]
+
+tester.test('add integers',
+    function()
+        a = 7
+        b = 8
+        ++b
+        c = a + b
+        return c
+    end,
+    16)
+
+tester.test('add strings',
+    function()
+        p = 'hello, '
+        q = p + 'world!'
+        return q
+    end,
+    'hello, world!')
+
+tester.test('add lists',
+    function()
+        a = [1,2,3,'p':4,'q':5]
+        b = [3,4,'q':6,'r':7]
+        return a+b
+    end,
+    [1,2,3,3,4,'p':4,'q':5,'r':7])
+
+tester.test('if-then',
+    function()
+        if true
+            then b=2
+        else
+            b=3
+        end
+        return b
+    end,
+    2)
+
+tester.test('index',
+    function()
+        a = [7,8,9]
+        return a[2]
+    end,
+    9)
+
+tester.test('list set',
+    function()
+        a = [7,8,9]
+        a[2] = 19
+        return a[2]
+    end,
+    19)
+
+tester.test('fdecl',
+    function()
+        f = function (a,b,c)
+            return a+b+c
+        end
+        return f(1,2,3)
+    end,
+    6)
+
+tester.test('while',
+    function()
+        i = 1
+        while i < 7
+            i = i + 1
+        end
+        return i
+    end,
+    7)
+
+
+tester.test('comment',
+    function()
+        # return 1
+        return 2
+    end,
+    2)
+
+
+tester.test('float',
+    function()
+        x = 1.2
+        y = 3.4
+        return x + y > 4
+    end,
+    1)
+
+
+tester.test('serial',
+    function()
+        a = [2,3,4]
+        a.x = 7
+        b = a.serialize()
+        c = b.deserialize()
+        return c.x + c[2]
+    end,
+    11)
+
+
+tester.test('map',
+    function()
+        x='y'
+        a = [2,3,4,'x':7,x:8]
+        a['z'] = 9:10
+        result = a.string   +
+            a.type          +
+            a.length        +
+            a.ordered       +
+            a.keys          +
+            a.vals
+        return result
+    end,
+    '[2,3,4,\'x\':7,\'y\':8,\'z\':[9:10]]list3[2,3,4][\'x\',\'y\',\'z\'][7,8,[9:10]]')
+
+
+tester.test('string',
+    function()
+        a = 'supercalifragilisticexpialidocious!' 
+        return a[34].string
+    end,
+    '!')
+
+
+tester.test('scope',
+    function()
+        n = 2
+        f = function(n)
+            n = 3
+        end
+        f(4)
+        return n
+    end,
+    2)
+
+
+tester.test('file',
+     function()
+         x = [2,'3':4,'5']
+         sys.save(x, 'test_file')
+         y = sys.load('test_file')
+         sys.rm('test_file')
+         return x == y
+     end,
+     true)
+
+tester.test('many returns',
+    function()
+        f = function()
+            return 12,6
+        end
+        x,y,z = f()
+        if not z then
+            return x/y
+        else
+            return 99
+        end
+    end,
+    2)
+
+tester.test('sort',
+    function()
+        p = [3,1,4,1,5,9,6,2]
+        p.sort()
+        q = [['a':3, 'b':4], ['a':2, 'b':5]]
+        q.sort(function(x,y) return y.a - x.a end)
+        return p[0] + q[0].a
+    end,
+    4)
+
+tester.test('find',
+    function()
+        p = 'one two three'
+        q = p.find('two')
+        r = p.find('o', 1)
+        return q+r
+    end,
+    10)
+
+
+tester.test('part',
+    function()
+        p = 'one two three'
+        q = p.part(4,3)
+        return q
+    end,
+    'two')
+
+
+tester.test('replace',
+    function()
+        p = 'one two three four'
+        q = p.replace('two', '2')
+        r = q.replace('o', '0', 1) # specifying position means not global
+        s = r.replace('e', '3')
+        t = s.replace(6, 3, 'gl') # start, length, new_string
+        return t
+    end,
+    'on3 2 gl33 f0ur')
+
+
+tester.test('for each',
+    function()
+        x = [3,1,4,1,5,9]
+        sum = 20
+        for n in x where n > 3
+            sum = sum - n
+        end
+        y = ['a':7,'b':8]
+        for k in y
+            sum = sum + y[k]
+        end
+        return sum
+    end,
+    17)
+
+
+tester.test('comprehension',
+    function()
+        x = [3,1,4,1,5,9]
+        y = [n+1 for n in x where n > 3]
+        return y
+    end,
+    [5,6,10])
+
+tester.test('exception',
+    function()
+        try
+            throw 2
+            return 3
+        catch x
+            return x
+        end
+        return 4
+    end,
+    2)
+
+tester.test('args',
+    function()
+        f = function()
+            sum = 0
+            for n in sys.args()
+                sum = sum + n
+            end
+            return sum
+        end
+        return f(3,1,4)
+    end,
+    8)
+
+tester.test('no return',
+    function()
+        f = function()
+            x = 1
+        end
+        if (f())
+            return 2
+        end
+        return 3
+    end,
+    3)
+
+
+tester.test('closure',
+    function()
+        x = 7
+        y = 8
+        f = function(a)(x,y)
+            return a+x+y
+        end
+        return f(3)
+    end,
+    18)
+
+tester.test('short circuit',
+    function()
+        a = 0 or 0
+        b = 0 or 1
+        c = 2 or 0
+        d = 3 or 4
+        e = 0 and 0
+        f = 0 and 5
+        g = 6 and 0
+        h = 7 and 8
+        return a+b+c+d+e+f+g+h
+    end,
+    14)
+
+tester.test('assignment expression',
+    function()
+        a,b = c,d,e,f,g = 7,8,9
+        if (h = not (i = 0)) then
+            return a + b + c + h + i
+        end
+        return 9
+    end,
+    23)
+
+tester.test('map args',
+    function()
+        f = function()
+            a = sys.args()
+            return a.p + a.q
+        end
+        return f('p':7, 'q':8)
+    end,
+    15)
+    
+tester.test('remove from list',
+    function()
+        a = [3,1,4,1,5,9,6,2]
+        b = a.remove()
+        one = (a == [1,4,1,5,9,6,2]) and (b == [3])
+        c = a.remove(2,3)
+        two = (a == [1,4,6,2]) and (c == [1,5,9])
+        return one and two
+    end,
+    true)
+
+tester.test('remove from string',
+    function()
+        a = '31415962'
+        b = a.remove()
+        one = (a == '1415962') and (b == '3')
+        c = a.remove(2,3)
+        two = (a == '1462') and (c == '159')
+        return one and two
+    end,
+    true)
+
+tester.test('sparse array',
+    function()
+        a = []
+        a[3] = 9
+        return ''+a
+    end,
+    '[,,,9]')
+
+tester.test('pack',
+    function()
+        a,b,c = [7,8,9].pack()
+        return a + b + c
+    end,
+    24)
+
+tester.test('nil',
+    function()
+
+        fz = function(z)
+
+            a = nil <  z == true
+            b = nil >  z == false
+            c = nil <= z == true
+            d = nil >= z == false
+
+            e = z >  nil == true
+            f = z <  nil == false
+            g = z >= nil == true
+            h = z <= nil == false
+
+            i = nil + z == z
+            j = nil - z == -z
+            k = nil * z == 0
+            l = nil / z == 0
+
+            m = z + nil == z
+            n = z - nil == z
+            o = z * nil == 0
+
+            return a and b and c and d and e and f and g and h and i and j and k and l and m and n and o
+
+        end
+
+        p = nil == nil = true
+        q = nil > nil == false
+        r = nil < nil == false
+        s = nil >= nil == true
+        t = nil <= nil == true
+        u = nil + nil == nil
+        v = nil - nil == nil
+        w = nil * nil == nil
+
+        return fz(1) and fz(2) and p and q and r and s and t and u and v and w
+
+    end,
+    true)
+
+tester.done()

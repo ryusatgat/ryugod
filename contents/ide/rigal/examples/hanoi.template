@@ -1,0 +1,90 @@
+--
+--  Rigal: tower of hanoi
+--
+
+#MAIN
+    OPEN S ' ';
+    $Count:=4; -- Count of rings in first tower
+    S<<' Rings count =' $Count ;
+    $STATE:=#INIT($Count); -- Global variable 
+
+    #VIDEOSHOW(T); 
+    #H( $Count 1 3 );
+##
+
+#H
+  $Num $From $To
+  / 
+  S<< ' $Num $From $To ='  $Num $From $To ;
+
+    IF $Num=1 -> 
+        S << 'FROM' $From 'TO ' $To;
+        #VIDEOMOVE ($From $To);
+        #VIDEOSHOW (T)
+    ELSIF T->
+        $Middle := 6-$From-$To ;
+        #H( $Num-1 $From $Middle );
+        #H( 1      $From $To );
+        #H( $Num-1 $Middle $To )
+    FI / ##
+
+#INIT  $Count
+/  $V:=(.
+        <. LEN : COPY($Count), BODY : (.COPY($Count).) .>
+        <. LEN : 0     , BODY : (.0.)      .>
+        <. LEN : 0     , BODY : (.0.)      .> .);
+    LOOP
+        IF $Count=1 -> BREAK FI;
+        $Count:=COPY($Count-1);
+        $V[1].BODY!.:=$Count;
+        $V[2].BODY!.:=0;
+        $V[3].BODY!.:=0;
+    END;
+    RETURN $V;
+ / ##
+
+#VIDEOMOVE
+    $From $To
+    / 
+        $S_from := LAST #MAIN $STATE [$From];
+        $S_to   := LAST #MAIN $STATE [$To];
+        $Ring:=COPY( $S_from.BODY[$S_from.LEN]);
+        $S_from.BODY[$S_from.LEN]:=0;
+        $S_from.LEN+:=-1;
+        $S_to.LEN+:=1;
+        $S_to.BODY[$S_to.LEN]:=$Ring;
+    /
+##
+
+#VIDEOSHOW
+
+/ $X:=LAST #MAIN $STATE;
+    $I:=1;
+    LOOP
+        S<<$I '   ';
+        #STR($X[1].BODY[-$I]);
+        S<]'   ';
+        #STR($X[2].BODY[-$I]) ;
+        S<]'   ';
+        #STR($X[3].BODY[-$I]);
+        IF $I>=LAST #MAIN $Count -> BREAK;FI;
+        $I+:=1;
+    END;
+    S<<;
+#CALL_PAS(1 '<<<<<>>>>>>')/##
+
+#STR
+    $N
+/   $E:=LAST #MAIN $Count-$N;
+    #FILL(' ' $E); 
+    #FILL('O' 2*$N);
+    #FILL(' ' $E)/ ##  
+
+#FILL 
+    $SYM $CNT
+    /LOOP
+        $CNT:=$CNT-1;
+        IF $CNT<0 -> BREAK FI;
+        S<]@$SYM; 
+    END; 
+/##

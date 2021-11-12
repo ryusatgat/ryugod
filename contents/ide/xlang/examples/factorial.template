@@ -1,0 +1,40 @@
+//
+//  xlang: factorial
+//  https://github.com/pritamzope/xlang
+//
+
+extern void scanf(char*, int);
+extern void printf(char*, int);
+
+void print_string(char* str)
+{
+    printf(str, 0);
+}
+
+int factorial(int num)
+{
+    int fact;
+    fact = 1;
+
+    if(num <= 0){
+        return 1;
+    }else{
+        while(num > 0){
+            fact = fact * num;
+            num--;
+        }
+    }
+
+    return fact;
+}
+
+global int main()
+{
+    int x,fact;
+
+    print_string("Enter a number: ");
+    scanf("%d", &x);
+    fact = factorial(x);
+
+    printf("factorial %d\n", fact);
+}

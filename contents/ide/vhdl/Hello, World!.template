@@ -1,0 +1,19 @@
+--
+--  VHDL: Hello, World!
+--
+
+use std.textio.all;
+
+entity main is
+end main;
+
+architecture behaviour of main is
+begin
+    process
+        variable hello : line;
+    begin
+        write (hello, String'("Hello, World!"));
+        writeline (output, hello);
+        wait;
+    end process;
+end behaviour;

@@ -1,0 +1,5 @@
+/*
+    Frink(프링크) Hello, World 예제
+*/
+
+println["Hello, World!"]

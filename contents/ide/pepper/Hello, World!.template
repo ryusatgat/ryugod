@@ -1,0 +1,6 @@
+//
+//  Pepper: Hello, World!
+//  https://github.com/dannyvankooten/pepper-lang
+//
+
+print("Hello, World!");

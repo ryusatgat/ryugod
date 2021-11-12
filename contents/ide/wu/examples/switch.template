@@ -1,0 +1,18 @@
+# 
+#   Wu(우): switch 예제
+#   출처: https://github.com/wu-lang/wu
+# 
+
+a := 10
+
+print: extern fun(...?)
+
+b: str? = switch a {
+    0 => {
+        a := 10
+        print("hey")
+        nil
+    }
+    1  => print("hello hoy yuo")
+    10 => print("it was 10??? all along")
+}

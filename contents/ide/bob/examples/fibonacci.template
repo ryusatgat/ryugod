@@ -1,0 +1,32 @@
+/*
+    Bob: fibonacci
+    https://github.com/dbetz/bob
+*/
+
+define fibo_generator()
+{
+    local fibo_nm1 = 0;
+    local fibo_nm2 = 1;
+    return function () {
+        local fibo = fibo_nm1 + fibo_nm2;
+        fibo_nm2 = fibo_nm1;
+        fibo_nm1 = fibo;
+        return fibo;
+    };
+}
+
+stdout.Display("Make two fibo generators\n");
+fibo1 = fibo_generator();
+fibo2 = fibo_generator();
+
+stdout.Display("First pump 10 values from the fibo1 generator\n");
+for (i = 0; i < 10; ++i)
+    stdout.Display("fibo1 ", fibo1(), "\n");
+
+stdout.Display("Now pump 5 values from the fibo2 generator\n");
+for (i = 0; i < 5; ++i)
+    stdout.Display("fibo2 ", fibo2(), "\n");
+ 
+stdout.Display("Finally, resume pumping values from the fibo1 generator\n");
+for (i = 0; i < 10; ++i)
+    stdout.Display("fibo1 ", fibo1(), "\n");

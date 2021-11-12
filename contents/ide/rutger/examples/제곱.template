@@ -1,0 +1,13 @@
+//
+//  Rutger(럿거): square 예제
+//  출처: https://github.com/cairdcoinheringaahing/Rutger
+//
+
+square = Function[Int -> Int];
+square[@base];
+square[{f = Pow[$base]; f[2];}];
+
+for = For[10];
+for = for[@index];
+for = for[{Print[square[$index]];}];
+Do[$for];

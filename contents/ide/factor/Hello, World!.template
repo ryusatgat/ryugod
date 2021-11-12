@@ -1,0 +1,7 @@
+!
+!   Factor(팩터): Hello, World! 예제
+!
+
+USE: io 
+
+"Hello, World!" print

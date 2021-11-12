@@ -1,0 +1,14 @@
+#
+#   Seq: hamming neighbors
+#   https://seq-lang.org/
+#
+
+from bio import *
+
+def neighbors(kmer):
+    for i in range(len(kmer)):
+        for b in (k'A', k'C', k'G', k'T'):
+            if kmer[i] != b:
+                yield kmer |> base(i, b)
+
+print(list(neighbors(k'AGC')))

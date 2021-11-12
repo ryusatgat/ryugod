@@ -1,0 +1,11 @@
+-[
+    Avalon: Hello, World!
+    https://github.com/avalon-lang
+]-
+
+import io
+
+def __main__ = (val args : [string]) -> void:
+    Io.println("Hello, World!")
+
+    return

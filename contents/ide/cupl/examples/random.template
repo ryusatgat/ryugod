@@ -1,0 +1,12 @@
+        WRITE 'SAMPLE PSEUDO-RANDOM NUMBERS'
+        LET SEED = 0.123456789
+        WRITE SEED
+        LET RN = SEED
+        PERFORM RANDLOOP 10 TIMES
+RANDLOOP        BLOCK
+                LET RN = RAND(RN)
+                WRITE RN
+RANDLOOP        END
+        STOP
+
+COMMENT CUPL: random

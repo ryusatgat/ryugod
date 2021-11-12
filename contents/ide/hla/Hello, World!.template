@@ -1,0 +1,13 @@
+//
+//  HLA: Hello, World!
+//
+
+program goodbyeWorld;
+
+#include("stdlib.hhf")
+
+begin goodbyeWorld;
+ 
+    stdout.put( "Hello, World!" nl );
+ 
+end goodbyeWorld;

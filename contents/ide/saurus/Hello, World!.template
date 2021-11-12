@@ -1,0 +1,6 @@
+#
+#   Saurus: Hello, World!
+#   https://github.com/andreas-jonsson/saurus-dynamic
+#
+
+io.print("Hello, World!");

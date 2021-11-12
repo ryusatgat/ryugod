@@ -1,0 +1,5 @@
+//
+//  zkl: Hello, World! 예제
+//
+
+println("Hello, World!");

@@ -1,0 +1,5 @@
+(*
+    Joy: Hello, World!
+*)
+
+"Hello, World!\n" putchars .

@@ -1,0 +1,30 @@
+//
+//  BCPL: 100 doors 예제
+//  출처: http://www.rosettacode.org/
+
+GET "libhdr"
+
+LET start() = VALOF
+{
+    LET doors = VEC 100
+
+    // close all doors
+    FOR n = 1 TO 100 DO doors!n := 0
+
+    // make 100 passes
+    FOR pass = 1 TO 100 DO
+    {
+        LET n = pass
+        WHILE n <= 100 DO
+        {  doors!n := ~doors!n
+            n := n + pass
+        }
+    }
+
+    // report which doors are open
+    FOR n = 1 TO 100 DO
+        IF doors!n THEN
+            writef("Door %N is open.*N", n)
+
+   RESULTIS 0
+}

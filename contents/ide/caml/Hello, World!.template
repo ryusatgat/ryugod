@@ -1,0 +1,6 @@
+(*
+    CAML: Hello, World!
+*)
+
+print_string "Hello, World!\n";;
+flush stdout;;

@@ -1,0 +1,36 @@
+//
+//  Pascal(파스칼): Hello, World 예제
+//  출처: https://rosettacode.org/
+//
+
+program Fibonacci;
+
+type
+	fibonacciLeftInverseRange = 0..50;
+var
+    i: Integer;
+ 
+function fibonacci(const n: fibonacciLeftInverseRange): nativeUInt;
+type
+	relativePosition = (previous, current, next);
+var
+	i: longword;
+	f: array[relativePosition] of nativeUInt;
+begin
+	f[previous] := 0;
+	f[current] := 1;
+ 
+	for i := 1 to n do
+	begin
+		f[next] := f[previous] + f[current];
+		f[previous] := f[current];
+		f[current] := f[next];
+	end;
+ 
+	fibonacci := f[previous];
+end;
+
+begin
+    for i:=1 to 50 do
+        Writeln(fibonacci(i));
+end.

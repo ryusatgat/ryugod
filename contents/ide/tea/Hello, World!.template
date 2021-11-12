@@ -1,0 +1,7 @@
+---
+//  Tea: Hello, World!
+---
+
+hello = 'Hello, World!'
+
+echo '$hello'

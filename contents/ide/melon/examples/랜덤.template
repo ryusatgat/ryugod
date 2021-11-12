@@ -1,0 +1,34 @@
+/*
+    Melon: random number
+    https://github.com/Water-Melon/Melon
+*/
+
+io.print(random.getSeed());
+
+random.seed(1234567890);
+
+for (let i in 0..100) {
+    io.print(random.getRandomNumber());
+}
+
+for (let i in 0..100) {
+    io.print(random.getRandomInt());
+}
+
+for (let i in 0..100) {
+    let val = random.getRandomNumber(-10.0, 5.0);
+    io.print(val);
+
+    if (val < -10.0 || val > 5.0) {
+        debug.error("Invalid random value generated.");
+    }
+}
+
+for (let i in 0..100) {
+    let val = random.getRandomInt(-100, 250);
+    io.print(val);
+
+    if (val < -100 || val > 250) {
+        debug.error("Invalid random value generated.");
+    }
+}

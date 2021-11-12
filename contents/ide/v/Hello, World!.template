@@ -1,0 +1,5 @@
+//
+// V언어: Hello, World! 예제
+//
+
+println('Hello, World!')

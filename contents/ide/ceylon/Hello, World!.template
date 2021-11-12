@@ -1,0 +1,9 @@
+/*
+    Ceylon(실론): Hello, World! 예제
+*/
+
+shared class Main() {
+    value message = "Hello, World!";
+
+    print(message.normalized);
+}

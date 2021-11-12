@@ -1,0 +1,47 @@
+//
+//  Cone: arrays
+//  https://github.com/jondgoodwin/cone
+//
+
+// Arrays, array references and slices
+
+import stdio
+
+fn main(mut a i32):
+    mut x = [1, 4, 5]   // Create an array
+    arrayops(x)         // Perform operations on a copy of the array
+    sliceops(&[]mut x)  // Coerce to array reference: another language primitive (ptr+len)
+    listops()           // Demonstrate a custom type acting as an array-like collection
+
+// An array is a language primitive with a statically known size
+fn arrayops(mut array [3; i32]):
+    array[0] = array[2]     // Copy one element into another
+    each n in 0u < 3u:
+        imm r = &mut array[n]
+        print <- *r
+    print <- "\n"
+
+// Slice is a borrowed array reference, a language primitive (ptr+len)
+fn sliceops(slice &[]mut i32):
+    each n in 0u < 3u:
+        imm r = &mut slice[n]
+        print <- *r
+    print <- "\n"
+
+
+// Define a custom type that supports an array-like API
+struct List:
+    mut arr [4; i32]
+
+    fn `[]`(index usize) i32:
+        arr[index]
+
+    fn `&[]`(self &mut, index usize) &mut i32:
+        &mut arr[index]
+
+fn listops():
+    mut list = List[arr: [1, 5, 2, 8]]
+    print <- list[2]
+    imm r = &mut list.`&[]`(3)
+    print <- *r
+    print <- "\n"

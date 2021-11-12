@@ -1,0 +1,6 @@
+@
+@   EGA: break
+@   https://github.com/katahiromz/EGA
+@
+
+for(i, 1, 10000, (println(i), if(>=(i, 10), break())));

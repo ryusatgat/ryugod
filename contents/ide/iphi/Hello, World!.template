@@ -1,0 +1,21 @@
+(*
+    Iphigeneia: Hello, World!
+    https://github.com/catseye/Iphigeneia
+*)
+
+begin
+    print 72;
+    print 101;
+    print 108;
+    print 108;
+    print 111;
+    print 44;
+    print 32;
+    print 87;
+    print 111;
+    print 114;
+    print 108;
+    print 100;
+    print 33;
+    print 10
+end

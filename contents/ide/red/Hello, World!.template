@@ -1,0 +1,8 @@
+;
+;   Red(레드): Hello, World! 예제
+;   출처: http://www.rosettacode.org/
+;
+
+Red [Title: "Hello World in Red"]
+
+print "Hello, World!"

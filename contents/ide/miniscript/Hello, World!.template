@@ -1,0 +1,5 @@
+//
+//	Miniscript(미니스크립트): Hello, World! 예제
+//
+
+print "Hello, World!"

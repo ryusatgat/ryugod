@@ -1,0 +1,40 @@
+#
+#   Alma: 99 bottles of beer
+#   https://github.com/cassowarii/alma
+#
+
+# prints correct pluralization of bottles, leaves number on stack
+def bottle/s (
+    " bottle" print
+    when*: [1 ≠] ["s" print]
+    " " print
+)
+
+# prints "X bottle(s) " or "No more bottles " if 0, leaves number on stack
+def quantified-bottles (
+    if*: [0 >] [dup] ["No more"]
+    print
+    bottle/s
+)
+
+# int → , sings the song for n verses
+def n bottles-of-beer (
+    n
+    while*: [0 ≥] [
+        quantified-bottles "of beer on the wall" say
+        quantified-bottles "of beer" say
+        if*: [0 >] [
+            "Take one down, pass it around" say
+            1 -
+            quantified-bottles "of beer on the wall!" say
+            "" say # empty line between verses
+        ] [
+            "Go to the store, buy some more" say
+            n quantified-bottles drop "of beer on the wall!" say
+            1 -
+        ]
+    ]
+    drop
+)
+
+def main ( 99 bottles-of-beer )

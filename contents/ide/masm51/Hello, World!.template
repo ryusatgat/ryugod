@@ -1,0 +1,19 @@
+.MODEL SMALL
+.STACK 256
+
+.DATA
+outstring DB 'Hello World',13,10,'$'
+
+.CODE
+_start:
+ mov ax,@data
+ mov ds,ax
+ 
+ mov ax,OFFSET outstring
+ mov ah,9
+ int 21h
+ 
+ mov ah,4ch
+ int 21h
+ 
+END _start   

@@ -1,0 +1,5 @@
+#
+# Loli: Hello, World!
+#
+
+sayln("Hello, World!")

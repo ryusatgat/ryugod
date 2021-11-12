@@ -1,0 +1,5 @@
+--
+--  Haskell(하스켈) Hello, World! 예제
+--
+
+main = putStrLn "Hello, World!"

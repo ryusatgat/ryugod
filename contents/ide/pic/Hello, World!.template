@@ -1,0 +1,8 @@
+#
+#   PIC: Hello, World!
+#   https://www.gnu.org/software/plotutils/manual/en/html_node/pic2plot-Introduction.html
+#
+
+.PS
+"Hello, World!"
+.PE

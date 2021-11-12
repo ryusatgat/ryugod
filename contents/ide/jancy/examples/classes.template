@@ -1,0 +1,93 @@
+/*
+    Jancy: classes
+    https://github.com/vovkos/jancy
+*/
+
+class C1 {
+	// default access mode is public; access can be specified in C++ style...
+
+protected:
+	static int m_table[10];
+
+	// ...or in java-style;	in-place field initialization is supported
+
+	public int m_x = 10;
+	public int m_y = 20;
+
+public:
+	// syntax for declaring special members is a bit different from C++/Java
+
+	// static constructors / destructors
+
+	static construct();
+
+	construct() {
+		printf("C1.construct()\n");
+	}
+
+	// overloaded constructor
+
+	construct(
+		int x,
+		int y
+	);
+
+	destruct() {
+		printf("C1.destruct()\n");
+	}
+
+	// overloaded '+=' operator
+
+	operator += (int d);
+}
+
+// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+// implementation of member methods can be out-of-class (like in C++)
+
+C1.static construct() {
+	printf("C1.static construct()\n");
+
+	for (int i = 0; i < countof(m_table); i++)
+		m_table[i] = i;
+}
+
+C1.construct(
+	int x,
+	int y
+) {
+	printf("C1.construct(%d, %d)\n", x, y);
+	m_x = x;
+	m_y = y;
+}
+
+C1.operator += (int d) {
+	printf("C1.operator += (%d)\n", d);
+
+	m_x += d;
+	m_y += d;
+}
+
+//..............................................................................
+
+// entry point
+
+int main() {
+	printf("main ()\n");
+
+	// Jancy does not distinguish between reference-types and value-types.
+	// Unlike in Java, when Jancy programmer declares a class variable or a
+	// field he creates an actual object, not a pointer to this object.
+
+	C1 c(100, 200);
+	c += 1;
+
+	printf("c = { %d, %d }\n", c.m_x, c.m_y);
+
+	// in Jancy what *is* a pointer, must *look like* a pointer
+
+	C1* p = new C1;
+	printf("p = { %d, %d }\n", p.m_x, p.m_y);
+
+	return 0;
+}

@@ -1,0 +1,14 @@
+//
+//  Cor: Hello, World!
+//  http://yosbelms.github.io/cor/
+//
+
+func init() {
+    ch = chan()
+    go {
+        timeout(100)
+        ch <- 'Hello, World!'
+    }
+
+    go { console.log(<- ch) }
+}

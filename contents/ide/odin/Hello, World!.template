@@ -1,0 +1,12 @@
+//
+//  Odin: Hello, World!
+//  https://raw.githubusercontent.com/odin-lang
+//
+
+package main
+
+import "core:fmt"
+
+main :: proc() {
+  fmt.println("Hello, World!")
+}

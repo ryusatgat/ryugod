@@ -1,0 +1,105 @@
+/*
+    P++: 8 ball
+    https://github.com/tumtumtum/pplusplus
+*/
+
+using "time.p++";
+using "fold.p++";
+using "array.p++";
+using "string.p++";
+using "stream.p++";
+using "utility.p++";
+
+var m_niceness : integer;
+var m_answers : boolean[..];
+var m_questions : integer[..];
+
+function get_answer(question : string) : string
+{
+    var x, r, len, hash;
+
+    len := array_length(m_questions);
+
+    hash := hashcode(question);
+
+    x := array_find_integer(m_questions, hash);
+
+    if (x >= 0)
+    {
+        return (m_answers[x] = 1) ? "yes" : "no";
+    }
+    else
+    {
+        r := random(100);
+
+        x := array_length(m_questions);
+
+        if (r <= m_niceness)
+        {
+            m_questions[x] := hash;
+            m_answers[x] := true;
+
+            return "yes";
+        }
+        else
+        {
+            m_questions[x] := hash;
+            m_answers[x] := false;
+
+            return "no";
+        };
+    };
+};
+
+function interpret()
+{
+    var line : string;
+
+    repeat
+    {
+        print("?-  ");
+
+        line := trim(readln());
+
+        if (to_lower(line) $= "shutup!")
+        {
+            return 0;
+        };
+
+        while (right(line, 1) $!= "." && right(line, 1) $!= "?")
+        {
+            print(" |   ");
+
+            line := line + readln();
+        };
+
+        println("\n" + get_answer(line));
+    };
+};
+
+/*
+ * Command line argument has to be a decimal (like 0.4 = 40%).
+ */
+function main(args : string)
+{
+    if (args $!= "")
+    {
+        m_niceness := ((float)args) * 100;
+    }
+    else
+    {
+        m_niceness := random(100);
+    };
+
+    if (m_niceness > 100)
+    {
+        m_niceness := 100;
+    };
+
+    println("Welcome to magic 8ball [" + date_to_string() + "]");
+    println();
+    println(m_niceness + "% nice today (end sentences with ?)");
+    println();
+
+    interpret();
+};

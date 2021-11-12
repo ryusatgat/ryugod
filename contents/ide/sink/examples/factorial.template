@@ -1,0 +1,16 @@
+#
+#   Sink: factorial
+#   https://github.com/velipso/sink
+#
+
+# commands can be declared ahead of time
+declare factorial
+
+say factorial 10  # 3628800
+
+def factorial a
+  if a <= 1
+    return 1
+  end
+  return a * factorial a - 1
+end

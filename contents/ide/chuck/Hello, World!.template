@@ -1,0 +1,6 @@
+//
+//  Chuck: Hello, World!
+//
+
+chout <= "Hello, World!" <= IO.newline();
+<<< "Hello, World!", "" >>>;

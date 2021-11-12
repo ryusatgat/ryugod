@@ -1,0 +1,5 @@
+(*
+    Aribas: Hello, World!
+*)
+
+writeln("Hello, World!");

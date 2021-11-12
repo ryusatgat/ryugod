@@ -1,0 +1,6 @@
+/*
+    TIScript(TI스크립트): Hello, World! 예제
+    출처: https://rosettacode.org/
+*/
+
+stdout.printf("Hello, World!\n");

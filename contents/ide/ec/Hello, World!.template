@@ -1,0 +1,12 @@
+/*
+   eC: Hello, World!
+   http://ec-lang.org/
+*/
+
+class HelloApp : Application
+{
+   void Main()
+   {
+      PrintLn("Hello, World!");
+   }
+}

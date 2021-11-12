@@ -1,0 +1,40 @@
+\   4tH: factorial
+\   https://sourceforge.net/projects/forth-4th/
+
+\ Copyright 1982, J. Yale
+\ Converted to 4tH by Hans Bezemer, 2010
+\ First published by Practical Computing September 1982
+\ This program is considered to be public domain
+
+variable (last)
+4000 constant max-digits
+max-digits string f-buff does> swap chars + ;
+
+: *buf
+  0 ( carry) (last) @ 1+ 0
+  do over i f-buff c@ * + 10 /mod swap i f-buff c! loop
+  ( extend buffer to accept final carry)
+  begin
+    dup if dup then
+  while
+    10 /mod swap
+    1 (last) +! (last) @ dup 1+
+    max-digits > abort" Out of buffer"
+    f-buff c!
+  again drop
+;
+
+: .fac
+  (last) @ 1+ 0
+  do (last) @ i - dup 1+ 3 mod 0=
+    i 0<> and if [char] , emit then
+    f-buff c@ 1 .r
+  loop
+;
+
+: setup 1 0 f-buff c! 0 (last) ! ;
+: fac setup 1+ 1 do i *buf loop .fac cr ;
+: facs setup 1+ 1 do i *buf ." Factorial" i 3 .r ."  = " .fac cr loop ;
+
+ 20 facs 
+100 fac

@@ -1,0 +1,9 @@
+//
+//  Par: Hello, World!
+//  https://par-lang.org/
+//
+
+module Main
+
+main() =
+  print("Hello, World!")

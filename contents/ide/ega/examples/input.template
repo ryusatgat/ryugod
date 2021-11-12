@@ -1,0 +1,11 @@
+@
+@   EGA: input
+@   https://github.com/katahiromz/EGA
+@
+
+set(s, input("Type a string"));
+for(i, 1, +(len(s), 4), print("#"));
+println();
+println(cat("# ", s, " #"));
+for(i, 1, +(len(s), 4), print("#"));
+println();

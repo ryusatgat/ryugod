@@ -1,0 +1,18 @@
+/*
+    JavaScript(자바스크립트): Regular Expression 예제
+*/
+
+data = ([
+"error: main.c: 8: missing identifier at: static",
+"error: main.c: 8: ';' expected",
+"error: main.c: 8: ')' expected",
+"error: main.c: 8: ';' expected",
+"error: main.c: 8: 'void' is not a valid type: const",
+]).join('\r\n')
+
+errorRegEx = "error: .+?: (\\d+): (.+)"
+
+const regexp = new RegExp(errorRegEx, "g")
+while ((match = regexp.exec(data)) !== null) {
+    console.log(match[0], '!', match[1], '!', match[2])
+}

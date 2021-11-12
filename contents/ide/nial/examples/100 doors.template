@@ -1,0 +1,9 @@
+#
+#   Nial(나이얼): 100 doors 예제
+#   출처: http://www.rosettacode.org/
+#
+
+n := 100;
+out := reduce xor (count n eachright mod count n eachall<1);
+
+write out;

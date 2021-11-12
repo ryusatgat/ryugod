@@ -1,0 +1,31 @@
+#
+#   Foxely: lambda
+#   https://github.com/Foxely/Foxely
+#
+
+callable :: func(custom)
+{
+    custom(10);
+}
+
+myCustom :: func(value)
+{
+    print "value = %\n", value;
+}
+
+callable(myCustom);
+
+// This part is not working but this is how it will be work later
+callable(func(value)
+{
+    print "value = %\n", value;
+});
+
+// Create a lambda and assign to 'f'
+f := func(value)
+{
+    value = value + 5;
+    print "value = %\n", value;
+};
+
+callable(f);

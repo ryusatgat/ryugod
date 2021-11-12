@@ -1,0 +1,10 @@
+;;
+;;  Shen: factorial
+;;  http://shenlanguage.org/
+;;
+
+(define factorial
+   0 -> 1
+   X -> (* X (factorial (- X 1))))
+
+(print (factorial 6))(nl)

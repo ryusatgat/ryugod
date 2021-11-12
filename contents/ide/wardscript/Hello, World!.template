@@ -1,0 +1,6 @@
+;
+;   WardScript: Hello, World!
+;   https://github.com/LuisAlbizo/WardScript
+;
+
+print("Hello, World!\n");

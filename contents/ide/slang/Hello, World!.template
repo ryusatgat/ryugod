@@ -1,0 +1,5 @@
+%
+%   S-Lang(S-랭): Hello, World! 예제
+%
+
+message ("Hello, World!");

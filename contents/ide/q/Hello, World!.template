@@ -1,0 +1,5 @@
+//
+//  Q: Hello, World!
+//
+
+hello = writes "Hello, World!\n";

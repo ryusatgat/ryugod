@@ -1,0 +1,16 @@
+#
+#   Hack(핵): 100 doors 예제
+#
+
+namespace main;
+
+use namespace HH\Lib\{Math};
+
+<<__EntryPoint>>
+function main(): void {
+    for ($i = 1; $i <= 100; $i++) {
+        $root = Math\sqrt($i);
+        $state = ($root == Math\ceil($root)) ? 'open' : 'closed';
+        echo "Door {$i}: {$state}\n";
+    }
+}

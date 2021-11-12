@@ -1,0 +1,32 @@
+//
+//  Par: word analyzer
+//  https://par-lang.org/
+//
+
+module Main
+
+vowels_set : Set<Char>
+vowels_set = #['a', 'e', 'i', 'o', 'u']
+
+analyze : String -> (Int, Int)
+analyze(word) =
+  let chars = String.to_chars(word)
+
+  let consonants = filter(
+    chars,
+    |ch| !contains?(vowels_set, ch)
+  )
+  let vowels = filter(
+    chars,
+    contains?(vowels_set, _)
+  )
+
+  (length(consonants), length(vowels))
+
+main : () -> ()
+main() =
+  let (num_consonants, num_vowels) =
+    analyze("arithmetic")
+  print("Num consonants: " ++
+    to_pretty(num_consonants))
+  print("Num vowels: " ++ to_pretty(num_vowels))

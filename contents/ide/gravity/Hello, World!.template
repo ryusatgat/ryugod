@@ -1,0 +1,7 @@
+//
+//  Gravity: Hello, World!
+//
+
+func main() {
+    System.print("Hello, World!");
+}

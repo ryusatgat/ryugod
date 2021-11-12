@@ -1,0 +1,8 @@
+      *
+      * Cobol(코볼) Hello, World 예제
+      *
+        IDENTIFICATION DIVISION.
+        PROGRAM-ID. hello.
+        PROCEDURE DIVISION.
+           DISPLAY "Hello, World!".
+           STOP RUN.

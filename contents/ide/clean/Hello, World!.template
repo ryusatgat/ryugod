@@ -1,0 +1,8 @@
+//
+//  Clean: Hello, World!
+//
+
+module main
+
+Start :: String
+Start = "Hello, World!"

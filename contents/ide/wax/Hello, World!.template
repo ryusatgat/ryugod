@@ -1,0 +1,9 @@
+;;
+;;  Wax: Hello, World!
+;;  https://github.com/LingDong-/wax/
+;;
+
+(func main (result int)
+    (print "hello, World!")
+    (return 0)
+)

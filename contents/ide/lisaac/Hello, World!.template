@@ -1,0 +1,12 @@
+//
+//  Lisaac(리삭): Hello, World! 예제
+//
+
+Section Header
+  + name := MAIN;
+
+Section Public
+  - main <-
+  (
+    "Hello, World!\n".print;
+  );

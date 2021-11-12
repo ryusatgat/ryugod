@@ -1,0 +1,81 @@
+<!-- Vuetify(뷰티파이) 화면구성 예제 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    </head>
+    <body>
+        <div id="app"> <!-- template 영역 -->
+            <v-app>
+                <v-card>
+                    <v-toolbar
+                        color="cyan"
+                        dark
+                        flat
+                    >
+                    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+                    <v-toolbar-title>대시보드</v-toolbar-title>
+
+                    <v-spacer></v-spacer>
+
+                    <v-btn icon>
+                        <v-icon>mdi-magnify</v-icon>
+                    </v-btn>
+
+                    <v-btn icon>
+                        <v-icon>mdi-dots-vertical</v-icon>
+                    </v-btn>
+
+                    <template v-slot:extension>
+                        <v-tabs
+                            v-model="tab"
+                            align-with-title
+                        >
+                        <v-tabs-slider color="yellow"></v-tabs-slider>
+
+                        <v-tab
+                            v-for="item in items"
+                            :key="item"
+                        >
+                            {{ item }}
+                        </v-tab>
+                        </v-tabs>
+                    </template>
+                    </v-toolbar>
+
+                    <v-tabs-items v-model="tab">
+                    <v-tab-item
+                        v-for="item in items"
+                        :key="item"
+                    >
+                        <v-card flat>
+                        <v-card-text v-text="text"></v-card-text>
+                        </v-card>
+                    </v-tab-item>
+                    </v-tabs-items>
+                </v-card>
+            </v-app>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <!-- 스크립트 영역 -->
+        <script>
+            new Vue({
+                el: '#app',
+                vuetify: new Vuetify(),
+                data: () => ({
+                    tab: null,
+                    items: [
+                        '웹', '쇼핑', '비디오', '이미지', '뉴스',
+                    ],
+                    text: '동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세',
+                })
+            })
+        </script>
+    </body>
+</html>

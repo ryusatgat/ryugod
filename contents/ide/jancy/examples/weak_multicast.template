@@ -1,0 +1,51 @@
+/*
+    Jancy: weak multicast
+    https://github.com/vovkos/jancy
+*/
+
+class C1 {
+	int m_x = -1;
+
+	construct() {
+		printf("C1.construct ()\n");
+	}
+
+	destruct() {
+		printf("C1.destruct ()\n");
+	}
+
+	void foo() {
+		printf("C1.foo () { m_x = %d }\n", m_x);
+	}
+}
+
+//..............................................................................
+
+// entry point
+
+int main() {
+	printf("main ()\n");
+
+	weak multicast wm();
+
+	C1* c = new C1;
+
+	wm += c.foo;
+
+	// if we lose the strong pointer then the object will get destructed on the
+	// next GC run
+
+	// c = null;
+
+	printf("gc run...\n");
+	jnc.collectGarbage();
+
+	// if the object was collected during the GC run, the corresponding entry
+	// in the weak multicast will be automatically removed when getting the
+	// next snapshot (this is done during the 'mulicast.call' execution)
+
+	printf("calling weak multicast...\n");
+	wm();
+
+	return 0;
+}

@@ -1,0 +1,90 @@
+/*
+    Jancy: function pointer
+    https://github.com/vovkos/jancy
+*/
+
+class C1 {
+	int m_x = -1;
+
+	void foo(
+		int a,
+		int b,
+		int c
+	) {
+		printf("C1.foo (%d, %d, %d) { m_x = %d }\n", a, b, c, m_x);
+	}
+}
+
+//..............................................................................
+
+// simple global function to be called through a function pointer
+
+void bar(
+	int a,
+	int b
+) {
+	printf("bar (%d, %d)\n", a, b);
+}
+
+//..............................................................................
+
+// entry point
+
+int main() {
+	printf("main ()\n");
+
+	// 'thin' function pointer is just like a function pointer in C/C++
+
+	function thin* f1(
+		int,
+		int
+	) = bar;
+
+	f1(10, 20);
+
+	// unlike C/C++, the argument conversion is automated -- the compiler
+	// will generate thunks when needed
+
+	typedef function FpFunc(
+		double,
+		double
+	);
+
+	FpFunc thin* f2 = (FpFunc thin*) bar;
+	f2(15.8, 7.1);
+
+	// unless explicitly specified otherwise, the function pointer is fat, i.e.
+	// it also contains a pointer to a closure object for capturing context
+	// arguments
+
+	C1 c;
+
+	// in this case, the pointer to 'c' will be captured
+
+	function* f3(
+		int,
+		int,
+		int
+	) = c.foo;
+
+	f3(100, 200, 300);
+
+	// use partial application operator '~()' to capture any arguments you want
+
+	function* f4(int) = bar ~(5);
+	f4(6);
+
+	// it's OK to skip arguments during the partial application; this allows
+	// combinations like this one:
+
+	// args 1 and 4 come from the closure, args 2 and 3 come from the call
+
+	function* f5(
+		int,
+		int
+	) = c.foo ~(,, 3);
+
+	f5(1, 2);
+
+	return 0;
+}

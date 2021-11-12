@@ -1,0 +1,5 @@
+' Gambas(감바스) Hello, World! 예제
+
+Public Sub Main()
+    PRINT "Hello, World!"
+End

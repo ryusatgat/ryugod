@@ -1,0 +1,12 @@
+Module: ryugod
+
+//
+//  Dylan(딜런): Hello, World! 예제
+//
+
+define function main(name :: <string>, arguments :: <vector>)
+    format-out("Hello, World!\n");
+    exit-application(0);
+end function main;
+
+main(application-name(), application-arguments());

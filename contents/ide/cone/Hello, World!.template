@@ -1,0 +1,9 @@
+//
+//  Cone: Hello, World!
+//  https://github.com/jondgoodwin/cone
+//
+
+import stdio
+
+fn main():
+    print <- "Hello, World!\n"

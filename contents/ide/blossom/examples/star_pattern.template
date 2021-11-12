@@ -1,0 +1,18 @@
+/*
+    Blossom: star pattern
+    https://github.com/cstanze/blossom
+*/
+
+let num = 5;
+
+for let i = 0; i < num; ++i {
+    print(' ' * (num - i - 1));
+    for let j = 0; j < num; ++j {
+        if i == 0 || j == 0 || i == num - 1 || j == num - 1 {
+            print('*');
+        } else {
+            print(' ');
+        }
+    }
+    println();
+}

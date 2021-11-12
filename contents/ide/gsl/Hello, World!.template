@@ -1,0 +1,6 @@
+#
+#   GSL: Hello, World!
+#   https://github.com/fjardon/gsl
+#
+
+echo "Hello, World!"

@@ -1,0 +1,53 @@
+<!--
+    CSS 이미지 표시 예제
+    출처: https://codepen.io/mcdorli/post/creating-lightnings-with-javascript-and-html5-canvas
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .card {
+            position: relative;
+            width:300px;
+            height:450px;
+            transform-style: preserve-3d;
+            transition: all 1s
+        }
+
+        .card div {
+            width:300px;
+            height:450px;
+            margin:0 auto;
+        }
+
+        .front {
+            background-image: url('https://cdn.hearthstonetopdecks.com/wp-content/uploads/2020/11/Free-Admission-300x425.png');
+            background-repeat: no-repeat;
+            display: inline-block;
+            position: absolute;
+            transform: rotateY(180deg);
+            z-index:1;
+        }
+
+        .back {
+            background-image: url('https://cdn.hearthstonetopdecks.com/wp-content/uploads/2017/07/abominable-bowman-1-300x429.png');
+            background-repeat: no-repeat;
+            display: inline-block;
+            position: absolute;
+            transform: rotateY(0deg);
+            z-index:2;
+        }
+
+        .card:hover {
+            transform: rotateY(180deg)
+        }
+    </style>
+</head>
+<body>    
+    <p>이미지에 마우스를 올려보세요</p>
+    <div class='card'>
+        <div class='front'></div>
+        <div class='back'></div>
+    </div>
+</body>
+</html>

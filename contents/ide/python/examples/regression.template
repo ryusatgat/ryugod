@@ -1,0 +1,42 @@
+# 회귀분석 파이썬 시각화 예제
+# 출처: https://www.ryugod.com
+
+import matplotlib.pyplot as plt
+import numpy as np
+import random
+
+x = []
+y = []
+yh = []
+
+for i in range(0, 100):
+    x.append(random.randrange(1, 100))
+    y.append((x[i]*3 + random.randrange(-50, 50)))
+
+xa = np.mean(x)
+ya = np.mean(y)
+
+sumc = 0
+summ = 0
+for i in range(0, len(x)):
+    sumc += (x[i]-xa)*(y[i]-ya)
+    summ += (x[i]-xa)*(x[i]-xa)
+
+w = sumc/summ
+b = ya - w*xa
+
+print("hypothesis(y) = %.2fx + %.2f" % (w, b))
+for i in x:
+    yh.append(w*i+b)
+
+fig, ax1 = plt.subplots()
+
+ax1.plot(x, y, 'r.')
+ax2 = ax1.twinx()
+ax1.plot(x, yh)
+
+plt.savefig('regression.png')
+
+# imshow는 표준 명령어가 아닙니다. ryugod.com에서 이미지를 표시하기 위한 명령입니다.
+import os
+os.system('imshow regression.png')

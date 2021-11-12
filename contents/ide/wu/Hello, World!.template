@@ -1,0 +1,7 @@
+# 
+#   Wu(우): Hello, World! 예제
+# 
+
+print: extern fun(...?)
+
+print("Hello, World!")

@@ -1,0 +1,6 @@
+/*
+    Chaos: Hello, World!
+    https://chaos-lang.org/
+*/
+
+print "Hello, World!"

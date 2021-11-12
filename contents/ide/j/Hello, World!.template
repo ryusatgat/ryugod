@@ -1,0 +1,4 @@
+NB. J 언어 Hello, World! 예제
+
+echo 'Hello, World!'
+exit ''

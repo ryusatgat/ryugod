@@ -1,0 +1,6 @@
+--
+--  Alore: Hello, World!
+--  https://github.com/JukkaL/alore
+--
+
+Print('Hello, World!')

@@ -1,0 +1,18 @@
+//
+//  Oak: factorial
+//  https://github.com/adam-mcdaniel/oakc
+//
+
+#[std]
+#[memory(1024)]
+
+fn fact(n: num) -> num {
+    return n > 1?
+        fact(n-1) * n : 1
+}
+
+fn main() {
+    for i in 0..100 {
+        putnum(i); putstr("! is "); putnumln(fact(i));
+    }
+}

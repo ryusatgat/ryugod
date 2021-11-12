@@ -1,0 +1,10 @@
+/*
+    AngelScript: Hello, World!
+    http://angelcode.com/
+*/
+
+int main() {
+    print("Hello, World!\n");
+
+    return 0;
+}

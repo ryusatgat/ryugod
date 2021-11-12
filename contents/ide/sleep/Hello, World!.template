@@ -1,0 +1,7 @@
+#
+#   Sleep(슬립): Hello, World! 예제
+#
+
+$str = "Hello, World!";
+
+println("$str");

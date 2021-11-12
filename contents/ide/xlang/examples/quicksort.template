@@ -1,0 +1,65 @@
+//
+//  xlang: quick sort
+//  https://github.com/pritamzope/xlang
+//
+
+extern void printf(char*, int);
+
+int arr[10] = {7,4,9,1,2,5,6,8,3};
+
+int partition(int p, int r)
+{
+    int x, i, j, v, a1, a2;
+
+    x = arr[r];
+    i = p - 1;
+
+    for(j = p; j < r; j++){
+        v = arr[j];
+        if(v <= x){
+            i = i + 1;
+            //swap arr elements
+            a1 = arr[i];
+            a2 = arr[j];
+            arr[i] = a2;
+            arr[j] = a1;
+        }
+    }
+
+    v = i + 1;
+    a1 = arr[v];
+    a2 = arr[r];
+    arr[v] = a2;
+    arr[r] = a1;
+
+    return i + 1;
+}
+
+void quick_sort(int p, int r)
+{
+    int q;
+    if(p < r){
+        q = partition(p, r);
+        quick_sort(p, q - 1);
+        quick_sort(q + 1, r);
+    }
+}
+
+void print_arr()
+{
+    int i;
+    for(i = 0; i < 9; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n",0);
+}
+
+global void main()
+{
+    int i;
+    printf("Before Sorting: ", 0);
+    print_arr();
+    quick_sort(0, 9);
+    printf("After Sorting: ", 0);
+    print_arr();
+}

@@ -1,0 +1,18 @@
+#
+#   Alta: fibonacci
+#   https://github.com/alta-lang/alta
+#
+
+import printLine from "io"
+
+function fibonacci(n: int): int {
+  if n <= 2
+    return 1
+  return fibonacci(n - 1) + fibonacci(n - 2)
+}
+
+literal function main(): int {
+  printLine("The 10th term in the Fibonacci sequence is ", fibonacci(10))
+
+  return 0
+}

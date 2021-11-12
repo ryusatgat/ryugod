@@ -1,0 +1,6 @@
+#
+#   Praat: Hello, World!
+#
+
+echo Hello, World!
+writeInfoLine: "Hello, World!"

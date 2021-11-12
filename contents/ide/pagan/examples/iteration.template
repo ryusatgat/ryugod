@@ -1,0 +1,60 @@
+/*
+    Pagan: iteration
+    https://github.com/prwoodbury/pagan
+*/
+
+var i = 0
+var j = 0
+
+// While loops are used for all iteration
+print(" <1> Example 1: ")
+i = 0
+while (i < 5) {
+  
+    print(i, " ")
+    
+    i = i + 1
+}
+println()
+
+// Loops may have internal loops
+i = 0
+print(" <2> Example 2: ")
+while (i < 4) {
+  
+    j = 0
+    while (j < 3) {
+        print("[", i, ", ", j, "] ")
+        j = j + 1
+    }
+    
+    i = i + 1
+}
+println()
+
+// Loop conditions may be simple
+print(" <3> Example 3 (should be blank): ")
+while (0) {
+    print("this should never happen")
+}
+println()
+
+// Loop conditions may be complex
+print(" <4> Example 4: ")
+i = 0
+var str = "abc"
+while ((i < 999)
+        & ((str == "abc") | (str == "xyz"))) {
+  
+    print("[", i, ", ", str, "] ")
+    
+    if (i == 2) {
+        str = "xyz"
+    }
+    else if (i == 4) {
+        str = "end"
+    }
+    
+    i = i + 1
+}
+println()

@@ -1,0 +1,8 @@
+//
+//  Novus: Hello, World!
+//  https://github.com/BastianBlokland/novus
+//
+
+import "std.ns"
+
+print("Hello, World!")

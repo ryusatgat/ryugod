@@ -1,0 +1,10 @@
+\                           \
+\   XPL0: Hello, World 예제 \
+\                           \
+
+code    CrLf=9, Text=12;
+
+begin
+    Text(0, "Hello, World!");
+    CrLf(0);
+end;

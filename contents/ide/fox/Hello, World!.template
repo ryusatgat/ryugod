@@ -1,0 +1,6 @@
+/*
+    fox-lang: Hello, World!
+    https://github.com/x768/fox-lang
+*/
+
+puts("Hello, World!")

@@ -1,0 +1,23 @@
+'
+'   OpenSpin(오픈스핀): Hello, World! 예제
+'   바이너리 컴파일만 지원됩니다(Compilation only supported)
+'   컴파일된 파일을 다운로드 하려면 "imshow main.spin" 명령을 입력하세요
+'   (to download compiled binary file, enter command "imshow main.spin" on the terminal)
+'
+
+con
+    _clkmode = xtal1+pll16x
+    _clkfreq = 80_000_000
+
+obj
+    ser : "FullDuplexSerial.spin"
+
+pub init
+    ser.start(31, 30, 0, 115200)
+
+    ser.str(string("Hello, World!"))
+    ser.str(string(13,10))
+
+    waitcnt(_clkfreq + cnt)
+    ser.stop
+    cogstop(0)

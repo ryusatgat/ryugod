@@ -1,0 +1,7 @@
+<%
+//
+//  Slash: Hello, World!
+//  https://github.com/slash-lang/slash
+//
+
+print("Hello, World!\n")

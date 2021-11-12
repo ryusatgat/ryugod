@@ -1,0 +1,26 @@
+/*
+    Pagan: fibonacci
+    https://github.com/prwoodbury/pagan
+*/
+
+function fib(n) {
+    function iter(current, prev, step) {
+        if (step == n) {
+            prev
+        }
+        else {
+            iter(current + prev, current, step + 1)
+        }
+    }
+    
+    iter(1, 0, 0)
+}
+
+println(" <1> fib(0) = ", fib(0))
+println(" <2> fib(1) = ", fib(1))
+println(" <3> fib(2) = ", fib(2))
+println(" <4> fib(3) = ", fib(3))
+println(" <5> fib(4) = ", fib(4))
+println(" <6> fib(10) = ", fib(10))
+println(" <7> fib(20) = ", fib(20))
+println(" <8> fib(21) = ", fib(21))

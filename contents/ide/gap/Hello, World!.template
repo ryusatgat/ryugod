@@ -1,0 +1,15 @@
+#
+#   GAP(갭): Hello, World! 예제
+#   출처: http://www.rosettacode.org/
+#
+
+# Several ways to do it
+"Hello, World!";
+
+Print("Hello, World!\n"); # No EOL appended
+
+Display("Hello, World!");
+
+f := OutputTextUser();
+WriteLine(f, "Hello, World!\n");
+CloseStream(f);

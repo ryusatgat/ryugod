@@ -1,0 +1,39 @@
+\   4tH: 8queens
+\   https://sourceforge.net/projects/forth-4th/
+
+\ Copyright http://wiki.forthfreak.net/index.cgi?EightQueens
+\ ==========================================================
+\ This version is inspired by an elegant approach on the Portland Pattern
+\ Repository written in MCPL. Instead of tracking all future ranks in memory,
+\ the attacks of placed queens along the files and both diagonals relative to
+\ the current rank are carried forward on the stack through the recursion.
+
+include /opt/4th/lib/pickroll.4th
+include /opt/4th/lib/anscore.4th
+
+8 value N
+variable solutions variable nodes \ N=8: 92 1965
+: .sq   1 and if [char] Q else [char] . then space emit ;
+: .rank ( mask -- ) N 0 do dup .sq 2/ loop drop cr ;
+: .sol ( fn ... f1 x x f0 -- unchanged )
+  dup N 0 do
+    I 3 * 4 + pick ( fi fi+1 )
+    2dup xor .rank nip
+  loop drop cr ;
+: lowBit  ( mask -- bit ) dup negate and ;
+: lowBit- ( mask -- bits ) dup 1- and ;
+: third ( a b c -- a b c a ) 2 pick ;    \ >r over r> swap ;
+: poss ( a b c -- a b c a&b&c ) dup 2over and and ;
+: next3 ( dl dr f Qfilebit -- dl dr f dl' dr' f' )
+  invert >r third r@ and 2* 1+  third r@ and 2/  third r> and ;
+: try ( dl dr f -- )
+  dup if 1 nodes +!  poss
+    begin ?dup while
+      dup >r lowBit next3 recurse r> lowBit-
+    repeat
+  else .sol 1 solutions +! then drop 2drop ;
+: queens ( n -- )   dup to N 0 solutions ! 0 nodes ! cr
+  1 over lshift 1-  -1 dup rot try
+  . ." queens: " solutions @ . ." solutions, " nodes @ . ." nodes" cr ;
+
+8 queens

@@ -1,0 +1,4 @@
+<!-- PHP Hello, World! 예제 -->
+<?php
+    print("Hello, World!");
+?>

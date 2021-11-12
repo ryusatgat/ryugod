@@ -1,0 +1,7 @@
+#
+#   CoffeeScript(커피스크립트): Hello, World 예제
+#
+
+str = "Hello, World!"
+
+console.log(str)

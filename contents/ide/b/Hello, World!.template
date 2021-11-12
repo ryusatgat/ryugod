@@ -1,0 +1,9 @@
+/*
+    B: Hello, World! Example
+*/
+
+main()
+{
+    printf("Hello, World!*n");
+    return(0);
+}

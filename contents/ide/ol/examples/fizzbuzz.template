@@ -1,0 +1,16 @@
+;
+;   Otus Lisp(오투스 리스프): FizzBuzz 예제
+;   출처: https://rosettacode.org/
+;
+
+(for-each (lambda (x)
+    (print (cond
+        ((and (zero? (mod x 3)) (zero? (mod x 5)))
+            "FizzBuzz")
+        ((zero? (mod x 3))
+            "Fizz")
+        ((zero? (mod x 5))
+            "Buzz")
+        (else
+            x))))
+    (iota 100))

@@ -1,0 +1,35 @@
+#
+#   JohnsonScript: fizzbuzz
+#   https://github.com/amjohnson36/johnsonscript
+#
+
+# Program to demonstrate iteration, only through while loops
+# make iteration : Displays the program
+# make iterationx: Executes the program
+
+def FizzBuzz() 
+start
+    var i = 1.
+    while (i < 100) start
+        if (((i % 3) == 0) and ((i % 5) == 0)) start
+            print("FizzBuzz" + \n).
+        stop
+        
+        else if ((i % 3) == 0) start
+            print("Fizz" + \n).
+        stop
+
+        else if ((i % 5) == 0) start
+            print("Buzz" + \n).
+        stop
+
+        else start
+            print(i + \n).
+        stop
+        
+        i = i + 1.
+
+    stop
+stop
+
+FizzBuzz().

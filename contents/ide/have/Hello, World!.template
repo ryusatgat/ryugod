@@ -1,0 +1,9 @@
+package main
+//
+//  Have: Hello, World!
+//  http://havelang.org/
+//
+
+func main() {
+    print("Hello, World!\n")
+}

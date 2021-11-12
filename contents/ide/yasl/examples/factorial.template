@@ -1,0 +1,30 @@
+#
+#   YASL: factorial
+#   https://github.com/yasl-lang/yasl
+#
+
+# simple program that iteratively calculates factorials
+
+fn range(a, b) {
+	let tmp = []
+	for let i = a; i < b; i += 1 {
+		tmp->push(i)
+	}
+
+	return tmp
+}
+
+fn fact(n) {
+	let tmp = 1
+	while n > 0 {
+		tmp *= n
+		n -= 1
+	}
+
+	return tmp
+}
+
+
+for i <- range(0, 7) {
+	echo "fact(#{i}): #{fact(i)}"
+}

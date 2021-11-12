@@ -1,0 +1,20 @@
+#
+#   Horse64: fibonacci
+#   https://github.com/horse64/core.horse64.org
+#
+
+func fib(n) {
+    var a = 0
+    var b = 1
+    while n > 0 {
+        var tmp = b
+        b += a
+        a = tmp
+        n -= 1
+    }
+    return a
+}
+
+func main {
+    print(fib(40))
+}

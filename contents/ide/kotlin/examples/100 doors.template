@@ -1,0 +1,21 @@
+/*
+    Kotlin(코틀린): 100 doors 예제
+    출처: http://www.rosettacode.org/
+*/
+
+fun oneHundredDoors(): List<Int> {
+    val doors = BooleanArray(100, { false })
+    for (i in 0..99) {
+        for (j in i..99 step (i + 1)) {
+            doors[j] = !doors[j]
+        }
+    }
+    return doors
+        .mapIndexed { i, b -> i to b }
+        .filter { it.second }
+        .map { it.first + 1 }
+}
+
+fun main(/*args: Array<String>*/) {
+    println(oneHundredDoors())
+}

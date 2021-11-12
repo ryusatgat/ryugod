@@ -1,0 +1,13 @@
+#
+#   Citron: Hello, World!
+#   https://github.com/alimpfard/citron
+#
+
+var Who is Object new.
+Who on: 'greet:' do: { :name
+	Pen writeln: 'Hello, ' + name.
+}.
+var world is Who new.
+world greet: 'World!'.
+
+import export: world as: 'World'.

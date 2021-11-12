@@ -1,0 +1,11 @@
+/*
+	zkl: FizzBuzz 예제
+	출처: http://www.rosettacode.org/
+*/
+
+foreach n in ([1..100]) {
+    if(n % 3 == 0) print("Fizz");
+    if(not (n%5)) "Buzz".print();
+    if(n%3 and n%5) print(n);
+    println();
+}

@@ -1,0 +1,24 @@
+//
+//  Conure: control flow
+//  https://github.com/MichaelSDavid/conure-lang
+//
+
+let a = 1; // OR: a = 4, a = 5;
+if (a <= 2) {
+  write("yes");
+} else if (a == 4) {
+	write("maybe");
+} else {
+  write("no");
+}
+
+let b = 1;
+while (b < 10) {
+  write(b);
+  b = b + 1;
+}
+
+// TODO: Add short assignment (i.e, +=, -=, etc.)
+for (let i = 1; i < 10; i = i + 1) {
+  write(i);
+}

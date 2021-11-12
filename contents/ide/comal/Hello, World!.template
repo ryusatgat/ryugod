@@ -1,0 +1,6 @@
+00 //
+00 //  Comal: Hello, World!
+00 //
+00
+01 s$ := "Hello, World!"
+02 PRINT s$

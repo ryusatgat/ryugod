@@ -1,0 +1,19 @@
+//
+//  Levi: class
+//  https://github.com/mm-project/levi_scripting_language
+//
+
+class Cake 
+{
+}
+
+function A()
+{
+    return "Hey";
+}
+
+var c = Cake();
+c.func = "AAAA";
+print c.func;
+c.func = A;
+print c.func();

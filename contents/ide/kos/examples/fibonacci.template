@@ -1,0 +1,19 @@
+#
+#   Kos: fibonacci
+#   https://github.com/kos-lang/kos
+#
+
+import base: print, range
+
+const terms = 30
+var   a     = 0
+var   b     = 1
+
+print("Fib series: \(a)")
+
+for var i in range(terms) {
+    print("    \(b)")
+    const next = a + b
+    a = b
+    b = next
+}

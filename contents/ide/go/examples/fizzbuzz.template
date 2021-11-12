@@ -1,0 +1,16 @@
+/* 
+    Go(고) 언어: FizzBuzz 예제
+    출처: http://www.rosettacode.org/
+*/
+
+package main
+ 
+import "fmt"
+ 
+func main() {
+    for i := 1; i <= 100; i++ {
+        fmt.Println(map[bool]map[bool]interface{}{
+            false: {false: i, true: "Fizz"}, true: {false: "Buzz", true: "FizzBuzz"},
+        }[i%5 == 0][i%3 == 0])
+    }
+}

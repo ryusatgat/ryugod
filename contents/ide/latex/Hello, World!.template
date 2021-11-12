@@ -1,0 +1,7 @@
+%% LaTeX(레이텍) Hello, World! 예제
+
+\documentclass[12pt]{article}
+\begin{document}
+Hello, World!
+$Hello World!$ %math mode 
+\end{document}

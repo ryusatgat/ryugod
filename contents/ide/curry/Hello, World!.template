@@ -1,0 +1,7 @@
+--
+--  Curry(커리): Hello, World! 예제
+--
+
+main::IO()
+
+main = putStrLn "Hello, World!"

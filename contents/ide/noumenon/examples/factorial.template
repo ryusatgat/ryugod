@@ -1,0 +1,14 @@
+/*
+    Noumenon: factorial
+    https://github.com/twied/noumenon
+*/
+
+var factorial = function(n) {
+    if (n < 1) {
+        return 1;
+    }
+    
+    return n * factorial(n - 1);
+};
+
+println("factorial(10) = ", factorial(10));

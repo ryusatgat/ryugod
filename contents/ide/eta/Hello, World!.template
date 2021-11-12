@@ -1,0 +1,11 @@
+#
+#   ETA: Hello, World!
+#   http://www.miketaylor.org.uk/tech/eta/doc/
+#
+
+Number 32	# can't quote a space character: use ASCII value
+Number ',  Number 'o  Number 'l  Number 'l  Number 'e  Number 'H
+Output Output Output Output Output Output Output
+Number 10	# can't quote a newline either
+Number '!  Number 'd  Number 'l  Number 'r  Number 'o  Number 'W
+Output Output Output Output Output Output Output

@@ -1,0 +1,19 @@
+#!/usr/bin/env qore
+#
+#   Qore: Hello, World!
+#   https://github.com/qorelanguage/qore/
+#
+
+# set the exec-class option and give the class name in case the file is renamed
+%exec-class HelloWorld
+
+# an object-oriented, threaded hello world :-)
+class HelloWorld
+{
+    constructor() {
+        background $.output("Hello, World!");
+    }
+    private output($arg) {
+        printf("%s\n", $arg);
+    }
+}

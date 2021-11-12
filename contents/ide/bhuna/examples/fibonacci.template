@@ -1,0 +1,17 @@
+//
+//  Buhna: fibonacci
+//  https://github.com/catseye/Bhuna/
+//
+
+Fib = ^ X {
+    if X < 2 return 1 else
+    return Fib(X - 1) + Fib(X - 2)
+}
+
+//I = 1
+//while I <= 25 {
+//  Print Fib(I), EoL
+//  I = I + 1
+//}
+
+Print Fib(20), EoL

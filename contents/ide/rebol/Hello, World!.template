@@ -1,0 +1,10 @@
+{
+    Rebol(리볼): Hello, World! 템플릿
+}
+
+rebol [
+    Title: "Hello, World!"
+]
+
+print "Hello, World!"
+quit

@@ -1,0 +1,5 @@
+# StarLark(스타라크): Hello, World! 예제
+
+s = "Hello, World!"
+
+print(s)

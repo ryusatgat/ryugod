@@ -1,0 +1,8 @@
+#
+#   Horse64: Hello, World!
+#   https://github.com/horse64/core.horse64.org
+#
+
+func main {
+    print("Hello, World!")
+}

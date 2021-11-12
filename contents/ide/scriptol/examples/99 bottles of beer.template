@@ -1,0 +1,20 @@
+#
+# 	Scriptol: 99 bottles of beer
+# 	https://www.99-bottles-of-beer.net/
+#
+
+text bottle(int n)
+    if n = 0 return "no more bottles of beer"
+return text(n) + " bootle" + plural(n) + " of beer"
+
+text  b1
+
+for int i in 99 -- 0 step -1
+    b1 = bottle(i)
+
+	if i > 0
+		print b1, "on the wall,", b1 + ","
+		print	"take one down, pass it around,"
+		print bottle(i - 1), "on the wall." 
+	/if
+/for

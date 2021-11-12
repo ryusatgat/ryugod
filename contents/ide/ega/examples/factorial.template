@@ -1,0 +1,13 @@
+@
+@   EGA: Hello, World!
+@   https://github.com/katahiromz/EGA
+@
+
+define(fact, do(set(prod, 1), for(i, 2, n, set(prod, *(prod, i)))));
+
+for(k, 1, 12, (
+        set(n, k),
+        fact,
+        println("n = ", n, ": fact == ", prod)
+    )
+)

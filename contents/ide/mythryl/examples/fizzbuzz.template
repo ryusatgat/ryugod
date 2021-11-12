@@ -1,0 +1,16 @@
+#!/usr/bin/mythryl
+#   Mythryl: FizzBuzz
+#   https://www.ryugod.com
+#
+
+for (num=1; num<=100; ++num)
+    if (num % 15 == 0)
+        print "FizzBuzz\n";
+    elif (num % 3 == 0)
+        print "Fizz\n";
+    elif (num % 5 == 0)
+        print "Buzz\n";
+    else
+        printf "%d\n" num;
+    fi
+;

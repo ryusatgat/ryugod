@@ -1,0 +1,7 @@
+;
+;   IDL: Hello, World! 예제
+;
+
+Pro main
+    print, "Hello, World!"
+End

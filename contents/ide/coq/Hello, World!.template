@@ -1,0 +1,67 @@
+(*
+    Coq: Hello, World!
+*)
+
+Require Import Coq.Lists.List.
+Require Import Coq.Strings.String.
+Require Import Io.All.
+Require Import Io.System.All.
+Require Import ListString.All.
+
+Import ListNotations.
+Import C.Notations.
+
+(** The classic Hello World program. *)
+Definition hello_world (argv : list LString.t) : C.t System.effect unit :=
+  System.log (LString.s "Hello world!").
+
+(** Ask for the user name and answer hello. *)
+Definition your_name (argv : list LString.t) : C.t System.effect unit :=
+  do! System.log (LString.s "What is your name?") in
+  let! name := System.read_line in
+  match name with
+  | None => ret tt
+  | Some name => System.log (LString.s "Hello " ++ name ++ LString.s "!")
+  end.
+
+(** A concurrent Hello World. May print "Hello World" or "World Hello". *)
+Definition concurrent_hello_world (argv : list LString.t)
+  : C.t System.effect unit :=
+  let! _ : unit * unit := join
+    (System.log (LString.s "Hello"))
+    (System.log (LString.s "World")) in
+  ret tt.
+
+Definition main := Extraction.launch hello_world.
+Extraction "main" main.
+
+Module Run.
+  Import Io.Run.
+
+  Definition hello_world_ok (argv : list LString.t)
+    : Run.t (hello_world argv) tt.
+    apply (Run.log_ok (LString.s "Hello world!")).
+  Defined.
+
+  Definition your_name_ok (argv : list LString.t) (name : LString.t)
+    : Run.t (your_name argv) tt.
+    apply (Let (Run.log_ok _)).
+    apply (Let (Run.read_line_ok name)).
+    apply (Run.log_ok _).
+  Defined.
+
+  Definition your_name_error (argv : list LString.t)
+    : Run.t (your_name argv) tt.
+    apply (Let (Run.log_ok _)).
+    apply (Let Run.read_line_error).
+    apply Ret.
+  Defined.
+
+  Definition concurrent_hello_world_ok (argv : list LString.t)
+    : Run.t (concurrent_hello_world argv) tt.
+    apply (Let (Join
+      (Run.log_ok (LString.s "Hello"))
+      (Run.log_ok (LString.s "World")))).
+    apply Ret.
+  Defined.
+End Run.

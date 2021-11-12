@@ -1,0 +1,11 @@
+//
+//  X10: Hello, World! 예제
+//
+
+import x10.io.Console;
+
+class main {
+  public static def main(args:Rail[String]):void {
+     Console.OUT.println("Hello, World!");
+  }
+}

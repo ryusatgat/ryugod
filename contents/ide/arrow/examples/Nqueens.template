@@ -1,0 +1,63 @@
+;;;
+;;; Arrow: N-queens problem
+;;; https://github.com/benhj/arrow
+;;;
+
+fn canPlaceQueen(r, c, x) -> yes {
+    true -> yes;
+    0 -> i;
+    while(i < r) {
+        x:i -> tok;
+        if (tok = c || (i - r = tok - c) || (i - r = c - tok)) {
+            false -> yes;
+            return;
+        }
+        i + 1 -> i;
+    }
+}
+
+fn printQueens(N, x) {
+
+    0 -> i;
+    0 -> j;
+    for tok in x {
+        0 -> j;
+        while j < N {
+            if tok = j {
+                pr "Q ";
+            } else {
+                pr "* "; 
+            }
+            j + 1 -> j;
+        }
+        say "\n";
+    }
+ }
+
+ fn placeNQueens(r, n, x) {
+    0 -> c;
+    while c < n {
+        if canPlaceQueen(r, c, x) {
+            c -> x:r;
+            printQueens(n,x);
+            if (r = n - 1) {
+                exit 1;
+            } else {
+                ansi_up n;
+                placeNQueens(r + 1, n, x);
+            }
+        }
+        c + 1 -> c;
+    }
+}
+
+start {
+    10 -> N;
+    [] -> x;
+    0 -> i;
+    repeat N times {
+        [^i ^^x] -> x;
+        i + 1 -> i;    
+    }
+    placeNQueens(0, N, x); 
+}

@@ -1,0 +1,13 @@
+#
+#   Algae: fibonacci
+#   https://sourceforge.net/projects/algae/
+#
+
+a=0; b=1;
+
+while ( b < 10000 ) {
+    print(b);
+    c = b;
+    b = a+b;
+    a = c;
+}

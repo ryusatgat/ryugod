@@ -1,0 +1,15 @@
+#
+#   Saurus: fibonacci
+#   https://github.com/andreas-jonsson/saurus-dynamic
+#
+
+fibonacci = (n) ->
+    if n < 3
+        1
+    else
+        rec(n - 1) + rec(n - 2)
+    ;
+
+# Print 8 fibonacci numbers
+for n = 1..8
+    io.print(n "=" fibonacci(n))

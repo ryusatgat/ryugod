@@ -1,0 +1,5 @@
+#   Erlang(얼랭): Hello, World! 예제
+
+-export([main/1]).
+
+main([]) -> io:format("Hello, World!~n").

@@ -1,0 +1,18 @@
+"
+    Self: 99 bottles of beer 예제
+    출처: https://www.99-bottles-of-beer.net/
+"
+traits integer _AddSlots: (|
+  bottles = ((= 0
+              ifTrue: ['No more bottles']
+               False: [= 1
+                       ifTrue: ['1 bottle']
+                        False: [asString, ' bottles']]),
+              ' of beer')
+|).
+99 downTo: 1 Do: [
+ | :n |
+ (n bottles, ' on the wall;\n',
+  n bottles, '.\nTake one down; pass it around:\n',
+  (n - 1) bottles, ' on the wall.\n\n') print.
+].

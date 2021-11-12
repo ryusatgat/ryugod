@@ -1,0 +1,7 @@
+/*
+    MiniZinc: Hello, World!
+*/
+
+solve satisfy;
+
+output ["Hello, World!\n"];

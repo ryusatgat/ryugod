@@ -1,0 +1,17 @@
+#!/bin/bash
+# a simple iTerm2 sequences
+# written by RyuGod 2021-05-28
+
+tp=png
+if [ $# -eq 0 ]; then
+  fname=/dev/stdin
+else
+  tp=`echo -n $(basename $1)|base64 -w 0`
+  fname=$1
+fi
+
+if [ -e "$fname" ]; then
+  echo -e "\x1b[1337;$tp;inline=1:`base64 -w 0 $fname`\a"
+else
+  echo "$fname: file not found"
+fi

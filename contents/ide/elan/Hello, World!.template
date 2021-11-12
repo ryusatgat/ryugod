@@ -1,0 +1,6 @@
+{
+    Elan: Hello, World!
+}
+
+hello:
+   put ("Hello, World!\n").

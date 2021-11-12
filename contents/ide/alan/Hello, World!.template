@@ -1,0 +1,11 @@
+//
+//  Alan: Hello, World!
+//  https://alan-lang.org/
+//
+
+import @std/app
+
+on app.start {
+  app.print("Hello, World!");
+  emit app.exit 0;
+}

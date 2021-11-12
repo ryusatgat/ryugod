@@ -1,0 +1,30 @@
+#
+#   Blue: map
+#   https://github.com/elechak/blue
+#
+
+global eventest = 
+func{
+    (this % 2) == 0  ? return this;
+};
+
+global oddtest = 
+func{
+    (this % 2) != 0  ? return this;
+};
+
+global show =
+func{
+    sys.print( this, "\n");
+};
+
+x=[0,1,2,3,4,5,6,7,8,9];
+
+evens = x.map( eventest );
+odds   = x.map( oddtest );
+
+sys.print( "Even:\n");
+evens.map(show);
+
+sys.print( "Odd:\n");
+odds.map(show);

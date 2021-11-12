@@ -1,0 +1,26 @@
+//
+// date.ss
+// Current date in SurgeScript
+// Copyright 2018 Alexandre Martins <alemartf(at)gmail(dot)com>
+//
+
+// What day is today?
+object "Application"
+{
+    nameOf = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
+
+    // show the day
+    state "main"
+    {
+        weekday = nameOf[Date.weekday];
+            today = Date.year + "-" + f(Date.month) + "-" + f(Date.day);
+        Console.print("Today is " + today + ", a " + weekday + "!");
+        Application.exit();
+    }
+
+    // add a leading zero
+    fun f(x)
+    {
+                return ((x >= 10) ? "" : "0") + x;
+    }
+}

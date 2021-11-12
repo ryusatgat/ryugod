@@ -1,0 +1,16 @@
+//
+//  Novus: FizzBuzz
+//  https://github.com/BastianBlokland/novus
+//
+
+import "std.ns"
+
+fun fizzbuzz(int i)
+  fizz = i % 3 == 0;
+  buzz = i % 5 == 0;
+  if fizz && buzz -> "FizzBuzz"
+  if fizz         -> "Fizz"
+  if buzz         -> "Buzz"
+  else            -> string(i)
+
+print(rangeList(1, 100).map(fizzbuzz))

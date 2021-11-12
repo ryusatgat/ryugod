@@ -1,0 +1,5 @@
+/* MongoDB (몽고DB) Hello, World! 예제 */
+
+db.world.insert({ "hello" : "Hello, World!" });
+db.world.find();
+print("Hello, World!");

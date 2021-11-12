@@ -1,0 +1,13 @@
+//
+//  C2: Hello, World!
+//  http://c2lang.org
+//
+
+module hello_world;
+
+import stdio as io;
+
+public func i32 main(i32 argc, char** argv) {
+    io.printf("Hello, World!\n");
+    return 0;
+}

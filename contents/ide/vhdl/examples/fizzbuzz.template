@@ -1,0 +1,43 @@
+--
+--  VHDL: FizzBuzz
+--  http://www.rosettacode.org/
+--
+
+library IEEE;
+use IEEE.numeric_std.all;
+use std.textio.all;
+
+entity main is
+end entity main;
+ 
+architecture beh of main is
+ 
+	procedure fizzbuzz(num : natural) is
+        variable o : line;
+	begin
+		if num mod 15 = 0 then
+            write (o, String'("FIZZBUZZ"));
+			writeline(output, o);
+		elsif num mod 3 = 0 then
+			write (o, String'("FIZZ"));
+			writeline(output, o);
+		elsif num mod 5 = 0 then
+		    write (o, String'("BUZZ"));
+			writeline(output, o);
+		else
+			write (o, String'(integer'image(num)));
+			writeline(output, o);
+		end if;
+	end procedure fizzbuzz;
+ 
+begin
+ 
+	p_fizz : process is
+	begin
+		for i in 1 to 100 loop
+		    fizzbuzz(i);
+		end loop;
+		wait;
+	end process p_fizz;
+ 
+end architecture beh;

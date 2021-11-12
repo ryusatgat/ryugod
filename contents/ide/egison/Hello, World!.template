@@ -1,0 +1,6 @@
+--
+--  Egison: Hello, World!
+--
+
+def main args := do
+   print "Hello, World!"

@@ -1,0 +1,22 @@
+//
+//  Adept: conditional statement
+//  https://github.com/AdeptLanguage
+//
+
+import basics
+
+func main {
+    scan("Enter a number: ", def number int)
+
+    if number == 1 {
+        print("one")
+    } elif number == 2 {
+        print("two")
+    } elif number == 3 {
+        print("three")
+    } elif number == 4 {
+        print("four")
+    } else {
+        print("number is greater than four or less than one")
+    }
+}

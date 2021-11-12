@@ -1,0 +1,6 @@
+//
+//  Rix: Hello, World!
+//  https://github.com/riolet/rix
+//
+
+print("Hello, World!")

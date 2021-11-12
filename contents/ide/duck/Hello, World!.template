@@ -1,0 +1,6 @@
+;
+;   Duck: Hello, World!
+;   https://github.com/gregtour/duck-lang
+;
+
+duck.println("Hello, World!")

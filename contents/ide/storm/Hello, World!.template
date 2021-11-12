@@ -1,0 +1,6 @@
+//
+//  Storm: Hello, World!
+//  https://github.com/stormprograms/Storm
+//
+
+write("Hello, World!\n", "/dev/stdout");

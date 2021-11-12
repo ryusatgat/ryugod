@@ -1,0 +1,21 @@
+# MNIST matplotlib 표시 예제
+# 출처: https://www.ryugod.com
+
+import tensorflow as tf
+import matplotlib.pyplot as plt
+import numpy as np
+import os 
+
+mnist = tf.keras.datasets.mnist
+
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+data = np.reshape(np.frombuffer(x_train[28*28*3:], dtype='ubyte', count=28*28), (28, 28))
+
+def show_mnist(n):
+    plt.title('MNIST - label(%d), pos(%d)'%(y_train[n], n))
+    plt.imshow(x_train[n], cmap='Greys')
+    plt.savefig(f'mnist{y_train[n]}.png', bbox_inches='tight')
+    # imshow는 표준 명령어가 아닙니다. ryugod.com에서 이미지를 표시하기 위한 명령입니다.
+    os.system(f'imshow mnist{y_train[n]}.png')
+
+show_mnist(np.random.randint(60000))

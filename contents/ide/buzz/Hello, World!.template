@@ -1,0 +1,6 @@
+#
+#   Buzz: Hello, World!
+#   https://the.swarming.buzz/
+#
+
+log("Hello, World!")

@@ -1,0 +1,17 @@
+#~
+    Objeck(오브젝크) 언어 99 bottles of beer 예제
+    출처: https://rosettacode.org/
+~#
+
+class Bottles {
+  function : Main(args : String[]) ~ Nil {
+    bottles := 99;
+    do {
+      "{$bottles} bottles of beer on the wall"->PrintLine();
+      "{$bottles} bottles of beer"->PrintLine();
+      "Take one down, pass it around"->PrintLine();
+      bottles--;
+      "{$bottles} bottles of beer on the wall"->PrintLine();
+    } while(bottles > 0);
+  }
+}

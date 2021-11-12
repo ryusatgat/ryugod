@@ -1,0 +1,40 @@
+/*
+    elastiC: types
+    http://www.elasticworld.org/
+*/
+
+package types;
+
+import basic;
+
+// make a variable
+local v;
+
+// an integer
+basic.print( 5, '\n' );
+
+// a float
+basic.print( 12.45, '\n' );
+
+// a character
+basic.print( 'a', '\n' );
+
+// a boolean
+basic.print( @true, '\n' );
+
+// a symbol
+basic.print( #aSymbol, '\n' );
+
+// a string
+basic.print( "A simple string", '\n' );
+
+// an array
+v = #[ 1, 'a', 20.5, "ABCD" ];
+basic.print( v, '\n' );
+basic.print( v[3], '\n' );
+
+// an hash table
+v = %[ "color",  "orange",
+       "weight", 12 ];
+basic.print( v["weight"], '\n' );
+basic.print( v["color"], '\n' );

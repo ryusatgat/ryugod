@@ -1,0 +1,35 @@
+--
+-- Phix: 99 bottles of beer
+-- http://www.rosettacode.org/
+--
+
+constant ninetynine = 99 -- (set to 9 for testing)
+
+function bottles(integer count)
+    if count=0 then     return "no more bottles "
+    elsif count=1 then  return "1 bottle " end if
+    if count=-1 then count = ninetynine end if
+    return sprintf("%d bottles ",count)
+end function
+
+function bob(integer count)
+    return bottles(count)&"of beer"
+end function
+
+function up1(string bob)
+-- Capitalise sentence start (needed just the once, "no more"=>"No more")
+    bob[1] = upper(bob[1])
+    return bob
+end function
+
+string many = bob(ninetynine)
+string down = "Take one down, pass it around,\n"
+for i=ninetynine to 0 by -1 do
+    puts(1,up1(many)&" on the wall,\n")
+    puts(1,many&".\n")
+    if i=0 then down = "Go to the store, buy some more,\n"
+    elsif i=1 then down[6..8] = "it" end if
+    many = bob(i-1)
+    puts(1,down&many&" on the wall.\n\n")
+end for
+{} = wait_key()

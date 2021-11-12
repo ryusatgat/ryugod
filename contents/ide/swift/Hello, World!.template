@@ -1,0 +1,5 @@
+// Swift(스위프트) 언어 Hello, World! 예제
+
+let str = "Hello, World!"
+
+print(str)

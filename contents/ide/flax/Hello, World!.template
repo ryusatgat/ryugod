@@ -1,0 +1,12 @@
+// 
+//  Flax: Hello, World
+//  https://github.com/flax-lang/flax
+//
+
+import libc
+import std::io as _
+
+@entry fn main()
+{
+	print("Hello, World!\n")
+}

@@ -1,0 +1,8 @@
+#
+#   Alma: Hello, World!
+#   https://github.com/cassowarii/alma
+#
+
+def main (
+    "Hello, World!" say
+)

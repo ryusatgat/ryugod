@@ -1,0 +1,16 @@
+//
+//  Emo: loops
+//  https://github.com/moria-world/emo
+//
+
+let x = 10;
+let i = 0;
+
+while(i < x) {
+    print(i);
+    i = i + 1;
+}
+
+for(let i = 0; i < 10; i=i+1) {
+    print(i);
+}

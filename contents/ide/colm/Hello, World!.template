@@ -1,0 +1,11 @@
+#
+#   Colm: Hello, World!
+#   https://github.com/adrian-thurston/colm
+#
+
+int f()
+{
+    print( 'Hello, World!\n' )
+}
+
+f()

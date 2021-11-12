@@ -1,0 +1,14 @@
+//
+// hello.ss
+// Hello World in SurgeScript
+// Copyright 2017 Alexandre Martins <alemartf(at)gmail(dot)com>
+//
+
+object "Application"
+{
+    state "main"
+    {
+        Console.print("Hello, World!");
+        Application.exit();
+    }
+}

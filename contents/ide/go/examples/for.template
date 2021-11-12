@@ -1,0 +1,29 @@
+/* Go(고) 언어 for 구문 예제 */
+package main
+
+import "fmt"
+
+func main() {
+    i := 1
+
+    for i <= 4 {
+        fmt.Println(i)
+        i = i + 1
+    }
+
+    for j := 5; j < 8; j++ {
+        fmt.Println(j)
+    }
+
+    for {
+        fmt.Println("for 구문 나가기")
+        break
+    }
+
+    for n := 0; n < 3; n++ {
+        if n%2 == 0 {
+            continue
+        }
+        fmt.Println(n)
+    }
+}

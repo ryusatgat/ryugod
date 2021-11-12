@@ -1,0 +1,24 @@
+#
+#   Golo(골로) 99 bottles of beer 예제
+#   출처: https://rosettacode.org/
+#
+
+module Bottles
+ 
+augment java.lang.Integer {
+	function bottles = |self| -> match {
+		when self == 0 then "No bottles"
+		when self == 1 then "One bottle"
+		otherwise self + " bottles"
+	}
+}
+ 
+function main = |args| {
+	99: downTo(1, |i| {
+		println(i: bottles() + " of beer on the wall,")
+		println(i: bottles() + " of beer!")
+		println("Take one down, pass it around,")
+		println((i - 1): bottles() + " of beer on the wall!")
+		println("--------------------------------------")
+	})
+}

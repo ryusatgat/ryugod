@@ -1,0 +1,6 @@
+/*
+    Hermes: Hello, World!
+    https://github.com/sebbekarlsson/hermes
+*/
+
+print("Hello, World!");

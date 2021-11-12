@@ -1,0 +1,6 @@
+/*
+    Prolog(프롤로그): Hello, World! 예제
+*/
+
+:- initialization(main).
+main :- write('Hello, World!'), nl, halt.

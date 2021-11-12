@@ -1,0 +1,6 @@
+/*
+    Ficus: Hello, World!
+    https://github.com/vpisarev/ficus
+*/
+
+println("Hello, World!")

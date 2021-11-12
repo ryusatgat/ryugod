@@ -1,0 +1,9 @@
+#
+#   Rk: Hello, World!
+#   https://github.com/aaronryank/rk-lang
+#
+
+rk:start
+    str test = "Hello, World!^n"
+    print: test
+rk:end

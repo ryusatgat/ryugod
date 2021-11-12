@@ -1,0 +1,16 @@
+/*
+    elastiC: Hello, World!
+    http://www.elasticworld.org/
+*/
+
+package hello;
+
+import basic;
+
+function hello()
+{
+    basic.print("Hello, World!\n");
+}
+
+// Invoke the `hello' function
+hello();

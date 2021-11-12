@@ -1,0 +1,13 @@
+--
+--  Egison: twin primes
+--  https://www.egison.org/
+--
+
+def main args := do
+    print("twin primes")
+
+def twinPrimes :=
+    matchAll primes as list integer with
+        | _ ++ $p :: #(p + 2) :: _ -> (p, p + 2)
+
+take 20 twinPrimes

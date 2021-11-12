@@ -1,0 +1,41 @@
+;
+;   Huo: loops
+;   https://github.com/HuoLanguage/huo
+;
+
+(let x 1)
+(for 0 50
+    (let x (+ x x))
+)
+(print x)
+(let y [ 1 ])
+(for 0 25
+    (do
+        (print 1)
+        (set (length y) (length y) y)
+    )
+)
+(print y)
+(print (reduce y acc cur (do
+        (let x (* acc 98))
+        (/ x cur)
+    ) 1 ))
+
+;   each
+(let x 0)
+(let y [1, 5, 3, 4, 7, 9, 6, 8])
+(each y item i (let x (+ x item)))
+(print (/ x (length y)))
+(map y item i (+ item i))
+(print y)
+
+;   reduce
+(def avg x
+    (/
+        (reduce x acc cur (+ acc cur))
+        (length x)
+    )
+)
+(let x [1,2,3,4,13])
+(print (reduce (push 4 [1,2,3]) acc cur (+ acc cur) 0))
+(print (avg x))

@@ -1,0 +1,25 @@
+-- MySQL 조인 예제
+
+# Database 확인
+show databases;
+
+# employee DB 접속
+use employees;
+
+# 테이블 확인
+show tables;
+
+# employees 테이블 확인
+SELECT *
+  FROM employees e
+LIMIT 10;
+
+# INNER 조인
+SELECT e.emp_no
+     , d.dept_no
+     , d.from_date
+  FROM dept_emp d
+ INNER JOIN employees e
+    ON d.emp_no = e.emp_no
+ WHERE e.emp_no = 100090
+ LIMIT 10;

@@ -1,0 +1,12 @@
+module main
+
+[;
+    Lumi: Hello, World!
+    https://github.com/meircif/lumi-lang
+;]
+
+func ! show()
+    sys.println(user "Hello, World!")!
+
+main!
+    show()!

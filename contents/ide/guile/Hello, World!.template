@@ -1,0 +1,6 @@
+;
+;   Guile(가일): Hello, World! 예제
+;
+
+(display "Hello, World!")
+(newline)

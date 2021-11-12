@@ -1,0 +1,33 @@
+#
+#   Luci: maps
+#   https://github.com/naegelejd/luci
+#
+
+m = {"luci":"dog", "chelsea":"girl", "joe":25};
+print(m["luci"]);
+
+for k in m {
+    print(k, m[k]);
+}
+
+
+m["magic"] = 42;
+print(type(m));
+print(type(m["magic"]));
+print(m);
+
+
+def test()
+{
+    print("hello world");
+    return 42;
+}
+m["test"] = test;
+m["test"]();
+
+
+def fn() {
+    return {"this":"test"};
+}
+/* parser rule crap allows for this: */
+fn()["wtf"] = "idk";    # useless, not storing result of fn()

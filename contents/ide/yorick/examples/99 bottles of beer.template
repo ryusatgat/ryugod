@@ -1,0 +1,12 @@
+/*
+	Yorick(요릭) 99 bottles of beer 예제
+	출처: http://www.rosettacode.org/
+*/
+
+bottles = 99;
+while(bottles) {
+    write, format=" %d bottles of beer on the wall\n", bottles;
+    write, format=" %d bottles of beer\n", bottles;
+    write, "Take one down, pass it around";
+    write, format=" %d bottles of beer on the wall\n\n", --bottles;
+}

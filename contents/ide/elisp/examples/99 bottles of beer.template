@@ -1,0 +1,9 @@
+;
+;	ELisp(이맥스리스프): 99 bottles of beer 예제
+;	출처: http://www.rosettacode.org/
+;
+
+(let ((i 99))
+    (while (> i 0)
+        (princ-list i " bottles of beer on the wall" "\n Take one down, pass it around")
+		(setq i (1- i))))

@@ -1,0 +1,5 @@
+#
+#   PowerShell(파워셸): Hello, World! 예제
+#
+
+Write-Host "Hello, World!"

@@ -1,0 +1,7 @@
+%
+%   Ciao(차오): Hello, World! 예제
+%
+
+main :-
+    write('Hello, World!'),
+    nl.

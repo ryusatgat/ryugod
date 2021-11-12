@@ -1,0 +1,6 @@
+#
+#   Dao: Hello, World!
+#   https://github.com/daokoder/dao
+#
+
+io.write( "Hello, World!\n");

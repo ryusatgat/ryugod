@@ -1,0 +1,6 @@
+(*
+    PolyML: Hello, World!
+    https://www.polyml.org/
+*)
+
+fun main() = print "Hello, World!\n";

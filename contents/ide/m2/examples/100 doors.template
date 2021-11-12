@@ -1,0 +1,31 @@
+(*
+    Modula-2(모듈라-2): 100 doors 예제
+*)
+
+MODULE main ;
+FROM StrIO IMPORT WriteString, WriteLn ;
+FROM NumberIO IMPORT WriteInt ;
+
+TYPE State = (Closed, Open);
+TYPE List = ARRAY [1 .. 100] OF State;
+ 
+VAR
+  Doors: List;
+  I:  CARDINAL;
+ 
+BEGIN
+  FOR I := 1 TO 10 DO
+    Doors[I*I] := Open
+  END;
+ 
+  FOR I := 1 TO 100 DO
+    WriteInt(I, 3);
+    WriteString(' is ');
+    IF Doors[I] = Closed THEN
+      WriteString('Closed.')
+    ELSE
+      WriteString('Open.')
+    END;
+    WriteLn
+  END
+END main.

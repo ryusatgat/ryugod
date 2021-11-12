@@ -1,0 +1,53 @@
+!
+!   Inform: example game
+!   https://en.wikipedia.org/wiki/Inform
+!
+
+ Constant Story "Hello Deductible";
+ Constant Headline "^An Interactive Example^";
+
+ Include "Parser";
+ Include "VerbLib";
+
+ [ Initialise;
+     location = Living_Room;
+     "Hello World";
+ ];
+
+ Object Kitchen "Kitchen";
+ Object Front_Door "Front Door";
+
+ Object Living_Room "Living Room"
+     with
+         description "A comfortably furnished living room.",
+         n_to Kitchen,
+         s_to Front_Door,
+     has light;
+
+ Object -> Salesman "insurance salesman"
+     with
+         name 'insurance' 'salesman' 'man',
+         description "An insurance salesman in a tacky polyester
+               suit.  He seems eager to speak to you.",
+         before [;
+             Listen:
+                 move Insurance_Paperwork to player;
+                 "The salesman bores you with a discussion
+                  of life insurance policies.  From his
+                  briefcase he pulls some paperwork which he
+                  hands to you.";
+         ],
+     has animate;
+
+ Object -> -> Briefcase "briefcase"
+     with
+         name 'briefcase' 'case',
+         description "A slightly worn, black briefcase.",
+     has container;
+
+ Object -> -> -> Insurance_Paperwork "insurance paperwork"
+     with
+         name 'paperwork' 'papers' 'insurance' 'documents' 'forms',
+         description "Page after page of small legalese.";
+
+ Include "Grammar";

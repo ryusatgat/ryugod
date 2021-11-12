@@ -1,0 +1,14 @@
+//
+//  Alan: loop
+//  https://alan-lang.org/
+//
+
+from @std/app import start, print, exit
+
+on start {
+    const count = [1, 2, 3, 4, 5];
+    const byTwos = count.map(fn (n: int64): int64 = n * 2 || 0);
+    count.map(toString).join(', ').print();
+    byTwos.map(toString).join(', ').print();
+    emit exit 0;
+}

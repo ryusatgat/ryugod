@@ -1,0 +1,13 @@
+//
+//  Buhna: 99 bottles of beer
+//  https://github.com/catseye/Bhuna/
+//
+
+Bottles = 99
+while Bottles > 0 {
+  Print Bottles, " bottles of beer on the wall,", EoL,
+        Bottles, " bottles of beer,", EoL,
+        "Take one down, pass it around,", EoL,
+        Bottles - 1, " bottles of beer on the wall.", EoL, EoL
+  Bottles = Bottles - 1
+}

@@ -1,0 +1,5 @@
+(*
+    SML/NJ 언어 Hello, World! 예제 
+*)
+
+val _ = print "Hello, World!"

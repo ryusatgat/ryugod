@@ -1,0 +1,19 @@
+;
+;   IDL: Plot 예제
+;
+
+Pro main
+    set_plot, 'Z'  
+    device, SET_RESOLUTION=[640,480]
+
+    x=indgen(21)
+    y0=intarr(21)
+    y=x^2
+    plot,x,y0,xrange=[0,20],yrange=[0,400],color='808080'x
+    oplot,x,y,color='ffffff'x
+    y1=200*(1+sin(2*!pi*x/20))
+    y2=y0+200
+    oplot,x,y1,color='8080ff'x
+    oplot,x,y2,color='ff8080'x
+    write_png, 'main.png',tvrd(/true)
+End

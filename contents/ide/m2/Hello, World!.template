@@ -1,0 +1,10 @@
+(*
+    Modula-2(모듈라-2): Hello, World! 예제
+*)
+
+MODULE main ;
+FROM StrIO IMPORT WriteString, WriteLn ;
+
+BEGIN
+   WriteString("Hello, World!") ; WriteLn
+END main.

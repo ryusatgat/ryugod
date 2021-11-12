@@ -1,0 +1,57 @@
+/*
+    Castile: tokenizer
+    https://github.com/catseye/Castile
+*/
+
+fun instr(c: string, s: string) {
+    i = 0;
+    while i < len(s) {
+        if c == substr(s, i, 1) { return true; }
+        i = i + 1
+    }
+    false
+}
+
+alpha = "abcdefghijklmnopqrstuvwxyz"
+
+struct result {
+    token: string;
+    remainder: string;
+}
+
+fun scan(s: string) {
+    i = 0;
+    t = "";
+    c = "";
+    while true {
+        c = substr(s, i, 1);
+        if c != " " {
+        if instr(c, alpha) {
+            while instr(c, alpha) {
+            t = concat(t, c);
+            i = i + 1
+            c = substr(s, i, 1);
+            }
+            break;
+        }
+        }
+        i = i + 1
+    }
+    make result(
+        token: t,
+        remainder: substr(s, i, len(s)-i)
+    )
+}
+
+fun main() {
+    s = input(">> ")
+    r = make result(token: "", remainder: "")
+    while len(s) > 0 {
+        while len(s) > 0 {
+        r = scan(s);
+        print(r.token);
+        s = r.remainder;
+        }
+        s = input(">> ")
+    }
+}

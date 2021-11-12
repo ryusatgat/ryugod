@@ -1,0 +1,6 @@
+//
+//  Conure: Hello, World!
+//  https://github.com/MichaelSDavid/conure-lang
+//
+
+write("Hello, World!");

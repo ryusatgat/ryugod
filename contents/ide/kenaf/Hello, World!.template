@@ -1,0 +1,6 @@
+/*
+    Kenaf: Hello, World!
+    https://github.com/edmundmk/kenaf
+*/
+
+print("Hello, World!\n")

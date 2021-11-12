@@ -1,0 +1,15 @@
+#
+#   Mirah: Hello, World!
+#
+
+class Main
+  def initialize
+    @hello = 'Hello, '
+  end
+
+  def hello(str:String)
+    puts @hello + str + "!"
+  end
+end
+
+Main.new.hello("World")

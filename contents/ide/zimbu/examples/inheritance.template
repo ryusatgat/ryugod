@@ -1,0 +1,45 @@
+#
+#   Zimbu: inheritance
+#   http://www.zimbu.org
+#
+
+CLASS Animal
+    PROC $eat() @default
+        IO.write("I eat like a generic Animal.\n")
+    }
+}
+ 
+CLASS Wolf EXTENDS Animal
+    PROC $eat() @replace
+        IO.write("I eat like a wolf!\n")
+    }
+}
+ 
+CLASS Fish EXTENDS Animal
+    PROC $eat() @replace @default
+        IO.write("I eat like a fish!\n")
+    }
+}
+ 
+CLASS GoldFish EXTENDS Fish @final
+    PROC $eat() @replace
+        IO.write("I eat like a goldfish!\n")
+    }
+}
+ 
+CLASS OtherAnimal EXTENDS Animal
+}
+ 
+FUNC MAIN() int
+    list<Animal> animals = NEW()
+    animals.add(Animal.NEW())
+    animals.add(Wolf.NEW())
+    animals.add(Fish.NEW())
+    animals.add(GoldFish.NEW())
+    animals.add(OtherAnimal.NEW())
+    
+    FOR a IN animals
+        a.eat()
+    }
+    RETURN 0
+}

@@ -1,0 +1,6 @@
+REM
+REM     QuickBasic: Hello, World! 예제
+REM
+
+CLS
+PRINT "Hello, World!"

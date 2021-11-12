@@ -1,0 +1,14 @@
+/*
+    Filagree: 99 bottles of beer
+    https://github.com/ys1382/filagree
+*/
+
+bottles = 99
+
+while bottles > 0
+	sys.print(bottles + ' bottles of beer on the wall,')
+	sys.print(bottles + ' bottles of beer,')
+    bottles = bottles - 1
+	sys.print('Take one down, pass it around,')
+	sys.print(bottles + ' bottles of beer on the wall.\n')
+end

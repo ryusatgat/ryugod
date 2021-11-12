@@ -1,0 +1,13 @@
+#
+#   PIC: chop
+#   https://www.gnu.org/software/plotutils/manual/en/html_node/pic2plot-Introduction.html
+#
+
+.PS
+circle "x"
+circle "y" at 1st circle - (0.4, 0.6)
+circle "z" at 1st circle + (0.4, -0.6)
+arrow from 1st circle to 2nd circle chop
+arrow from 2nd circle to 3rd circle chop
+arrow from 3rd circle to 1st circle chop
+.PE

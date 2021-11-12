@@ -1,0 +1,12 @@
+//
+//  Caboose: closure
+//
+
+fun makeClosure(value) {
+    fun closure() {
+        print(value);
+    }
+    return closure;
+}
+
+makeClosure("banana")();

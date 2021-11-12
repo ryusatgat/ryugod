@@ -1,0 +1,5 @@
+/*
+    REXX(렉스): Hello, World!
+*/
+
+SAY 'Hello, World!'

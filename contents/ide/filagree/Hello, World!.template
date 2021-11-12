@@ -1,0 +1,6 @@
+/*
+    Filagree: Hello, World!
+    https://github.com/ys1382/filagree
+*/
+
+sys.print('Hello, World!')

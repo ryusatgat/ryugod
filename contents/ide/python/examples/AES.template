@@ -1,0 +1,33 @@
+# Python(파이썬) 암호화(AES-CBC) 예제
+
+# 패키지 설치시작 (실제 소스에는 불필요)
+import os
+os.system('sudo pip3 install PyCryptodome')
+# 패키지 설치끝
+
+from hashlib import sha256
+from base64 import b64decode
+from base64 import b64encode
+
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
+from Crypto.Util.Padding import pad, unpad
+
+key = '0123456789abcdef'.encode()    # 상황에 맞게 키 설정
+iv = bytes(16)                       # 상황에 맞게 IV 설정
+
+def aes_cbc_base64_enc(plain):
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    return bytes.decode(b64encode(cipher.encrypt(pad('abcd'.encode(), 
+        AES.block_size))))
+
+def aes_cbc_base64_dec(cipher_text):
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    return bytes.decode(unpad(cipher.decrypt(b64decode(cipher_text)), 
+        AES.block_size))
+
+encrypted = aes_cbc_base64_enc('1234')
+decrypted = aes_cbc_base64_dec(encrypted)
+
+print(encrypted)
+print(decrypted)

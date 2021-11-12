@@ -1,0 +1,5 @@
+(*
+    Wolfram Script (울프람스크립트) Hello, World! 예제
+*)
+
+Print["Hello, World!"]

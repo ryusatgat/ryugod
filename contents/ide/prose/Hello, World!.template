@@ -1,0 +1,12 @@
+%
+%   Prose: Hello, World!
+%   https://sourceforge.net/projects/prose/
+%
+
+._init
+func/def    [main], &[.main]
+local/rtn
+
+.main
+attr/mod    ![.prose.sys.io], [psStreamOut], [Hello, World!\n]
+func/rtn

@@ -1,0 +1,3 @@
+' VBScript Hello, World! 예제
+
+WScript.Echo "Hello, World!"

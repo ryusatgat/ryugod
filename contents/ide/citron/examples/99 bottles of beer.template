@@ -1,0 +1,25 @@
+#
+#   Citron: 99 bottles of beer
+#   https://github.com/alimpfard/citron
+#
+
+Number on: 'bottles' do: {
+	var phrase is 'no more bottles of beer'.
+	var n is me.
+	(me = 1) ifTrue: {
+		phrase is '1 bottle of beer'.
+	}.
+	(me > 1) ifTrue: {
+		phrase is (n + ' bottles of beer').
+	}.
+	^phrase.
+}.
+
+99 to: 0 step: -1 do: { :i
+	Pen write: 
+		i bottles +
+		' on the wall, ' + i bottles + '.\n' +
+	((i > 0) either: 
+		('Take one down and pass it around, ' + ((i - 1) bottles) + ' on the wall.\n')
+		or: 'Go to the store and buy some more, 99 bottles of beer on the wall.').	
+}.

@@ -1,0 +1,11 @@
+//
+//  xlang: Hello, World!
+//  https://github.com/pritamzope/xlang
+//
+
+extern void printf(char*);
+
+global int main()
+{
+    printf("Hello, World!\n");
+}

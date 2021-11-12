@@ -1,0 +1,44 @@
+// ChaiScript's primary error handling is exceptions, just like C++, and uses C++
+// exceptions internally. This means that exceptions can be shared / passed / handled
+// between ChaiScript and C++
+
+// catching chaiscript errors inside of chaiscript
+try {
+    eval("BLARG")
+} catch (e) {
+    print("Error while processing eval statement")
+}
+
+// catching C++ errors inside of chaiscript
+// Note, there was a bug preventing this particular type
+// of exception from being caught in chaiscript until
+// 2014-08-26
+try {
+    var vec = [1,2]
+    var val = vec[3]
+} catch (e) {
+    print("Oops, index out of range: " + e.what());
+}
+
+
+// throwing errors to myself. Just like in C++, an exception 
+// can be anything.
+try {
+    throw(5.2)
+} catch(e) {
+    print(e); // prints 5.2
+}
+
+// Note that if you wanted to let this exception propigate to C++, you could, 
+// see here for more examples http://chaiscript.com/docs/5/index.html#exceptions
+
+
+// You can also use guards with a catch clause, just like any other function:
+try {
+    throw(5.2)
+} catch(e) : is_type(e, "int") {
+    print("Int: ${e}"); // e is a double, called
+    // never called, 5.2 is not an int
+} catch(e) : is_type(e, "double") {
+    print("Double: ${e}"); // e is a double, called
+}

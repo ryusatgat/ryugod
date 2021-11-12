@@ -1,0 +1,6 @@
+#
+#   Foxely: Hello, World!
+#   https://github.com/Foxely/Foxely
+#
+
+print "Hello, World!\n";

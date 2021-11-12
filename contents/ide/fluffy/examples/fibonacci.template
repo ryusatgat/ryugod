@@ -1,0 +1,27 @@
+/*
+    Fluffy: fibonacci
+    https://github.com/MatzeB/fluffy/
+*/
+
+func extern atoi(string : byte* ) : int
+func extern printf(string : byte*, ...) : int
+
+func main(argc : int, argv : byte* * ) : int:
+        var number = 10
+        if argc > 1:
+                number = atoi(argv[1])
+
+        var result = fib(number)
+
+        printf("fib(%d) -> %d\n", number, result)
+
+        return 0
+
+func fib(n : int) : int:
+        if n == 0:
+                return 0
+        if n == 1:
+                return 1
+        return fib(n-1) + fib(n-2)
+
+export main

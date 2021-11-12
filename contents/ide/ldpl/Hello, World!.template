@@ -1,0 +1,6 @@
+#
+#   LDPL: Hello, World! 예제
+#
+
+PROCEDURE:
+    display "Hello, World!" crlf

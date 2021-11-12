@@ -1,0 +1,11 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+import { registerLanguage } from '../_.contribution.js';
+registerLanguage({
+    id: 'littlelang',
+    extensions: ['.ll'],
+    aliases: ['Littlelang', 'littlelang'],
+    loader: function () { return import('./littlelang.js'); }
+});

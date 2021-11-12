@@ -1,0 +1,6 @@
+//
+//  Dictu: Hello, World!
+//  https://github.com/dictu-lang/Dictu
+//
+
+print("Hello, World!");

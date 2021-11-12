@@ -1,0 +1,92 @@
+//
+//  Killa: decrypt
+//  https://github.com/ex/Killa
+//
+
+// The text to decipher. It was created using a substitution cipher
+var text = """
+Fxr nb, ekb dmrdxjb xf upfb pj, ie ubije direuo, ex kizb txo.
+Drxlrinnbrj xfeby fbbu txo akby ekbo qiy qxyqbyerieb xy ekb qrbiepzb
+jpwb xf drxlrinnpyl, Jx Rmho pj wbjplybw ex nigb drxlrinnbrj kiddo.
+Rmho pykbrpebw ekb Dbru dkpuxjxdko xf kizpyl nxrb ekiy xyb aio
+ex wx ekb jinb ekpyl. P pykbrpebw ekie dkpuxjxdko frxn Uirro Aiuu,
+akx pj no kbrx iqemiuuo. P aiye ex nigb Rmho mjbrj frbb. P aiye ex
+lpzb ekbn ekb frbbwxn ex qkxxjb. Dbxdub irb wpffbrbye. Dbxdub qkxxjb
+wpffbrbye qrpebrpi. Hme pf ekbrb pj i hbeebr aio inxyl niyo
+iuebryiepzbj, P aiye ex byqxmrilb ekie aio ho nigpyl pe qxnfxreihub.
+Jx ekie'j akie P'zb erpbw ex wx.
+P aiye ex jxuzb drxhubnj P nbbe py ekb wipuo upfb ho mjpyl qxndmebrj,
+jx P ybbw ex arpeb drxlrinj. Ho mjpyl Rmho, P aiye ex qxyqbyerieb ekb
+ekpylj P wx, yxe ekb nilpqiu rmubj xf ekb uiylmilb, upgb jeirepyl apek
+dmhupq zxpw  jxnbekpyl jxnbekpyl jxnbekpyl ex jio, "drpye kbuux axruw."
+P tmje aiye ex jio, "drpye ekpj!" P wxy'e aiye iuu ekb jmrrxmywpyl
+nilpq gboaxrwj. P tmje aiye ex qxyqbyerieb xy ekb eijg. Ekie'j ekb hijpq
+pwbi. Jx P kizb erpbw ex nigb Rmho qxwb qxyqpjb iyw jmqqpyqe.
+Omgpkprx Niejmnxex. (lxllub keed://aaa.irepni.qxn/pyez/rmhoD.kenu)
+"""
+
+// This is the frequency table of the language of the original text
+// (from more frequent to less frequent).
+var freqLang = "TEOIARNSHMLYGCPUDWFBVKJXQZ"
+
+// Create frequency table for the encrypted text.
+var len = string.len(text)
+var frequency = []
+
+for (var k = 0; k < len; k += 1) {
+    var c = string.upper(string.sub(text, k, k));
+    // Check if character is an uppercase letter.
+    if (string.find(c, "%u") != null) {
+        if (frequency[c] == null) {
+            frequency[c] = 1
+        }
+        else {
+            frequency[c] += 1
+        }
+    }
+}
+
+// Create table for sorting the text frequency.
+var sortFreq = {}
+for each (var k,v in pairs(frequency)) {
+    table.insert(sortFreq, {key: k, value: v})
+}
+
+// Sort in descending order.
+table.sort(sortFreq, function(a, b) { return (a.value > b.value) })
+
+// Create dictionary for deciphering.
+var dic = {}
+var freqText = ''
+var index = 0
+
+for each (var _,v in pairs(sortFreq)) {
+    freqText ..= v.key
+    dic[v.key] = string.sub(freqLang, index, index)
+    index += 1
+}
+
+// Deciphering text by replacing characters.
+var decrypted = ''
+for (var k = 0; k < len; k += 1) {
+    var uppercase = false;
+    var c = string.sub(text, k, k)
+    if (string.find(c, "%u")) {
+        uppercase = true
+    }
+    else {
+        c = string.upper(c);
+    }
+    if (dic[c] != null) {
+        if (uppercase)  {
+            decrypted ..= dic[c]
+        }
+        else {
+            decrypted ..= string.lower(dic[c])
+        }
+    }
+    else {
+        decrypted ..= c
+    }
+}
+print(decrypted)

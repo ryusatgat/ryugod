@@ -1,0 +1,14 @@
+-- MySQL 정보조회 예제
+
+-- 데이터베이스 목록 조회
+show databases;
+
+-- employees DB 접속
+connect employees;
+
+-- employees 테이블 목록 조회
+show tables;
+
+-- MySQL 사용자정보조회
+SELECT User, Select_Priv, Create_priv
+  FROM mysql.user;

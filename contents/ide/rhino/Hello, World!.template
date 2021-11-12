@@ -1,0 +1,5 @@
+/* JavaScript Rhino(자바스크립트 라이노): Hello, World 예제 */
+
+const str = "Hello, World!"
+
+java.lang.System.out.println(str)

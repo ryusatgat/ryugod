@@ -1,0 +1,24 @@
+//
+//  Nice: 99 bottles of beer
+//  https://www.99-bottles-of-beer.net/
+//
+
+String beer(int n) requires n >= 0;
+
+beer(0) = "No more beer";
+
+beer(1) = """
+1 bottle of beer on the wall,
+1 bottle of beer.
+Take one down, pass it around,
+0 bottles of beer on the wall.""";
+
+beer(n) = 
+    n + " bottles of beer on the wall,\n" +
+    n + " bottles of beer.\n" +
+    "Take one down, pass it around,\n" +
+    (n - 1) + " bottles of beer on the wall.\n";
+
+void main(String[] args){
+  for(int i: 0..99) println(beer(99 - i));
+}

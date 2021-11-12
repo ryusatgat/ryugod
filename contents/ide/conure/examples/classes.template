@@ -1,0 +1,82 @@
+//
+//  Conure: classes
+//  https://github.com/MichaelSDavid/conure-lang
+//
+
+class Pair {}
+
+let pair = Pair();
+pair.first = 1;
+pair.second = 2;
+write(pair.first + pair.second); // 3
+
+write(""); // Separation
+
+class CoffeeMaker {
+    init(coffee) {
+        this.coffee = coffee;
+    }
+
+    brew() {
+        write("Enjoy your cup of " + this.coffee);
+
+        this.coffee = none;
+    }
+}
+
+let maker = CoffeeMaker("coffee and chicory");
+maker.brew();
+
+write(""); // Separation
+
+class Donut {
+    cook() {
+        write("Fry until golden brown");
+        inner();
+        write("Place in a nice box");
+    }
+}
+
+// Default C#/D highlights this below line as an error
+// Maybe modify the syntax highlighting and linting for Conure 
+class BostonCream < Donut {//MTF-ERR
+    cook() {
+        write("Pipe full of custard and coat with chocolate");
+    }
+}
+
+write(""); // Separation
+
+BostonCream().cook();
+
+class Zoo {
+    init() {
+        this.aardvark = 1;
+        this.baboon   = 1;
+        this.cat      = 1;
+        this.donkey   = 1;
+        this.elephant = 1;
+        this.fox      = 1;
+    }
+    ant()    { return this.aardvark; }
+    banana() { return this.baboon; }
+    tuna()   { return this.cat; }
+    hay()    { return this.donkey; }
+    grass()  { return this.elephant; }
+    mouse()  { return this.fox; }
+}
+
+let zoo = Zoo();
+let sum = 0;
+let start = time();
+while (sum < 100000) {
+    sum = sum + zoo.ant()
+              + zoo.banana()
+              + zoo.tuna()
+              + zoo.hay()
+              + zoo.grass()
+              + zoo.mouse();
+}
+
+write(time() - start);
+write(sum);

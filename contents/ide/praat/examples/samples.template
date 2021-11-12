@@ -1,0 +1,18 @@
+#
+#   Praat: Samples
+#
+
+clearinfo
+
+writeInfoLine: "The texts in the first five intervals:"
+for intervalNumber from 1 to 5
+    appendInfoLine: "Interval ", intervalNumber
+endfor
+
+speaker$ = "male"
+
+if speaker$ = "male"
+    appendInfoLine: "male"
+else
+    appendInfoLine: "not male"
+endif

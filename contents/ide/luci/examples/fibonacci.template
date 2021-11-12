@@ -1,0 +1,16 @@
+#
+#   Luci: fibonacci
+#   https://github.com/naegelejd/luci
+#
+
+def fib(n)
+{
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 2) + fib(n - 1);
+}
+
+print(fib(9));
+print(fib(15));
+print(fib(23));

@@ -1,0 +1,15 @@
+#
+# Crystal(크리스탈): Hello, World! 예제
+#
+
+class Hello
+  def initialize(@name : String )
+  end
+
+  def run
+    puts "Hello, #{@name}!"
+  end
+end
+
+g = Hello.new("World")
+g.run

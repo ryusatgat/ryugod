@@ -1,0 +1,29 @@
+//
+//  J*: quick sort
+//  https://github.com/bamless/jstar
+//
+
+fun partition(list, low, high)
+	var pivot = list[high]
+	var i = low
+	for var j = low; j < high; j += 1
+		if list[j] <= pivot
+			list[i], list[j] = list[j], list[i]
+			i += 1
+		end
+	end
+	list[i], list[high] = list[high], list[i]
+	return i
+end
+
+fun quickSort(list, low, high)
+	if low < high
+		var p = partition(list, low, high)
+		quickSort(list, low, p - 1)
+		quickSort(list, p + 1, high)
+	end
+end
+
+var list = [9, 1, 36, 37, 67, 45, 11, 27, 3, 5]
+quickSort(list, 0, #list - 1)
+print(list)

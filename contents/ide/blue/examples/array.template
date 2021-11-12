@@ -1,0 +1,36 @@
+#
+#   Blue: array
+#   https://github.com/elechak/blue
+#
+
+a = [];
+sys.print(a.length(), "\n");
+sys.print("\n");
+
+x= [1,2,3,4,5];
+
+
+sys.print(x.length(), "\n");
+sys.print(x[2],"\n");
+sys.print("\n");
+
+y= [6,7,8];
+
+
+sys.print(y.length(), "\n");
+sys.print(y[2],"\n");
+sys.print("\n");
+
+z = a+x+y;
+
+
+sys.print(z.length(), "\n");
+sys.print(z[2],"\n");
+sys.print("\n");
+
+t = z.map( func{sys.print(this,args[0],"\n"); return ""+this+args[0]; } , " hello"  );
+
+
+t.map( func{sys.print(this,"\n");});
+
+sys.print( t.join(","), "\n");

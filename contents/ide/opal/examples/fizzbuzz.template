@@ -1,0 +1,21 @@
+//
+//  Opal(오팔): FizzBuzz 예제
+//  출처: https://github.com/iitalics/Opal
+//
+
+module FizzBuzz
+
+pub fn fizzbuzz (n) {
+	match (n % 3, n % 5) {
+		(0, 0) { "FizzBuzz" }
+		(0, _) { "Fizz" }
+		(_, 0) { "Buzz" }
+		_      { n.str() }
+	}
+}
+
+pub fn main () {
+	(1, 100).range_incl |i| {
+		IO::print(fizzbuzz(i) + "\n");
+	}
+}

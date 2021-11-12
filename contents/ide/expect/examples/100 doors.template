@@ -1,0 +1,18 @@
+#
+#   Expect: 100 doors
+#
+
+set square 1
+set increment 3
+
+for { set door 1 } { $door <= 100 } { incr door 1 } {
+    send "door #$door"
+
+    if { $door == $square } {
+        send " is open.\n"
+        set square [expr $square+$increment]
+        set increment [expr $increment+2]
+    } else {
+        send " is closed.\n"
+    }
+}

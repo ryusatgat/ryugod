@@ -1,0 +1,21 @@
+/*
+   OZ(오즈): FizzBuzz 예제
+   출처: https://rosettacode.org/
+*/
+
+functor
+import
+   System
+define
+    fun {FizzBuzz X}
+        if     X mod 15 == 0 then 'FizzBuzz'
+        elseif X mod  3 == 0 then 'Fizz'
+        elseif X mod  5 == 0 then 'Buzz'
+        else   X
+        end
+    end
+
+    for I in 1..100 do
+       {System.showInfo {FizzBuzz I}}
+    end
+end

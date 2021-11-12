@@ -1,0 +1,6 @@
+;
+;   MUMPS: Hello, World! 예제
+;
+
+main()
+    write "Hello, World!",!

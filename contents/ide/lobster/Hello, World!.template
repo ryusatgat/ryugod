@@ -1,0 +1,6 @@
+//
+//  Lobster: Hello, World!
+//  https://aardappel.github.io/lobster
+//
+
+print "Hello, World!"

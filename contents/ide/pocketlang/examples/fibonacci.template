@@ -1,0 +1,18 @@
+#
+#   Pocketlang: fibonacci
+#   https://github.com/ThakeeNathees/pocketlang
+#
+
+def fib(n)
+  res = []
+  a = 0; b = 1
+  for _ in 0..n
+    list_append(res, a)
+    temp = a; a = b; b += temp;
+  end
+  return res
+end
+
+fibs = fib(10)
+print('fibs =', fibs)
+assert(fibs == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])

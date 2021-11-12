@@ -1,0 +1,20 @@
+'
+'   VB.Net: 99 bottles of beer 예제
+'   출처: https://rosettacode.org/
+'
+
+Module Program
+    Function Plural(count As Integer) As String
+        Return If(count = 1, "", "s")
+    End Function
+ 
+    Sub Main()
+        For i = 99 To 1 Step -1
+            Console.WriteLine($"{i} bottle{Plural(i)} of beer on the wall")
+            Console.WriteLine($"{i} bottle{Plural(i)} of beer")
+            Console.WriteLine($"Take one down, pass it around")
+            Console.WriteLine($"{i - 1} bottle{Plural(i - 1)} of beer on the wall")
+            Console.WriteLine()
+        Next
+    End Sub
+End Module

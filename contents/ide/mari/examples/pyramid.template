@@ -1,0 +1,19 @@
+declare function printf(format: i8*, ...args: any[]): i32;
+
+export function main(): i32 {
+    const rows = 6;
+    let x: i32;
+    let y: i32;
+
+    y = 0;
+    while (y < rows) {
+        x = 0;
+        while (x < y) {
+            printf("%d ", x);
+            x = x + 1;
+        }
+        y += 1;
+        printf("\n");
+    }
+    return (0);
+}

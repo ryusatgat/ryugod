@@ -1,0 +1,22 @@
+//
+//  Bellerina: regular expression
+//  https://github.com/ballerina-platform/ballerina-lang
+//
+
+import ballerina/io;
+import ballerina/regex;
+
+public function main() {
+    boolean isMatched = regex:matches("This Should Match", "Th.*ch");
+    io:println("Is the given string matched with the original string: ",
+                isMatched);
+
+    string new_string = regex:replaceAll("Ballerina is great", "\\s+", "_");
+    io:println("Replaced string: ", new_string);
+
+    new_string = regex:replaceFirst("ReplacethisthisTextThis", "this", " ");
+    io:println("String after replacing first Match: ", new_string);
+
+    string[] names = regex:split("amal, kamal, nimal, sunimal", ",");
+    io:println("No of names: ", names.length());
+}

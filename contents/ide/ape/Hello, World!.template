@@ -1,0 +1,6 @@
+//
+//  Ape: Hello, World!
+//  https://github.com/kgabis/ape
+//
+
+print("Hello, World!\n")

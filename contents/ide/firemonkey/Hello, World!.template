@@ -1,0 +1,5 @@
+/* JavaScript FireMonkey(자바스크립트 파이어몽키) Hello, World 예제 */
+
+const str = "Hello, World!"
+
+console.log(`${str}`)

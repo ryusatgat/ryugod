@@ -1,0 +1,10 @@
+#[
+    Lily(릴리) Hello, World! 예제
+]#
+
+define hello
+{
+    print("Hello, World!")
+}
+
+hello()

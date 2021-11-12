@@ -1,0 +1,10 @@
+//
+//  Bellerina: Hello, World!
+//  https://github.com/ballerina-platform/ballerina-lang
+//
+
+import ballerina/io;
+
+public function main() {
+    io:println("Hello, World!");
+}

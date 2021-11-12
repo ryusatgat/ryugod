@@ -1,0 +1,15 @@
+#
+#   Zion: fibonacci
+#   https://github.com/zionlang/zion
+#
+
+fn fib(n uint64) uint64 {
+    if n <= 1 {
+        return 1
+    }
+    return fib(n - 1) + fib(n - 2)
+}
+
+fn main() {
+  print(fib(10))
+}

@@ -1,0 +1,19 @@
+// CIL: Hello, World!
+
+.assembly extern mscorlib {}
+.assembly Main {}
+.module Main.exe
+
+.class Main.Program
+extends [mscorlib]System.Object
+{
+    .method static void Main(string[] args)
+    cil managed
+    {
+        .entrypoint
+        ldstr "Hello, World!"
+        call void [mscorlib]System.Console::
+        WriteLine(string)
+        ret
+    }
+}

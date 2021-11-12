@@ -1,0 +1,124 @@
+/*
+    elastiC: shapes
+    http://www.elasticworld.org/
+*/
+
+package shapes;
+
+import basic;
+import array;
+
+public class Shape extends basic.Object
+{
+    // instance variables
+    local name;
+    local color;
+
+    // methods
+
+    // a method with keywords
+    method setName: shapeName andColor: shapeColor
+    {
+        name  = shapeName;
+        color = shapeColor;
+    }
+
+    // a method with function-like name
+    method print()
+    {
+        basic.print( [[self isA] name],   "\n",
+                     "   name : ", name,  "\n",
+                     "   color: ", color, "\n",
+                     "   area : ", [self getArea], "\n" );
+    }
+}
+
+public class Rectangle extends Shape
+{
+    local w, h;
+
+    // initializer (called by new)
+    method init( name, color, width, height )
+    {
+        [super setName: name andColor: color];
+
+        w = width;
+        h = height;
+    }
+
+    method getArea()
+    {
+        return w * h;
+    }
+}
+
+public class Circle extends Shape
+{
+    local r;
+
+    // initializer (called by new)
+    method init( name, color, radius )
+    {
+        [super setName: name andColor: color];
+
+        r = radius;
+    }
+
+    method getArea()
+    {
+        return 3.1415 * r * r;
+    }
+}
+
+public class Square extends Rectangle
+{
+    // initializer (called by new)
+    method init( name, color, side )
+    {
+        [super init name, color, side, side];
+    }
+}
+
+// a Shape container
+
+public class ShapeBag extends basic.Object
+{
+    local bag;
+
+    // initializer (called by new)
+    method init()
+    {
+        // an empty array
+        bag = #[];
+    }
+
+    method addShape( shape )
+    {
+        array.push( bag, shape );
+    }
+
+    method print()
+    {
+        basic.print( "*** Shape Bag: ***\n\n" );
+
+        local shape;
+        local totalArea = 0;
+        for (shape in bag)
+        {
+            [shape print];
+            totalArea = totalArea + [shape getArea];
+        }
+
+        basic.print( "Total area: ", totalArea, "\n" );
+    }
+}
+
+// main code
+
+private bag = [ShapeBag new];
+[bag addShape [Rectangle new "r1", "red",    30, 20]];
+[bag addShape [Rectangle new "r2", "green",  10, 15]];
+[bag addShape [Square    new "s1", "blue",   10]];
+[bag addShape [Circle    new "c1", "brown",  10]];
+[bag addShape [Circle    new "c2", "yellow", 15]];
+[bag print];

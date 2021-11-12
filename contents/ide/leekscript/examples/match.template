@@ -1,0 +1,11 @@
+//
+//  LeekScript: match
+//  https://github.com/leek-wars
+//
+
+let v = "oui"
+match v {
+    "oui": print("Yeah!")
+    "non": print("snif")
+    ..: print("ok")
+}

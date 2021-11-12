@@ -1,0 +1,37 @@
+#
+#   Alta: simple class
+#   https://github.com/alta-lang/alta
+#
+
+import printLine from "io"
+
+class Foo {
+  public var bar: int = 9
+  public constructor() {
+    printLine("i'm constructor 1")
+  }
+  public constructor(bar: int) {
+    printLine("i'm constructor 2")
+    this.bar = bar + 1
+  }
+  public function calculate(bar: int): int {
+    return this.bar + bar
+  }
+}
+
+literal function main(): int {
+  let foobar = new Foo
+  let foo2 = new Foo(89)
+
+  printLine("foobar.bar = ", foobar.bar)
+
+  foobar.bar = 6
+
+  printLine("foobar.bar = ", foobar.bar)
+
+  printLine("foobar.calculate(8) = ", foobar.calculate(8))
+
+  printLine("foo2.bar = ", foo2.bar)
+
+  return 0
+}

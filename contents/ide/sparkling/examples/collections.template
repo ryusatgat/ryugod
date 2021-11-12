@@ -1,0 +1,39 @@
+#
+#   Sparkling: collections
+#   https://github.com/H2CO3/Sparkling
+#
+
+/*
+ * collections.spn
+ * Using arrays and hashmaps
+ *
+ * created by Árpád Goretity on 30/09/2013
+ */
+
+
+let hm = {
+	0	:	"Value for index zero",
+	1337	:	"Some other value at index leet",
+	"bar"	:	fn (x, y) {
+				stdout.printf("lambda function; x = %d, y = %d\n", x, y);
+			},
+	"quirk"	:	3.14159265358979323846
+};
+
+// iterating over all key-value pairs in a hashmap
+hm.foreach(fn value key {
+	print(key, " -> ", value);
+});
+
+
+// Mapping a function over an array
+let arr2 = range(10);
+let mapped = arr2.map(fn x -> x * x);
+
+print("mapped: ", mapped);
+
+// flattening an array using 'reduce()'
+let arr3 = [ 1, 3, 5, 7, 9 ];
+let sum = arr3.reduce(0, fn -> $[0] + $[1]);
+
+print("sum = ", sum);

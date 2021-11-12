@@ -1,0 +1,6 @@
+/*
+    LiveScript(라이브스크립트) Hello, World! 예제
+*/
+
+hello = !-> console.log 'Hello, World!'
+hello!

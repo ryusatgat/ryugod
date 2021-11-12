@@ -1,0 +1,6 @@
+/*
+    LK: Hello, World!
+    https://github.com/NREL/lk
+*/
+
+outln("Hello, World!");

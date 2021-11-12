@@ -1,0 +1,20 @@
+REM
+REM   TerminalBasic: 99 bottles of beer
+REM   http://www.rosettacode.org/
+REM
+
+010 bottles% = 99
+020 b$ = " bottles "
+030
+040 FOR i%=1 TO 99
+050     PRINT bottles%; b$; "of beer hanging on the wall"
+060     PRINT bottles%; b$; "of beer hanging on the wall"
+070     PRINT "And if one bottle of beer should accidently be drunk"
+080     bottles% = bottles% - 1
+090     IF bottles% = 1 THEN b$ = " bottle "
+100     IF bottles% = 0 THEN b$ = " bottles "
+110     PRINT "There'll be"; bottles%; b$; "of beer hanging on the wall"
+120     PRINT
+130 NEXT i%
+999 END
+RUN

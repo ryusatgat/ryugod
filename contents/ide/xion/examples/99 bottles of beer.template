@@ -1,0 +1,27 @@
+//
+//  Xion(시온): 99 bottles of beer 예제
+//  출처: https://www.99-bottles-of-beer.net/
+//
+
+on bottles start
+        repeat with x = start down to 1
+                if x = 1 then
+                        put "1 bottle of beer on the wall,"
+                        put "1 bottle of beer."
+                        put "Take one down, pass it around,"
+                        put "No more bottles of beer on the wall."
+                else
+                        put x&&"bottles of beer on the wall,"
+                        put x&&"bottles of beer."
+                        put "Take one down, pass it around,"
+                        if x-1 = 1 then
+                                put "1 bottle of beer on the wall."
+                        else
+                                put (x-1)&&"bottles of beer on the wall."
+                        end if
+                        put empty
+                end if
+        end repeat
+end bottles
+
+bottles 99

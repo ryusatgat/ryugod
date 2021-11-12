@@ -1,0 +1,18 @@
+//
+//  Cor: fibonacci
+//  http://yosbelms.github.io/cor/
+//
+
+func fib(n) {
+    a = 0
+    b = 1
+    return func()(t = a + b, a = b, b = t)[0]
+}
+
+func init() {
+    gen = fib()
+    res = (,)
+    for i in 2:15 {
+        console.log(i, gen())
+    }
+}

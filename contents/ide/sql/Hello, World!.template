@@ -1,0 +1,20 @@
+--
+-- SQLite: Hello, World! 예제
+--
+
+CREATE TABLE RyuGod
+(A VARCHAR(10), B VARCHAR(20));
+
+INSERT INTO RyuGod
+VALUES ('안녕', '세상!');
+
+WITH B AS (
+	SELECT A
+	FROM RyuGod)
+SELECT b.A, a.B
+FROM RyuGod AS a
+INNER JOIN B AS b
+ON a.A = b.A
+UNION ALL
+SELECT *
+  FROM(VALUES ('Hello', 'World!'));

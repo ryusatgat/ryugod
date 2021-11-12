@@ -1,0 +1,35 @@
+//
+//  Smile: fractal
+//  https://github.com/seanofw/smile
+//
+
+#include "stdio"
+
+graphics = " .,,,-----++++%%%%@@@@###"
+
+x1 = 1.0
+x2 = -2.5
+y1 = 1.0
+y2 = -1.0
+
+maxy = 25
+maxx = 80
+
+1..maxy each |screeny| {
+    1..maxx each |screenx| {
+        x0 = ((real screenx) / (((real maxx) - 1.0) / ((x1 - x2)))) + x2
+        y0 = ((real screeny) / (((real maxy) - 1.0) / ((y1 - y2)))) + y2
+        x = 0.0
+        y = 0.0
+        iteration = 0
+        max_iteration = 16
+        while x * x + y * y < 2.0 * 2.0 and iteration < max_iteration do {
+            xtemp = x * x - y * y + x0
+            y = 2.0 * x * y + y0
+            x = xtemp
+            iteration += 1
+        }
+        print graphics:iteration
+        if screenx == maxx then print-line ""
+    }
+}

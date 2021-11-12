@@ -1,0 +1,10 @@
+/*
+    Never: Hello, World!
+    https://github.com/never-lang/never
+*/
+
+func main() -> int
+{
+    prints("Hello, World!\n");
+    10
+}

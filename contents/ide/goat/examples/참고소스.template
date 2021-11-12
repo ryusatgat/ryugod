@@ -1,0 +1,700 @@
+/*
+
+Copyright (C) 2017-2020 Ivan Kniazkov
+
+This file is part of interpreter of programming language
+codenamed "Goat" ("Goat interpreter").
+
+Goat interpreter is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Goat interpreter is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with Goat interpreter.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+import "io.goat";
+import "xml.goat";
+import "algorithm.goat";
+
+var ref = 0;
+var links = {};
+var anchors = {};
+var fig = 0;
+
+var parseSection = $(src, dst, level, prefix)
+{
+    var length = src.data.length();
+    var numbered = src.attrib.numbered || false;
+    var i;
+    
+    var subsections = 0;
+    for (i = 0; i < length; ++i)
+    {
+        var child = src.data[i];
+        if (child.instanceof(Xml.Element) && (child.tag == "s" || child.tag == "section"))
+            subsections++;
+    }
+    var content = null;
+    if (subsections > 1)
+    {
+        content = new Xml.Element("ul");
+        content.attrib.class = "content";
+        dst.data.push(content);
+    }
+
+    var subsection = 0;
+    for (i = 0; i < length; ++i)
+    {
+        var child = src.data[i];
+        if (child.instanceof(String))
+        {
+            dst.data.push(child);
+            continue;
+        }
+        else if (!child.instanceof(Xml.Element))
+        {
+            continue;
+        }
+
+        switch(child.tag)
+        {
+            case "v":
+            case "version":
+                break;
+            case "s":
+            case "section":
+            {
+                if (content || child.attrib.anchor)
+                {
+                    var anchor = new Xml.Element("a", ' ');
+                    anchor.attrib.name = "ref_" + ref;
+                    dst.data.push(anchor);
+                    if (child.attrib.anchor)
+                    {
+                        anchors[child.attrib.anchor] = "#ref_" + ref;
+                    }
+                    if (content)
+                    {
+                        var link = new Xml.Element("a", child.attrib.name);
+                        link.attrib.href = "#ref_" + ref;
+                        content.data.push(new Xml.Element("li", link));
+                    }
+                    ref++;
+                }
+                subsection++;
+                var prefix2 = prefix + subsection + '.';
+                var header = new Xml.Element("div", (level < 4 || numbered) ? prefix2 + ' ' + child.attrib.name : child.attrib.name);
+                header.attrib.class = "header";
+                header.attrib.style = "font-size: " + levelToFontSize(level) + ';';
+                dst.data.push(header);
+                var container = new Xml.Element("div");
+                container.attrib.class = "section";
+                parseSection(child, container, level + 1, prefix2);
+                if (container.data.length() > 0)
+                    dst.data.push(container);
+                break;
+            }
+            case "p":
+            case "paragraph":
+            {
+                var container = new Xml.Element("div");
+                container.attrib.class = "para";
+                dst.data.push(container);
+                parseParagraph(child, container);
+                break;
+            }
+            case "u":
+            case "underline":
+            {
+                var container = new Xml.Element("div");
+                container.attrib.class = "para u2";
+                dst.data.push(container);
+                parseParagraph(child, container);
+                break;
+            }
+            case "c":
+            case "code":
+            {
+                if (child.data.length() == 1 && child.data[0].instanceof(String))
+                {
+                    var container = new Xml.Element("div");
+                    container.attrib.class = "code";
+                    dst.data.push(container);
+                    parseCode(child.data[0], container);
+                    break;
+                }
+            }
+			case "pic":
+			{
+				if (child.data.length() == 1 && child.data[0].instanceof(String))
+				{
+                    var container = new Xml.Element("div");
+                    container.attrib.class = "pic";
+                    dst.data.push(container);
+					var pic = new Xml.Element("img");
+					pic.attrib.src = child.data[0];
+					container.data.push(pic);
+                    container.data.push(new Xml.Element("br"));
+                    var caption = new Xml.Element("p");
+                    caption.attrib.className = "para";
+                    fig++;
+                    if (child.attrib.title)
+                    {
+						caption.data.push(new Xml.Element("b", "Fig. " + fig + ". "));
+						caption.data.push(child.attrib.title);
+					}
+					else
+					{
+						caption.data.push(new Xml.Element("b", "Fig. " + fig));
+					}
+					container.data.push(caption);
+        
+				}
+				break;
+			}
+            case "h":
+            case "header":
+            {
+                var header = new Xml.Element("div", child.attrib.name);
+                header.attrib.class = "header";
+                dst.data.push(header);
+                var container = new Xml.Element("div");
+                container.attrib.class = "para";
+                parseSection(child, container, level, prefix);
+                dst.data.push(container);
+                break;
+             }
+            case "t":
+            case "table":
+            {
+                var container = new Xml.Element("table");
+                container.attrib.class = "table";
+                dst.data.push(container);
+                parseTable(child, container);
+                break;
+            }
+            case "l":
+            case "list":
+            {
+                var container = new Xml.Element("ul");
+                dst.data.push(container);
+                parseList(child, container);
+                break;
+            }
+            case "m":
+            case "method":
+            {
+                var hasDescr = false;
+                var hasCompl = false;
+                var title = new Xml.Element("div");
+                title.attrib.class = "header";
+                dst.data.push(title);
+                if (child.attrib.descr)
+                {
+                    var block = new Xml.Element("div", child.attrib.descr);
+                    block.attrib.class = "para";
+                    dst.data.push(block);
+                    hasDescr = true;
+                }
+                if (!hasDescr)
+                {
+                    var descr = child.findFirstByTag(["descr", "d"]);
+                    if (descr)
+                    {
+                        var block = new Xml.Element("div");
+                        block.attrib.class = "para";
+                        dst.data.push(block);
+                        parseParagraph(descr, block);
+                    }
+                }
+                var b = new StringBuilder();
+                b << child.attrib.name << " ( ";
+                if (child.findFirstByTag(["args", "a"]) != null)
+                {
+                    var title = new Xml.Element("div");
+                    title.attrib.class = "para u2";
+                    dst.data.push(title);
+                    var block = new Xml.Element("ul");
+                    dst.data.push(block);
+                    var args = parseMethod(child, block);
+                    for (var i = 0; i < args.length(); i++)
+                    {
+                        if (i > 0)
+                            b << ", ";
+                        b << args[i];
+                    }
+                    title.data.push(args.length() > 1 ? "Parameters:" : "Parameter:");
+                }
+                b << " )";
+                if (child.attrib.complex)
+                {
+                    hasCompl = true;
+                    b << " → " << child.attrib.complex;
+                }
+                title.data.push(b.data());
+                var example = child.findFirstByTag(["example", "e"]);
+                if (example != null && example.data.length() == 1 && example.data[0].instanceof(String))
+                {
+                    var title = new Xml.Element("div", "Example:");
+                    title.attrib.class = "para u2";
+                    dst.data.push(title);
+                    var code = new Xml.Element("div");
+                    code.attrib.class = "code";
+                    dst.data.push(code);
+                    parseCode(example.data[0], code);
+                }
+                if (!hasCompl)
+                {
+                    var complex2 = child.findFirstByTag(["complexity", "x"]);
+                    if (complex2 != null)
+                    {
+                        var block = new Xml.Element("div");
+                        block.attrib.class = "para";
+                        dst.data.push(block);
+                        var title = new Xml.Element("span", "Complexity:");
+                        title.attrib.class = "u2";
+                        block.data.push(title);
+                        parseParagraph(complex2, block);
+                    }
+                }
+                var note = child.findFirstByTag(["note", "n"]);
+                if (note != null)
+                {
+                    var block = new Xml.Element("div");
+                    block.attrib.class = "para";
+                    dst.data.push(block);
+                    parseParagraph(note, block);
+                }
+                break;
+            }
+            case "o":
+            case "operator":
+            {
+                var hasDescr = false;
+                var title = new Xml.Element("div", (indexOf(child.attrib.name, ',') != -1 ? "Operators " : "Operator ") + child.attrib.name);
+                title.attrib.class = "header";
+                dst.data.push(title);
+                if (child.attrib.descr)
+                {
+                    var block = new Xml.Element("div", child.attrib.descr);
+                    block.attrib.class = "para";
+                    dst.data.push(block);
+                    hasDescr = true;
+                }
+                if (!hasDescr)
+                {
+                    var descr = child.findFirstByTag(["descr", "d"]);
+                    if (descr != null)
+                    {
+                        var block = new Xml.Element("div");
+                        block.attrib.class = "para";
+                        dst.data.push(block);
+                        parseParagraph(descr, block);
+                    }
+                }
+                var example = child.findFirstByTag(["example", "e"]);
+                if (example != null && example.data.length() == 1 && example.data[0].instanceof(String))
+                {
+                    var title = new Xml.Element("div", "Example:");
+                    title.attrib.class = "para u2";
+                    dst.data.push(title);
+                    var code = new Xml.Element("div");
+                    code.attrib.class = "code";
+                    dst.data.push(code);
+                    parseCode(example.data[0], code);
+                }
+                var note = child.findFirstByTag(["note", "n"]);
+                if (note != null)
+                {
+                    var block = new Xml.Element("div");
+                    block.attrib.class = "para";
+                    dst.data.push(block);
+                    parseParagraph(note, block);
+                }
+                break;
+            }
+            default:
+                throw "Unknown tag: " + child.tag;
+        }
+    }
+};
+
+var levelToFontSize = $(level)
+{
+    switch(level)
+    {
+        case 0:
+            return "24pt";
+        case 1:
+            return "20pt";
+        case 2:
+            return "16pt";
+        case 3:
+            return "14pt";
+        default:
+            return "medium";
+    }
+};
+
+var parseParagraph = $(src, dst)
+{
+    var length = src.data.length();
+    var i;
+    for (i = 0; i < length; ++i)
+    {
+        var child = src.data[i];
+        if (child.instanceof(String))
+        {
+            dst.data.push(child);
+        }
+        else if (child.instanceof(Xml.Element))
+        {
+            switch(child.tag)
+            {
+                case "b":
+                case "bold":
+                {
+                    var span = new Xml.Element("b");
+                    dst.data.push(span);
+                    parseParagraph(child, span);
+                    break;
+                }
+                case "c":
+                case "code":
+                {
+                    var span = new Xml.Element("code");
+                    span.attrib.class = "inline";
+                    dst.data.push(span);
+                    parseParagraph(child, span);
+                    break;
+                }
+                case "url":
+                {
+                    if (child.data.length() == 1 && child.data[0].instanceof(String))
+                    {
+                        var title = child.attrib.title;
+                        var link = new Xml.Element("a", title || child.data[0]);
+                        link.attrib.href = child.data[0];
+                        dst.data.push(link);
+                    }
+                    break;
+                }
+                case "link":
+                {
+                    if (child.data.length() == 1 && child.data[0].instanceof(String))
+                    {
+                        var title = child.attrib.title;
+                        var link = new Xml.Element("a", title || child.data[0]);
+                        link.attrib.href = "#";
+                        dst.data.push(link);
+                        links[link] = child.data[0];
+                    }
+                    break;
+                }
+                case "d":
+                case "draft":
+                {
+                    var span = new Xml.Element("span");
+                    span.attrib.class = "draft";
+                    dst.data.push(span);
+                    parseParagraph(child, span);
+                    break;
+                }
+                case "pic":
+                {
+                    if (child.data.length() == 1 && child.data[0].instanceof(String))
+                    {
+                        var link = new Xml.Element("img");
+                        link.attrib.src = child.data[0];
+                        dst.data.push(link);
+                    }
+                    break;
+                }
+                default:
+                    throw "Unknown tag: " + child.tag;
+            }
+        }
+    }
+};
+
+var parseCode = $(value, dst)
+{
+    var b = new StringBuilder();
+    for (var c in value)
+    {
+        switch(c)
+        {
+            case '\t':
+                b << "  "; break;
+            case '\r': break;
+            default: b << c;
+        }
+    }
+    value = b.data();
+    var lines = value.split('\n');
+    var li = lines.length();
+    if (li > 0)
+    {
+        var i,
+            offset = null,
+            line,
+            first;
+        for (i = 0; i < li; ++i)
+        {
+            line = lines[i];
+            var j,
+                lj = line.length();
+            for (j = 0; j < lj; ++j)
+            {
+                if (line[j] != ' ')
+                {
+                    offset = j;
+                    first = i;
+                    break;
+                }
+            }
+            if (offset != null)
+                break;
+        }
+        if (offset != null)
+        {
+            for (i = first; i < li; ++i)
+            {
+                if (i != first)
+                    dst.data.push(new Xml.Element("br"));
+                line = lines[i].substr(offset);
+                var b = new StringBuilder();
+                var j,
+                    lj = line.length();
+                for (j = 0; j < lj; j++)
+                {
+                    var c = line[j];
+                    if (c == ' ')
+                        b << "&nbsp;";
+                    else
+                        break;
+                }
+                var nbsp = b.data();
+                nbsp.noEscape = true;
+                dst.data.push(nbsp);
+                dst.data.push(line.substr(j));
+            }
+        }
+    }
+};
+
+var parseTable = $(src, dst)
+{
+    var length = src.data.length();
+    var i;
+    for (i = 0; i < length; i++)
+    {
+        var child = src.data[i];
+        if (child.instanceof(Xml.Element))
+        {
+            if (child.tag == "head" || child.tag == "h")
+            {
+                var head = new Xml.Element("tr");
+                dst.data.push(head);
+                parseTableRow(child, head, true);
+            }
+            else if (child.tag == "row" || child.tag == "r")
+            {
+                var row = new Xml.Element("tr");
+                dst.data.push(row);
+                parseTableRow(child, row, false);
+            }
+        }
+    }
+};
+
+var parseTableRow = $(src, dst, isHeader)
+{
+    var length = src.data.length();
+    var i,
+        k = 0;
+    for (i = 0; i < length; i++)
+    {
+        var child = src.data[i];
+        if (child.instanceof(Xml.Element))
+        {
+            if (child.tag == "cell" || child.tag == "c")
+            {
+                var cell = new Xml.Element("td");
+                if (isHeader)
+                    cell.attrib.class = "cellHeader";
+                else
+                    cell.attrib.class = "cell";
+                if (k > 0)
+                    cell.attrib.class += " cell2";
+                k++;
+                if (child.attrib["width"])
+                    cell.attrib.style = "width: " + child.attrib["width"] + "px;";
+                dst.data.push(cell);
+                parseParagraph(child, cell);
+            }
+        }
+    }
+};
+
+var parseList = $(src, dst)
+{
+    var length = src.data.length();
+    var i;
+    for (i = 0; i < length; i++)
+    {
+        var child = src.data[i];
+        if (child.instanceof(Xml.Element))
+        {
+            if (child.tag == "item" || child.tag == "i")
+            {
+                var li = new Xml.Element("li");
+                dst.data.push(li);
+                parseParagraph(child, li);
+            }
+        }
+    }
+};
+
+var parseMethod = $(src, dst)
+{
+    var length = src.data.length();
+    var args = [];
+    var i;
+    for (i = 0; i < length; i++)
+    {
+        var child = src.data[i];
+        if (child.instanceof(Xml.Element))
+        {
+            if (child.tag == "arg" || child.tag == "a")
+            {
+                args.push(child.attrib.name);
+                var b = new StringBuilder();
+                b << child.attrib.name << " (" << child.attrib.type << "): " << child.attrib.descr;
+                var arg = new Xml.Element("li", b.data());
+                dst.data.push(arg);
+            }
+        }
+    }
+    return args;
+};
+
+var raw = "";
+try
+{
+    var source = load("reference.xml");
+    if (!source)
+    {
+        println("Can not open source Xml");
+        exit(-1);
+    }
+
+    raw = source.decode("utf8");
+    var xml = Xml.parse(raw);
+
+    var html = new Xml.Element("html");
+
+    var head = new Xml.Element("head");
+    html.data.push(head);
+
+    var charset = new Xml.Element("meta");
+    charset.attrib.charset = "utf-8";
+    head.data.push(charset);
+
+    /*
+    var viewport = new Xml.Element("meta");
+    viewport.attrib.name = "viewport";
+    viewport.attrib.content = "width=device-width, initial-scale=1";
+    head.data.push(viewport);
+    */
+
+    var title = new Xml.Element("title", "The Goat Programming Language Reference");
+    head.data.push(title);
+    
+    var fonts = new Xml.Element("link");
+    fonts.attrib.href = "https://fonts.googleapis.com/css?family=Anonymous+Pro|Open+Sans&display=swap";
+    fonts.attrib.rel = "stylesheet";
+    head.data.push(fonts);   
+
+    var styles = new Xml.Element("style");
+    head.data.push(styles);
+    var addStyle = $(style)
+    {
+        style.noEscape = true;
+        styles.data.push(style);
+    };
+    addStyle("body { font-family: 'Open Sans', sans-serif; }");
+    addStyle("a { color: darkblue; text-decoration: none; }");
+    addStyle(".content { list-style-type: circle; margin-bottom: 0; }");
+    addStyle(".section { padding-left: 10pt; }");
+    addStyle(".header { font-weight: bold; padding-top: 15pt; }");
+    addStyle(".para { padding-top: 10pt; }");
+    addStyle(".u2 { text-decoration: underline; }");
+    addStyle(".code { font-family: 'Anonymous Pro', monospace; padding-top: 10pt; }");
+    addStyle(".inline { font-family: 'Anonymous Pro', monospace; border: 1px solid lightgray; padding: 0pt 2pt; }");
+    addStyle(".draft { text-decoration: line-through; }");
+    addStyle(".table { margin-top: 10px; border-spacing: 0; width: 90%; }");
+    addStyle(".cellHeader { font-weight: bold; border-top: 1px solid black; border-bottom: 1px solid black; padding : 5pt; }");
+    addStyle(".cell { padding : 5pt; vertical-align: top; }");
+    addStyle(".cell2 { border-left: 1px solid black; }");
+    addStyle(".table .inline { border: none; }");
+    addStyle(".pic { text-align: center; padding-top: 10pt; }");
+
+    var body = new Xml.Element("body");
+    html.data.push(body);
+
+    var docHdr = new Xml.Element("div", "The Goat Programming Language Reference");
+    docHdr.attrib.style = "font-weight: bold; font-size: xx-large;";
+    body.data.push(docHdr);
+    var ver = xml.findFirstByTag(["v", "version"]);
+    if (ver)
+    {
+        var verElem = new Xml.Element("div", "Version: " + ver.attrib.value + '.');
+        verElem.attrib.class = "para";
+        body.data.push(verElem);
+    }
+    var license = new Xml.Element("div");
+    license.attrib.class = "para";
+    var copyright = "Copyright &copy; 2017-2020 Ivan Kniazkov. See <a href=\"https://www.gnu.org/licenses/fdl-1.3-standalone.html\">license</a> for copying conditions.";
+    copyright.noEscape = true;
+    license.data.push(copyright);
+    body.data.push(license);
+    body.data.push(new Xml.Element("hr"));
+
+    var content = new Xml.Element("div", "Table of contents");
+    content.attrib.class = "header";
+    content.attrib.style = "font-size: " + levelToFontSize(0) + ';';
+    body.data.push(content);
+
+    parseSection(xml, body, 0, "");
+    
+    for (var link in links)
+    {
+        if (links.contains(link))
+        {
+            var anchor = links[link];
+            link.attrib.href = anchors[anchor];
+        }
+    }
+
+    println(html.toString("  "));
+}
+catch(e)
+{
+    if (e.instanceof(Xml.Error))
+    {
+        println("XML error, position: " + e.index + ", type: " + e.type + ", data: \"..." + raw.substr(e.index - 5, 100) + "...\"");
+    }
+    else
+    {
+        println(e);
+    }
+}

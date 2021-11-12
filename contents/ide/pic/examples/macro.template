@@ -1,0 +1,44 @@
+#
+#   PIC: macro
+#   https://www.gnu.org/software/plotutils/manual/en/html_node/pic2plot-Introduction.html
+#
+
+.PS
+# Plot a single jumper in a box, $1 is the on-off state.
+define jumper { [
+    shrinkfactor = 0.8;
+    Outer: box invis wid 0.45 ht 1;
+
+    # Count on end ] to reset these
+    boxwid = Outer.wid * shrinkfactor / 2;
+    boxht  = Outer.ht  * shrinkfactor / 2;
+
+    box fill (!$1) with .s at center of Outer;
+    box fill ($1)  with .n at center of Outer;
+] }
+
+# Plot a block of six jumpers.
+define jumperblock {
+    jumper($1);
+    jumper($2);
+    jumper($3);
+    jumper($4);
+    jumper($5);
+    jumper($6);
+
+    jwidth  = last [].Outer.wid;
+    jheight = last [].Outer.ht;
+
+    box with .nw at 6th last [].nw wid 6*jwidth ht jheight;
+
+    # Use {} to avoid changing position from last box draw.
+    # This is necessary so move in any direction will work as expected
+    {"Jumpers in state $1$2$3$4$5$6" at last box .s + (0, -0.2);}
+}
+
+
+# Sample macro invocations.
+jumperblock(1,1,0,0,1,0);
+move;
+jumperblock(1,0,1,0,1,1);
+.PE

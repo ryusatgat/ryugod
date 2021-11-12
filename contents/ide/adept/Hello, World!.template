@@ -1,0 +1,11 @@
+//
+//  Adept: Hello, World!
+//  https://github.com/AdeptLanguage
+//
+
+import basics
+
+func main(in argc int, in argv **ubyte) int {
+    printf('Hello, World!\n')
+    return 0
+}

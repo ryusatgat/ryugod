@@ -1,0 +1,43 @@
+#
+#   Alma: quick sort
+#   https://github.com/cassowarii/alma
+#
+
+def comp sort-one (
+    shift -> first
+    [first append]
+    if: [first comp apply] [2dip] [dip]
+)
+
+def comp partition (
+    [{} {}] dip
+    while*: [empty not] [comp sort-one]
+    drop
+)
+
+def quicksort (
+    when*: [len 1 >] [
+        shift -> pivot
+        [pivot <] partition
+        'quicksort to-both
+        pivot prefix
+        concat
+    ]
+)
+
+def main (
+    # Sort random numbers from 1 to 10
+    { 3, 1, 6, 4, 10, 2, 5, 9, 8, 7 } quicksort say
+
+    # Sort random numbers from 1 to 100
+    { 64, 46, 26, 76, 94, 92, 57, 20, 81, 43,
+      58, 69, 33, 59, 32, 44, 90, 25, 28,  4,
+      24, 75, 34, 60, 49, 10, 98, 88, 48, 61,
+      41, 95, 74, 21,  5, 53, 86, 80, 66, 62,
+      96, 55,100, 84, 79,  6, 47, 17, 87, 15,
+      22, 19, 77, 23, 85, 18,  3, 63, 65, 70,
+      73, 56, 54, 45, 27, 72, 51, 31, 40, 29,
+       1,  7, 30, 71, 97, 38, 78, 11, 91, 50,
+      82, 93, 36, 68, 14,  8, 37, 42, 39,  9,
+      35, 12, 67, 13, 52, 89, 83,  2, 99, 16 } quicksort say
+)

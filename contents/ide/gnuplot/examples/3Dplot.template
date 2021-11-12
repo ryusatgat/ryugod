@@ -1,0 +1,6 @@
+#
+#   Gnuplot(그누플롯) 3D 플롯 예제
+#   출처: https://rosettacode.org/
+#
+
+splot x**2+y**2, x**2-y**2

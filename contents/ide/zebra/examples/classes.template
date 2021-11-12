@@ -1,0 +1,55 @@
+//
+//  Zebra: classes
+//  https://github.com/tbui468/zebra
+//
+
+//BASIC CLASS 
+{
+    Dog :: class {
+        name: string = "Mittens"
+        age: string = "3"
+
+        speak :: () -> string {
+            -> name 
+        }
+
+        say_age :: () -> {
+            print(age)
+            ->
+        }
+    }
+
+    dog: Dog = Dog()
+
+    print(dog.speak())
+}
+
+//INHERITANCE
+{
+    Animal :: class {
+        species: string = "mammal"
+        jump :: () -> string {
+            -> "Animal jumping"
+        }
+    }
+
+    Dog :: class < Animal {
+    }
+
+    d: Dog = Dog()
+
+    print(d.species)
+    print(d.jump())
+
+    Cat :: class < Animal {
+        species: string = "whiskers"
+        jump :: () -> string {
+            -> "Cat jumping"
+        }
+    }
+
+    c: Cat = Cat()
+    print(c.species)
+
+    print(c.jump())
+}

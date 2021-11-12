@@ -1,0 +1,8 @@
+//
+// ATS: Hello, World!
+//
+
+implement main0 () = begin
+    print ("Hello, World!"); 
+    print_newline ()
+end

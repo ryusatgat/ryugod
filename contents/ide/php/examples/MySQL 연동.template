@@ -1,0 +1,29 @@
+<!-- PHP MySQL 연동 예제 -->
+<?php
+    // 예제 실행을 위해 MySQL을 기동시키는 명령어입니다
+    shell_exec("ps -ef | grep mysqld | grep -v grep > /dev/null || (echo 'Starting mysql...' && (sudo mysqld -D > /dev/null))");
+
+    // MySQL에 접속합니다
+    $conn = mysqli_connect(
+        'localhost',
+        'ryugod',
+        '',
+        'employees');
+
+    echo "<h1>단건 조회</h1>";
+    $sql = "SELECT * FROM employees LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+    echo '<h2>'.$row['first_name'].'</h2>';
+    echo $row['birth_date'];
+    
+    echo '<hr>';
+    
+    echo "<h1>다건 조회</h1>";
+    $sql = "SELECT * FROM salaries LIMIT 10";
+    $result = mysqli_query($conn, $sql);
+    while($row = mysqli_fetch_array($result)) {
+        echo '<h2>'.$row['emp_no'].'</h2>';
+        echo $row['salary'];
+    }
+?>

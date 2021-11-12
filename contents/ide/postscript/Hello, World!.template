@@ -1,0 +1,9 @@
+%
+%   PostScript(포스트스크립트): Hello, World! 예제
+%
+
+%!PS
+/NimbusSans-Bold 50 selectfont
+140 400 moveto
+(Hello, World!) show
+showpage

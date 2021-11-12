@@ -1,0 +1,6 @@
+#
+#   Sink: Hello, World!
+#   https://github.com/velipso/sink
+#
+
+say "Hello, World!"

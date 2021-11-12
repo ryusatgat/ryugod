@@ -1,0 +1,6 @@
+`   Ink: Hello, World!
+    https://github.com/thesephist/ink   `
+
+log := load('/opt/ink/lib/std').log
+
+log('Hello, World!')

@@ -1,0 +1,5 @@
+;
+;   XLisp(X리스프) Hello, World! 예제
+;
+
+(print "Hello, World!")

@@ -1,0 +1,16 @@
+#
+#   PIC: flow
+#   https://www.gnu.org/software/plotutils/manual/en/html_node/pic2plot-Introduction.html
+#
+
+.PS
+ellipse "document";
+arrow;
+box "\fIgpic\fP(1)"
+arrow;
+box width 1.2 "\fIgtbl\/\fP(1) or \fIgeqn\/\fP(1)" "(optional)" dashed;
+arrow;
+box "\fIgtroff\/\fP(1)";
+arrow;
+ellipse "PostScript"
+.PE

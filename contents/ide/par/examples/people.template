@@ -1,0 +1,26 @@
+//
+//  Par: people
+//  https://par-lang.org/
+//
+
+module Main
+
+map_list : ([A], A -> B) -> [B]
+map_list(l, f) = match l {
+  [h | t] => [f(h) | map_list(t, f)]
+  [] => []
+}
+
+people : [{ name : String, height : Float }]
+people = [
+  { name = "Jill", height = 70.6 }
+  { name = "Bob", height = 68 }
+  { name = "Laura", height = 73.25 }
+]
+
+main : () -> ()
+main() =
+  let tall_names = people
+    |> filter(|p| p.height > 70)
+    |> map_list(|p| p.name)
+  print(tall_names)

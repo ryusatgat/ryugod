@@ -1,0 +1,19 @@
+#
+#   Rk: conditional statement
+#   https://github.com/aaronryank/rk-lang
+#
+
+rk:start
+    int test
+
+    print: "Enter integer: "
+    read: test
+
+    if test == 2 then
+        print: "Congrats 2 u dood^n"
+    fi if test != 2 then
+        print: test "^n"
+    fi
+
+    print: "Finished.^n"
+rk:end

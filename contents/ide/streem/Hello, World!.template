@@ -1,0 +1,6 @@
+#
+#   Steem: Hello, World!
+#   https://github.com/matz/streem
+#
+
+["Hello, World!"] | stdout

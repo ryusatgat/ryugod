@@ -1,0 +1,5 @@
+/*
+    Poplog(팝로그): Hello, World! 예제
+*/
+
+printf('Hello, World!\n');

@@ -1,0 +1,7 @@
+/*
+    Kotlin(코틀린): Hello, World! 예제
+*/
+
+fun main(/*args: Array<String>*/) {
+    println("Hello, World!")
+}

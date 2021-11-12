@@ -1,0 +1,21 @@
+'
+'   BAS: 99 bottles of beer
+'   http://www.rosettacode.org/
+'
+
+bottles = 99
+b$ = " bottles "
+
+Do
+    Print bottles; b$; "of beer hanging on the wall"
+    Print bottles; b$; "of beer hanging on the wall"
+    Print "And if one bottle of beer should accidently be drunk"
+    bottles = bottles - 1
+    If bottles = 1 Then
+        b$ = " bottle "
+    ElseIf bottles = 0 Then
+        b$ = " bottles "
+    End If
+    Print "There'll be"; bottles; b$; "of beer hanging on the wall"
+    Print
+Loop Until bottles = 0

@@ -1,0 +1,44 @@
+//
+//  Alan: generic
+//  https://alan-lang.org/
+//
+
+from @std/app import start, print, exit
+
+// Generic types don't need to be capitalized, but it tends to look nicer
+type Box<V> {
+    set: bool,
+    val: V
+}
+
+on start fn {
+    let int8Box = new Box<int64> {
+        val: 8,
+        set: true
+    };
+    print(int8Box.val);
+    print(int8Box.set);
+
+    let stringBox = new Box<string> {
+        val: "hello, generics!",
+        set: true
+    };
+    print(stringBox.val);
+    print(stringBox.set);
+
+    const stringBoxBox = new Box<Box<string>> {
+        val: new Box<string> {
+        val: "hello, nested generics!",
+        set: true
+        },
+        set: true
+    };
+    stringBoxBox.set.print();
+    stringBoxBox.val.set.print();
+    print(stringBoxBox.val.val);
+
+    // The following is a compile time error, uncomment to see!
+    // stringBox.val = 8;
+
+    emit exit 0;
+}

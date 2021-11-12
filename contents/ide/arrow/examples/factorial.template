@@ -1,0 +1,16 @@
+;;;
+;;; Arrow: factorial
+;;; https://github.com/benhj/arrow
+;;;
+
+fn factorial(n) -> f {
+    1 -> f;
+    if (n > 1) {     
+        n * factorial(n - 1) -> f;
+    }
+}
+
+start {
+    10 -> N;
+    pr "result: "; prn factorial(N);
+}

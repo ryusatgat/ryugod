@@ -1,0 +1,16 @@
+import pandas as pd
+import seaborn as sns
+from sklearn import datasets
+import matplotlib.pyplot as plt
+
+
+iris = datasets.load_iris()
+iris_df = pd.DataFrame(iris.data, columns=iris.feature_names)
+iris_df['target'] = iris.target
+sns.pairplot(iris_df, hue='target', height=1.5)
+
+plt.savefig('iris.png')
+
+# imshow는 표준 명령어가 아닙니다. ryugod.com에서 이미지를 표시하기 위한 명령입니다.
+import os
+os.system('imshow iris.png')

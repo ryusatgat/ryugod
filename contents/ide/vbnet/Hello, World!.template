@@ -1,0 +1,10 @@
+'
+' VB.Net: Hello, World! 예제
+' 실행파일을 다운로드 하려면 imshow [파일명.exe] 명령을 실행하세요.
+'
+
+Module VBModule
+    Sub Main()
+        Console.WriteLine("Hello, World!")
+    End Sub
+ End Module

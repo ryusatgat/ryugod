@@ -1,0 +1,11 @@
+#
+#   Hexiscript(헥시스크립트): FizzBuzz 예제
+#   출처: https://rosettacode.org/
+#
+
+for let i 1; i <= 100; i++
+    if   i % 3 = 0 && i % 5 = 0; println "FizzBuzz"
+    elif i % 3 = 0; println "Fizz"
+    elif i % 5 = 0; println "Buzz"
+    else println i; endif
+endfor

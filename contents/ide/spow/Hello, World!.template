@@ -1,0 +1,6 @@
+#
+#   Spow: Hello, World!
+#   https://github.com/Gioyik/Spow
+#
+
+(println 'Hello, World!')

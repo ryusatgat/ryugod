@@ -1,0 +1,6 @@
+#
+#   Nix: Hello, World!
+#   https://github.com/kelthuzadx/nyx
+#
+
+println("Hello, World!")
