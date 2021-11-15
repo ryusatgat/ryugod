@@ -2677,6 +2677,17 @@ export const languages =
       errorRegEx: ".+?:(\\d+): .+? : (.+)",
       keyBindings: null
     },
+    'Hedgehog':{
+      highlighting:"hedgehog",
+      ext: 'hg',
+      kor: '헤지혹',
+      template:"hedgehog",
+      icon:'mdi-select-inverse',
+      command:"hg {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".+?\\.hg:(\\d+):(.+)",
+      keyBindings: null
+    },
     'Hermes':{
       highlighting:"hermes",
       ext: 'he',

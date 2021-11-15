@@ -1,0 +1,29 @@
+#
+#   Hedgehog: functions
+#   https://github.com/yangtau/hedgehog
+#
+
+def fn() {
+
+}
+
+fn()
+
+def hello() {
+    puts("Hello, World!")
+}
+hello()
+
+def fbi(n) {
+    let a, b = 0, 1
+    while b < n {
+        a, b = b, a+b
+    }
+    return a
+}
+puts("fbi(100) =", fbi(100))
+
+def add(a, b) {
+    return a + b
+}
+puts("add(a, b) =", add(3, 4))

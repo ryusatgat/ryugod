@@ -187,6 +187,7 @@ const tag = `<a href="${url}">🚀 코드 테스트 해보기</a>`
 - Haskell
 - Have
 - Haxe
+- Hedgehog
 - Hermes
 - Hexiscript
 - HLA
@@ -1057,3 +1058,5 @@ const tag = `<a href="${url}">🚀 코드 테스트 해보기</a>`
 ## 2021-11-09
 - Boron 추가
 - Par 추가
+## 2021-11-15
+- Hedgehog 추가

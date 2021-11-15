@@ -1,0 +1,6 @@
+#
+#   Hedgehog: Hello, World!
+#   https://github.com/yangtau/hedgehog
+#
+
+puts("Hello, World!")

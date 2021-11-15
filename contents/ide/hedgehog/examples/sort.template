@@ -1,0 +1,24 @@
+#
+#   Hedgehog: sort
+#   https://github.com/yangtau/hedgehog
+#
+
+def sort(ys, len) {
+    let i = 0
+    while i < len {
+        let j = 0
+        while j < len-i-1 {
+            if ys[j] > ys[j+1] {
+                ys[j], ys[j+1] = ys[j+1], ys[j]
+            }
+            
+            j = j+1
+        }
+        i = i+1
+    }
+}
+
+let ys  = [100, 102, 30, 50, 900, 5, 9, 10, 4, 2]
+puts("before sort, ys =", ys)
+sort(ys, 10)
+puts("after sort, ys =", ys)

@@ -182,6 +182,7 @@ import './hack/hack.contribution.js';
 import './haskell/haskell.contribution.js';
 import './haxe/haxe.contribution.js';
 import './hcl/hcl.contribution.js';
+import './hedgehog/hedgehog.contribution.js';
 import './hermes/hermes.contribution.js';
 import './hexi/hexi.contribution.js';
 import './hla/hla.contribution.js';
