@@ -76,6 +76,7 @@ const tag = `<a href="${url}">🚀 코드 테스트 해보기</a>`
 - Blossom
 - Blue
 - Bob
+- Borealis
 - Boron
 - Boson
 - BrainFuck
@@ -125,6 +126,7 @@ const tag = `<a href="${url}">🚀 코드 테스트 해보기</a>`
 - daScript
 - Dino
 - Dogescript
+- Dragon
 - Duck
 - Dylan
 - E
@@ -1060,3 +1062,7 @@ const tag = `<a href="${url}">🚀 코드 테스트 해보기</a>`
 - Par 추가
 ## 2021-11-15
 - Hedgehog 추가
+## 2021-11-20
+- Borealis 추가
+## 2021-11-21
+- Dragon 추가

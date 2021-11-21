@@ -1,0 +1,14 @@
+/*
+    Borealis: fibonacci
+    https://github.com/Usbac/borealis
+*/
+
+number fib(number n) {
+    if (n <= 1) {
+        return n;
+    }
+
+    return fib(n - 1) + fib(n - 2);
+}
+
+printLine(fib(20));

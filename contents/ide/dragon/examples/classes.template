@@ -1,0 +1,23 @@
+//
+//  Dragon: classes
+//  https://github.com/TomPrograms/dragon
+//
+
+// declaring a class
+class Person {
+    // class constructor
+    init(name) {
+        // save value to instance
+        this.name = name;
+    }
+
+    // print class' name
+    sayName() {
+        // access value from instance
+        print(this.name);
+    }
+}
+
+// create new instance
+var person = Person("ryugod");
+person.sayName();

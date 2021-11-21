@@ -1,0 +1,26 @@
+/*
+    Borealis: bubble sort
+    https://github.com/Usbac/borealis
+*/
+
+any sort(array arr) {
+    any length = Array.getSize(arr);
+
+    foreach (Array.range(0, length - 1), i) {
+        foreach (Array.range(0, length - 1), j) {
+            if (arr[j + 1] !== null && arr[j] > arr[j + 1]) {
+                any tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+            }
+        }
+    }
+
+    return arr;
+}
+
+array arr = sort([ 12, 234, 8765, 0, -123, 23, 2 ]);
+
+foreach(arr, a) {
+    printLine(a);
+}

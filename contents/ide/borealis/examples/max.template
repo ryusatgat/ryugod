@@ -1,0 +1,18 @@
+/*
+    Borealis: maximum value
+    https://github.com/Usbac/borealis
+*/
+
+any findMax(arr) {
+    any max = 0;
+
+    foreach (arr, val) {
+        if (val > max) {
+            max = val;
+        }
+    }
+
+    return max;
+}
+
+printLine(findMax([ 1, 42, 70, 3000, 200, -120, 98 ]));

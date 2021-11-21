@@ -1,0 +1,6 @@
+/*
+    Borealis: Hello, World!
+    https://github.com/Usbac/borealis
+*/
+
+printLine("Hello, World!");

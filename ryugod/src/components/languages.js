@@ -1203,6 +1203,18 @@ export const languages =
       errorRegEx: ".*? (\\d+): (.*)",
       keyBindings: null
     },
+    'Borealis':{
+      highlighting:"borealis",
+      ext: 'bor',
+      kor: '보어앨리스',
+      template:"borealis",
+      icon:'mdi-octagon-outline',
+      args: '-f {FILENAME}.{EXT}',
+      command:'borealis {ARGS}',
+      cli: null,
+      errorRegEx: ".+?: .+\r\nLine: (\\d+)(.*)",
+      keyBindings: null
+    },
     'Boron':{
       highlighting:"boron",
       ext: 'b',
@@ -1856,6 +1868,17 @@ export const languages =
       command:"dogescript {ARGS} {FILENAME}.{EXT} | node",
       cli: "dogescript {ARGS}",
       errorRegEx: ".+:(\\d+)\r\n.+\r\n.+\r\n\r\n(.+)\r\n",
+      keyBindings: null
+    },
+    'Dragon':{
+      highlighting:"dragon",
+      ext: 'drg',
+      kor: '드래곤',
+      template:"dragon",
+      icon:'mdi-alpha-d-circle',
+      command:"dragon {ARGS} {FILENAME}.{EXT}",
+      cli: "dragon {ARGS}",
+      errorRegEx: "\\[.+?\\.drg\\] \\[Line: (\\d+)\\] (.+)",
       keyBindings: null
     },
     'Duck':{
