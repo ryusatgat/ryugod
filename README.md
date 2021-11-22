@@ -3,8 +3,7 @@
 - This site provides a development environment for simple testing.
 - You can try running 'Linux Shell' and multiple program languages ​​without login.
 - It provides online compilers for C language, C++, Java, etc. and supports **syntax highlighting** function for all languages.
-- 
-You can upload and download files to/from the server.
+- You can upload and download files to/from the server.
 - You can add source files by drag and drop.
 - You can easily share the source code you wrote with your friends.
 - Try copying the editor source and pasting it on the bulletin board. It is nicely pasted.
