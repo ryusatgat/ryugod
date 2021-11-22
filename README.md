@@ -1,7 +1,6 @@
-* [Korean](README_ko.md)
+☞ [Korean](README_ko.md)
 # Ryugod (https://www.ryugod.com)
-- 
-This site provides a development environment for simple testing.
+- This site provides a development environment for simple testing.
 - You can try running 'Linux Shell' and multiple program languages ​​without login.
 - It provides online compilers for C language, C++, Java, etc. and supports **syntax highlighting** function for all languages.
 - 
