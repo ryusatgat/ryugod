@@ -1,0 +1,26 @@
+/*
+    Pike: camel case
+    https://pike.lysator.liu.se/docs/tut/browser/index.md
+*/
+
+void main() 
+{
+    string text = lower_case(Stdio.stdin->gets());
+    string cc = "";
+    int i, lastSpace = 1;
+
+    for (i=0; i<sizeof(text); i++) 
+    {
+        if (text[i] >= 'a' && text[i] <= 'z') 
+        {
+            if (lastSpace == 1)
+                cc += upper_case(text[i..i]);
+            else
+                cc += text[i..i];
+            lastSpace = 0;
+        }
+        else
+            lastSpace = 1;
+    }
+    write(cc+"\n");
+}

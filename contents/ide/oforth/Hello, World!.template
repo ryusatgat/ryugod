@@ -1,5 +1,5 @@
 \
-\   Oforth(오포스) Hello, World! 예제
+\   Oforth: Hello, World!
 \
 
 "Hello, World!".cr

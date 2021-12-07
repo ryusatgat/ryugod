@@ -169,6 +169,7 @@ import './gnuplot/gnuplot.contribution.js';
 import './go/go.contribution.js';
 import './goat/goat.contribution.js';
 import './goby/goby.contribution.js';
+import './golfscript/golfscript.contribution.js';
 import './golo/golo.contribution.js';
 import './gosu/gosu.contribution.js';
 import './gp/gp.contribution.js';
@@ -202,6 +203,7 @@ import './idl/idl.contribution.js';
 import './inform/inform.contribution.js';
 //import './ini/ini.contribution.js';
 import './ink/ink.contribution.js';
+import './intercal/intercal.contribution.js';
 import './io/io.contribution.js';
 import './ioke/ioke.contribution.js';
 import './iphi/iphi.contribution.js'

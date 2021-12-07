@@ -1,0 +1,15 @@
+/*
+    Pike: factorial
+    https://www.ryugod.com
+*/
+
+int factorial(int n) 
+{
+    return (n<=1 ? 1 : n*factorial(n-1));
+}
+
+void main() 
+{
+    int n = (int)Stdio.stdin->gets();
+    write((string)factorial(n) + "\n");
+}

@@ -1,6 +1,6 @@
 \
-\   Oforth(오포스) 99 bottles of beer 예제
-\   출처: https://rosettacode.org/
+\   Oforth: 99 bottles of beer
+\   https://rosettacode.org/
 \
 
 "bottles of beer on the wall\n" const: B

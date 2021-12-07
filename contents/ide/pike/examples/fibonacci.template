@@ -1,0 +1,16 @@
+/*
+    Pike: fibonacci
+    http://progopedia.com/language/pike/
+*/
+
+int fibonacci(int n) 
+{
+    return ( n<=2 ? 1 : fibonacci(n-1) + fibonacci(n-2) );
+}
+
+void main() 
+{
+    for (int n=1; n<=16; n++)
+        write(fibonacci(n)+", ");
+    write("...\n");
+}

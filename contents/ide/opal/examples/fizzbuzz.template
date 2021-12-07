@@ -1,6 +1,6 @@
 //
-//  Opal(오팔): FizzBuzz 예제
-//  출처: https://github.com/iitalics/Opal
+//  Opal: FizzBuzz
+//  https://github.com/iitalics/Opal
 //
 
 module FizzBuzz

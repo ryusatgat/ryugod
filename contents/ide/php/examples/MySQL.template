@@ -1,7 +1,7 @@
 <!-- PHP MySQL 연동 예제 -->
 <?php
     // 예제 실행을 위해 MySQL을 기동시키는 명령어입니다
-    shell_exec("ps -ef | grep mysqld | grep -v grep > /dev/null || (echo 'Starting mysql...' && (sudo mysqld -D > /dev/null))");
+    shell_exec("ps -ef | grep mysqld | grep -v grep > /dev/null || sudo service mysql start");
 
     // MySQL에 접속합니다
     $conn = mysqli_connect(

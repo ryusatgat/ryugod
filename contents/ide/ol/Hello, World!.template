@@ -1,5 +1,5 @@
 ;
-;   Otus Lisp(오투스 리스프): Hello, World! 예제
+;   Otus Lisp: Hello, World!
 ;
 
 (print "Hello, World!")

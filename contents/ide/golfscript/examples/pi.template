@@ -1,0 +1,8 @@
+#
+#   GolfScript: pi
+#   http://www.golfscript.com
+#
+
+;''
+6666,-2%{2+.2/@*\/10.3??2*+}*
+`50<~\; #truncate for webpage purposes

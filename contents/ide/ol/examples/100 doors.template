@@ -1,6 +1,6 @@
 ;
-;   Otus Lisp(오투스 리스프): 100 doors 예제
-;   출처: https://rosettacode.org/
+;   Otus Lisp: 100 doors
+;   https://rosettacode.org/
 ;
 
 (define (flip doors every)

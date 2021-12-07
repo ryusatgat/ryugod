@@ -189,7 +189,7 @@ export const languages =
       args: '-Wall -lm',
       command:"gcc -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_C)
     },
     'C 89':{
@@ -201,7 +201,7 @@ export const languages =
       args: '-Wall -lm -std=c89',
       command:"gcc -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C 11':{
@@ -213,7 +213,7 @@ export const languages =
       args: '-Wall -lm -std=c11',
       command:"gcc -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C 17':{
@@ -225,7 +225,7 @@ export const languages =
       args: '-Wall -lm -std=c17',
       command:"gcc -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C 18':{
@@ -237,7 +237,7 @@ export const languages =
       args: '-Wall -lm -std=c18',
       command:"gcc -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C 2x':{
@@ -249,7 +249,7 @@ export const languages =
       args: '-Wall -lm -std=c2x',
       command:"gcc -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'CLang':{
@@ -261,7 +261,7 @@ export const languages =
       args: '-Wall -lm',
       command:"clang -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'SubC':{
@@ -307,7 +307,7 @@ export const languages =
       args: '-Wall',
       command:"clang++ -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C++':{
@@ -319,7 +319,7 @@ export const languages =
       args: '-Wall -lboost_system -lboost_thread -pthread -ltbb',
       command:"g++ -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C++ 98':{
@@ -331,7 +331,7 @@ export const languages =
       args: '-Wall -std=c++98 -lboost_system -lboost_thread -pthread -ltbb',
       command:"g++ -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C++ 11':{
@@ -343,7 +343,7 @@ export const languages =
       args: '-Wall -std=c++11 -lboost_system -lboost_thread -pthread -ltbb',
       command:"g++ -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C++ 14':{
@@ -355,7 +355,7 @@ export const languages =
       args: '-Wall -std=c++14 -lboost_system -lboost_thread -pthread -ltbb',
       command:"g++ -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C++ 17':{
@@ -367,7 +367,7 @@ export const languages =
       args: '-Wall -std=c++17 -lboost_system -lboost_thread -pthread -ltbb',
       command:"g++ -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C++ 2a':{
@@ -379,7 +379,7 @@ export const languages =
       args: '-Wall -std=c++2a -lboost_system -lboost_thread -pthread -ltbb',
       command:"g++ -fdiagnostics-color=never -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'C# - .NET Core':{
@@ -1777,7 +1777,7 @@ export const languages =
       args: '-fdiagnostics-color=never -Wall',
       command:"gdc {ARGS} -o {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.d:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'D(LLVM)':{
@@ -2536,6 +2536,17 @@ export const languages =
       errorRegEx: "(?:.+\r\nfrom .+?\\.gb:|.+? Line: )(\\d+)(.*)",
       keyBindings: null
     },
+    'GolfScript':{
+      highlighting:"golfscript",
+      ext: 'gs',
+      kor: '골프스크립트',
+      template:"golfscript",
+      icon:'mdi-golf-tee',
+      command: 'golfscript {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: null,
+      keyBindings: null
+    },
     'Golo':{
       highlighting:"golo",
       ext: 'golo',
@@ -2890,6 +2901,17 @@ export const languages =
       command: 'ink {ARGS} {FILENAME}.{EXT}',
       cli: 'ink -repl',
       errorRegEx: ".+? \\[(\\d+):\\d+\\]( in .+?\\.ink)",
+      keyBindings: null
+    },
+    'INTERCAL':{
+      highlighting:"intercal",
+      ext: 'i',
+      kor: '인터칼',
+      template:"intercal",
+      icon:'mdi-gate-and',
+      command: 'ick {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
+      cli: null,
+      errorRegEx: "ON THE WAY TO (\\d+)(.*)",
       keyBindings: null
     },
     'Io':{
@@ -4024,7 +4046,7 @@ export const languages =
       icon:'mdi-language-c',
       command:"gcc {ARGS} -fdiagnostics-color=never `gnustep-config --objc-flags` -o {FILENAME} {FILENAME}.{EXT} `gnustep-config --base-libs` && ./{FILENAME}",
       cli: null,
-      errorRegEx: ".*?:(\\d+):\\d+: (.*)\n?",
+      errorRegEx: ".+?\\.m:(\\d+):\\d+: error: (.*)",
       keyBindings: null
     },
     'OCaml':{

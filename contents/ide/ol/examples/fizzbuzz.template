@@ -1,6 +1,6 @@
 ;
-;   Otus Lisp(오투스 리스프): FizzBuzz 예제
-;   출처: https://rosettacode.org/
+;   Otus Lisp: FizzBuzz
+;   https://rosettacode.org/
 ;
 
 (for-each (lambda (x)

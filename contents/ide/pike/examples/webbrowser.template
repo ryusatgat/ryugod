@@ -1,7 +1,8 @@
 /*
-    Pike(파이크) 간단한 웹브라우저 예제
-    출처: https://pike.lysator.liu.se/docs/tut/browser/index.md
+    Pike: simple web browser
+    https://pike.lysator.liu.se/docs/tut/browser/index.md
 */
+
 import Protocols.HTTP;
 
 void handle_url(string this_url)

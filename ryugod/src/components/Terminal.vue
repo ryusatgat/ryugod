@@ -688,7 +688,7 @@ export default {
                 const source = this.editor.getValue()
 
                 tx.executeSql('INSERT OR REPLACE INTO tab_sources (language, filename, source) VALUES(?, ?, ?)', [language, this.filename, source], () => {
-                  this.showSnackbar(`${language} - ${this.filename} this.$t('saved')`)
+                  this.showSnackbar(`${language} - ${this.filename} ${this.$t('saved')}`)
                   this.fileTabs[this.fileTabIndex].saved = true
                 }, (tx, result) => {
                   this.showSnackbar(this.$t('failedSave'))
@@ -700,12 +700,12 @@ export default {
               tx.executeSql('SELECT source FROM tab_sources WHERE language = ? AND filename = ?', [language, this.filename], (tx, result) => {
                 if (result.rows[0]) {
                   this.setEditorValue(result.rows[0].source)
-                  this.showSnackbar(`${language} - ${this.filename} this.$t('loaded')`)
+                  this.showSnackbar(`${language} - ${this.filename} ${this.$t('loaded')}`)
                 } else {
                   //this.fileTabs[this.fileTabIndex].value = ''
                   //this.setEditorValue('')
                   if (this.filename !== this.defaultFilename)
-                    this.showSnackbar(`${language} - ${this.filename} this.$t('noSaved')`)
+                    this.showSnackbar(`${language} - ${this.filename} ${this.$t('noSaved')}`)
                 }
               }, (tx, result) => {
                 this.showSnackbar(this.$t('failedQuery'))

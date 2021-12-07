@@ -1,0 +1,7 @@
+#
+#   GolfScript: gcd
+#   http://www.golfscript.com
+#
+
+;'2706 410'
+~{.@\%.}do;

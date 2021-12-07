@@ -1,0 +1,18 @@
+/*
+    Pike: sort
+    https://www.ryugod.com
+*/
+
+void main() 
+{
+    int n = (int)Stdio.stdin->gets();
+    array arr = allocate(n);
+
+    for (int i=0; i<n; i++)
+        arr[i] = (int)Stdio.stdin->gets();
+
+    sort(arr);
+    
+    for (int i=0; i<n; i++)
+        write((string)arr[i] + "\n");
+}
