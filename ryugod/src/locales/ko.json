@@ -67,5 +67,6 @@
   "dark": "어둡게",
   "light": "밝게",
   "ok": "확인",
-  "cancel": "취소"
+  "cancel": "취소",
+  "sourceSharingFailed": "소스 공유에 실패했습니다"
 }

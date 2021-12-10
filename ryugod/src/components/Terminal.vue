@@ -17,7 +17,7 @@
           <v-container class="ma-0 pa-0 grey" flat min-width="120px" max-height="calc(100vh - 80px)">
             <v-list-item-group
                 color="primary"
-                flat네
+                flat
             >
             <v-row no-gutters>
               <v-col v-for="(category, index) in categories" :key="index">
@@ -919,7 +919,7 @@ export default {
       this.fitSize()
     },
     shareSource: function() {
-      const source = this.editor.getValue().trim()
+      const source = this.editor.getValue()
       if (source === "") {
         this.messageBox('nosource', 320)
         return
@@ -942,12 +942,12 @@ export default {
               this.QRCode = url
             })
           } else {
-            this.showSnackbar('소스 공유에 실패했습니다')
+            this.showSnackbar(this.$t('sourceSharingFailed'))
             console.error('sharedHash is null')
           }
         })
         .catch((e) => {
-          this.showSnackbar('소스 공유에 실패했습니다')
+          this.showSnackbar(this.$t('sourceSharingFailed'))
           console.error(e)
         })
     },
@@ -1294,13 +1294,13 @@ export default {
           if (!args)
             args = this.languages[this.selectedLanguage].args?this.languages[this.selectedLanguage].args:""
 
-          command = ("cat << 'RYUGOD_EOF' > {FILENAME}.{EXT}\n{SOURCE}\nRYUGOD_EOF\nhistory -c\n" +
+          command = ("bind 'set disable-completion on'\ncat << 'RYUGOD_EOF' > {FILENAME}.{EXT}\n{SOURCE}\nRYUGOD_EOF\nbind 'set disable-completion off'\nhistory -c\n" +
             this.languages[this.selectedLanguage].command)
             .replace(/{ARGS}/g, args)
             .replace(/{FILENAME}/g, this.filename.replace(`.${ext}`, ''))
             .replace(/{EXT}/g, ext)
             .replace('{SOURCE}', this.editor.getValue())
-            .replace(/\t/g, '    ')
+//            .replace(/\t/g, '    ')
         }
         else if (selectedText) {
           command = selectedText
@@ -1496,9 +1496,9 @@ export default {
       tabSize: 4,
       language: "shell",
       quickSuggestions: {
-        "other": false,
+        "other": true,
         "comments": false,
-        "strings": false,
+        "strings": true,
         "keywords": true,
       },
       lineNumbers: "on",
@@ -1913,13 +1913,13 @@ export default {
   height: 20px;
 }
 .decorationError {
-	background: rgba(255, 0, 0, 0.5);
+  background: rgba(255, 0, 0, 0.5);
 }
 .decorationErrorLine {
-	background: rgba(255, 220, 220, 0.2);
+  background: rgba(255, 220, 220, 0.2);
 }
 .decorationErrorLineDark {
-	background: rgba(70, 40, 40, 0.2);
+  background: rgba(70, 40, 40, 0.2);
 }
 ::-webkit-scrollbar {
     width: 8px;

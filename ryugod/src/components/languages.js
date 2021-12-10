@@ -5797,6 +5797,18 @@ export const languages =
       errorRegEx: ".+?line (\\d+): (.+)",
       keyBindings: null
     },
+    'Whitespace':{
+      highlighting:"whitespace",
+      ext: 'ws',
+      kor: '화이트스페이스',
+      template:"whitespace",
+      icon:'mdi-keyboard-space',
+      command:"wspace {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: null,
+      keyBindings: null,
+      insertSpaces: false
+    },
     'Wolfram Script':{
       highlighting:"mathics",
       ext: 'wls',

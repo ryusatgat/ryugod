@@ -431,6 +431,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Virgil
 - WardScript
 - Wax
+- Whitespace
 - Windows Batch
 - World
 - Wren
@@ -1071,3 +1072,5 @@ Supported Environment
 ## 2021-12-07
 - GolfScript supported
 - INTERCAL supported
+## 2021-12-09
+- Whitespace supported

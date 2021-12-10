@@ -67,5 +67,6 @@
   "dark": "dark",
   "light": "light",
   "ok": "OK",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "sourceSharingFailed": "Source sharing failed"
 }
