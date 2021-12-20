@@ -1,4 +1,5 @@
 import '../editor/editor.api.js';
+// 왜인지는 모르겠으나 특정 개수가 넘어가면 그 이후 언어는 구문강조가 정상적으로 작동하지 않음
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
@@ -16,6 +17,7 @@ import './octave/octave.contribution.js';
 import './perl/perl.contribution.js';
 import './pgsql/pgsql.contribution.js';
 import './php/php.contribution.js';
+import './pike/pike.contribution.js';
 import './python/python.contribution.js';
 import './r/r.contribution.js';
 import './shell/shell.contribution.js';
@@ -97,6 +99,7 @@ import './chaiscript/chaiscript.contribution.js';
 import './chaos/chaos.contribution.js';
 import './chapel/chapel.contribution.js';
 import './cheddar/cheddar.contribution.js';
+import './chef/chef.contribution.js';
 import './chuck/chuck.contribution.js';
 import './ciao/ciao.contribution.js';
 import './cil/cil.contribution.js';
@@ -334,7 +337,6 @@ import './pharo/pharo.contribution.js';
 import './phix/phix.contribution.js';
 import './pic/pic.contribution.js';
 import './picat/picat.contribution.js';
-import './pike/pike.contribution.js';
 import './pilot/pilot.contribution.js';
 import './pocketlang/pocketlang.contribution.js';
 import './polyml/polyml.contribution.js';

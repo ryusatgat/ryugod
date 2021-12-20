@@ -2,70 +2,24 @@
   <div id='div-client' class="client">
   <!--
   <v-container class="pa-0">
+
   -->
     <div id='div-editor' @drop="dropHandler" @dragover="dragOverHandler">
       <v-app-bar color="toolbar" id="v-toolbar" height="32px">
         <v-app-bar-nav-icon :dark="dark" @click="$emit('toggleMenu')"></v-app-bar-nav-icon>
-        <v-menu offset-y>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn ref='langList' width="120px" text x-small v-bind="attrs" v-on="on">
-              <v-icon color="primary">{{languageIcon}}</v-icon>
-              {{selectedLanguage}}
-            </v-btn>
-          </template>
-<!--
-          <v-container class="ma-0 pa-0 grey" flat min-width="120px" max-height="calc(100vh - 80px)">
-            <v-list-item-group
-                color="primary"
-                flat
-            >
-            <v-row no-gutters>
-              <v-col v-for="(category, index) in categories" :key="index">
-                <v-list dense>
-                    <v-subheader center>{{category}}</v-subheader>
-                    <template v-for="(language, index) in Object.keys(languages)">
-                    <v-list-item
-                        v-if="category === languages[language].category"
-                        :key="index"
-                        @click="onChangeLanguage(language)"
-                    >
-                    <v-list-item-icon>
-                      <v-icon  :color="language === selectedLanguage ? 'error':'primary'">
-                        {{languages[language].icon}}
-                      </v-icon>
-                    </v-list-item-icon>
-                    <v-list-item-title>{{ language }}</v-list-item-title>
-                    </v-list-item>
-                    </template>
-                </v-list>
-              </v-col>
-            </v-row>
-            </v-list-item-group>
-          </v-container>
--->
-          <v-list min-width="120px" max-height="calc(100vh - 60px)" class="overflow-y-auto" dense>
-            <!--
-            <v-text-field
-              v-bind="filter"
-              label="언어 필터"
-              hide-details="auto"
-            ></v-text-field>
-            -->
-            <template v-for="(language, index) in Object.keys(languages)">
-            <v-list-item
-              @click="onChangeLanguage(language)"
-              :key="index"
-            >
-              <v-list-item-icon>
-                <v-icon  :color="language === selectedLanguage ? 'error':'primary'">
-                  {{languages[language].icon}}
-                </v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>{{ language }}</v-list-item-title>
-            </v-list-item>
-            </template>
-          </v-list>
-        </v-menu>
+        <v-icon color="primary">{{languageIcon}}</v-icon>
+        <v-combobox
+          :items="Object.keys(languages)"
+          @change="onChangeLanguage"
+          dense
+          :menu-props="{maxHeight: 480}"
+          hide-details
+          auto-select-first
+          v-model="languageFilter"
+          style="max-width: 120px;min-width: 120px;"
+          solo
+          :filter="(item, queryText, itemText) => {return itemText.toLocaleLowerCase().startsWith(queryText.toLocaleLowerCase())}"
+        ></v-combobox>
         <v-tooltip bottom>
           <span>{{$t('connect')}}</span>
           <template v-slot:activator="{ on, attrs }">
@@ -409,7 +363,7 @@ export default {
     x: 0,
     y:0,
     tabMenus: null,
-    filter: '',
+    languageFilter: '',
     dispose: null,
     befDecorations: [],
     decorations: [],
@@ -1368,9 +1322,12 @@ export default {
     },
 */
     onChangeLanguage: function(language, isFirst) {
+      if (!this.languages[language])
+        return
+
       if (this.selectedLanguage != language)
         this.sourceControl('tabs', language)
-
+      this.languageFilter = language
       this.defaultFilename = this.languages[language].defaultFilename?this.languages[language].defaultFilename:"main"
       this.languageIcon = this.languages[language].icon
       this.selectedLanguage = language
@@ -1858,6 +1815,9 @@ export default {
 </script>
 
 <style>
+.v-input {
+  font-size: 12px;
+}
 .client {
   width: 100%;
   top: 10px;

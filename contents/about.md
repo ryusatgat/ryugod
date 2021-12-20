@@ -94,6 +94,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - ChaiScript
 - Chapel
 - Cheddar
+- Chef
 - Chipmunk Basic
 - Chuck
 - Ciao
@@ -1074,3 +1075,7 @@ Supported Environment
 - INTERCAL supported
 ## 2021-12-09
 - Whitespace supported
+## 2021-12-16
+- language filtering is functional
+## 2021-12-17
+- Chef supported

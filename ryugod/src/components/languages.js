@@ -1416,6 +1416,16 @@ export const languages =
       errorRegEx: ".+? at (\\d+):(\\d+)",
       keyBindings: null
     },
+    'Chef':{
+      highlighting:"chef",
+      ext: 'chef',
+      kor: '셰프',
+      template:'chef',
+      icon:'mdi-chef-hat',
+      command:'rchef {ARGS} {FILENAME}.{EXT}',
+      errorRegEx: "\\[line (\\d+)\\] runtime error: (.+)",
+      keyBindings: null
+    },
     'Chuck':{
       highlighting:"chuck",
       ext: 'ck',
