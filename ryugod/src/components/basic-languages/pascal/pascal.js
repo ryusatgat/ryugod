@@ -12,15 +12,13 @@ export var conf = {
     brackets: [
         ['{', '}'],
         ['[', ']'],
-        ['(', ')'],
-        ['<', '>']
+        ['(', ')']
     ],
     autoClosingPairs: [
         { open: '{', close: '}' },
         { open: '[', close: ']' },
         { open: '(*', close: '*)' },
         { open: '(', close: ')' },
-        { open: '<', close: '>' },
         { open: "'", close: "'" },
         { open: '"', close: '"', notIn: ['string'] },
     ],
@@ -159,8 +157,39 @@ export var language = {
         'raise',
         'repeat',
         'until',
-
         'return',
+    ],
+    builtins: [
+        'dispose',
+        'page',
+        'readln',
+        'unpack',
+        'get',
+        'put',
+        'reset',
+        'write',
+        'new',
+        'read',
+        'rewrite',
+        'writeln',
+        'pack',
+        'abs',
+        'eof',
+        'odd',
+        'round',
+        'sqrt',
+        'arctan',
+        'eoln',
+        'ord',
+        'sin',
+        'succ',
+        'chr',
+        'exp',
+        'pred',
+        'sqr',
+        'trunc',
+        'cos',
+        'ln',
     ],
     typeKeywords: [
         'boolean',
@@ -171,7 +200,11 @@ export var language = {
         'char',
         'longint',
         'float',
-        'string'
+        'string',
+        'word',
+        'qword',
+        'int64',
+        'real',
     ],
     operators: [
         '=',
@@ -205,6 +238,8 @@ export var language = {
                 {
                     cases: {
                         '@keywords': { token: 'keyword.$0' },
+                        '@builtins': 'type.identifier',
+                        '@typeKeywords': 'keyword.flow',
                         '@default': 'identifier'
                     }
                 }
