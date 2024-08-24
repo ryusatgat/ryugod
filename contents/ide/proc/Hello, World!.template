@@ -1,0 +1,46 @@
+/*
+    Pro*C
+*/
+#include <stdio.h>
+#include <sqlca.h>
+
+int connect_db(const char *user, const char *passwd, const char *connect_string)
+{
+    EXEC SQL CONNECT :user IDENTIFIED BY :passwd USING :connect_string;
+
+    return sqlca.sqlcode;
+}
+
+int close_db()
+{
+    EXEC SQL COMMIT WORK RELEASE;
+
+    return sqlca.sqlcode;
+}
+
+int main(int argc, char *argv[])
+{
+    const char *user = "ryugod";
+    const char *pswd = "ryugod";
+    const char *conn = "172.17.0.1:1521/FREEPDB1";
+    VARCHAR msg[200] = {'\0'};
+
+    connect_db(user, pswd, conn);
+
+    if (sqlca.sqlcode < 0) {
+        printf("%d: %.80s\n", sqlca.sqlcode, sqlca.sqlerrm.sqlerrmc);
+        return 1;
+    }
+
+    EXEC SQL
+    SELECT 'Hello, World!' as Message
+      into:msg
+      FROM DUAL
+    ;
+
+    printf("%s\n", msg.arr);
+
+    close_db();
+
+    return 0;
+}

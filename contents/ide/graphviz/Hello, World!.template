@@ -1,0 +1,8 @@
+/*
+    Graphviz: Hello, World!
+    https://graphviz.org
+*/
+
+digraph G {
+    "Hello," -> "World!"
+}

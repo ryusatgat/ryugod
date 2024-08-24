@@ -1,0 +1,7 @@
+$
+$   Aleph: Hello, World!
+$
+
+'root'  put string+STDOUT+"Hello, World!",
+        put char+STDOUT+newline.
+'end'

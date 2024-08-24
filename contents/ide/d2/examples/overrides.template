@@ -1,0 +1,17 @@
+#
+#   D2: Overrideds
+#
+
+name: Goodness {
+  Language: English
+}
+name: Goodness {
+  Book: Code
+}
+
+# is equivalent to this
+
+name: Goodness {
+  Language: English
+  Book: Code
+}

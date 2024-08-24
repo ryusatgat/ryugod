@@ -1,0 +1,99 @@
+/*
+    Pro*C
+    Shin Ryu (kurishin@naver.com)
+*/
+#include <stdio.h>
+#include <string.h>
+#include <sqlca.h>
+
+#define SQLEOF 1403
+
+typedef struct {
+    int id;
+    VARCHAR first_name[255];
+    VARCHAR last_name [255];
+    VARCHAR email     [255];
+    VARCHAR phone     [ 50];
+} EMP;
+
+int connect_db(const char *user, const char *passwd, const char *connect_string)
+{
+    EXEC SQL CONNECT :user IDENTIFIED BY :passwd USING :connect_string;
+
+    return sqlca.sqlcode;
+}
+
+int close_db()
+{
+    EXEC SQL COMMIT WORK RELEASE;
+
+    return sqlca.sqlcode;
+}
+
+int exec_query(const char *hire_date)
+{
+    EMP emp;
+
+    EXEC SQL DECLARE CUR1 CURSOR FOR
+    SELECT EMPLOYEE_ID
+         , FIRST_NAME
+         , LAST_NAME
+         , EMAIL
+         , PHONE
+      INTO:emp
+      FROM EMPLOYEES
+     WHERE HIRE_DATE > TO_DATE(:hire_date, 'YYYYMMDD')
+    ORDER BY EMPLOYEE_ID
+    ;
+
+    if (sqlca.sqlcode < 0)
+        return sqlca.sqlcode;
+
+    EXEC SQL OPEN CUR1;
+
+    if (sqlca.sqlcode < 0)
+        return sqlca.sqlcode;
+
+    printf("== RESULT ==\n");
+
+    for (;;){
+        memset(&emp, 0x00, sizeof(EMP));
+
+        EXEC SQL
+        FETCH CUR1
+         INTO :emp
+        ;
+
+        if (sqlca.sqlcode == SQLEOF)
+            break;
+        if (sqlca.sqlcode < 0) {
+            EXEC SQL CLOSE CUR1;
+            return sqlca.sqlcode;
+        }
+        printf("%3d %-10s %-10s %-30s %-20s\n", emp.id, emp.first_name.arr, emp.last_name.arr, emp.email.arr, emp.phone.arr);
+    }
+
+    EXEC SQL CLOSE CUR1;
+    return sqlca.sqlcode;
+}
+
+int main(int argc, char *argv[])
+{
+    const char *user = "ryugod";
+    const char *pswd = "ryugod";
+    const char *conn = "172.17.0.1:1521/FREEPDB1";
+    VARCHAR msg[200] = {'\0'};
+    
+    connect_db(user, pswd, conn);
+
+    if (sqlca.sqlcode < 0) {
+        printf("%d: %.80s\n", sqlca.sqlcode, sqlca.sqlerrm.sqlerrmc);
+        return 1;
+    }
+
+    exec_query("20000101");
+
+    close_db();
+
+    return 0;
+}

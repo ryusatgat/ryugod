@@ -1,0 +1,87 @@
+/* `hv' hexadecimal viewing program.
+
+   This program is free software; you can redistribute it and/or modify
+   it.
+
+   https://www.ryugod.com
+*/
+
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#define BUFFSIZE 1024
+
+/* convert decimal to hexadecimal : 1 digit */
+char dec2hex(unsigned int i)
+{
+    return "0123456789abcdef"[i];
+}
+
+/* convert decimal(val) to hexadecimal(buf) : len digit */
+static void dec2hexstr(unsigned long val, char *buf, int len)
+{
+    int i;
+    unsigned int div = 0x10;
+    unsigned long rem;
+
+    for(i=0; i<len; i++)
+        buf[i] = '0';
+    buf[i] = '\0';
+    for(;;){
+        rem = val%div;
+        if(--len< 0)
+            break;
+        buf[len] = dec2hex(rem);
+        if(div > val)
+            break;
+        val /= 16;
+    }
+}
+
+/* print result */
+static void print_hexa(char *buf, unsigned int size)
+{
+    int i;
+    static unsigned long cur_pos = 0;
+    unsigned long local_pos = 0;
+    char tmp[10];
+
+    while(size > local_pos){
+        dec2hexstr(cur_pos, tmp, 8);
+        fprintf(stdout, "%8sh: ", tmp);
+        for(i=0; i<0x10; i++){
+            if(local_pos+i < size){
+                dec2hexstr((unsigned long)buf[local_pos+i], tmp, 2);
+                fprintf(stdout, "%2s ", tmp);
+            }
+            else
+                fprintf(stdout, "   ");
+        }
+        fprintf(stdout, " ; ");
+        for(i=0; i<0x10; i++){
+            if(local_pos+i >= size)
+                break;
+            if(buf[local_pos+i] >= ' ' &&
+               buf[local_pos+i] <= '~' )
+                fprintf(stdout, "%c", buf[local_pos+i]);
+            else
+                fprintf(stdout, " ");
+        }
+        printf("\n");
+        cur_pos += 0x10;
+        local_pos += 0x10;
+    }
+}
+
+int main(void)
+{
+    char buf[BUFFSIZE] = {'\0', };
+    unsigned int n;
+
+    while((n = read(0, buf, BUFFSIZE)) > 0){
+        print_hexa(buf, n);
+        memset(buf, 0x00, BUFFSIZE);
+    }
+
+    return 0;
+}
