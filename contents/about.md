@@ -1,6 +1,6 @@
 # Ryugod (https://www.ryugod.com)
 - This site provides a development environment for simple testing.
-- You can try running 'Linux Shell' and multiple program languages ​​without login.
+- You can try running 'Linux Shell' and multiple programming languages ​​without login.
 - It provides online compilers for C language, C++, Java, etc. and supports **syntax highlighting** function for all languages.
 - You can upload and download files to/from the server.
 - You can add source files by drag and drop.
@@ -8,7 +8,13 @@
 - Try copying the editor source and pasting it on the bulletin board. It is nicely pasted.
 - This site is optimized for 'Chrome' and 'Edge Browser'.
 
-# Load source using hyperlink
+# Ryugod Server Specifications
+- 1EA
+- Intel(R) Celeron(R) CPU  J1900  @ 1.99GHz
+- 8GB RAM
+- 256GB SSD
+
+# How to load source using hyperlink
 - You can add a source to a hyperlink and load it directly into the editor.
 - For language identifiers, refer to the URL for each language of this site, such as `bash`, `c`, `cc`, or `javascript`.
 - The length of the entire URL must not exceed 15,000 bytes.
@@ -22,10 +28,11 @@ const url = `${base_url}/source:${Buffer.from(pako.deflate("source to display"))
 const tag = `<a href="${url}">🚀 Test your code</a>`
 ```
 
-# Supported language and DB
+# Supported language
 - 11l
 - 4tH
 - 8th
+- ActionScript3
 - Ada
 - Adept
 - Afnix
@@ -33,6 +40,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Aime
 - Aku
 - Alan
+- Aleph
 - Algae
 - Algol60
 - Algol68
@@ -75,6 +83,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Bhuna
 - Blossom
 - Blue
+- BlueSpec
 - Bob
 - Borealis
 - Boron
@@ -88,12 +97,15 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - C2
 - C3
 - Caboose
+- Carbon
 - Carp
 - Castile
+- Ceu
 - Ceylon
 - ChaiScript
 - Chapel
 - Cheddar
+- Chef
 - Chipmunk Basic
 - Chuck
 - Ciao
@@ -120,12 +132,14 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - CUPL/CORC
 - Curry
 - D
+- D2
 - Dafny
 - Dao
 - Dart
 - daScript
 - Dino
 - Dogescript
+- DoKev
 - Dragon
 - Duck
 - Dylan
@@ -139,6 +153,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - EMacs Lisp
 - Emerald
 - Emo
+- EmojiCode
 - Erlang
 - Esterel
 - Euphoria
@@ -196,6 +211,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - HLA
 - Hope
 - Horse64
+- HQ9+
 - HTML
 - Huginn
 - Huo
@@ -259,6 +275,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Luci
 - Lumi
 - Luxury
+- Malbolge
 - Mari
 - Make
 - Markdown
@@ -270,17 +287,17 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Mercury
 - Miniscript
 - MiniZinc
+- Minus
 - Mirah
 - Mirth
 - Modula-2
 - Modula-3
-- MongoDB
+- Mojo
 - Mu
 - MUMPS
 - Muon
 - MY-BASIC
 - Myrddin
-- MySQL
 - Mythryl
 - Nanoquery
 - Neco
@@ -291,6 +308,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - NewtonScript
 - Next
 - Nial
+- Nibbles
 - Nice
 - Nickle
 - Nim
@@ -311,7 +329,6 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Opal
 - OpenSCAD
 - OpenSpin
-- Oracle
 - Oz
 - Pagan
 - PARI/GP
@@ -323,6 +340,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - PHP
 - PIC
 - Picat
+- PicoC
 - Pike
 - PILOT
 - Pharo
@@ -330,11 +348,11 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Poly/ML
 - Pony
 - Poplog
-- PostgreSQL
 - PostScript
 - Potion
 - PowerShell
 - Praat
+- Pro*C
 - Processing
 - Prolog
 - PROSE
@@ -354,7 +372,6 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Ratfor
 - Rebol
 - Red
-- Redis
 - REXX
 - Rigal
 - Ring
@@ -394,8 +411,6 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Sparkling
 - SPL
 - Spow
-- SQLite
-- SQL Server
 - Squirrel
 - Standard ML
 - Stanza
@@ -431,6 +446,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Virgil
 - WardScript
 - Wax
+- Whitespace
 - Windows Batch
 - World
 - Wren
@@ -454,8 +470,17 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - 약속
 - 난해한 혀엉...
 
-# 
-Supported Environment
+# Supported Database
+- H2
+- MongoDB
+- MySQL
+- Oracle
+- PostgreSQL
+- Redis
+- SQLite
+- SQL Server
+
+# Supported Environment
 - AngularJS
 - Deno
 - Emscripten
@@ -1071,3 +1096,43 @@ Supported Environment
 ## 2021-12-07
 - GolfScript supported
 - INTERCAL supported
+## 2021-12-09
+- Whitespace supported
+## 2021-12-16
+- language filtering is functional
+## 2021-12-17
+- Chef supported
+## 2022-10-14
+- Minus supported
+- Nibbles supported
+## 2022-10-15
+- Malbolge supported
+## 2022-10-20
+- Carbon supported
+## 2022-11-08
+- PicoC supported
+## 2022-11-12
+- HQ9+ supported
+## 2023-03-21
+- D2 supported
+## 2023-04-03
+- Graphviz supported
+## 2024-03-06
+- Changed WebSQL to localStorage
+## 2024-03-27
+- Oracle(mariadb compatible mode) removed
+- Oracle is now supported (Oh!)
+- Pro*C supported (WOW!!)
+## 2024-05-09
+- DoKev supported
+## 2024-08-07
+- Ceu supported
+## 2024-08-08
+- Aleph supported
+- H2 supported
+## 2024-08-23
+- ActionScript3 supported
+- BlueSpec supported
+## 2024-08-24
+- EmojiCode supported
+- Mojo supported
