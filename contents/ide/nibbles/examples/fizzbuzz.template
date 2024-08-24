@@ -1,0 +1,6 @@
+#
+#   Nibbles: Fizz Buzz
+#   http://www.golfscript.com/nibbles
+#
+
+$?,:^-~%$3"Fizz"^-~%$5"Buzz"
