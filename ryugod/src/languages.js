@@ -5782,6 +5782,18 @@ export const languages =
       errorRegEx: "Script error: .+? on line (\\d+):\\d+(.+)",
       keyBindings: null
     },
+    'Tula':{
+      highlighting:"tula",
+      ext: 'tula',
+      kor: '툴라',
+      template:"tula",
+      icon:'mdi-emoticon-cool',
+      args: "run",
+      command:"tula {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".*?(\\d+):\\d+: ERROR: (.+)",
+      keyBindings: null
+    },
     'Turbo Assembler':{
       highlighting:"tasm",
       ext: 'asm',
@@ -5826,6 +5838,17 @@ export const languages =
       command:"ln -sfT /opt/tp TP && emu2 TP/tpc.exe {ARGS} {FILENAME}.{EXT} -- 'PATH=C:\\TP' && emu2 {FILENAME}.exe",
       cli: null,
       errorRegEx: ".*?\\((\\d+)\\): (.*)",
+      keyBindings: null
+    },
+    'Turing':{
+      highlighting:"turing",
+      ext: 't',
+      kor: '튜링',
+      template:"turing",
+      icon:'mdi-school',
+      command:"/opt/turing/compiler {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: "Error on line (\\d+) \\[\\d+\\] of .*?: (.+)",
       keyBindings: null
     },
     'U++':{
