@@ -87,7 +87,7 @@ export default {
         .then((res) => {
           this.$refs.leftMenu.selected = path
           if (path.endsWith('.template')) {
-            this.$refs.terminal.setEditorValue(res.data)
+            this.$refs.terminal.setEditorValue(res && res.data && res.data.toString())
 
             if (source === "Hello, World!.template") {
               this.$refs.terminal.openLastSource()
