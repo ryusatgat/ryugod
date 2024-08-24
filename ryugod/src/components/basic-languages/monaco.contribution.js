@@ -443,6 +443,8 @@ import './tcl/tcl.contribution.js';
 import './tea/tea.contribution.js';
 import './terra/terra.contribution.js';
 import './tex/tex.contribution.js';
+import './tula/tula.contribution.js';
+import './turing/turing.contribution.js';
 //import './twig/twig.contribution.js';
 import './uclang/uclang.contribution.js';
 import './umka/umka.contribution.js';
