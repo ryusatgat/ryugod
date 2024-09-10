@@ -1,0 +1,6 @@
+#
+#   Scopes: Hello, World!
+#   http://scopes.rocks
+#
+
+print "Hello, World!";

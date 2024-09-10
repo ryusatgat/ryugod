@@ -1,6 +1,6 @@
 #
-#   Ruby(루비): 99 bottles of beer 예제
-#   출처: http://www.rosettacode.org/
+#   Ruby: 99 bottles of beer
+#   http://www.rosettacode.org/
 #
 
 plural = 's'

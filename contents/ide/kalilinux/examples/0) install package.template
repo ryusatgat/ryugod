@@ -1,0 +1,3 @@
+msg="Please wait"
+sudo apt -y install figlet && clear && figlet $msg && \
+sudo apt -y install cmatrix > /dev/null 2>&1 && cmatrix

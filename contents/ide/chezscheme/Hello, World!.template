@@ -1,4 +1,4 @@
-; Scheme(스킴) Hello, World! 예제
+; Scheme: Hello, World!
 
 (begin
     (display "Hello, World!")

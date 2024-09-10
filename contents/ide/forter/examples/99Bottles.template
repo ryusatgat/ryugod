@@ -1,0 +1,22 @@
+102 PRINT 99;:
+    PRINT " bottles of beer on the wall,":
+    PRINT 99;:
+    PRINT " bottles of beer,":
+    PRINT "Take one down, pass it around,":
+    PRINT "and there's ";:
+    LET 99 = (99 + 5000) - 5001:
+    PRINT 99;:
+    PRINT " bottles of beer on the wall.":
+    PRINT "":
+    LET 101 = 101 + 2
+103 LET 102 = 102 + 2: LET 296 = 1
+302 PRINT "2 bottles of beer on the wall,":
+    PRINT "2 bottles of beer,":
+    PRINT "Take one down, pass it around,":
+    PRINT "and there's 1 bottle of beer on the wall.":
+    PRINT "":
+    PRINT "1 bottle of beer on the wall,":
+    PRINT "1 bottle of beer,":
+    PRINT "Take one down, pass it around,":
+    PRINT "and there's no more bottles of beer on the wall.":
+    END

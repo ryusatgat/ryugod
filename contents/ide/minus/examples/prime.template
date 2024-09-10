@@ -1,0 +1,63 @@
+#
+#   Minus: Prime
+#   http://www.golfscript.com/minus
+#
+
+a-=1
+b-=2
+k-=3
+#mem[2..] = 0 if prime canidate, -1 if removed
+#build wall of -x to denote stop, where x is amount to take back to #find
+t-=j
+p-=t
+p-=t
+B-=1
+p-=p
+p-=t
+
+A-=3
+p-=a
+c-=A
+c-=4
+
+s-=2
+#find next prime, todo resume search to where left off, todo stop removal if greater than sqrt of end
+p-=p
+p-=s
+p-=2
+c-=C #skip next step if not prime, skips next 3 if at wall
+c-=k #exit loop, found prime
+p-=a
+c-=4
+c-=t #exit
+
+
+s-=s
+s-=p
+s-=2
+d-=s #d is current prime
+q-=s
+o-=246
+
+#remove all multiples of it up to some point
+#n is number of primes removed this time
+n-=n
+C-=C
+C-=1
+p-=s
+c-=C
+n-=a # goes here if next is still prime canidate
+c-=6 # goes here if not prime canidate
+#goes here if reached ending wall
+#repeat, exit if no more prime
+
+#this finds if need to do remove multiples still
+#keeping it could allow to make the wall much smaller...
+#p-=p
+#A-=A
+#A-=1
+#p-=n
+#c-=A
+g-=g
+
+c-=23

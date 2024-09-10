@@ -1,5 +1,5 @@
 /*
-    Ceylon(실론): Hello, World! 예제
+    Ceylon: Hello, World!
 */
 
 shared class Main() {

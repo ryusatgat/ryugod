@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 export var conf = {
     comments: {
-        lineComment: 'NOTE',
+        lineComment: 'NOTE ',
     },
     brackets: [
         ['{', '}'],
@@ -83,6 +83,7 @@ export var language = {
             { include: '@strings' },
             [/[,:;]/, 'delimiter'],
             [/[{}\[\]()]/, '@brackets'],
+            [/@[a-zA-Z_]\w*/, 'tag'],
             [
                 /[a-zA-Z_]\w*/,
                 {
@@ -98,7 +99,7 @@ export var language = {
         // Deal with white space, including single and multi-line comments
         whitespace: [
             [/\s+/, 'white'],
-            [/(NOTE.*$)/, 'comment'],
+            [/(NOTE .*$)/, 'comment'],
         ],
         // Recognize hex, negatives, decimals, imaginaries, longs, and scientific notation
         numbers: [

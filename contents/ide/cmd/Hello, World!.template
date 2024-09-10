@@ -1,4 +1,4 @@
 @echo off
-REM Windows Batch(배치) "Hello, World!" 예제
+REM Windows Batch: Hello, World!
 
 echo Hello, World!

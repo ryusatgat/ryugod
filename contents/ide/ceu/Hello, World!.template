@@ -1,0 +1,9 @@
+/*
+    Ceu: Hello, World!
+*/
+
+#include <c.ceu>
+
+_printf("Hello, World!\n");
+
+escape 0;

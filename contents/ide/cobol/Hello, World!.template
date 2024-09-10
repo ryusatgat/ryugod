@@ -1,5 +1,5 @@
       *
-      * Cobol(코볼) Hello, World 예제
+      * Cobol: Hello, World!
       *
         IDENTIFICATION DIVISION.
         PROGRAM-ID. hello.

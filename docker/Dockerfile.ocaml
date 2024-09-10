@@ -1,0 +1,6 @@
+RUN apt install -y ocaml ocaml-dune make omake ocamlbuild
+RUN apt install -y ocaml ocaml-dune make opam ocamlbuild
+
+USER $USERNAME
+
+RUN opam init -y && opam install ocamlfind

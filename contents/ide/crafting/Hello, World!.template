@@ -1,0 +1,5 @@
+//
+//  Crafting: Hello, World!
+//
+
+std::Println("Hello, World!");

@@ -1,0 +1,41 @@
+// Pascal: Class example (Delphi mode)
+// Author: Ryusatgat
+
+program main;
+
+{$mode delphi}
+
+type
+    TClass = class
+    private
+        Message: String;
+    protected
+    public
+        procedure SetMessage(Message: String);
+        procedure ShowMessage;
+    end;
+
+procedure TClass.SetMessage(Message: String);
+begin
+    Self.Message := Message;
+end;
+
+procedure TClass.ShowMessage;
+begin
+    Writeln(Message);
+end;
+
+var
+    C: TClass;
+begin
+    // Obviously you can do this:
+
+    C := TClass.Create();
+
+    try  
+        C.SetMessage('Hello, World!');
+        C.ShowMessage;
+    finally
+        C.Free;
+    end;
+end.

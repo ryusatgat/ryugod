@@ -1,0 +1,5 @@
+#
+#  Dassie: Hello, World!
+#
+
+println "Hello, World!"

@@ -1,0 +1,44 @@
+module Main exposing (main)
+
+import Browser
+import Html exposing (Html)
+import Html.Attributes as Attribute
+import Html.Events as Event
+
+
+main =
+    Browser.sandbox
+    { init = init
+    , update = update
+    , view = view
+    }
+
+
+type alias Model = Int
+
+init : Model
+init = 
+    0
+
+
+type Msg = Clicked
+
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        Clicked ->
+            model + 1
+
+
+view : Model -> Html Msg
+view model = 
+    Html.div []
+        [ Html.span 
+            [ Attribute.id "count" ]
+            [ Html.text <| String.fromInt model ]
+        , Html.button
+            [ Attribute.id "increase-count"
+            , Event.onClick Clicked
+            ]
+            [ Html.text "Count" ]
+        ]

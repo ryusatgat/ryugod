@@ -1,0 +1,7 @@
+RUN apt install -y rustc cargo
+
+ADD apps/rust/opt /opt/
+
+RUN cargo install --root /usr/local hvm bend-lang && rm -fr /root/.cargo
+    
+USER $USERNAME

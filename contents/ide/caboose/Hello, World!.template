@@ -1,5 +1,5 @@
 //
-//  Caboose(카부스): Hello, World! 예제
+//  Caboose: Hello, World!
 //
 
 fun hello(name) {

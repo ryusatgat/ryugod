@@ -1,5 +1,5 @@
 /*
-    C언어 Hello, World! 예제
+    C Hello, World!
 */
 #include <stdio.h>
 

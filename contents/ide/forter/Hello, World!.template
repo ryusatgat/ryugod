@@ -1,0 +1,5 @@
+10 REM
+20 REM Forter Hello, World!
+30 REM
+40 PRINT "Hello, World!"
+99 END

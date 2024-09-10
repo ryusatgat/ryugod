@@ -1,0 +1,6 @@
+# 
+#   Beryl: Hello, World!
+#   https://github.com/KarlAndr1/beryl
+# 
+
+print "Hello, World!"

@@ -1,0 +1,6 @@
+RUN apt install -y llvm-12 clang
+RUN apt install -y python2-minimal
+
+ADD apps/2004/opt /opt/
+    
+USER $USERNAME

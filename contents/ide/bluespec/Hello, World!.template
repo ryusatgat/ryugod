@@ -1,0 +1,15 @@
+//
+//  Bluespec: Hello, World!
+//  https://github.com/B-Lang-org/bsc
+//
+
+package main;
+    String s = "Hello, World!";
+(* synthesize *)
+    module main_module(Empty);
+        rule main_rule;
+            $display(s);
+            $finish(0);
+        endrule
+    endmodule
+endpackage

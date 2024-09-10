@@ -1,5 +1,5 @@
 #
-#   Ruby(루비): Hello, World! 예제
+#   Ruby: Hello, World!
 #
 
 puts "Hello, World!"

@@ -1,6 +1,6 @@
-#
-#   Hack(핵): Hello, World! 예제
-#
+//
+//   Hack: Hello, World!
+//
 
 namespace main;
 

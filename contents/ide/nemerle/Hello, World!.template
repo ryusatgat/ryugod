@@ -1,4 +1,6 @@
-/* Nemerle(네머를) Hello, World! 예제 */
+//
+//  Nemerle: Hello, World!
+//
 
 class Main
 {

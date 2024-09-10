@@ -1,0 +1,8 @@
+//
+//  Hylo: Hello, World!
+//  https://github.com/hylo-lang/hylo
+//
+
+public fun main() {
+  print("Hello, World!")
+}

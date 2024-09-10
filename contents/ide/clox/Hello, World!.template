@@ -1,0 +1,6 @@
+//
+//  CLox: Hello, World!
+//  https://github.com/HallofFamer/CLox
+//
+
+println("Hello, World!");

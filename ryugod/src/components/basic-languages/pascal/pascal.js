@@ -46,7 +46,7 @@ export var language = {
         { open: '{', close: '}', token: 'delimiter.curly' },
         { open: '[', close: ']', token: 'delimiter.square' },
         { open: '(', close: ')', token: 'delimiter.parenthesis' },
-        { open: '<', close: '>', token: 'delimiter.angle' }
+        { open: '<', close: '>', token: 'delimiter.angle' },
     ],
     keywords: [
         'absolute',
@@ -65,6 +65,7 @@ export var language = {
         'contains',
         'default',
         'div',
+        'downto',
         'else',
         'end',
         'except',
@@ -112,7 +113,6 @@ export var language = {
         'interface',
         'implementation',
         'qualified',
-        'read',
         'record',
         'resident',
         'requires',
@@ -138,7 +138,6 @@ export var language = {
         'overload',
         'reintroduce',
         'with',
-        'write',
         'xor',
         'true',
         'false',
@@ -158,6 +157,8 @@ export var language = {
         'repeat',
         'until',
         'return',
+        'and',
+        'or',
     ],
     builtins: [
         'dispose',
@@ -186,7 +187,6 @@ export var language = {
         'chr',
         'exp',
         'pred',
-        'sqr',
         'trunc',
         'cos',
         'ln',
@@ -202,6 +202,7 @@ export var language = {
         'float',
         'string',
         'word',
+        'dword',
         'qword',
         'int64',
         'real',
@@ -214,9 +215,7 @@ export var language = {
         '>=',
         '<>',
         ':',
-        ':=',
-        'and',
-        'or',
+        ':=',        
         '+',
         '-',
         '*',
@@ -240,6 +239,7 @@ export var language = {
                         '@keywords': { token: 'keyword.$0' },
                         '@builtins': 'type.identifier',
                         '@typeKeywords': 'keyword.flow',
+                        '@operators': 'operators',
                         '@default': 'identifier'
                     }
                 }

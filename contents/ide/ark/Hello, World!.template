@@ -1,5 +1,5 @@
 #
-#   ArkScript(아크스크립트): Hello, World! 예제
+#   ArkScript: Hello, World!
 #
 
 (print "Hello, World!")

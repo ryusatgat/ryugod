@@ -1,5 +1,5 @@
 #
-#   CoffeeScript(커피스크립트): Hello, World 예제
+#   CoffeeScript: Hello, World!
 #
 
 str = "Hello, World!"

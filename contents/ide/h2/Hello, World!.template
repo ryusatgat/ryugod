@@ -1,0 +1,3 @@
+-- H2: Hello, World!
+
+SELECT 'Hello, World!'

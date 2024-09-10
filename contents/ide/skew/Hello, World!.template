@@ -1,0 +1,12 @@
+#
+# Skew: Hello, World!
+#
+
+@entry
+def main {
+  console.log("Hello, World!")
+}
+
+@import {
+  const console dynamic
+}

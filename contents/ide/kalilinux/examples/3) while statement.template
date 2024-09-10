@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# 쉘스크립트 반복문 예제
+
+valid=true
+count=1
+while [ $valid ]
+do
+  echo $count
+  if [ $count -eq 5 ];
+  then
+    break
+  fi
+  ((count++))
+done

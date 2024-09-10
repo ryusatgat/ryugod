@@ -1,0 +1,8 @@
+// 
+//  Kind: Hello, World!
+// 
+
+Main: IO(Unit)
+  IO {
+    IO.print("Hello, World!")
+  }

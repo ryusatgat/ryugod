@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# 쉘스크립트 반복문 예제
+for (( counter=10; counter>0; counter-- ))
+do
+  echo -n "$counter "
+done
+printf "\n"

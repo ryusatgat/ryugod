@@ -1,0 +1,16 @@
+RUN apt install -y build-essential cmake libboost-all-dev libtbb-dev libpcre2-dev llvm-dev ghc cabal-install hugs nodejs npm libmozjs-115-dev
+RUN apt install -y liquidsoap re2c php php-json php-dev libpcre3-dev 
+RUN npm install -g npm node --upgrade 
+RUN npm update -g npm
+RUN npm install -g typescript skew kind-lang
+
+ADD apps/base/opt /opt/
+ADD apps/base/usr /usr/
+
+RUN curl -s -L https://github.com/c3lang/c3c/releases/download/latest/c3-ubuntu-20.tar.gz | tar xvz -C /opt && ln -s /opt/c3/c3c /usr/local/bin/c3c
+RUN curl -s -L https://github.com/zephir-lang/zephir/releases/download/0.17.0/zephir.phar > /opt/zephir/zephir.phar
+
+RUN apt install -y libsdl2-ttf-dev libsdl2-image-dev
+RUN apt install -y csh dash ksh zsh
+    
+USER $USERNAME

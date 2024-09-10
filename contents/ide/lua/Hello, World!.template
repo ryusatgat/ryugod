@@ -1,4 +1,5 @@
 --[[
-Lua(루아) Hello, World! 예제
+	Lua: Hello, World!
 --]]
+
 print("Hello, World!")

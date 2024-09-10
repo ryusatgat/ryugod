@@ -1,0 +1,46 @@
+using luminique::std::collection::Stack;
+
+let stack = Stack();
+
+println("Testing class Stack...");
+
+println("Class for stack object: ${stack.getClassName()}");
+
+print("Stack is currently empty: ");
+println(stack.isEmpty());
+
+println("");
+
+println("Now adding elements to stack...");
+
+stack.push(2);
+stack.push(3.5);
+stack.push(true);
+stack.push(nil);
+stack.push("Hello World");
+
+print("Initial elements in stack: ");
+println(stack);
+
+print("Stack is now empty: ");
+println(stack.isEmpty());
+
+print("Length of stack: ");
+println(stack.length);
+
+print("Index of element true: ");
+println(stack.search(3.5));
+
+print("Converting Stack to array: ");
+println(stack.toArray());
+
+println("");
+
+println("Now iterating over stack...");
+
+while (!stack.isEmpty()) {
+  println("Element: ${stack.pop()}");
+}
+
+print("Stack is now Empty: ");
+println(stack.isEmpty());

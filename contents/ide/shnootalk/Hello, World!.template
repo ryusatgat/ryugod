@@ -1,0 +1,9 @@
+#
+#   ShnooTalk: Hello, World!
+#
+
+fn main() -> int
+{
+    println("Hello world")
+    return 0
+}

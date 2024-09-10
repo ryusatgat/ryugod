@@ -1,0 +1,86 @@
+<!-- HTML5 Starfield Animation -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starfield Animation</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+    <script>
+        const canvas = document.getElementById('starfield');
+        const context = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const stars = [];
+        const numStars = 500;
+
+        for (let i = 0; i < numStars; i++) {
+            stars.push(createStar());
+        }
+
+        function createStar() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                z: Math.random() * canvas.width,
+                brightness: Math.random() * 0.5 + 0.5
+            };
+        }
+
+        function drawStars() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            stars.forEach(star => {
+                star.z -= 5;
+                star.brightness += 0.01;
+
+                if (star.z <= 0) {
+                    Object.assign(star, createStar());
+                }
+
+                const sx = (star.x - canvas.width / 2) * (canvas.width / star.z) + canvas.width / 2;
+                const sy = (star.y - canvas.height / 2) * (canvas.width / star.z) + canvas.height / 2;
+
+                const radius = Math.max(0, 0.1 + (canvas.width - star.z) / canvas.width);
+                const brightness = Math.min(star.brightness, 1);
+
+                context.beginPath();
+                context.arc(sx, sy, radius, 0, Math.PI * 2);
+                context.fillStyle = `rgba(255, 255, 255, ${brightness})`;
+                context.fill();
+            });
+
+            requestAnimationFrame(drawStars);
+        }
+
+        drawStars();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>

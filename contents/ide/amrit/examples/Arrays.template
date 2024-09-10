@@ -1,0 +1,14 @@
+mana map = karya (arr, f) {
+    mana iter = karya(arr, accumulated) {
+        agar (lambai(arr) == 0) {
+            accumulated|
+        } varna {
+            iter(baaki(arr), push(accumulated, f(pehla(arr))))|
+        }
+    }
+    iter(arr, [])|
+}
+
+mana a = [1,2,3,4]|
+mana double = karya (x) { x*2| }|
+print(map(a, double))|  

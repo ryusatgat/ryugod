@@ -18,6 +18,7 @@
   "export": "Export",
   "options": "Options",
   "github": "Github",
+  "about": "About ryugod.com",
   "help": "Help",
   "newTab": "New tab",
   "rename": "Rename",
@@ -52,13 +53,13 @@
   "exceedSourceSize": "The size of the source must be less than 15,000 bytes",
   "hyperlinkCopied": "Copied hyperlink to clipboard",
   "terminate": "If you leave before saving, your changes will be lost.",
-  "banner": "Tip: press 'F1' for command palette\r\n",
+  "banner": "Tip: Press the F4 key in the editor to select a programming language.\r\n",
   "noSource": "No source for share.<br/>Please write some soure.",
   "shareMessage": "URL is copied to clipboard",
   "savedOptions": "Saved options",
   "fileExists": "Already filename exists",
   "incorrectFilename": "Incorrect filename",
-  "copySourceHref": "Copy source hyperlink",
+  "copySourceHref": "Copy source with hyperlink",
   "download": "download",
   "arguments": "arguments",
   "tabSize": "Tab size",
@@ -68,5 +69,7 @@
   "light": "light",
   "ok": "OK",
   "cancel": "Cancel",
-  "sourceSharingFailed": "Source sharing failed"
+  "sourceSharingFailed": "Source sharing failed",
+  "copySourceUrl": "Copy source URL",
+  "gpt": "GPT"
 }

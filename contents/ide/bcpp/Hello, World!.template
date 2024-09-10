@@ -1,7 +1,7 @@
 /*
-    Windows Borland(볼랜드) C++ 5.5 Hello, World! 예제
+    Windows Borland C++ 5.5: Hello, World!
 
-    컴파일 후 실행 파일을 다운로드 받으려면 "imshow main.exe" 를 입력하세요
+    If you want to download the compiled file, input command "imshow main.exe"
 */
 #include <iostream>
 

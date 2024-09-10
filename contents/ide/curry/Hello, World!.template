@@ -1,5 +1,5 @@
 --
---  Curry(커리): Hello, World! 예제
+--  Curry: Hello, World!
 --
 
 main::IO()

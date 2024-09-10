@@ -1,0 +1,7 @@
+#
+#   Bend: Hello, World
+#   https://github.com/HigherOrderCO/Bend
+#
+
+def main():
+  return "Hello, World!"

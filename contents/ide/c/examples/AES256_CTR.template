@@ -1,0 +1,125 @@
+/*
+    C: AES256 CTR examples
+    Written by Shin Ryu
+
+    should compile with -lcrypto options
+*/
+
+#include <openssl/conf.h>
+#include <openssl/evp.h>
+#include <openssl/err.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+static EVP_CIPHER_CTX *ctx = NULL;
+
+static unsigned char g_key  [32];
+static unsigned char g_nonce[16];
+
+void init_aes256(const char *key, const char *nonce)
+{
+    if (ctx != NULL)
+        return;
+    if (key   != NULL) memcpy(g_key  , key  , 32);
+    if (nonce != NULL) memcpy(g_nonce, nonce, 16);
+    ctx = EVP_CIPHER_CTX_new();
+    EVP_EncryptInit_ex(ctx, EVP_aes_256_ctr(), NULL, g_key, g_nonce);
+    EVP_CIPHER_CTX_set_padding(ctx, 0);
+}
+
+void free_aes256()
+{
+    EVP_CIPHER_CTX_free(ctx);
+    EVP_cleanup();
+    ERR_free_strings();
+    ctx = NULL;
+}
+
+int aes_encrypt(unsigned char *plaintext, int plaintext_len, unsigned char *ciphertext)
+{
+    int len;
+    int ciphertext_len;
+
+    if (ctx == NULL)
+        return -1;
+
+    EVP_EncryptUpdate(ctx, ciphertext, &ciphertext_len, plaintext, plaintext_len);
+    EVP_EncryptFinal_ex(ctx, ciphertext + len, &len);
+    ciphertext_len += len;
+
+    return ciphertext_len;
+}
+
+static inline int aes_decrypt(unsigned char *plaintext, int plaintext_len, unsigned char *ciphertext)
+{
+    int len = 0;
+    int ciphertext_len = (plaintext_len+2)/3*4;
+
+    if (ctx == NULL)
+        return -1;
+
+    EVP_DecryptUpdate(ctx, ciphertext, &len, plaintext, plaintext_len);
+    EVP_DecryptFinal_ex(ctx, ciphertext + len, &len);
+    ciphertext_len += len;
+
+    return ciphertext_len;
+}
+
+int aes_encrypt_base64(unsigned char *plaintext, int plaintext_len, unsigned char *ciphertext)
+{
+    unsigned char *buf;
+    int len;
+
+    if (ctx == NULL)
+        return -1;
+
+    buf = (unsigned char *)malloc(plaintext_len+1);
+
+    if (buf == NULL)
+        return -2;
+
+    aes_encrypt(plaintext, plaintext_len, buf);
+    len = EVP_EncodeBlock(ciphertext, buf, plaintext_len);
+
+    free(buf);
+
+    return len;
+}
+
+int aes_decrypt_base64(unsigned char *ciphertext, int ciphertext_len, unsigned char *plaintext)
+{
+    unsigned char *buf;
+    int len;
+
+    if (ctx == NULL)
+        return -1;
+
+    buf = (unsigned char *)malloc(ciphertext_len);
+
+    if (buf == NULL)
+        return -2;
+
+    len = EVP_DecodeBlock(buf, ciphertext, ciphertext_len);
+    len = aes_decrypt(buf, len, plaintext);
+
+    free(buf);
+
+    return len;
+}
+
+int main (void) {
+
+    unsigned char plaintext[4096] = "\0\1\2\3\4\5\6\7\10\11", ciphertext[4096];
+    int len;
+
+    init_aes256("\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0");
+    len = aes_encrypt_base64(plaintext, 10, ciphertext);
+    printf("%d %s\n", len, ciphertext);
+    len = aes_decrypt_base64(ciphertext, len, plaintext);
+    printf("%d %s\n", len, plaintext);
+
+    free_aes256();
+
+  return 0;
+}

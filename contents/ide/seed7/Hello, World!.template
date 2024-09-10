@@ -1,5 +1,6 @@
 (*
-    Seed7(씨드7): Hello, World! 예제
+    Seed7: Hello, World!
+    https://github.com/ThomasMertes/seed7
 *)
 
 $ include "seed7_05.s7i";

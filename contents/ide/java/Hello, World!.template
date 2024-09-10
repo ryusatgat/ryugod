@@ -1,4 +1,6 @@
-/* Java(자바) Hello, World! 예제 */
+/*
+	Java: Hello, World!
+*/
 
 class Main {
 	static public void main(String []args) {

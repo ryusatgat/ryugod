@@ -1,0 +1,12 @@
+{-
+ -  Gren: Hello, World!
+ -}
+
+module Main exposing (main)
+
+import Html exposing (Html, div)
+
+main : Html a
+main =
+    div []
+        [ Html.text "Hello, world!" ]

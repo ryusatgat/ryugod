@@ -1,0 +1,112 @@
+#!/usr/bin/env fry
+
+# @file heatmap.fat
+# @brief Generate/print heat map colors (used by triangle.fat)
+# black to blue for low values, through reds and oranges, then yellow
+# @author Antonio Prates <hello@aprates.dev>
+# @version 3.1.0
+# @date 2024-07-27
+#
+# @copyright fatscript/fry project <https://gitlab.com/fatscript/fry>
+# Copyright (c) 2022-2024, Antonio Prates <hello@aprates.dev>
+# Licensed under the GNU General Public License v3.0.
+# See LICENSE file in the project root for full license.
+
+_      <- fat.type.List
+color  <- fat.color
+curses <- fat.curses
+
+BaseColor = (r: Number, g: Number, b: Number)
+ColorCode = Number
+
+colorDepth = color.detectDepth
+
+# ANSI black (for 256-colors mode only)
+realBlack = colorDepth >= 256 ? 16
+
+# Choose color conversion mode, based on terminal support
+rgbToColorCode = colorDepth >> {
+  256 => color.to256
+  16  => color.to16
+  _   => color.to8  # hope it won't break for no color support :P
+}
+
+realBlackPair = curses.makePair(null, realBlack)
+
+blackOutScreen = (
+  colorPair -> -> {
+    curses.usePair(colorPair)  # all black
+    curses.fill(
+      { x = -240, y = -72 }
+      { x = curses.getMax.x - 1, y = curses.getMax.y - 1 }
+    )
+    curses.refresh
+  }
+)(realBlackPair)
+
+interpolate = (
+  startColor: BaseColor
+  endColor: BaseColor
+  steps: Number
+): List/ColorCode -> {
+
+  rStep = (endColor.r - startColor.r) / steps
+  gStep = (endColor.g - startColor.g) / steps
+  bStep = (endColor.b - startColor.b) / steps
+
+  ..<steps @ i -> ColorCode * rgbToColorCode(
+    startColor.r + i * rStep
+    startColor.g + i * gStep
+    startColor.b + i * bStep
+  )
+
+}
+
+# note: number of tones may not be exact, due to rounding errors
+generateTransitions = (
+  baseColors: List/BaseColor
+  numTones: Number
+): List/ColorCode -> {
+  transitions = baseColors.size - 1
+
+  ~ gradient = []
+
+  ..<transitions @ i ->
+    gradient += interpolate(
+    startColor = baseColors(i)
+    endColor = baseColors(i + 1)
+    steps = numTones / transitions
+  )
+
+  gradient
+}
+
+# see also: triangle.fat
+getDarkGrayTones = (numTones: Number): List/ColorCode -> {
+  shadesOfGray = [
+    BaseColor(0, 0, 0),     # black
+    BaseColor(40, 40, 40),  # dark gray
+  ]
+  generateTransitions(shadesOfGray, numTones)
+}
+
+getHeatTones = (numTones: Number): List/ColorCode -> {
+  heatMapColors = [
+    BaseColor(0, 0, 0),      # black
+    BaseColor(0, 0, 200),    # dark blue
+    BaseColor(220, 0, 0)     # red
+    BaseColor(210, 100, 0),  # orange
+    BaseColor(255, 255, 0),  # yellow
+  ]
+  generateTransitions(heatMapColors, numTones)
+}
+
+# Example usage
+$isMain ? {
+  _       <- fat.type.Text
+  console <- fat.console
+
+  emptyLine = ' '.repeat(80)
+  getHeatTones(24)
+    .walk(tone -> console.log(emptyLine, null, tone))
+}

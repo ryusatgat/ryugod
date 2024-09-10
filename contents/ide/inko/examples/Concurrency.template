@@ -1,0 +1,17 @@
+import std.process (sleep)
+import std.stdio (Stdout)
+import std.time (Duration)
+
+class async Printer {
+  fn async print(message: String) {
+    let _ = Stdout.new.print(message)
+  }
+}
+
+class async Main {
+  fn async main {
+    Printer().print('Hello, ')
+    Printer().print('World!')
+    sleep(Duration.from_millis(500))
+  }
+}

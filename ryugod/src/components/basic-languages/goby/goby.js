@@ -4,8 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 export var conf = {
     comments: {
-        lineComment: '//',
-        blockComment: ["/*", "*/"]
+        lineComment: '#',
     },
     brackets: [
         ['{', '}'],
@@ -175,13 +174,9 @@ export var language = {
         // Deal with white space, including single and multi-line comments
         whitespace: [
             [/\s+/, 'white'],
-            [/(\/\/.*$)/, 'comment'],
-            [/\/\*/, 'comment', '@comment'],
+            [/(#.*$)/, 'comment'],
         ],
         comment: [
-            [/[^\/*]+/, 'comment'],
-            [/\*\//, 'comment', '@pop'],
-            [/[\/*]/, 'comment']
         ],
         // Recognize hex, negatives, decimals, imaginaries, longs, and scientific notation
         numbers: [
@@ -190,20 +185,16 @@ export var language = {
         ],
         // Recognize strings, including those broken across lines with \ (but not without)
         strings: [
-            [/'$/, 'string.escape', '@popall'],
             [/'/, 'string.escape', '@stringBody'],
-            [/"$/, 'string.escape', '@popall'],
             [/"/, 'string.escape', '@dblStringBody']
         ],
         stringBody: [
-            [/[^\\']+$/, 'string', '@popall'],
             [/[^\\']+/, 'string'],
             [/\\./, 'string'],
             [/'/, 'string.escape', '@popall'],
             [/\\$/, 'string']
         ],
         dblStringBody: [
-            [/[^\\"]+$/, 'string', '@popall'],
             [/[^\\"]+/, 'string'],
             [/\\./, 'string'],
             [/"/, 'string.escape', '@popall'],

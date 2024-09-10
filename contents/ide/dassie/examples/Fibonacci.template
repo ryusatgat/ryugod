@@ -1,0 +1,23 @@
+#
+#  Dassie: Fibonacci
+#
+
+module FibonacciExample = {
+
+	Fibonacci (n: int): int = {
+		? n <= 1 = 1
+		: = (Fibonacci n - 1) + (Fibonacci n - 2)
+	}
+
+	<EntryPoint>
+	Main (): int = {
+		
+		var i = 0 # Inline variable declaration in for loop is not supported yet
+		@ 30 = {
+			println Fibonacci i
+			i += 1
+		}
+		
+		0
+	}
+}

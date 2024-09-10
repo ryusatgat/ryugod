@@ -1,0 +1,5 @@
+--  Oracle: Table list
+
+SELECT *
+  FROM TAB
+;

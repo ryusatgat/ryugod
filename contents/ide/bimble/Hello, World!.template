@@ -1,0 +1,6 @@
+#  
+#   Bimble: Hello, World!
+#   https://github.com/VStartups/bimble
+# 
+
+echoln("Hello, World!")

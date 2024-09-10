@@ -1,0 +1,15 @@
+a = [1, 2, 3, [4, 5, 6]]
+
+b = 5
+# or
+var b = 5
+
+c = "Hello World"
+
+func add(a, b)
+    return a + b
+end
+
+func add_two(a, b) -> a + b + 2
+
+print(add_two(5, 5))

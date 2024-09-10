@@ -1,0 +1,11 @@
+/*
+    Amun: Hello, World!
+    https://github.com/amun-lang   
+*/
+ 
+import "cstdio"
+
+fun main() int64 {
+    printf("Hello, World!\n");
+    return 0;
+}

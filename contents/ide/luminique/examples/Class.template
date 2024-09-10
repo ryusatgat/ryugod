@@ -1,0 +1,55 @@
+class Scone {
+  function topping(first, second) {
+    println("scone with " + first + " and " + second);
+  }
+}
+
+let scone = Scone();
+scone.topping("berries", "cream");
+
+let topping = scone.topping;
+
+print("class of bound method 'topping': ");
+println(topping.getClassName());
+
+print("'topping' method's arity: ");
+println(topping.arity);
+
+print("'topping' method's name: ");
+println(topping.name);
+
+print("'topping' method's receiver: ");
+println(topping.receiver);
+
+class CoffeeMaker {
+  function __init__(coffee) {
+    this.coffee = coffee;
+  }
+
+  function brew() {
+    println("Enjoy your cup of ${this.coffee}");
+
+    this.coffee = nil;
+  }
+}
+
+CoffeeMaker.bestCoffee = "cappuccino";
+
+let maker = CoffeeMaker("coffee and chicory");
+maker.brew();
+
+let maker2 = CoffeeMaker(CoffeeMaker.bestCoffee);
+maker2.brew();
+
+class CoffeeMakerCherry : CoffeeMaker {
+  function __init__() {
+    this.coffee = nil;
+  }
+
+  function brew() {
+    println("Enjoy your cup of cherry coffee");
+  }
+}
+
+let cherryMaker = CoffeeMakerCherry();
+cherryMaker.brew();

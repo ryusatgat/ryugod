@@ -1,5 +1,5 @@
 ;;
-;;  Clojure(클로저) Hello, World! 예제
+;;  Clojure: Hello, World!
 ;;
 
 (ns clojure.ryugod.hello

@@ -1,0 +1,6 @@
+#!/bin/bash
+# Shell script: Hello, World!
+
+str="Hello, World!"
+
+echo "$str"

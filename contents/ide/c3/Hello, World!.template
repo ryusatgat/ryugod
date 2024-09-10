@@ -3,12 +3,12 @@
     http://www.c3-lang.org/
 */
 
-module hello;
+module main;
 
 import std::io;
 
-func int main(int argc, char** argv) 
+fn int main(int argc, char** argv) 
 {
-    io::println("Hello, World!");
+    io::print("Hello, World!\n");
     return 0;
 }

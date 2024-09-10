@@ -1,0 +1,53 @@
+import java.lang.reflect.Field;
+import java.math.BigDecimal;
+
+class A {
+    public int value;
+    public int value3;
+    public String name;
+}
+
+class B {
+    public int value;
+    public BigDecimal value2;
+    public String name;
+}
+
+class Main {
+    public static <T> T convert(Object source, Class<T> targetClass) {
+        try {
+            T target = targetClass.getDeclaredConstructor().newInstance();
+
+            Field[] sourceFields = source.getClass().getDeclaredFields();
+
+            for (Field sourceField : sourceFields) {
+                sourceField.setAccessible(true);
+
+                try {
+                    Field targetField = targetClass.getDeclaredField(sourceField.getName());
+                    targetField.setAccessible(true);
+
+                    targetField.set(target, sourceField.get(source));
+                } catch (NoSuchFieldException e) {
+                }
+            }
+
+            return target;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static void main(String[] args) {
+        A a = new A();
+        a.value = 10;
+        a.name = "Refrection";
+
+        B b = convert(a, B.class);
+
+        System.out.println("B value: " + b.value);
+        System.out.println("B value: " + b.value2);
+        System.out.println("B name: " + b.name);
+    }
+}

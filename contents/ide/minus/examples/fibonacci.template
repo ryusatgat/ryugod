@@ -1,0 +1,33 @@
+#
+#   Minus: Fibonacci
+#   http://www.golfscript.com/minus
+#
+
+k-=46
+A-=1
+
+a-=1
+b-=a
+
+
+f-=f
+f-=b
+q-=f
+o-=246
+
+e-=e
+e-=b
+f-=f
+f-=d
+b-=b
+b-=f
+d-=d
+d-=e
+
+b-=e
+
+k-=a
+p-=p
+p-=k
+c-=A
+c-=18

@@ -1,0 +1,11 @@
+@extern
+fun printf(format *char, varargs Any) int64;
+
+@prefix
+fun prefix<T> (x T) T = x;
+
+fun main() int64 {
+    var i = prefix<int64> 20;
+    printf("%d\n", i);
+    return 0;
+}

@@ -1,6 +1,6 @@
 # Ryugod (https://www.ryugod.com)
 - This site provides a development environment for simple testing.
-- You can try running 'Linux Shell' and multiple program languages ​​without login.
+- You can try running 'Linux Shell' and multiple programming languages ​​without login.
 - It provides online compilers for C language, C++, Java, etc. and supports **syntax highlighting** function for all languages.
 - You can upload and download files to/from the server.
 - You can add source files by drag and drop.
@@ -8,7 +8,13 @@
 - Try copying the editor source and pasting it on the bulletin board. It is nicely pasted.
 - This site is optimized for 'Chrome' and 'Edge Browser'.
 
-# Load source using hyperlink
+# Ryugod Server Specifications
+- 1EA
+- Intel(R) Celeron(R) CPU  J1900  @ 1.99GHz
+- 8GB RAM
+- 256GB SSD
+
+# How to load source using hyperlink
 - You can add a source to a hyperlink and load it directly into the editor.
 - For language identifiers, refer to the URL for each language of this site, such as `bash`, `c`, `cc`, or `javascript`.
 - The length of the entire URL must not exceed 15,000 bytes.
@@ -22,10 +28,11 @@ const url = `${base_url}/source:${Buffer.from(pako.deflate("source to display"))
 const tag = `<a href="${url}">🚀 Test your code</a>`
 ```
 
-# Supported language and DB
+# Supported language
 - 11l
 - 4tH
 - 8th
+- ActionScript3
 - Ada
 - Adept
 - Afnix
@@ -33,6 +40,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Aime
 - Aku
 - Alan
+- Aleph
 - Algae
 - Algol60
 - Algol68
@@ -41,7 +49,9 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Alma
 - Alore
 - Alta
+- Alumina
 - Amiga E
+- Amrit E
 - AngelScript
 - APL
 - APlus
@@ -71,10 +81,13 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - BCPL
 - Bean
 - BeanShell
+- Bend
 - Berry
 - Bhuna
+- Blade
 - Blossom
 - Blue
+- BlueSpec
 - Bob
 - Borealis
 - Boron
@@ -87,14 +100,18 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - C++
 - C2
 - C3
+- C Shell
 - Caboose
+- Carbon
 - Carp
 - Castile
+- Ceu
 - Ceylon
 - ChaiScript
 - Chapel
 - Cheddar
 - Chef
+- Chili
 - Chipmunk Basic
 - Chuck
 - Ciao
@@ -106,6 +123,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - CLIPS
 - Clojure
 - Clover
+- CLox
 - Cobol
 - Cobra
 - Coconut
@@ -117,29 +135,39 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Cor
 - CoreScript
 - CppScript
+- Crafting
+- Crumb
 - Crystal
 - CUPL/CORC
+- CupScript
 - Curry
 - D
+- D2
 - Dafny
 - Dao
 - Dart
 - daScript
+- Dashell
+- DDP
 - Dino
 - Dogescript
+- DoKev
 - Dragon
 - Duck
 - Dylan
 - E
 - eC
+- Ecla
 - EGA
 - Egison
 - ELENA
 - elastiC
 - Elm
+- Element
 - EMacs Lisp
 - Emerald
 - Emo
+- EmojiCode
 - Erlang
 - Esterel
 - Euphoria
@@ -148,6 +176,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Factor
 - Falcon
 - Fantom
+- FatScript
 - Fe
 - Felix
 - Fennel
@@ -160,6 +189,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Flax
 - Flix
 - Focal
+- Forter
 - Forth
 - Fortran
 - fox-lang
@@ -173,6 +203,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Genie
 - Gentee
 - Genyris
+- Gleam
 - Gnuplot
 - Go
 - Goat
@@ -182,6 +213,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Gosu
 - Grace
 - Gravity
+- Gren
 - Gri
 - Groovy
 - GSL
@@ -197,9 +229,12 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - HLA
 - Hope
 - Horse64
+- HQ9+
 - HTML
 - Huginn
 - Huo
+- Hy
+- Hylo
 - ICI
 - Icon
 - IDL
@@ -207,6 +242,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - ILAsm
 - Inform
 - Ink
+- Inko
 - INTERCAL
 - Io
 - Ioke
@@ -230,9 +266,11 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Jython
 - Kenaf
 - Killa
+- Kind
 - Knight
 - Koka
 - Kona
+- Korn Shell
 - Kos
 - Kotlin
 - kscript
@@ -244,6 +282,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Levi
 - Lily
 - Limbo
+- LiquidSoap
 - Lisaac
 - Lisp
 - Little
@@ -259,7 +298,9 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Lua
 - Luci
 - Lumi
+- Luminique
 - Luxury
+- Malbolge
 - Mari
 - Make
 - Markdown
@@ -271,30 +312,33 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Mercury
 - Miniscript
 - MiniZinc
+- Minus
 - Mirah
 - Mirth
 - Modula-2
 - Modula-3
-- MongoDB
+- Mojo
 - Mu
 - MUMPS
 - Muon
 - MY-BASIC
 - Myrddin
-- MySQL
 - Mythryl
 - Nanoquery
 - Neco
 - Nectar
+- Nemerle
 - NetRexx
 - Never
 - NewLisp
 - NewtonScript
 - Next
 - Nial
+- Nibbles
 - Nice
 - Nickle
 - Nim
+- Nmet
 - Noumenon
 - Novus
 - Nuua
@@ -312,8 +356,9 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Opal
 - OpenSCAD
 - OpenSpin
-- Oracle
 - Oz
+- P
+- P++
 - Pagan
 - PARI/GP
 - Pascal
@@ -324,18 +369,20 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - PHP
 - PIC
 - Picat
+- PicoC
 - Pike
 - PILOT
 - Pharo
+- PLC/ST
 - Pocketlang
 - Poly/ML
 - Pony
 - Poplog
-- PostgreSQL
 - PostScript
 - Potion
 - PowerShell
 - Praat
+- Pro*C
 - Processing
 - Prolog
 - PROSE
@@ -355,12 +402,12 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Ratfor
 - Rebol
 - Red
-- Redis
 - REXX
 - Rigal
 - Ring
 - Rix
 - Rk
+- Roc
 - Rockstar
 - RPL/2
 - Rubi
@@ -369,8 +416,10 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Rust
 - Rutger
 - S-Lang
+- Sacalon
 - Saffire
 - Sather
+- Saturnus
 - Saurus
 - Scala
 - Scheme
@@ -379,24 +428,26 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Self
 - SETL
 - Seq
+- Senegal
 - Shen
+- ShnooTalk
 - Simula
 - Sink
 - Sisal
+- Skew
 - Slash
 - Sleep
 - Slogan
 - Smalltalk
 - Snek
 - Snobol4
+- Sophia
 - SoftScript
 - Solidity
 - SOM
 - Sparkling
 - SPL
 - Spow
-- SQLite
-- SQL Server
 - Squirrel
 - Standard ML
 - Stanza
@@ -408,6 +459,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Strela
 - SurgeScript
 - Swift
+- Syphon
 - SZL
 - Tamgu
 - Tcsh
@@ -417,6 +469,8 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - TeX
 - TIScript
 - TotemScript
+- Tula
+- Turing
 - TypeScript
 - uclang
 - Umka
@@ -434,6 +488,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Wax
 - Whitespace
 - Windows Batch
+- Wisnia Batch
 - World
 - Wren
 - X10
@@ -443,9 +498,11 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - XPL0
 - Yabasic
 - Yacas
+- Yasha
 - YASL
 - Yasm
 - Yorick
+- Z Shell
 - Zebra
 - Zig
 - Zion
@@ -456,8 +513,17 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - 약속
 - 난해한 혀엉...
 
-# 
-Supported Environment
+# Supported Databases
+- H2
+- MongoDB
+- MySQL
+- Oracle
+- PostgreSQL
+- Redis
+- SQLite
+- SQL Server
+
+# Supported Environments
 - AngularJS
 - Deno
 - Emscripten
@@ -467,6 +533,11 @@ Supported Environment
 - Terraform
 - Vue.js
 - Pug
+
+# Supported OS
+- Arch Linux
+- Kaliy Linux
+- Rocky Linux
 
 # Change history
 ## 2021-06-12
@@ -518,7 +589,7 @@ Supported Environment
 - D supported
 - Emscripten supported
 ## 2021-06-26
-- 소스 탭 기능 supported
+- Source tab function added
 ## 2021-06-27
 - VHDL supported
 ## 2021-06-28
@@ -1079,3 +1150,106 @@ Supported Environment
 - language filtering is functional
 ## 2021-12-17
 - Chef supported
+## 2022-10-14
+- Minus supported
+- Nibbles supported
+## 2022-10-15
+- Malbolge supported
+## 2022-10-20
+- Carbon supported
+## 2022-11-08
+- PicoC supported
+## 2022-11-12
+- HQ9+ supported
+## 2023-03-21
+- D2 supported
+## 2023-04-03
+- Graphviz supported
+## 2024-03-06
+- Changed WebSQL to localStorage
+## 2024-03-27
+- Oracle(mariadb compatible mode) removed
+- Oracle is now supported (Oh!)
+- Pro*C supported (WOW!!)
+## 2024-05-09
+- DoKev supported
+## 2024-08-07
+- Ceu supported
+## 2024-08-08
+- Aleph supported
+- H2 supported
+## 2024-08-23
+- ActionScript3 supported
+- BlueSpec supported
+## 2024-08-24
+- EmojiCode supported
+- Mojo supported
+- Tula supported
+- Turing supported
+## 2024-08-26
+- PLC/ST supported
+## 2024-08-28
+- DDP supported
+- Sophia supported
+## 2024-08-30
+- Nemerle supported
+- P supported
+- P++ supported
+## 2024-08-31
+- Alumina supported
+- Blade supported
+## 2024-09-01
+- Chili supported
+- Crafting supported
+- Ecla supported
+- Nmet supported
+- Sacalon supported
+- Saturnus supported
+## 2024-09-02
+- Arch Linux supported
+- Kaliy Linux supported
+- Rocky Linux supported
+- LiquidSoap supported
+- Syphon supported
+## 2024-09-03
+- Amrit supported
+- Element supported
+- Gren supported
+- Hylo supported
+## 2024-09-04
+- Crumb supported
+## 2024-09-05
+- Skew supported
+## 2024-09-06
+- Inko supported
+- Wisnia supported
+## 2024-09-07
+- Bend supported
+- Clox supported
+- Gleam supported
+- Kind supported
+- Luminique supported
+- Yaksha supported
+## 2024-09-08
+- C Shell supported
+- Dashell supported
+- Korn Shell supported
+- Z Shell supported
+- Amun supported
+- Dyon supported
+- Roc supported
+- Scopes
+- ShnooTalk supported
+## 2024-09-09
+- CupScript supported
+- FatScript
+- Forter supported
+
+## To be supported
+- 42
+- Bite
+- Bruijn
+- Dry
+- KCL
+- Lawvere
+- Nox

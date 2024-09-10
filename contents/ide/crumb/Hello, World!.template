@@ -1,0 +1,6 @@
+//
+//  Crumb: Hello, World!
+//  https://github.com/liam-ilan/crumb
+//
+
+(print "Hello, World!\n")

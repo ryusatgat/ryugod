@@ -1,5 +1,5 @@
 /*
-    JavaScript(자바스크립트): 구구단 예제
+    JavaScript: GuGudan
 */
 
 for (let i=2; i<10; i++)

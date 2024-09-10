@@ -1,5 +1,5 @@
 ;
-;   Carp(카프): Hello, World! 예제
+;   Carp: Hello, World!
 ;
 
 (defn main []

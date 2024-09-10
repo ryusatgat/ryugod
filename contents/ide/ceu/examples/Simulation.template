@@ -1,0 +1,28 @@
+/*
+    Ceu: Simulation
+    http://www.ceu-lang.org
+*/
+
+#include <c.ceu>
+
+par do
+
+    // original code
+    input int A;
+    var int v = await A;
+    loop do
+        await 10ms;
+        _printf("v = %d\n", v);
+        v = v + 1;
+    end
+
+with
+
+    // inp simulation
+    await async do
+        emit A(1);      // initial value for 'v'
+        emit 1s35ms;    // the loop executes 103 times
+    end
+    escape 0;
+end
+

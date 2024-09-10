@@ -1,0 +1,30 @@
+#!/usr/bin/env fry
+
+# @file dice.fat
+# @brief Example of random number generation
+# @author Antonio Prates <hello@aprates.dev>
+# @version 2.4.1
+# @date 2024-03-06
+#
+# @copyright fatscript/fry project <https://gitlab.com/fatscript/fry>
+# Copyright (c) 2022-2024, Antonio Prates <hello@aprates.dev>
+# Licensed under the GNU General Public License v3.0.
+# See LICENSE file in the project root for full license.
+
+math    <- fat.math
+console <- fat.console
+
+ordinal = -> _ >> {
+  1 => '1st'
+  2 => '2nd'
+  3 => '3rd'
+  _ => '{_}th'
+}
+
+rollDice = (n: Number): Void -> {
+  dice = math.floor(random * 6) + 1
+  console.log('{ordinal(n)} dice roll: {dice}')
+}
+
+# "main"
+1..8 @ rollDice

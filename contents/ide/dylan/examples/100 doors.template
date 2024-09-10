@@ -1,8 +1,8 @@
 Module: ryugod
 
 //
-//  Dylan(딜런): 100 doors 예제
-//  출처: http://www.rosettacode.org/
+//  Dylan: 100 doors
+//  http://www.rosettacode.org/
 //
 
 define function main(name :: <string>, arguments :: <vector>)

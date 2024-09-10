@@ -1,5 +1,5 @@
-# Python(파이썬) Hello, World! 예제
+#
+# Python: Hello, World!
+#
 
-str = "Hello, World!"
-
-print(str)
+print("Hello, World!")

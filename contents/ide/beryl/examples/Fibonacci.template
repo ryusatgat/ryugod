@@ -1,0 +1,9 @@
+let fib = function n do
+    if (n == 0) or? (n == 1) do
+        n
+    end else do
+        (fib n - 1) + (fib n - 2)
+    end
+end
+
+print(fib(10))

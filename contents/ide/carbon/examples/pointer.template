@@ -1,0 +1,29 @@
+//
+//  Carbon: pointer
+//
+
+package ExplorerTest api;
+
+fn Main() -> i32 {
+  var x: i32 = 5;
+  // changes x to 10
+  x = 10;
+  Print("---");
+  Print("x = {0}", x);
+  var y: i32* = &x;
+  // changes x to 7
+  *y = 7;
+  Print("---");
+  Print("x = {0}", x);
+  Print("y = {0}", *y);
+  var z: i32* = &*y;
+  // changes x to 0
+  *z = 0;
+  Print("---");
+  Print("x = {0}", x);
+  Print("y = {0}", *y);
+  Print("z = {0}", *z);
+  var w: i32 = *y;
+
+  return w;
+}

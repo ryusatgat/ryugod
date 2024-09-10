@@ -1,0 +1,3 @@
+msg="Please wait"
+sudo pacman -S --noconfirm figlet && clear && figlet $msg && \
+sudo pacman -S --noconfirm cmatrix > /dev/null 2>&1 && cmatrix

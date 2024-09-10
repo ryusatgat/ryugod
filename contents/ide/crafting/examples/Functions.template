@@ -1,0 +1,30 @@
+//
+//  Crafting: Functions
+//
+
+fun makeCounter() {
+  var i = 0;
+  fun count() {
+    i = i + 1;
+    std::Println(i);
+  }
+
+  return count;
+}
+
+var counter = makeCounter();
+counter();
+counter();
+
+fun square(num) {
+  if (std::GetType(num) != "number")
+  {
+    std::println("Arg must be a number");
+    return nil;
+  }
+
+  return num * num;
+
+}
+
+std::Println(square(2));

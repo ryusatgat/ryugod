@@ -1,4 +1,4 @@
-/* JavaScript(자바스크립트) Hello, World 예제 */
+/* JavaScript: Hello, World */
 
 const str = "Hello, World!"
 

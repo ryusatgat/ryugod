@@ -1,0 +1,13 @@
+#
+#   LetLang: Hello, World!
+#
+
+module main::main;
+
+from std::io import { println };
+
+let pub main: func[() -> @ok] {
+    () -> {
+        println("Hello, World!");
+    },
+};

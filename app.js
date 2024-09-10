@@ -1,19 +1,20 @@
-#!/usr/local/bin/node
-
 const express = require('express')
 const serveIndex = require('serve-index')
+//const cors = require('cors')
 const pty = require('node-pty')
 const crypto = require('crypto')
 const { spawn } = require("child_process")
 const http = require('http')
 const websocket = require('ws')
+const url = require('url')
 const hljs = require('highlight.js')
 const urlencode = require('urlencode')
 const fs = require('fs')
 const { SIGTERM, SIGQUIT, SIGINT, SIGKILL } = require('constants')
 const app = express()
+//app.use(cors())
 app.disable('x-powered-by')
-const base_dir = '/home/ryugod'
+const base_dir = '/home/kurishin/HomePage'
 const port = 5000
 const md = require('markdown-it')({
     highlight: (str, lang) => {
@@ -22,7 +23,7 @@ const md = require('markdown-it')({
         return '<pre class="hljs">' +
                 hljs.highlight(str, {language: lang}, true).value +
                '</pre>';
-      } catch (e) {log.err(e.message)}
+      } catch (e) {console.error(e.message)}
     }
 
     return '<pre class="hljs">' + md.utils.escapeHtml(str) + '</pre>';
@@ -31,6 +32,7 @@ const md = require('markdown-it')({
 const mdi = require('markdown-it-mdi')
 
 let dockerCount = 0
+let chatId = null
 
 md.use(mdi)
 
@@ -40,20 +42,22 @@ app.use(express.urlencoded({limit : "1mb", extended: false}));
 app.use('/list', serveIndex(base_dir + '/contents'))
 
 const sendStatic = (req, res) => {
-	url = urlencode.decode(req.url)
+	const url = urlencode.decode(req.url)
 	const path = base_dir + url
 
 	if (fs.existsSync(path)) {
 		fs.readFile(path, function(err, data) {
 			if (err)
-				console.err(err.message)
+				console.error(err.message)
 			else {
 				res.send(data)
 			}
 		})
 	}
 	else {
-        res.redirect(`/contents/404.md`)
+		//res.status(404).send(`${url} not found`)
+	    console.error(path, "not found")
+            res.redirect(`/contents/404.md`)
 	}
 }
 
@@ -67,6 +71,7 @@ app.post('/', (req, res) => {
 })
 
 app.post('/shareMySource', (req, res) => {
+    //console.log('/shareMySource', req.body.params.language)
     const base_path = `${base_dir}/contents/shared/${req.body.params.language}`
 
     if (!fs.existsSync(base_path))
@@ -103,6 +108,8 @@ app.get('/list/*\.(md|template|png)$', (req, res) => {
         res.sendFile(path)
     }
     else {
+        //res.status(404).send(`${url} not found`)
+	console.error(path, "not found")
         res.redirect(`/contents/404.md`)
     }
 })
@@ -115,6 +122,8 @@ app.get('/contents/*\.(template)$', (req, res) => {
         res.sendFile(path)
     }
     else {
+        //res.status(404).send(`${url} not found`)
+	console.error(path, "not found")
         res.redirect(`/contents/404.md`)
     }
 })
@@ -131,13 +140,16 @@ app.get('*\.(md|md.html|template|template.html)$', (req, res) => {
         stats = fs.statSync(path)
         fs.readFile(path, 'utf8', function(err, data) {
             if (err)
-                console.err(err.message)
+                console.error(err.message)
             else {
                 if (url.match(/\.template(\.html)?$/)) {
                     data = `# ${url}\n` + '```\n' + data + '\n```'
                 }
                 const html = '<html>' +
                 '<head>' +
+                /*
+                '<link rel="stylesheet" href="/styles/vs2015.css"></head>' +
+                */
                 '<body>' +
                 md.render(data) +
                 `<hr><sub><sup>Modified at ${stats.mtime}</sup></sub>` +
@@ -148,6 +160,7 @@ app.get('*\.(md|md.html|template|template.html)$', (req, res) => {
         })
     }
     else {
+	console.error(path, "not found")
         res.redirect(`/contents/404.md`)
     }
 })
@@ -200,11 +213,15 @@ app.get('/sitemap.xml', (req, res) => {
 app.get('/contents/?**', (req, res) => {
     const url = urlencode.decode(req.url)
     const path = base_dir + url
+    //const regex = new RegExp('^\\d+\\.')
     var ret = {}
+
+    //res.header('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8')
 
     if (fs.existsSync(path, {encoding:'utf-8'})) {
         stats = fs.lstatSync(path)
         if (stats.isDirectory()) {
+            //console.log(path)
 
             fs.readdir(path, {encoding:'utf-8'}, (err, files) => {
                 if (err) {
@@ -226,6 +243,8 @@ app.get('/contents/?**', (req, res) => {
                         subfiles = isDir ? fs.readdirSync(path + '/' + file, {encoding:'utf-8'}):[]
                         subfiles.sort()
                         subfiles = subfiles.filter(f => f.endsWith('\.md') || f.endsWith('\.template'))
+                        //subfiles.map(f => f.replace(regex, ''))
+                        //file_list.push({name:file.replace(regex, ''),type:isDir ? "d":"f",list:subfiles})
                         file_list.push({name:file,type:isDir ? "d":"f",list:subfiles})
                     }
                 })
@@ -239,6 +258,7 @@ app.get('/contents/?**', (req, res) => {
         }
     }
 
+    console.error(path, "not found")
     res.redirect(`/contents/404.md`)
 })
 
@@ -252,6 +272,7 @@ const websocketServer = new websocket.Server(
 
 setInterval(function ping() {
 	if (websocketServer.clients.size > 0) {
+		// console.log('ping', websocketServer.clients.size, '...')
 		websocketServer.clients.forEach(function each(socket) {
 			if (socket.isAlive === false) return socket.terminate()
 
@@ -272,8 +293,11 @@ websocketServer.on('connection', (ws, req) => {
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
     var lang = req.headers["accept-language"]
     var locale = (lang && lang.split(',')[0].indexOf("ko") >= 0)?'ko_KR':'C'
-    console.log(new Date().toString(), 'connected...', ip, docker_name, lang)
+    const query = url.parse(req.url, true).query;
+    const dockerImage = query.dockerImage && query.dockerImage!='undefined' && query.dockerImage!='null' ? query.dockerImage:'ubuntu:ryugod';
+    console.log(new Date().toString(), 'connected...', ip, docker_name, lang, dockerImage)
 
+    //const child = cp.spawn('/usr/bin/docker', ['run', '--rm', '-i', 'centos', 'bash'], {stdio: 'pipe'})
     const child = pty.spawn('/usr/bin/docker', [
         'run',
         '--env',
@@ -286,13 +310,21 @@ websocketServer.on('connection', (ws, req) => {
         '--name',
         docker_name,
         '--rm',
+        '--pids-limit',
+        '100',
+      /*  '--network',
+        'none', */
+
+        /*
+        'su', '-',
+        */
         '--workdir',
         '/home/ryugod',
         '--user',
         'ryugod',
         '--hostname',
-        'ryugod-server',
-        'ubuntu:ryugod',
+	'ryugod-server',
+        dockerImage,
         '/bin/bash'
     ], {
         name: 'xterm-color',
@@ -310,12 +342,22 @@ websocketServer.on('connection', (ws, req) => {
     })
 
     ws.on('message', (message) => {
+//        for (i=0; i<message.length; i++)
+//            console.log(message.charCodeAt(i))
         const cmd = message[0]
         switch (cmd) {
         case '1':
             if (message) {
                 const msg = message.slice(1)
                 child.write(msg)
+                if (chatId) {
+                    if (!msg.match(/RYUGOD_EOF/)) {
+                        logMessage += msg
+                        if (logMessage.slice(-1) === '\r' || logMessage.slice(-1) === '\n') {
+                            logMessage = ''
+                        }
+                    }
+                }
             }
             break
         case '2': /* resize */
@@ -328,6 +370,7 @@ websocketServer.on('connection', (ws, req) => {
         spawn('docker', ['kill', docker_name]).on('close', code => {            
             console.log('socket closed...', new Date().toString(), docker_name, child.pid, e)
         })
+        // docker container rm $(docker container ls -aq)
     })
     ws.on('error', (err) => {
         console.log('error occured', err)

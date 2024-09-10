@@ -1,0 +1,22 @@
+/*
+    Ceu: sleep
+    https://github.com/ceu-lang/ceu
+*/
+
+#include <c.ceu>
+
+par/or do
+    every 1s do
+        _printf("Sleeping 1 seconds...\n");
+    end
+with
+    await async do
+        var int i;
+        loop i in [0->5[ do
+            _sleep(1);
+            emit 1s;
+        end
+    end
+end
+
+escape 0;

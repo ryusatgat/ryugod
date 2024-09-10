@@ -1,0 +1,14 @@
+//
+// Tula: Hello, World!
+//
+
+run (Hello 1) { . }
+  
+for i in Integer {
+    case (Hello i) . . . (While i [i <= 1])
+    case (While i true) . . . (Goto i [i == 1] [i == 2])
+    case (While i false) . . . World
+    case (Goto i true false) . Hello, -> (Hello [i + 1])
+}
+
+case World . World! ! Halt

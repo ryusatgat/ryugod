@@ -1,0 +1,17 @@
+#
+# Ecla: Hello, Wolrld!
+#
+
+import "console";
+
+var hello string = "Hello";
+world := "World!";
+
+var helloWorld string;
+helloWorld = hello + ", " + world;
+
+function printHelloWorld() {
+    console.println(helloWorld);
+}
+
+printHelloWorld();

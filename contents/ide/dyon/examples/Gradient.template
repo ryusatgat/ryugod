@@ -1,0 +1,46 @@
+// Dirac delta function,
+// see https://en.wikipedia.org/wiki/Dirac_delta_function
+δ(x: f64) = if x==0 {1} else {0}
+// Nudge a vector in a direction `j` with value `eps`.
+eps(v: vec4, j: f64, eps: f64) = vec4 i s(v,i)+δ(i-j)*eps
+
+// The function to evaluate.
+// Since we are using a linear combination,
+// the partial derivatives equals the derivatives of each linear part.
+fn f(x: f64, y: f64, z: f64, w: f64) -> f64 {
+    return exp(x) + sin(y) + cos(z) + w^2
+}
+
+// The derivatives.
+fn df(x: f64, y: f64, z: f64, w: f64) -> vec4 {
+    return (exp(x), cos(y), -sin(z), 2*w)
+}
+
+// The double derivatives.
+fn ddf(x: f64, y: f64, z: f64, w: f64) -> vec4 {
+    return (exp(x), -sin(y), -cos(z), 2)
+}
+
+fn main() {
+    x := 0.1
+    y := 0.1
+    z := 0.1
+    w := 0.1
+    eps := 0.0001
+    v := (x, y, z, w)
+    fv := f(xyzw v)
+    // fv := f(x, y, z, w)
+    println("fv: " + str(fv))
+
+    grad := (vec4 j f(xyzw eps(v,j,eps))-fv)/eps
+    println("Gradient: " + str(grad))
+    println(" error: " + str(df(xyzw v) - grad))
+
+    lapl := (vec4 j (f(xyzw eps(v,j,eps))+f(xyzw eps(v,j,-eps)))-2*fv)/eps^2
+    println("Laplacian: " + str(lapl))
+    println(" error: " + str(ddf(xyzw v) - lapl))
+
+    lapl_x := (f(x+eps,y,z,w)+f(x-eps,y,z,w)-2*f(x,y,z,w))/eps^2
+    println("Laplacian (x): " + str(lapl_x))
+    println(" error: " + str(x(ddf(xyzw v)) - lapl_x))
+}

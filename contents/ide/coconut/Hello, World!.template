@@ -1,5 +1,5 @@
 #
-#   Coconut(코코넛): Hello, World! 예제
+#   Coconut: Hello, World!
 #
 
 "Hello, World!" |> print

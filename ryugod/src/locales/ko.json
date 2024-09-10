@@ -18,6 +18,7 @@
   "export": "내보내기",  
   "options": "설정",
   "github": "깃허브",
+  "about": "ryugod.com 정보",
   "help": "도움말",
   "newTab": "새 탭",
   "rename": "이름 바꾸기",
@@ -52,13 +53,13 @@
   "exceedSourceSize": "소스의 크기가 15,000바이트보다 작아야 합니다",
   "hyperlinkCopied": "소스의 하이퍼링크가 클립보드로 복사되었습니다",
   "terminate": "모든 내용이 지워집니다. 종료할까요?",
-  "banner": "편집기에서 F1 단축키를 누르고 ANSI94m언어ANSI0m를 검색하세요\r\n\r\nANSI92m서버 연결ANSI0m 아이콘을 누르거나 ANSI92m실행ANSI0m 아이콘을 누르세요\r\n",
+  "banner": "편집기에서 ANSI94mF4ANSI0m 단축키를 누르고 프로그래밍 언어를 검색하세요\r\n\r\nANSI92m서버 연결ANSI0m 아이콘을 누르거나 ANSI92m실행ANSI0m 아이콘을 누르세요\r\n",
   "noSource": "공유할 소스가 없습니다.<br/>소스 작성 후 공유하세요.",
   "shareMessage": "클립보드로 주소가 복사되었습니다.<br/>\nQR코드를 휴대전화로 인식해서 공유해도 됩니다.<br/><br/>",
   "savedOptions": "설정이 저장되었습니다",
   "fileExists": "이름이 이미 있어 바꿀 수 없습니다",
   "incorrectFilename": "파일명을 확인해주세요",
-  "copySourceHref": "소스 하이퍼링크 복사",
+  "copySourceHref": "소스 및 하이퍼링크 복사",
   "download": "다운로드",
   "arguments": "실행 시 추가 인자",
   "tabSize": "탭 크기",
@@ -68,5 +69,7 @@
   "light": "밝게",
   "ok": "확인",
   "cancel": "취소",
-  "sourceSharingFailed": "소스 공유에 실패했습니다"
+  "sourceSharingFailed": "소스 공유에 실패했습니다",
+  "copySourceUrl": "소스 URL 복사",
+  "gpt": "GPT"
 }

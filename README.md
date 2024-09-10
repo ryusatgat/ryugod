@@ -23,3 +23,11 @@ const url = `${base_url}/source:${Buffer.from(pako.deflate("source to display
     .toString('base64').replace(/\//g, "_")}`
 const tag = `<a href="${url}">🚀 Test your code</a>`
 ```
+
+# Upload to the console
+Drag and drop your file to the console.
+
+# Download or view a file from in the console
+```sh
+$ imshow [file name]
+```

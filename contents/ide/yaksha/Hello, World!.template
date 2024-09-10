@@ -1,0 +1,8 @@
+# 
+#  Yaksha: Hello, World!
+# 
+
+def main() -> int:
+    println("Hello, World!")
+    return 0
+

@@ -1,0 +1,5 @@
+--
+-- Pluto: Hello, World!
+--
+
+print('Hello, World!')

@@ -1,0 +1,2 @@
+msg="Rocky Linux"
+sudo yum install -y figlet && clear && figlet $msg

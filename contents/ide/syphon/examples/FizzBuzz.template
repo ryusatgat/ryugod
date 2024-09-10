@@ -1,0 +1,15 @@
+i = 0
+
+while (i += 1) < 16 {
+    if i % 3 == 0 {
+        if i % 5 == 0 {
+            println("FizzBuzz")
+        } else {
+            println("Fizz")
+        }
+    } else if i % 5 == 0 {
+        println("Buzz")
+    } else {
+        println(i)
+    }
+}

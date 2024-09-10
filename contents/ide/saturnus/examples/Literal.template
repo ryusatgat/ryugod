@@ -1,0 +1,39 @@
+// This example illustrates the use of diverse string
+// and number literals.
+use { operators: { `..` } } in std;
+
+// All numbers
+let hex = 0xff;
+let int = 10;
+let dec = 10.4;
+let char = 'a';
+
+// Postfix operators
+class Hz {
+  fn from_literal(value) {
+    return Hz { value };
+  }
+  fn to_string(self) {
+    return "Hz(" ++ self.value ++ ")";
+  }
+}
+
+// Usage:
+let freq = 440Hz;
+print(freq->to_string());
+
+// Strings may also use prefix operators:
+fn b(value) {
+  let out = [];
+  for i in 1..#?value {
+    out[#?out+1] = string.byte(value, i);
+  }
+  return out;
+}
+
+let bytes = b"some bytes";
+
+fn debug_array(arr) {
+  return "[ " ++ table.concat(arr, ", ") ++ " ]";
+}
+print(type(bytes), "=", debug_array(bytes));

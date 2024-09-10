@@ -1,0 +1,18 @@
+10 REM This is an example program:
+   REM it is written for the Esolang wiki.
+20 PRINT 6*9
+30 LET 9=7
+40 PRINT 6*9
+50 LET 42=20
+60 PRINT 6*9
+70 LET 20=75
+80 LET 42=9
+90 PRINT 4*5 : PRINT 6*9
+100PRINT (6*9)*11         :PRINT6*  (9*11)
+100110 LET 110=110+3
+109 LET 100110=108
+110 PRINT "Looping...": LET 108=108+3
+172 LET 114=95
+180 PRINT "42";
+190 PRINT 42
+199 END

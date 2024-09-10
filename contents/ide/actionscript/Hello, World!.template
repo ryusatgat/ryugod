@@ -1,0 +1,5 @@
+//
+// ActionScript3: Hello, World!
+//
+
+trace("Hello, World!");

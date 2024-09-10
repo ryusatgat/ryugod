@@ -1,7 +1,7 @@
 Module: ryugod
 
 //
-//  Dylan(딜런): Hello, World! 예제
+//  Dylan: Hello, World!
 //
 
 define function main(name :: <string>, arguments :: <vector>)

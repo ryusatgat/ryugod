@@ -1,0 +1,14 @@
+@extern fun printf(format *char, varargs Any) int64;
+
+fun repeat(n int64, callback fun (int64) void) void {
+    for (0 .. n) {
+        callback(it);
+    }
+}
+
+fun main() int64 {
+    repeat(5) { (i int64) void ->
+        printf("%d\n", i);
+    };
+    return 0;
+}

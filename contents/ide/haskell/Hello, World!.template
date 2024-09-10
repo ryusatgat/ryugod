@@ -1,5 +1,5 @@
 --
---  Haskell(하스켈) Hello, World! 예제
+--  Haskell: Hello, World!
 --
 
 main = putStrLn "Hello, World!"

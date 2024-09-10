@@ -1,0 +1,53 @@
+//
+//  Element: Closures
+//
+
+// a simple function which creates a closure
+adder:(a)
+{
+	:(b) a + b
+}
+
+f = adder(6)
+
+f(5) -> print()
+
+// the "closed-over" variable 'c' is shared among the functions 'inc', 'dec' and 'get'
+makeFunctions ::
+{
+	c = 0
+	
+	inc :: c += 1
+	dec :: c -= 1
+	get :: c
+
+	[inc, dec, get]
+}
+
+[inc, dec, get] = makeFunctions()
+
+inc(); inc()
+dec()
+inc(); inc()
+
+get() -> print()
+
+// a more complicated variable capture scenario
+A ::
+{
+	a = 1
+	
+	B:(b)
+	{
+		C:(c)
+		{
+			a + b + c
+		}
+	}
+	
+	a += 1
+	
+	return B
+}
+
+A()(3)(4) -> print()

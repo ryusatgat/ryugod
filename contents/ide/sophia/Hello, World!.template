@@ -1,0 +1,7 @@
+//
+// Sophia: Hello, World!
+//
+
+contract Main =
+    stateful entrypoint init() =
+        abort("Hello, World!")

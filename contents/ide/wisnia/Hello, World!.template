@@ -1,0 +1,7 @@
+//
+// Wisnia: Hello, World!
+//
+
+fn main() {
+  print("Hello, World!\n");
+}

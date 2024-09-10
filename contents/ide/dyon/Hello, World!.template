@@ -1,0 +1,8 @@
+//
+//   Dyon: Hello, World!
+//   https://github.com/PistonDevelopers/dyon
+//
+
+fn main() {
+    println("Hello, World!")
+}

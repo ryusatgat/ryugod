@@ -1,5 +1,5 @@
 ;
-;   Arturo(아르뚜로): Hello, World!
+;   Arturo: Hello, World!
 ;
 
 print ["Hello, World!"]

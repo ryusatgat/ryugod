@@ -74,6 +74,7 @@ export var language = {
         'var',
         'if',
         'else',
+        'elif',
         'throw'
     ],
     operators: [

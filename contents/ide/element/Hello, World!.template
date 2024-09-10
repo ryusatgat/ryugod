@@ -1,0 +1,6 @@
+//
+//  Element: Hello, World!
+//  https://github.com/KaloyanKaludov/Element
+//
+
+print("Hello, World!")

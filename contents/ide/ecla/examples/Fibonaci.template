@@ -1,0 +1,16 @@
+import "console";
+
+# This function returns the nth number in the Fibonacci sequence
+function Fibonacci(n : int) (int) {
+    if (n < 2) {
+        return n;
+    }
+    return Fibonacci(n - 1) + Fibonacci(n - 2);
+}
+
+# ------------------ test code ------------------
+
+console.print("Here is the 10th number in the Fibonacci sequence : ");
+console.println(Fibonacci(10));
+console.print("Here is the 20th number in the Fibonacci sequence : ");
+console.println(Fibonacci(20));

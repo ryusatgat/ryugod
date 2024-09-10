@@ -1,5 +1,5 @@
 # 
-#   Wu(우): Hello, World! 예제
+#   Wu: Hello, World!
 # 
 
 print: extern fun(...?)

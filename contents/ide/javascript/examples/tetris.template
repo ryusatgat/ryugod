@@ -1,5 +1,7 @@
-// node.js 테트리스 예제
-// 출처: https://raw.githubusercontent.com/sonnn/node-tetris
+//
+// node.js: Tetris
+// https://raw.githubusercontent.com/sonnn/node-tetris
+//
 
 const execSync = require('child_process').execSync
 

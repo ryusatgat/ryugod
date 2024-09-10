@@ -1,0 +1,8 @@
+#
+#  FatScript: Hello, World!
+#  https://fatscript.org
+#
+
+console <- fat.console
+
+console.print("Hello, World!\n")

@@ -1,0 +1,25 @@
+ARG FROM_IMAGE=rockylinux
+from $FROM_IMAGE
+
+# Variables
+ARG USERNAME=ryugod
+ARG USERPASS=ryugod
+ARG USER_UID=1000
+ARG USER_GID=1000
+
+USER root
+
+RUN yum update; yum -y upgrade; echo
+RUN yum install -y net-tools git wget vim sudo zip glibc-locale-source glibc-langpack-en glibc-langpack-ko; echo
+#RUN localedef -v -c -i en_US -f UTF-8 en_US.UTF-8
+#RUN localedef -v -c -i ko_KR -f UTF-8 ko_KR.UTF-8
+
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --password $USERPASS -m --gid $USER_GID -m $USERNAME --shell /bin/bash
+RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME ; echo
+
+RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+RUN echo 'export PS1="\e[m\]\[\e[32;5;172m\]\u\[\e[m\]@\[\e[33;5;153m\]\h\[\e[m\] \[\e[38;5;214m\]\W\[\e[m\]\[\e[m\]\\$ "' >> /home/$USERNAME/.bashrc
+
+ADD apps/usr/local/bin/imshow /usr/local/bin

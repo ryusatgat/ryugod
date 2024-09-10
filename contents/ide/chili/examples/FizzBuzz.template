@@ -1,0 +1,23 @@
+//
+// Chili: FizzBuzz
+//
+
+use std.c.printf
+
+fn main() = {
+    for i in 0..100 {
+        fizzbuzz(i)
+    }
+}
+
+fn fizzbuzz(i: i32) = {
+    if i % 3 == 0 && i % 5 == 0 {
+        printf("FizzBuzz\n".ptr)
+    } else if i % 3 == 0 {
+        printf("Fizz\n".ptr)
+    } else if i % 5 == 0 {
+        printf("Buzz\n".ptr)
+    } else {
+        printf("%d\n".ptr, i)
+    }
+}
