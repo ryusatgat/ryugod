@@ -31,3 +31,30 @@ Drag and drop your file to the console.
 ```sh
 $ imshow [file name]
 ```
+
+# How to install
+```sh
+$ cd ryugod
+$ cp -rf src/components/basic-languages/ node_modules/monaco-editor/esm/vs/basic-languages/       # copy syntax highlighting files
+$ npm install
+$ sudo npm install -g yarn
+$ yarn build                   # Build Ryugod. If you want to test it, use "yarn serve" instead.
+$ mv dist ../public
+$ cd ..
+$ npm install
+$ node app.js                  # boot Web server
+```
+
+# Connect to ryugod server
+http://SERVER-IP:5000
+
+# for local docker service
+```sh
+$ cd docker
+$ ./build_all.sh    # build all docker images
+```
+
+# change ryugod.com URL from sources `www.ryugod.com` to your server IP or host
+- app.js
+- vue.config.js
+- Terminal.vue
