@@ -34,7 +34,8 @@ $ imshow [file name]
 
 # How to install
 ```sh
-$ cd ryugod
+$ git clone https://github.com/ryusatgat
+$ cd ryusatgat/ryugod
 $ cp -rf src/components/basic-languages/ node_modules/monaco-editor/esm/vs/basic-languages/       # copy syntax highlighting files
 $ npm install
 $ sudo npm install -g yarn
