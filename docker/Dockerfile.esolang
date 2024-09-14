@@ -1,4 +1,0 @@
-ADD apps/esolang/opt /opt/
-ADD apps/esolang/usr /usr/
-    
-USER $USERNAME

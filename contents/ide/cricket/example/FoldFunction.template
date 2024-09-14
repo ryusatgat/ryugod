@@ -1,0 +1,8 @@
+def sum: {
+  Has(first)(rest): first + rest,
+  Empty: 0
+}
+
+def main:
+  // prints 10
+  console.write(sum[1, 2, 3, 4])

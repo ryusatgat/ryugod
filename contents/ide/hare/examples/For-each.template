@@ -1,0 +1,35 @@
+use fmt;
+
+const items = [
+	"apple",
+	"banana",
+	"carrot",
+];
+let items_counter = 0z;
+
+// iterator function
+fn next() (str | done) = {
+	if (items_counter < len(items)) {
+		items_counter += 1;
+		return items[items_counter - 1];
+	};
+	return done;
+};
+
+
+export fn main() void = {
+	// for-each value
+	for (let item .. items) {
+		fmt::printfln("{}", item)!;
+	};
+
+	// for-each reference
+	for (let item_ptr &.. items) {
+		fmt::printfln("{} = {}", item_ptr, *item_ptr)!;
+	};
+
+	// for-each iterator
+	for (let item => next()) {
+		fmt::printfln("{}", item)!;
+	};
+};

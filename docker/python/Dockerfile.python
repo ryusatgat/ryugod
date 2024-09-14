@@ -1,0 +1,10 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE    
+
+RUN apt install -y python3 python3-pip
+
+RUN curl -s -L https://github.com/Fus3n/cupscript/archive/refs/tags/0.2.2.tar.gz | tar xvz --transform 's/^cupscript-0.2.2/cupscript/' -C /opt
+
+ADD python/opt /opt/
+    
+USER $USERNAME

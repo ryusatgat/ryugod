@@ -1,0 +1,29 @@
+export fn main() void = {
+	// Numeric types can be declared explicitly:
+	let
+		a: int = 10,	// Signed integer
+		b: uint = 10,	// Unsigned integer
+		c: u8 = 10,	// Unsigned 8-bit integer
+		d: f32 = 13.37;	// 32-bit floating point number
+
+	// Or inferred from a suffix:
+	let
+		a = 10i,	// Signed integer
+		b = 10u,	// Unsigned integer
+		c = 10u8,	// Unsigned 8-bit integer
+		d = 13.37f32;	// 32-bit floating point number
+
+	// Some other types:
+	let
+		a: str = "hi",			// String
+		b: (int, int) = (42, 24),	// Tuple
+		c: struct {
+			x: int,
+			y: int,
+		} = struct {
+			x: int = 10,
+			y: int = 20,
+		},				// Struct
+		d: [4]int = [1, 2, 3, 4],	// Array
+		e: []int = [1, 2, 3, 4];	// Slice
+};

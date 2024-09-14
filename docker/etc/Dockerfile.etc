@@ -1,0 +1,26 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE    
+
+RUN apt install -y llvm-17 build-essential cmake erlang
+RUN curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr/local sh
+RUN curl -s -L https://ziglang.org/builds/zig-linux-x86_64-0.14.0-dev.1410+13da34955.tar.xz | tar xvJ --transform 's/^zig-linux-x86_64-0.14.0-dev.1410+13da34955/zig/' -C /opt && ln -s /opt/zig/zig /usr/local/bin && upx /opt/zig/zig
+RUN curl -L https://github.com/gren-lang/compiler/releases/download/0.4.5/gren_linux > /usr/local/bin/gren && chmod 755 /usr/local/bin/gren && upx /usr/local/bin/gren
+RUN cd /usr/local/bin && curl -s -L https://github.com/belijzajac/WisniaLang/releases/download/latest/wisnia.zip > wisnia.zip && unzip wisnia.zip && rm -f wisnia.zip LICENSE && upx /usr/local/bin/wisnia
+RUN curl -s -L https://github.com/YakshaLang/Yaksha/releases/download/vP20240519.113990e/yaksha_vP20240519.113990e_linux-gnu-x86_64.tar.gz | \
+    tar xvz --transform 's/^yaksha_linux-gnu-x86_64/yaksha/' -C /opt && rm -fr /opt/yaksha/bin/[zdl]* && chmod -R a+x /opt/yaksha/bin && ln -s /opt/yaksha/bin/yaksha /usr/local/bin && upx /opt/yaksha/bin/yaksha
+RUN curl -s -L https://github.com/gleam-lang/gleam/releases/download/v1.4.0/gleam-v1.4.0-x86_64-unknown-linux-musl.tar.gz | tar xvz -C /usr/local/bin && upx /usr/local/bin/gleam
+RUN curl -s -L https://github.com/roc-lang/roc/releases/download/nightly/roc_nightly-linux_x86_64-latest.tar.gz | tar xvz -C /opt && mv /opt/roc* /opt/roc && ln -s /opt/roc/roc /usr/local/bin && upx /opt/roc/roc
+RUN curl -s -L https://github.com/RainingComputers/ShnooTalk/releases/download/0.3.1-alpha/shtkc-0.3.1-alpha-Linux-ubuntu-x86_64.tar.gz | tar xvz --transform 's/^shtkc-0.3.1-alpha-Linux-ubuntu-x86_64/bin/' -C /usr/local && upx /usr/local/bin/shtkc
+RUN curl -s -L https://hg.sr.ht/~duangle/scopes-binaries/raw/scopes-0.18-glibc_2.31-linux-x86_64.tar.xz | tar xvJ --transform 's/^scopes-0.18-glibc_2.31-linux-x86_64/scopes/' -C /opt && ln -s /opt/scopes/bin/scopes /usr/local/bin && upx /opt/scopes/bin/scopes
+RUN curl -s -L https://github.com/adam-mcdaniel/sage/releases/download/v1.1.0-alpha/sage_linux_v1.1.0-alpha > /usr/local/bin/sage && chmod 755 /usr/local/bin/sage && upx /usr/local/bin/sage
+RUN cd /usr/local/bin && curl -s -L https://github.com/h3rald/min/releases/download/v0.44.0/min_v0.44.0_linux_x64.zip > min.zip && unzip min.zip && rm -f min.zip
+RUN curl -s -L https://github.com/apple/pkl/releases/download/0.26.3/pkl-linux-amd64 > /usr/local/bin/pkl && chmod 755 /usr/local/bin/pkl && upx /usr/local/bin/pkl
+RUN mkdir /opt/bbcbasic && cd /opt/bbcbasic && curl -s -L https://www.bbcbasic.co.uk/console/bbcbasic_console_linux.zip > bbc.zip && unzip bbc.zip && rm -f bbc.zip *.bbc *.dat && ln -s /opt/bbcbasic/bbcbasic /usr/local/bin/bbcbasic
+
+ADD opt /opt/
+ADD usr /usr/
+    
+USER $USERNAME
+
+RUN echo 'export BERYL_SCRIPT_HOME=/opt/beryl/berylscript' >> ~/.bashrc
+RUN echo 'export BERYL_SCRIPT_INIT=/opt/beryl/berylscript/init.beryl' >> ~/.bashrc

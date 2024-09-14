@@ -1,0 +1,30 @@
+use errors;
+use fmt;
+use fs;
+use fs::{flag};
+use io;
+use os;
+use strings;
+
+export fn main() void = {
+	const path = os::args[1];
+	const oflags = flag::WRONLY | flag::TRUNC;
+
+	const file = match (os::create(path, 0o644, oflags)) {
+	case let file: io::file =>
+		yield file;
+	case errors::noaccess =>
+		fmt::fatalf("Error opening {}: Access denied.", path);
+	case let err: fs::error =>
+		fmt::fatalf("Error opening {}: {}", path, fs::strerror(err));
+	};
+	defer io::close(file)!;
+
+	const buf = strings::toutf8("Hello world!\n");
+	match (io::write(file, buf)) {
+	case let err: io::error =>
+		fmt::fatalf("Error writing file: {}", io::strerror(err));
+	case let z: size =>
+		assert(z == len(buf), "Unexpected short write");
+	};
+};

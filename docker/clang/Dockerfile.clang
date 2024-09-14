@@ -1,0 +1,8 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE    
+
+RUN apt install -y clang cmake make clang-format
+
+ADD opt /opt/
+    
+USER $USERNAME

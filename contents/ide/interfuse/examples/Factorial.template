@@ -1,0 +1,12 @@
+fn @factorial(@n : int) -> int {
+  if @n == 0 {
+    ret 1
+  } else {
+    ret @n * @factorial(@n - 1)
+  }
+  ret 0
+}
+
+@puts("Factorial Sequence:  ")
+@fac : int = @factorial(20)
+@printf(@fac)

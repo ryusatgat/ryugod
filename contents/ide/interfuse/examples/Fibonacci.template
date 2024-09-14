@@ -1,0 +1,13 @@
+fn @fibonacci(@n : int) -> int {
+  if @n <= 1 {
+    ret @n
+  } else {
+    ret @fibonacci(@n - 1) + @fibonacci(@n - 2)
+  }
+  ret 0 # This should not be necessary
+}
+
+@puts("Fibonacci Sequence:  ")
+@a : int = 10
+@fib : int = @fibonacci(@a)
+@printf(@fib)

@@ -1,0 +1,4 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE    
+
+USER $USERNAME

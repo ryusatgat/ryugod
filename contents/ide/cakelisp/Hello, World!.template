@@ -1,0 +1,9 @@
+; 
+;   CakeLisp: Hello, World!
+; 
+
+(c-import "<stdio.h>")
+
+(defun main (&return int)
+  (fprintf stderr "Hello, World!\n")
+  (return 0))

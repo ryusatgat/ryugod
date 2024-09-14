@@ -1,0 +1,28 @@
+use crypto::sha256;
+use encoding::hex;
+use hash;
+use io;
+use os;
+use fmt;
+
+export fn main() void = {
+	// Pointer basics
+	let i = 10;
+	fmt::println(i)!;
+	increment(&i);
+	fmt::println(i)!;
+
+	// Applied usage
+	const hash = sha256::sha256();
+	const file = os::open("main.ha")!;
+	io::copy(&hash, file)!;
+
+	let sum: [sha256::SZ]u8 = [0...];
+	hash::sum(&hash, sum);
+	hex::encode(os::stdout, sum)!;
+	fmt::println()!;
+};
+
+fn increment(ptr: *int) void = {
+	*ptr = *ptr + 1;
+};

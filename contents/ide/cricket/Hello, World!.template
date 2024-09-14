@@ -1,0 +1,7 @@
+//
+//   Cricket: Hello, World!
+//   https://github.com/RyanBrewer317/cricket_rs
+//
+
+def main:
+  console.write("Hello, World!")

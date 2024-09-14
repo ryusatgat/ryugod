@@ -1,0 +1,53 @@
+use bufio;
+use fmt;
+use io;
+use os;
+use strconv;
+use strings;
+
+export fn main() void = {
+	match (prompt()) {
+	case void =>
+		yield;
+	case let err: error =>
+		fmt::fatal(strerror(err));
+	};
+};
+
+// An invalid number was provided.
+type invalid = !(strconv::invalid | strconv::overflow);
+
+// An error which indicates that [[io::EOF]] was unexpectedly encountered.
+type unexpectedeof = !void;
+
+// Tagged union of all possible errors.
+type error = !(io::error | invalid | unexpectedeof);
+
+// Converts an error into a user-friendly string
+fn strerror(err: error) str = {
+	match (err) {
+	case invalid =>
+		return "Expected a positive number";
+	case unexpectedeof =>
+		return "Unexpected end of file";
+	case let err: io::error =>
+		return io::strerror(err);
+	};
+};
+
+fn prompt() (void | error) = {
+	fmt::println("Please enter a positive number:")!;
+	const num = getnumber()?;
+	fmt::printfln("{} + 2 is {}", num, num + 2)!;
+};
+
+fn getnumber() (uint | error) = {
+	const num = match (bufio::read_line(os::stdin)?) {
+	case io::EOF =>
+		return unexpectedeof;
+	case let buf: []u8 =>
+		yield strings::fromutf8(buf)!;
+	};
+	defer free(num);
+	return strconv::stou(num)?;
+};

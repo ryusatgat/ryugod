@@ -1,0 +1,9 @@
+10 REM > TIME_TEST.BAS
+15 CLS
+20 REM Testing code from @MikePerigo
+21 T = TIME
+22 T2 = T + 100
+25 REPEAT
+30   PRINT"TIME IS: ";TIME
+40 UNTIL TIME > T2
+50 END

@@ -1,0 +1,11 @@
+import stdlib/List
+
+def main:
+  let l = List[1, 2, 3]
+  // print 1 2 3
+  in l.case{
+    Empty: 0,
+    this.Has(first)(rest):
+      let force _ = console.write(first) in
+      rest.case(this) // where the magic happens!
+  }

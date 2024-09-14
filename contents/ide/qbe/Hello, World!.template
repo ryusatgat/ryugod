@@ -1,0 +1,13 @@
+#
+#   QBE: Hello, World!
+#   https://c9x.me/compile
+#
+
+data $str = { b "Hello, World!", b 0 }
+
+export function w $main() {
+@start
+        # Call the puts function with $str as argument.
+        %r =w call $puts(l $str)
+        ret 0
+}

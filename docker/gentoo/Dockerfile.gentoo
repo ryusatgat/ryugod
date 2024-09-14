@@ -1,0 +1,9 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE    
+
+RUN apt install -y llvm-12 clang
+RUN apt install -y python2-minimal
+
+ADD opt /opt/
+    
+USER $USERNAME

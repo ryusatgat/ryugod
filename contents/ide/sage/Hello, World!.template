@@ -1,0 +1,6 @@
+//
+//  Sage: Hello, World!
+//  https://github.com/adam-mcdaniel/sage
+//
+
+println("Hello, World!");

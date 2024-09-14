@@ -53,6 +53,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Amiga E
 - Amrit E
 - AngelScript
+- Antimony
 - APL
 - APlus
 - Arc
@@ -76,6 +77,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Bash
 - Basic
 - Battlestar
+- BBC BASIC
 - Befunge
 - BC
 - BCPL
@@ -93,6 +95,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Boron
 - Boson
 - BrainFuck
+- Brandy
 - Brat
 - Buzz
 - C
@@ -102,6 +105,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - C3
 - C Shell
 - Caboose
+- CakeLisp
 - Carbon
 - Carp
 - Castile
@@ -220,6 +224,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Guile
 - Gwion
 - Hack
+- Hare
 - Haskell
 - Have
 - Haxe
@@ -280,6 +285,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Lean
 - LeekScript
 - Levi
+- Lil
 - Lily
 - Limbo
 - LiquidSoap
@@ -310,6 +316,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Maxima
 - Melon
 - Mercury
+- Min
 - Miniscript
 - MiniZinc
 - Minus
@@ -373,6 +380,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Pike
 - PILOT
 - Pharo
+- Pkl
 - PLC/ST
 - Pocketlang
 - Poly/ML
@@ -417,6 +425,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Rutger
 - S-Lang
 - Sacalon
+- Sage
 - Saffire
 - Sather
 - Saturnus
@@ -486,6 +495,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Virgil
 - WardScript
 - Wax
+- Wenyan
 - Whitespace
 - Windows Batch
 - Wisnia Batch
@@ -1244,6 +1254,22 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - CupScript supported
 - FatScript
 - Forter supported
+## 2024-09-10
+- Interfuse supported
+## 2024-09-11
+- Min supported
+- Sage supported
+## 2024-09-12
+- Hare supported
+- Lil supported
+- Pkl supported
+- Wenyan supported
+## 2024-09-13
+- Antimony supported
+- CakeLisp supported
+## 2024-09-14
+- BBC BASIC supported
+- Brandy supported
 
 ## To be supported
 - 42

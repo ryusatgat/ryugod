@@ -1,0 +1,22 @@
+use fmt;
+
+export fn main() void = {
+	let x: [_]int = [1, 3, 3, 7];
+	assert(len(x) == 4);	// len() built-in
+	assert(x[3] == 7);	// 0-indexed
+	x[3] = 8;		// assignment
+	assert(x[3] == 8);
+
+	let y: [1024]int = [1, 3, 3, 7, 42...];	// Fill remainder with 42
+
+	printvals(y[..4]);
+	printvals(y[2..8]);
+};
+
+fn printvals(in: []int) void = {
+	fmt::printfln("input: {} integers", len(in))!;
+	for (let i = 0z; i < len(in); i += 1) {
+		fmt::printfln("in[{}]: {}", i, in[i])!;
+	};
+	fmt::println()!;
+};

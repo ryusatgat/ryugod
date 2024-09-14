@@ -1,0 +1,11 @@
+fn main() {
+    let num: int = 10
+    println(fib(num))
+}
+
+fn fib(n: int): int { 
+    if 1 >= n {
+        return n
+    }
+    return fib(n-1) + fib(n-2)
+} 

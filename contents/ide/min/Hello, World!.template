@@ -1,0 +1,5 @@
+;
+; 	Min: Hello, World!
+;
+
+"Hello, World!" puts

@@ -1,5 +1,0 @@
-RUN apt install -y clang cmake make clang-format
-
-ADD apps/clang/opt /opt/
-    
-USER $USERNAME

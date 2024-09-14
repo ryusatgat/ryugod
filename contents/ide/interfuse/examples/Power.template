@@ -1,0 +1,11 @@
+fn @power(@base : int, @exponent : int) -> int {
+  @result : int = 1
+  for @i in @i <= @exponent : @i + 1 {
+    @result = @result * @base
+  }
+  ret @result
+}
+
+@puts("Power Sequence:  ")
+@a : int = @power(2, 3)
+@printf(@a)

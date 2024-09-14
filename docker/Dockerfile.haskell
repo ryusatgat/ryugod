@@ -1,4 +1,0 @@
-RUN apt install -y dh-haskell haskell-stack calbal-install
-
-USER $USERNAME
-

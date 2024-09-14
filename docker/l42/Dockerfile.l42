@@ -1,0 +1,6 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE    
+
+RUN cd /usr/local/bin && curl -s -L https://l42.is/L42PortableLinux.zip > l42.zip && unzip l42.zip && rm -f l42.zip && ln -s /opt/L42PortableLinux/L42.sh /usr/local/bin/L42
+    
+USER $USERNAME

@@ -1,0 +1,48 @@
+use fmt;
+
+type color = enum {
+	RED,
+	ORANGE,
+	YELLOW,
+	GREEN,
+	BLUE,
+	VIOLET,
+};
+
+export fn main() void = {
+	let stock = [
+		(color::RED, 1),
+		(color::BLUE, 6),
+		(color::VIOLET, 1),
+		(color::ORANGE, 4),
+	];
+	fmt::println("Inventory:")!;
+	printstock(stock[0]);
+	printstock(stock[1]);
+	printstock(stock[2]);
+	printstock(stock[3]);
+};
+
+fn printstock(item: (color, int)) void = {
+	const color = item.0, amount = item.1;
+	fmt::printfln("{} paint\t{} liter{}",
+		colorstr(color), amount,
+		if (amount != 1) "s" else "")!;
+};
+
+fn colorstr(c: color) str = {
+	switch (c) {
+	case color::RED =>
+		return "Red";
+	case color::ORANGE =>
+		return "Orange";
+	case color::YELLOW =>
+		return "Yellow";
+	case color::GREEN =>
+		return "Green";
+	case color::BLUE =>
+		return "Blue";
+	case color::VIOLET =>
+		return "Violet";
+	};
+};

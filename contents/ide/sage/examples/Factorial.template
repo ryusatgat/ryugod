@@ -1,0 +1,12 @@
+fun fact(n: Int): Int {
+    match n {
+        0 | 1 => 1,
+        _ => n * fact(n - 1)
+    }
+}
+
+let mut n = 0;
+print("Input number: ");
+input(&mut n);
+
+println(fact(n));

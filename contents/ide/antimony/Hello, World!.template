@@ -1,0 +1,9 @@
+
+//
+//  Antimony: Hello, World!
+//  https://antimony-lang.github.io/antimony
+//
+
+fn main() {
+    println("Hello, World!")
+}

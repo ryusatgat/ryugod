@@ -1,0 +1,10 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt install -y rustc cargo
+
+ADD opt /opt/
+
+RUN cargo install --root /usr/local hvm bend-lang && rm -fr /root/.cargo
+    
+USER $USERNAME

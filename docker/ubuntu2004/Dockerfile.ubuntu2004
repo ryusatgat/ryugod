@@ -1,0 +1,12 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt install -y python2-minimal
+RUN apt install -y software-properties-common apt-transport-https
+RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xB4112585D386EB94 && add-apt-repository -y https://dl.hhvm.com/ubuntu
+RUN apt install -y llvm-12 hhvm
+
+
+ADD opt /opt/
+    
+USER $USERNAME
