@@ -1,0 +1,15 @@
+1
+[ 'not zero!' ]
+[ 0 eq not ]
+if say
+
+(1 2)
+[ 'empty' ]
+[ 'not empty!' ]
+[ len 0 eq ]
+either say
+
+1 1
+[ 'both 1' ]
+[ 1 eq swap 1 eq and ]
+if say

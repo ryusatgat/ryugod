@@ -1,0 +1,8 @@
+--
+--   Cod: Hello, World!
+--   https://github.com/justlucdewit/cod
+--
+
+include "std/io.cod"
+
+"Hello, World!\n" prints

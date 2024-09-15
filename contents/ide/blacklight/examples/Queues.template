@@ -1,0 +1,14 @@
+;; making and storing items on queues
+
+;; simple enq and deq
+q-new
+1 enq
+deq say
+
+;; proq will iterate over the contents of a Q until it blocks
+q-new
+2 enq 3 enq 4 enq
+[ say ] proq       ;; the Q is removed from the stack by proq
+
+;; close the Q, deq then will return nil
+cloq deq refl print

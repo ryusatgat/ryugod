@@ -1,0 +1,7 @@
+;; basic demonstration of nested calls
+[
+  [
+    0
+  ] call
+] call
+say

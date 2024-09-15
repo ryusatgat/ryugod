@@ -1,0 +1,39 @@
+//= vm-args "--gc-young-size=64M --max-heap-size=128M"
+//= config region
+
+fun main(): Unit {
+    var i = 0i32;
+
+    while i < 4i32 {
+        std::thread::spawn(||: Unit {
+            allocator();
+            println("done");
+        });
+        i = i + 1i32;
+    }
+
+    allocator();
+    println("done");
+}
+
+fun allocator(): Unit {
+    var i = 1i32;
+    var list = Foo(0i32, None[Foo]);
+
+    while i < 10'000i32 {
+        list = Foo(i, Some[Foo](list));
+        i = i + 1i32;
+    }
+
+    i = 10'000i32;
+
+    while i > 1i32 {
+        i = i - 1i32;
+        assert(list.key == i);
+        list = list.prev.getOrPanic();
+    }
+
+    assert(list.prev.isNone());
+}
+
+class Foo(key: Int32, prev: Option[Foo])

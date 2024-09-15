@@ -1,0 +1,14 @@
+var long a = 1
+var long b = 0
+var long n = 0
+
+while(true){
+    n = a + b
+    if(n < 0){
+        print("The program reached the maximum fibonacci number it can store.")
+        exit(0)
+    }
+    print(n)
+    b = a
+    a = n
+}

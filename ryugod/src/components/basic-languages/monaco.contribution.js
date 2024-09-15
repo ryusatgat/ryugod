@@ -256,7 +256,6 @@ import './inform/inform.contribution.js';
 import './ink/ink.contribution.js';
 import './inko/inko.contribution.js';
 import './intercal/intercal.contribution.js';
-import './interfuse/interfuse.contribution.js';
 import './io/io.contribution.js';
 import './ioke/ioke.contribution.js';
 import './iphi/iphi.contribution.js'

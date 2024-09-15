@@ -1,0 +1,10 @@
+//
+//   Cotowali: Hello, World!
+//   https://github.com/cotowali/cotowali
+//
+
+fn hello(): string {
+  return "Hello, World!"
+}
+
+hello()

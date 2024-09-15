@@ -1,0 +1,10 @@
+//
+//  Barn: Hello, World!
+//  https://github.com/barn-lang/barn
+//
+
+@import "std.ba"
+
+fun main() {
+   println("Hello, World")
+}

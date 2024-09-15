@@ -1,0 +1,6 @@
+//
+//    ASPL: Hello, World!
+//    https://github.com/aspl-lang/aspl
+//
+
+print("Hello, World!")

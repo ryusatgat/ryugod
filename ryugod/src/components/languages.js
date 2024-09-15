@@ -616,6 +616,21 @@ export const languages =
       errorRegEx: ".+?\\.adept:(\\d+):\\d+: (.+)",
       keyBindings: null
     },
+    'AdvSys':{
+      desc: "Writing text adventure games",
+      highlighting:"advsys",
+      ext: 'adv',
+      kor: 'AdvSys',
+      template:"advsys",
+      icon:'mdi-sword-cross',
+      tabSize: 2,
+      args: null,
+      command: 'advcom {ARGS} {FILENAME} && advint {FILENAME}',
+      cli: null,
+      errorRegEx: ">>> in line (\\d+) <<<\r\n(.*)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Agena':{
       desc: "Declarative, rule-based, and relational interpreter",
       highlighting:"agena",
@@ -677,6 +692,20 @@ export const languages =
       errorRegEx: ".+?: .+?: (\\d+): (.+)",
       keyBindings: null
     },
+/*
+    'Aith':{
+      desc: "",
+      highlighting:"aith",
+      ext: 'ath',
+      kor: '에이스',
+      template:"aith",
+      icon:'mdi-waves',
+      command:'aith {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: ".+?\\.ath:(\\d+):\\d+:",
+      keyBindings: null
+    },
+*/
     'Aku':{
       desc: "Concise, functional, modular, expressive, modern",
       highlighting:"aku",
@@ -1080,6 +1109,20 @@ export const languages =
       errorRegEx: ".+?\\.aj:(\\d+) (.+)",
       keyBindings: null
     },
+    'ASPL':{
+      desc: "Simple, safe, cross platform, modular",
+      highlighting:"aspl",
+      ext: 'aspl',
+      kor: 'ASPL',
+      template:"aspl",
+      icon:'mdi-check-bold',
+      args: 'run',
+      command:'aspl {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: ".+?\\.aspl:(\\d+):\\d+: (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Assembly(MC68K)':{
       desc: "Low-level, Motorola 68k-specific, and efficient",
       highlighting:"a68k",
@@ -1216,6 +1259,19 @@ export const languages =
       cli: null,
       errorRegEx: "Program Utama : .+? (\\d+)(.*)",
       keyBindings: null
+    },
+    'Barn':{
+      desc: "Simple, efficient",
+      highlighting:"barn",
+      ext: 'ba',
+      kor: '반',
+      template:'barn',
+      icon:'mdi-barn',
+      command:'barn {ARGS} {FILENAME}.{EXT} && ./a.out',
+      cli: null,
+      errorRegEx: ".+\\.ba:(\\d+):\\d+: (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
     },
     'Ballerina':{
       desc: "Concurrent, integration-focused, expressive, type-safe, declarative",
@@ -1378,9 +1434,9 @@ export const languages =
       kor: '베릴',
       template:'beryl',
       icon:'mdi-diamond-outline',
-      command:'beryl {ARGS} {FILENAME}.{EXT}',
+      command:'BERYL_SCRIPT_INIT=/opt/beryl/berylscript/init.beryl beryl {ARGS} {FILENAME}.{EXT}',
       cli: null,
-      errorRegEx: "",
+      errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
     },
@@ -1406,6 +1462,19 @@ export const languages =
       command:' echo name:{FILENAME}>config.bconf && bimble build . && build/{FILENAME}_lin',
       cli: null,
       errorRegEx: "",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
+    'BlackLight':{
+      desc: "Concurrent, stack-based, concatenative, threadsafe",
+      highlighting:"blacklight",
+      ext: 'bl',
+      kor: '블랙라이트',
+      template:'blacklight',
+      icon:'mdi-lightbulb-cfl-spiral',
+      command:'blacklight {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: ".+\\.bl BL_LINE#(\\d+) BL_LINE_COL#\\d+ (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
     },
@@ -1658,6 +1727,20 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/base"
     },
+    'Calc4':{
+      desc: "Everything in its code is an operator",
+      highlighting:"calc4",
+      ext: 'calc4',
+      kor: '캘크4',
+      template:"calc4",
+      icon:'mdi-calculator',
+      args: null,
+      command:"calc4 {ARGS} {FILENAME}.{EXT}",
+      cli: 'calc4',
+      errorRegEx: ".+?\\.calc4:(\\d+):\\d+: Error: (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'CAML':{
       desc: "Functional, type-safe, expressive, concise, powerful",
       highlighting:"ocaml",
@@ -1669,6 +1752,20 @@ export const languages =
       cli: "camllight",
       errorRegEx: "(\\d+) \\| (.+?\r\n.+\r\n.+: .*)",
       keyBindings: null      
+    },
+    'Cant':{
+      desc: "",
+      highlighting:"cant",
+      ext: 'cant',
+      kor: '캔트',
+      template:"cant",
+      icon:'mdi-sine-wave',
+      args: null,
+      command:"incant {ARGS} {FILENAME}.{EXT}",
+      cli: 'incant',
+      errorRegEx: "",
+      keyBindings: null,
+      dockerImage: "ryusatgat/scheme"
     },
     'Carbon':{
       desc: "Modern, statically-typed, high-performance, C++-compatible, safe",
@@ -1868,6 +1965,20 @@ export const languages =
       errorRegEx: ".+\\.cxx:(\\d+):(\\d+).*\r\n.+",
       keyBindings: null
     },
+    'Cish':{
+      desc: "Minimal, performant, strongly-typed, multi-paradigmn",
+      highlighting:"cish",
+      ext: 'cish',
+      kor: '시쉬',
+      template:"cish",
+      icon:'mdi-alpha-c',
+      args: '-cr -s {FILENAME}.{EXT}',
+      command:'ln -sfT /opt/cish/stdlib && cish {ARGS}',
+      cli: null,
+      errorRegEx: ".+?\\.cish: row (\\d+), col \\d+",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Citrine':{
       desc: "Concise, dynamic, object-oriented, expressive, modern",
       highlighting:"citrine",
@@ -1971,6 +2082,20 @@ export const languages =
       errorRegEx: ".+?\\.cl (\\d+): (.+)",
       keyBindings: null
     },
+    'Clue':{
+      desc: "Fast, simple, Lua",
+      highlighting:"clue",
+      ext: 'clue',
+      kor: '클루',
+      template:"clue",
+      icon:'mdi-help',
+      args: null,
+      command:'clue {ARGS} {FILENAME}.{EXT} > /dev/null && lua {FILENAME}.lua',
+      cli: null,
+      errorRegEx: "Error in .+?\\.clue:(\\d+):\\d+!\r\n(.*)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/base"
+    },
     'Cobol':{
       desc: "Business-oriented, procedural, verbose, legacy, structured",
       highlighting:"cobol",
@@ -2032,6 +2157,20 @@ export const languages =
       errorRegEx: ".+?: .+? \\(line (\\d+)\\)(.*)",
       keyBindings: null
     },
+    'Cod':{
+      desc: "concatenative, stack-based, written in python",
+      highlighting:"cod",
+      ext: 'cod',
+      kor: '코드',
+      template:"cod",
+      icon:'mdi-fish',
+      args: null,
+      command:'ln -sfT /opt/cod/stdlib std && cod {ARGS} {FILENAME}.{EXT} && gcc -o {FILENAME} {FILENAME}.c 2> /dev/null && ./{FILENAME}',
+      cli: null,
+      errorRegEx: null, // not supported
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'CoffeeScript':{
       desc: "Concise, expressive, JavaScript-compiled, readable, syntactic",
       highlighting:"coffeescript",
@@ -2044,6 +2183,20 @@ export const languages =
       errorRegEx: ".*?:(\\d+):\\d+: (.*)",
       keyBindings: null
     },
+    'Cognate':{
+      desc: "Dynamic, quasi-concatenative, functional, simple",
+      highlighting:"cognate",
+      ext: 'cog',
+      kor: '코그네이트',
+      template:"cognate",
+      icon:'mdi-account-cog',
+      args: null,
+      command:'cognac {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
+      cli: null,
+      errorRegEx: null,
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Colm':{
       desc: "Pattern-based, declarative, efficient, versatile, extensible",
       highlighting:"colm",
@@ -2051,10 +2204,11 @@ export const languages =
       kor: 'Colm',
       template:"colm",
       icon:'mdi-cupboard',
-      command:'/opt/colm/bin/colm {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
+      command:'colm {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+?\\.lm:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
     },
     'Comal':{
       desc: "Educational, procedural, structured, simple, portable",
@@ -2128,6 +2282,19 @@ export const languages =
       errorRegEx: null,
       keyBindings: null
     },
+    'Core':{
+      desc: "Modern, minimal, simplicity, readability, modifiability, stability",
+      highlighting:"core",
+      ext: 'dora',
+      kor: '코어',
+      template:"core",
+      icon:'mdi-set-center',
+      command:'dora {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: "error in .+?\\.dora\" at (\\d+):\\d+: (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'CoreScript':{
       desc: "Versatile, scripting, dynamic, extensible, high-level",
       highlighting:"javascript1",
@@ -2139,6 +2306,20 @@ export const languages =
       cli: "/opt/corescript/corescript {ARGS}",
       errorRegEx: null,
       keyBindings: null
+    },
+    'Cotowali':{
+      desc: "Static, scripting, transpiled into shell script",
+      highlighting:"cotowali",
+      ext: 'li',
+      kor: '코토왈리',
+      template: "cotowali",
+      icon: 'mdi-script-text-play-outline',
+      args: 'run',
+      command:'lic {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: "error: .+?\\.li (\\d+),\\d+: (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
     },
     'CppScript':{
       desc: "Embedded, C++-based, scripting, flexible, dynamic",
@@ -2173,7 +2354,7 @@ export const languages =
       template:"cricket",
       icon:'mdi-cricket',
       args: null,
-      command:"ln -sf /opt/cricket/stdlib && cricket_rs {ARGS} {FILENAME}.{EXT}",
+      command:"ln -sfT /opt/cricket/stdlib && cricket_rs {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?:(\\d+):\\d+`.",
       keyBindings: null,
@@ -3084,6 +3265,20 @@ export const languages =
       cli: "futhark repl",
       errorRegEx: "Error at .+?\\.fut:(\\d+):(.*)",
       keyBindings: null
+    },
+    'Fuzuli':{
+      desc: "JVM implementation, based on LISP, Algol family, ",
+      highlighting:"fuzuli",
+      ext: 'fzl',
+      kor: '퓌줄리',
+      template:"fuzuli",
+      icon:'mdi-abjad-arabic',
+      args: null,
+      command:"fuzuli {ARGS} {FILENAME}.{EXT}",
+      cli: "fuzuli --repl",
+      errorRegEx: null, // not supported
+      keyBindings: null,
+      dockerImage: "ryusatgat/jvm",
     },
     'Gambas':{
       desc: "Visual, object-oriented, BASIC-like language",
@@ -4131,6 +4326,19 @@ export const languages =
       errorRegEx: ".+?\\.l:(\\d+):\\d+:? (.+)",
       keyBindings: null
     },
+    'LAuREL':{
+      desc: "Real, functional",
+      highlighting:"laurel",
+      ext: 'g',
+      kor: '로렐',
+      template:"laurel",
+      icon:'mdi-language-typescript',
+      command:"LAuREL {ARGS} {FILENAME}.{EXT}",
+      cli: 'LAuREL',
+      errorRegEx: "LAuREL: \\(line (\\d+), column \\d+\\):",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Lean':{
       desc: "Proof assistant, Functional, Type theory, Mathematical, Interactive",
       highlighting:"lean",
@@ -4655,7 +4863,7 @@ export const languages =
       kor: '머스',
       template:"mirth",
       icon:'mdi-alpha-m-box',
-      command:"mkdir -p bin src\nln -sf /opt/mirth/src/* src\nmv {FILENAME}.{EXT} src && mirth {ARGS} {FILENAME}.{EXT} && make bin/{FILENAME} && bin/{FILENAME}",
+      command:"mkdir -p bin src\nln -sfT /opt/mirth/src/* src\nmv {FILENAME}.{EXT} src && mirth {ARGS} {FILENAME}.{EXT} && make bin/{FILENAME} && bin/{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.mth:(\\d+):\\d+: error:(.+)",
       keyBindings: null
@@ -4907,7 +5115,7 @@ export const languages =
       cli: "mono /opt/nemerle/nemish.exe",
       errorRegEx: ".+?\\.n:(\\d+):\\d+:\\d+:\\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/nemerle"
+      dockerImage: "ryusatgat/ubuntu1404"
     },
     'Never':{
       desc: "Esoteric, Minimalistic, Obfuscated, Turing-complete, Experimental",
@@ -6295,7 +6503,8 @@ export const languages =
       command:"chezscheme --script {FILENAME}.{EXT}",
       cli: "chezscheme",
       errorRegEx: ".+? at line (\\d+), (.+?\\.scm)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: "ryusatgat/scheme"
     },
     'Scheme(Gambit)':{
       desc: "Functional, minimalist, dialect, recursive, expressive",
@@ -6304,9 +6513,9 @@ export const languages =
       kor: '스킴 - gambit',
       template:"gambit",
       icon:'mdi-lambda',
-      command:"/opt/gambit/bin/gsi {ARGS} {FILENAME}.{EXT}",
-      cli: "/opt/gambit/bin/gsi",
-      keyBindings: null
+      command:"gsi {ARGS} {FILENAME}.{EXT}",
+      cli: "gsi",
+      dockerImage: "ryusatgat/scheme"
     },
     'Scheme(MIT)':{
       desc: "Functional, minimalist, dialect, recursive, expressive",
@@ -6318,7 +6527,7 @@ export const languages =
       args: '--silent',
       command:"mit-scheme {ARGS} < {FILENAME}.{EXT}",
       cli: "mit-scheme --interactive",
-      keyBindings: null
+      dockerImage: "ryusatgat/scheme"
     },
     'Scilab':{
       desc: "Numerical, scientific, high-level, matrix-based, open-source",

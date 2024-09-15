@@ -1,0 +1,11 @@
+@import "std.ba"
+
+fun get_name(string name) -> string {
+    return name
+}
+
+fun main() {
+    let name: string = get_name("Bruno")
+    // __code__("name = get_name(\"Bruno\");")
+    println(name)
+}

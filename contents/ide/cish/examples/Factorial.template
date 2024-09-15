@@ -1,0 +1,10 @@
+include "stdlib/io.cish";
+include "stdlib/std.cish";
+
+proc fact(int n) {
+	if(n == 0)
+		return 1;
+	return n * thisproc(n - 1);
+}
+
+println(itos(fact(20)));

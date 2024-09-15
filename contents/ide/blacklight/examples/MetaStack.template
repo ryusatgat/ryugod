@@ -1,0 +1,12 @@
+;; showcases some of the essential $stack operations
+;; dup is used because say eats the top item
+
+1
+$new
+dup refl say
+2
+$new
+dup refl say
+3
+@ dup refl say
+^ refl

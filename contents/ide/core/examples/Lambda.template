@@ -1,0 +1,38 @@
+//= vm-args "--gc=swiper --gc-verify"
+
+fun main(): Unit {
+    let l0: (): Int64 = ||: Int64 { 0 };
+    let l1: (): Int64 = ||: Int64 { 1 };
+    std::forceCollect();
+    let cls = MyClass(l0, l1);
+    assert(cls.l0 === l0);
+    assert(cls.l1 === l1);
+    cls.l0 = l1;
+    std::forceCollect();
+    assert(cls.l0 === l1);
+    assert(cls.l1 === l1);
+    std::forceCollect();
+}
+
+fun myid(lambda: (): Int64): (): Int64 {
+    lambda
+}
+
+fun myoption(lambda: Option[(): Int64]): Option[(): Int64] {
+    lambda
+}
+
+fun mytuple(lambda: ((): Int64, (): Int64)): ((): Int64, (): Int64) {
+    lambda
+}
+
+value MyStruct {
+    l0: (): Int64,
+    l1: (): Int64,
+}
+
+fun mystruct(l0: (): Int64, l1: (): Int64): MyStruct {
+    MyStruct(l0, l1)
+}
+
+class MyClass(l0: (): Int64, l1: (): Int64)

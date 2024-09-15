@@ -1,0 +1,10 @@
+@import "std.ba"
+
+fun main() {
+    let is_5_dividable_by_5: int = 5 % 5
+    if is_5_dividable_by_5 == 0 {
+        println("5 is dividable by 5")
+    } else {
+        println("5 is not dividable by 5")
+    }
+}

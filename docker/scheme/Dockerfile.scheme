@@ -1,0 +1,11 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt install -y chezscheme gambc mit-scheme
+
+RUN cd /opt && curl -s -L https://github.com/darius/cant/archive/refs/heads/master.zip > master.zip && unzip master.zip && rm -f master.zip && mv cant* cant && ln -s /opt/cant/incant /usr/local/bin
+
+ADD opt /opt/
+ADD usr /usr/
+    
+USER $USERNAME

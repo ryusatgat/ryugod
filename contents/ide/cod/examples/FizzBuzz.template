@@ -1,0 +1,45 @@
+-- Fizzbuzz example written in Cod
+include "std/math.cod"
+include "std/io.cod"
+include "std/stack.cod"
+
+alias max_loop_count 40
+
+-- Subroutine to check if number is divisible by another number
+subroutine divisible_by {
+    % 0 ==
+}
+
+-- Counter
+1
+
+-- Start the loop
+true
+
+while {
+    pop
+    
+    -- Check if divisible by 3
+    dup 3 divisible_by if {
+        "fizz" prints
+    } pop
+
+    -- Check if divisible by 5
+    dup 5 divisible_by if {
+        "buzz" prints
+    } pop
+    
+    -- Check if divisible by neither
+    dup 3 divisible_by ! swap dup cycle3 swap 5 divisible_by ! & if {
+        swap printn swap
+    } pop
+
+    -- Print newline
+    10 printc pop
+
+    -- Increment count
+    1 +
+
+    -- Determain if loop again
+    dup max_loop_count <=
+}

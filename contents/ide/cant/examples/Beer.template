@@ -1,0 +1,11 @@
+;; Since everyone loves the beer song
+
+(let bottles (chain (each ||("~w bottles" .format it) (99 .down-thru 2))
+                    '("1 bottle" "No more bottles" "99 bottles")))
+(let actions (chain ('("Take one down and pass it around") .repeat 99)
+                    '("Go to the store and buy some more")))
+
+(for each! [(`(,n ,n-1) (bottles .k-slices 2))
+            (action actions)]
+  (out .say "~d of beer on the wall,\n~d of beer.\n" n n)
+  (out .say "~d,\n~d of beer on the wall.\n\n" action n-1))

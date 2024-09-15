@@ -1,0 +1,8 @@
+;; Example from Land of Lisp p. 459: list prime numbers <= 1000
+
+(out .print (for skip [(n (2 .thru 1000))]
+              (some (~ .divides? n) (2 .till n))))
+
+;; though there's actually a library instead:
+(import (use 'factoring) the-primes)
+(out .print (keep-while ||(<= it 1000) the-primes))

@@ -1,0 +1,24 @@
+;; V (vector) is different from S and Q
+;; they allow random-access to items in the middle
+;; the ato and rmo operations are 0-based offsets
+;; V is a "sequence" type, along with T, B, and others
+
+(1 2 3 4 5)
+
+;; ato retuns an item at offset
+1 ato say
+
+;; rmo removes an item at offset
+2 rmo
+
+;; len returns the number of items in V
+len say
+
+;; Vs can be arbitrarily nested
+( ( 0 ) )
+
+;; and the item on top of the stack, even other Vs can be appended to them
+app
+
+;; finally display the V
+refl say

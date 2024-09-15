@@ -28,1253 +28,749 @@ const url = `${base_url}/source:${Buffer.from(pako.deflate("source to display"))
 const tag = `<a href="${url}">🚀 Test your code</a>`
 ```
 
-# Supported language
-- 11l
-- 4tH
-- 8th
-- ActionScript3
-- Ada
-- Adept
-- Afnix
-- Agda
-- Aime
-- Aku
-- Alan
-- Aleph
-- Algae
-- Algol60
-- Algol68
-- Algol W
-- Alice
-- Alma
-- Alore
-- Alta
-- Alumina
-- Amiga E
-- Amrit E
-- AngelScript
-- Antimony
-- APL
-- APlus
-- Arc
-- Argile
-- Aribias
-- Arrow
-- Arturo
-- AspectC++
-- AspectJ
-- Assembly(x86_64)
-- Asymptote
-- ATS
-- AutoHotKey
-- AutoIt
-- Avalon
-- Awk
-- B
-- Bacon
-- Baik
-- Ballerina
-- Bash
-- Basic
-- Battlestar
-- BBC BASIC
-- Befunge
-- BC
-- BCPL
-- Bean
-- BeanShell
-- Bend
-- Berry
-- Bhuna
-- Blade
-- Blossom
-- Blue
-- BlueSpec
-- Bob
-- Borealis
-- Boron
-- Boson
-- BrainFuck
-- Brandy
-- Brat
-- Buzz
-- C
-- C#
-- C++
-- C2
-- C3
-- C Shell
-- Caboose
-- CakeLisp
-- Carbon
-- Carp
-- Castile
-- Ceu
-- Ceylon
-- ChaiScript
-- Chapel
-- Cheddar
-- Chef
-- Chili
-- Chipmunk Basic
-- Chuck
-- Ciao
-- Circle
-- Citrine
-- Citron
-- Clean
-- Clipper
-- CLIPS
-- Clojure
-- Clover
-- CLox
-- Cobol
-- Cobra
-- Coconut
-- CoffeeScript
-- Comal
-- Commodore BASIC
-- Cone
-- Conure
-- Cor
-- CoreScript
-- CppScript
-- Crafting
-- Crumb
-- Crystal
-- CUPL/CORC
-- CupScript
-- Curry
-- D
-- D2
-- Dafny
-- Dao
-- Dart
-- daScript
-- Dashell
-- DDP
-- Dino
-- Dogescript
-- DoKev
-- Dragon
-- Duck
-- Dylan
-- E
-- eC
-- Ecla
-- EGA
-- Egison
-- ELENA
-- elastiC
-- Elm
-- Element
-- EMacs Lisp
-- Emerald
-- Emo
-- EmojiCode
-- Erlang
-- Esterel
-- Euphoria
-- Expect
-- F#
-- Factor
-- Falcon
-- Fantom
-- FatScript
-- Fe
-- Felix
-- Fennel
-- Feral
-- Ferite
-- Fexl
-- Ficus
-- Filagree
-- Fish
-- Flax
-- Flix
-- Focal
-- Forter
-- Forth
-- Fortran
-- fox-lang
-- Foxely
-- FreeBASIC
-- Frege
-- Frink
-- Gambas
-- GAP
-- GEL
-- Genie
-- Gentee
-- Genyris
-- Gleam
-- Gnuplot
-- Go
-- Goat
-- Goby
-- GolfScript
-- Golo
-- Gosu
-- Grace
-- Gravity
-- Gren
-- Gri
-- Groovy
-- GSL
-- Guile
-- Gwion
-- Hack
-- Hare
-- Haskell
-- Have
-- Haxe
-- Hedgehog
-- Hermes
-- Hexiscript
-- HLA
-- Hope
-- Horse64
-- HQ9+
-- HTML
-- Huginn
-- Huo
-- Hy
-- Hylo
-- ICI
-- Icon
-- IDL
-- Idris
-- ILAsm
-- Inform
-- Ink
-- Inko
-- INTERCAL
-- Io
-- Ioke
-- Iphigeneia
-- J
-- J*
-- Jancy
-- Janet
-- Jasmin
-- Java
-- JavaScript
-- Joao
-- JohnsonScript
-- Jolie
-- Joy
-- Jq
-- Jsish
-- Jsonnet
-- JSP
-- Julia 
-- Jython
-- Kenaf
-- Killa
-- Kind
-- Knight
-- Koka
-- Kona
-- Korn Shell
-- Kos
-- Kotlin
-- kscript
-- Latro
-- LaTeX
-- LDPL
-- Lean
-- LeekScript
-- Levi
-- Lil
-- Lily
-- Limbo
-- LiquidSoap
-- Lisaac
-- Lisp
-- Little
-- LittleLang
-- LiveScript
-- LK
-- LLVM-IR
-- Lobster
-- Logo
-- LOLCODE
-- Loli
-- Lox
-- Lua
-- Luci
-- Lumi
-- Luminique
-- Luxury
-- Malbolge
-- Mari
-- Make
-- Markdown
-- MASM
-- Maude
-- Maxc
-- Maxima
-- Melon
-- Mercury
-- Min
-- Miniscript
-- MiniZinc
-- Minus
-- Mirah
-- Mirth
-- Modula-2
-- Modula-3
-- Mojo
-- Mu
-- MUMPS
-- Muon
-- MY-BASIC
-- Myrddin
-- Mythryl
-- Nanoquery
-- Neco
-- Nectar
-- Nemerle
-- NetRexx
-- Never
-- NewLisp
-- NewtonScript
-- Next
-- Nial
-- Nibbles
-- Nice
-- Nickle
-- Nim
-- Nmet
-- Noumenon
-- Novus
-- Nuua
-- Nyx
-- Oak
-- Oberon
-- Objeck
-- Objective-C
-- ObjectScript
-- OCaml
-- Octave
-- Odin
-- Oforth
-- ooc
-- Opal
-- OpenSCAD
-- OpenSpin
-- Oz
-- P
-- P++
-- Pagan
-- PARI/GP
-- Pascal
-- Pawn
-- Pepper
-- Perl
-- Phix
-- PHP
-- PIC
-- Picat
-- PicoC
-- Pike
-- PILOT
-- Pharo
-- Pkl
-- PLC/ST
-- Pocketlang
-- Poly/ML
-- Pony
-- Poplog
-- PostScript
-- Potion
-- PowerShell
-- Praat
-- Pro*C
-- Processing
-- Prolog
-- PROSE
-- PROMELA
-- Pupp
-- Puppet
-- Pure
-- Pyret
-- Python
-- Q
-- Qore
-- QuickBASIC
-- R
-- Racket
-- Raku
-- Rapira
-- Ratfor
-- Rebol
-- Red
-- REXX
-- Rigal
-- Ring
-- Rix
-- Rk
-- Roc
-- Rockstar
-- RPL/2
-- Rubi
-- Ruby
-- Ruci
-- Rust
-- Rutger
-- S-Lang
-- Sacalon
-- Sage
-- Saffire
-- Sather
-- Saturnus
-- Saurus
-- Scala
-- Scheme
-- Scilab
-- Scriptol
-- Self
-- SETL
-- Seq
-- Senegal
-- Shen
-- ShnooTalk
-- Simula
-- Sink
-- Sisal
-- Skew
-- Slash
-- Sleep
-- Slogan
-- Smalltalk
-- Snek
-- Snobol4
-- Sophia
-- SoftScript
-- Solidity
-- SOM
-- Sparkling
-- SPL
-- Spow
-- Squirrel
-- Standard ML
-- Stanza
-- StarLark
-- Storm
-- StormScript
-- Strand
-- Streem
-- Strela
-- SurgeScript
-- Swift
-- Syphon
-- SZL
-- Tamgu
-- Tcsh
-- Tea
-- Terminal-BASIC
-- Terra
-- TeX
-- TIScript
-- TotemScript
-- Tula
-- Turing
-- TypeScript
-- uclang
-- Umka
-- Umple
-- Unicon
-- Ursa
-- V
-- Vala
-- VB.Net
-- VBScript
-- Verilog
-- VHDL
-- Virgil
-- WardScript
-- Wax
-- Wenyan
-- Whitespace
-- Windows Batch
-- Wisnia Batch
-- World
-- Wren
-- X10
-- Xion
-- XL
-- xlang
-- XPL0
-- Yabasic
-- Yacas
-- Yasha
-- YASL
-- Yasm
-- Yorick
-- Z Shell
-- Zebra
-- Zig
-- Zion
-- zkl
-- μC++
-- 누리
-- 아희
-- 약속
-- 난해한 혀엉...
-
-# Supported Databases
-- H2
-- MongoDB
-- MySQL
-- Oracle
-- PostgreSQL
-- Redis
-- SQLite
-- SQL Server
-
-# Supported Environments
-- AngularJS
-- Deno
-- Emscripten
-- JQuery
-- Node.js
-- React.js
-- Terraform
-- Vue.js
-- Pug
-
-# Supported OS
-- Arch Linux
-- Kaliy Linux
-- Rocky Linux
-
 # Change history
 ## 2021-06-12
-- Markdown supported
-- PHP supported
+- Markdown
+- PHP
 ## 2021-06-13
-- Sharing source and QR code supported
-- Fortran supported
-- Pascal supported
-- Perl supported
+- Sharing source and QR code
+- Fortran
+- Pascal
+- Perl
 ## 2021-06-14
-- Lisp supported
-- 난해한 혀엉... supported
+- Lisp
+- 난해한 혀엉...
 ## 2021-06-16
-- command pallete icon supported
+- command pallete icon
 - mobile browser bug fixed
 ## 2021-06-17
-- Haskell supported
-- Lua supported
-- Objective-C supported
+- Haskell
+- Lua
+- Objective-C
 ## 2021-06-18
-- Ada supported
-- Swift supported
+- Ada
+- Swift
 ## 2021-06-19
-- Algol supported
-- Cobol supported
-- Groovy supported
-- Smalltalk supported
-- React.js supported
-- Vue.js supported
+- Algol
+- Cobol
+- Groovy
+- Smalltalk
+- React.js
+- Vue.js
 ## 2021-06-20
-- Assembly(x86_64) supported
-- Erlang supported
-- Crystal supported
+- Assembly(x86_64)
+- Erlang
+- Crystal
 ## 2021-06-21
-- Dart supported
-- Prolog supported
-- Scala supported
-- Solidity supported
+- Dart
+- Prolog
+- Scala
+- Solidity
 ## 2021-06-23
-- VBScript supported
-- Windows Batch supported
+- VBScript
+- Windows Batch
 ## 2021-06-24
-- Borland C++ 5.5 (Win32) supported
-- Clojure supported
-- Julia supported
+- Borland C++ 5.5 (Win32)
+- Clojure
+- Julia
 ## 2021-06-25
-- Basic supported
-- D supported
-- Emscripten supported
+- Basic
+- D
+- Emscripten
 ## 2021-06-26
 - Source tab function added
 ## 2021-06-27
-- VHDL supported
+- VHDL
 ## 2021-06-28
-- Drag&Drop function supported
-- CoffeeScript supported
-- Octave (Matlab compatible) supported
+- Drag&Drop function
+- CoffeeScript
+- Octave (Matlab compatible)
 ## 2021-06-29
-- File import function supported
-- MySQL supported
+- File import function
+- MySQL
 ## 2021-06-30
-- JSP (Java Server Pages) supported
-- PostgreSQL supported
-- SQL query supported
+- JSP (Java Server Pages)
+- PostgreSQL
+- SQL query
 ## 2021-07-01
-- JQuery supported
-- Redis supported
+- JQuery
+- Redis
 ## 2021-07-03
-- REPL environment supported
+- REPL environment
 ## 2021-07-04
-- AngularJS supported
-- Deno supported
-- Raku supported
+- AngularJS
+- Deno
+- Raku
 ## 2021-07-05
-- Turbo C++ 1.01 (DOS) supported
+- Turbo C++ 1.01 (DOS)
 ## 2021-07-07
-- Nim supported
+- Nim
 ## 2021-07-08
-- MongoDB supported
-- OCaml supported
+- MongoDB
+- OCaml
 ## 2021-07-09
-- Turbo Pascal 5.5 (DOS) supported
-- 누리 supported
-- 약속 supported
+- Turbo Pascal 5.5 (DOS)
+- 누리
+- 약속
 ## 2021-07-10
-- PostScript supported
+- PostScript
 ## 2021-07-13
-- Python 2.7 supported
+- Python 2.7
 - Linux Shell -> Bash changes
-- Tcsh supported
+- Tcsh
 ## 2021-07-14
-- AutoIt supported
+- AutoIt
 ## 2021-07-15
 - JSTL on JSP enabled
 ## 2021-07-16
-- Racket supported
-- Scala 3 supported
+- Racket
+- Scala 3
 ## 2021-07-19
-- 가람 supported
-- 엄랭 supported
+- 가람
+- 엄랭
 ## 2021-07-23
-- Error highlighting supported
+- Error highlighting
 ## 2021-07-24
-- Argument settings supported
+- Argument settings
 ## 2021-07-25
-- Factor supported
-- Fantom supported
-- Forth supported
-- Haxe supported
-- ILAsm supported
-- Jython supported
-- PARI/GP supported
-- VB.Net supported
+- Factor
+- Fantom
+- Forth
+- Haxe
+- ILAsm
+- Jython
+- PARI/GP
+- VB.Net
 ## 2021-07-26
-- Chipmunk Basic supported
-- Icon supported
-- Oz supported
-- Pike supported
-- Pawn supported
-- REXX supported
-- Standard ML supported
+- Chipmunk Basic
+- Icon
+- Oz
+- Pike
+- Pawn
+- REXX
+- Standard ML
 ## 2021-07-27
-- E supported
-- J supported
-- Phix supported
-- Pure supported
-- Yabasic supported
-- Yasm supported
-- V supported
+- E
+- J
+- Phix
+- Pure
+- Yabasic
+- Yasm
+- V
 ## 2021-07-28
-- Awk supported
-- Gambas supported
-- Genie supported
-- LaTeX supported
-- TeX supported
-- Vala supported
-- Verilog supported
-- zkl supported
+- Awk
+- Gambas
+- Genie
+- LaTeX
+- TeX
+- Vala
+- Verilog
+- zkl
 ## 2021-07-29
-- Coconut supported
-- LiveScript supported
-- Pony supported
-- PowerShell supported
-- Pug supported
-- Scilab supported
-- Squirrel supported
+- Coconut
+- LiveScript
+- Pony
+- PowerShell
+- Pug
+- Scilab
+- Squirrel
 ## 2021-07-30
-- Aime supported
-- ELENA supported
-- Elm supported
-- Euphoria supported
-- Maxima supported
-- Snobol4 supported
-- Zig supported
-- Dogescript supported
+- Aime
+- ELENA
+- Elm
+- Euphoria
+- Maxima
+- Snobol4
+- Zig
+- Dogescript
 ## 2021-07-31
-- BC supported
+- BC
 - EMacs Lisp
-- Falcon supported
-- FireMonkey supported
-- Rhino supported
+- Falcon
+- FireMonkey
+- Rhino
 ## 2021-08-01
-- Gnuplot supported
-- Ferite supported
-- Frink supported
-- Objeck supported
-- Oforth supported
-- Potion supported
-- Processing supported
+- Gnuplot
+- Ferite
+- Frink
+- Objeck
+- Oforth
+- Potion
+- Processing
 ## 2021-08-02
-- Fennel supported
-- Lily supported
-- Turbo C (DOS) supported
-- Yorick supported
+- Fennel
+- Lily
+- Turbo C (DOS)
+- Yorick
 ## 2021-08-03
-- Golo supported
-- Gosu supported
-- Hexiscript supported
-- Jsish supported
-- Pyret supported
-- Fexl supported
+- Golo
+- Gosu
+- Hexiscript
+- Jsish
+- Pyret
+- Fexl
 ## 2021-08-04
-- 11l supported
-- LDPL supported
-- Logo supported
-- Miniscript supported
-- AutoHotKey supported
+- 11l
+- LDPL
+- Logo
+- Miniscript
+- AutoHotKey
 ## 2021-08-05
-- CLang supported
-- CLang++ supported
-- Dafny supported
-- MoonScript supported
-- MY-BASIC supported
-- Picat supported
+- CLang
+- CLang++
+- Dafny
+- MoonScript
+- MY-BASIC
+- Picat
 ## 2021-08-06
 - fie uploading bug fixed
-- BCPL supported
-- Ceylon supported
+- BCPL
+- Ceylon
 ## 2021-08-07
-- Wren supported
+- Wren
 ## 2021-08-08
-- Cobra supported
-- IDL(GDL) supported
-- Io supported
-- NetRexx supported
-- Rebol supported
-- StarLark supported
+- Cobra
+- IDL(GDL)
+- Io
+- NetRexx
+- Rebol
+- StarLark
 ## 2021-08-09
-- C# (.NET Core) supported
-- Q supported
-- TIScript supported
+- C# (.NET Core)
+- Q
+- TIScript
 ## 2021-08-10
-- Guile supported
-- Nanoquery supported
-- Neco supported
-- NewLisp supported
-- S-Lang supported
+- Guile
+- Nanoquery
+- Neco
+- NewLisp
+- S-Lang
 ## 2021-08-11
-- Dylan supported
-- HLA supported
-- Janet supported
-- Jq supported
-- Ursa supported
-- XPL0 supported
-- Yacas supported
+- Dylan
+- HLA
+- Janet
+- Jq
+- Ursa
+- XPL0
+- Yacas
 ## 2021-08-12
-- ATS supported
-- GAP supported
-- Gentee supported
-- Gravity supported
-- Have supported
-- Terraform supported
+- ATS
+- GAP
+- Gentee
+- Gravity
+- Have
+- Terraform
 ## 2021-08-13
-- ChaiScript supported
-- Futhark supported
-- Odin supported
-- Terra supported
+- ChaiScript
+- Futhark
+- Odin
+- Terra
 ## 2021-08-14
-- ArkScript supported
-- Baik supported
-- Frege supported
-- Red supported
-- Wu supported
-- Wyvern supported
+- ArkScript
+- Baik
+- Frege
+- Red
+- Wu
+- Wyvern
 ## 2021-08-15
-- Argile supported
-- Arturo supported
-- B supported
+- Argile
+- Arturo
+- B
 - Bratsupported
-- Caboose supported
-- FreeBasic supported
-- Nial supported
-- ooc supported
-- Poplog supported
-- SkyLark supported
+- Caboose
+- FreeBasic
+- Nial
+- ooc
+- Poplog
+- SkyLark
 ## 2021-08-16
-- Aribas supported
-- Egison supported
-- LLVM-IR supported
-- Lox supported
-- Sather supported
-- SWI-Prolog supported
+- Aribas
+- Egison
+- LLVM-IR
+- Lox
+- Sather
+- SWI-Prolog
 ## 2021-08-17
-- ASP.NET supported
-- Ring supported
-- Seed7 supported
-- Simula supported
+- ASP.NET
+- Ring
+- Seed7
+- Simula
 ## 2021-08-18
-- Bacon supported
-- GW-BASIC supported
-- MASM supported
-- X10 supported
-- Xion supported
+- Bacon
+- GW-BASIC
+- MASM
+- X10
+- Xion
 ## 2021-08-19
-- Sisal supported
-- Sleep supported
+- Sisal
+- Sleep
 ## 2021-08-20
-- Genyris supported
-- Huginn supported
-- μC++ supported
+- Genyris
+- Huginn
+- μC++
 ## 2021-08-21
-- AFNIX supported
-- Jasmin supported
-- Opal supported
-- QuickBASIC supported
-- Self supported
+- AFNIX
+- Jasmin
+- Opal
+- QuickBASIC
+- Self
 ## 2021-08-22
-- Curry(PAKCS) supported
-- Hack supported
-- Ioke supported
-- Modula2 supported
-- Nickle supported
-- OpenSpin supported
-- Sasszz supported
-- SCSS supported
-- PROMELA supported
+- Curry(PAKCS)
+- Hack
+- Ioke
+- Modula2
+- Nickle
+- OpenSpin
+- Sasszz
+- SCSS
+- PROMELA
 ## 2021-08-23
-- Agda supported
-- Ciao supported
-- Curry(Sloth) supported
-- Lean supported
+- Agda
+- Ciao
+- Curry(Sloth)
+- Lean
 ## 2021-08-24
-- GEL supported
-- Jsonnet supported
-- Puppet supported
-- Ratfor supported
-- Rutger supported
+- GEL
+- Jsonnet
+- Puppet
+- Ratfor
+- Rutger
 ## 2021-08-25
-- Agena supported
-- Asymptote supported
-- Bas supported
-- Carp supported
-- Lisaac supported
-- SETL supported
+- Agena
+- Asymptote
+- Bas
+- Carp
+- Lisaac
+- SETL
 ## 2021-08-26
-- ChezScheme supported
-- Koka supported
-- psPILOT supported
+- ChezScheme
+- Koka
+- psPILOT
 ## 2021-08-27
-- Clean supported
-- Idris supported
-- Idris2 supported
-- MiniZinc supported
-- OpenSCAD supported
+- Clean
+- Idris
+- Idris2
+- MiniZinc
+- OpenSCAD
 ## 2021-08-28
-- Expect supported
-- Focal supported
-- NewtonScript supported
-- Tea supported
+- Expect
+- Focal
+- NewtonScript
+- Tea
 ## 2021-08-29
-- CAML supported
-- Chapel supported
-- Chuck supported
-- Joy supported
-- Maude supported
-- Nice supported
-- Scriptol supported
+- CAML
+- Chapel
+- Chuck
+- Joy
+- Maude
+- Nice
+- Scriptol
 ## 2021-08-31
-- Clipper supported
-- Qore supported
+- Clipper
+- Qore
 ## 2021-09-01
-- Loli supported
-- Mythryl supported
+- Loli
+- Mythryl
 ## 2021-09-02
-- 8th supported
-- Comal supported
-- Praat supported
-- ParaSail supported
+- 8th
+- Comal
+- Praat
+- ParaSail
 ## 2021-09-03
-- Goby supported
-- Inform supported
-- Pharo supported
+- Goby
+- Inform
+- Pharo
 ## 2021-09-04
-- Alice supported
-- BeanShell supported
-- CobolScript supported
-- Fish supported
-- Hy supported
-- Mirah supported
-- Senegal supported
-- Snek supported
-- Umple supported
+- Alice
+- BeanShell
+- CobolScript
+- Fish
+- Hy
+- Mirah
+- Senegal
+- Snek
+- Umple
 ## 2021-09-05
-- CUPL/CORC supported
-- Mercury supported
-- SQL Server supported
+- CUPL/CORC
+- Mercury
+- SQL Server
 ## 2021-09-06
-- APL supported
-- Oracle(mariadb compatible mode) supported
+- APL
+- Oracle(mariadb compatible mode)
 ## 2021-09-07
-- Esterel supported
-- Myrddin supported
-- Strand supported
+- Esterel
+- Myrddin
+- Strand
 ## 2021-09-08
-- Elan supported
+- Elan
 ## 2021-09-09
-- Citrine supported
-- Oberon supported
-- Rapira supported
-- Rigal supported
+- Citrine
+- Oberon
+- Rapira
+- Rigal
 ## 2021-09-10
-- Algol60 supported
-- Amiga E supported
-- Assembly(MC68K) supported
+- Algol60
+- Amiga E
+- Assembly(MC68K)
 ## 2021-09-12
-- PROSE supported
-- Terminal-BASIC supported
+- PROSE
+- Terminal-BASIC
 ## 2021-09-13
-- Citron supported
-- CLIPS supported
-- Commodore BASIC supported
-- CoreScript supported
-- Flax supported
-- Goat supported
-- ObjectScript supported
-- Slogan supported
-- TotemScript supported
+- Citron
+- CLIPS
+- Commodore BASIC
+- CoreScript
+- Flax
+- Goat
+- ObjectScript
+- Slogan
+- TotemScript
 ## 2021-09-14
-- Boson supported
-- kscript supported
-- Nectar supported
-- Novus supported
-- Storm supported
-- XL supported
+- Boson
+- kscript
+- Nectar
+- Novus
+- Storm
+- XL
 ## 2021-09-15
-- Flix supported
-- Gambit supported
-- Kona supported
-- Lobster supported
-- Muon supported
-- Pocketlang supported
+- Flix
+- Gambit
+- Kona
+- Lobster
+- Muon
+- Pocketlang
 ## 2021-09-16
-- Aldor supported
-- Arc supported
-- Dao supported
-- Dictu supported
-- Dino supported
-- Duck supported
-- Felix supported
-- Never supported
-- Smile supported
-- Wax supported
+- Aldor
+- Arc
+- Dao
+- Dictu
+- Dino
+- Duck
+- Felix
+- Never
+- Smile
+- Wax
 ## 2021-09-17
-- Ape supported
-- Ballerina supported
-- D(Digital Mars) supported
-- Grace supported
-- Hope supported
-- Lumi supported
-- Pepper supported
-- Rubi supported
-- WardScript supported
+- Ape
+- Ballerina
+- D(Digital Mars)
+- Grace
+- Hope
+- Lumi
+- Pepper
+- Rubi
+- WardScript
 ## 2021-09-18
-- Arrow supported
-- Avalon supported
-- Feral supported
-- Gwion supported
-- Melon supported
-- uclang supported
+- Arrow
+- Avalon
+- Feral
+- Gwion
+- Melon
+- uclang
 ## 2021-09-19
-- Alan supported
-- xlang supported
+- Alan
+- xlang
 ## 2021-09-20
-- APlus supported
+- APlus
 ## 2021-09-21
-- Buzz supported
-- Cone supported
-- Emo supported
-- Maxc supported
-- Saffire supported
-- Shen supported
-- Sink supported
-- Spow supported
-- Streem supported
+- Buzz
+- Cone
+- Emo
+- Maxc
+- Saffire
+- Shen
+- Sink
+- Spow
+- Streem
 ## 2021-09-22
-- Bean supported
-- Bob supported
-- C2 supported
-- Knight supported
-- Tamgu supported
+- Bean
+- Bob
+- C2
+- Knight
+- Tamgu
 ## 2021-09-24
-- Zimbu supported
+- Zimbu
 ## 2021-09-25
-- Algae supported
-- Gri supported
-- Kotlin Script supported
-- Limbo supported
+- Algae
+- Gri
+- Kotlin Script
+- Limbo
 ## 2021-09-26
-- Algol W supported
-- Alore supported
-- Battlestar supported
-- Cheddar supported
-- Cor supported
+- Algol W
+- Alore
+- Battlestar
+- Cheddar
+- Cor
 ## 2021-09-27
-- Virgil supported
+- Virgil
 ## 2021-09-28
-- C3 supported
-- Rockstar supported
+- C3
+- Rockstar
 ## 2021-09-29
-- Hermes supported
-- Umka supported
+- Hermes
+- Umka
 ## 2021-09-30
-- AngelScript supported
-- Clover supported
-- J* supported
-- Mu supported
+- AngelScript
+- Clover
+- J*
+- Mu
 ## 2021-10-01
-- ABS supported
-- DuckScript supported
-- YASL supported
+- ABS
+- DuckScript
+- YASL
 ## 2021-10-02
-- Jolie supported
+- Jolie
 ## 2021-10-03
-- AspectJ supported
-- BrainFuck supported
-- Befunge supported
-- GSL supported
-- Poly/ML supported
-- SPL supported
-- SurgeScript supported
+- AspectJ
+- BrainFuck
+- Befunge
+- GSL
+- Poly/ML
+- SPL
+- SurgeScript
 ## 2021-10-04
-- Bhuna supported
-- Castile supported가
-- eC supported
-- Iphigeneia supported
+- Bhuna
+- Castile가
+- eC
+- Iphigeneia
 ## 2021-10-05
-- Circle supported
-- daScript supported
-- Fe supported
-- Huo supported
-- Mirth supported
-- Rix supported
-- Rk supported
-- Slash supported
+- Circle
+- daScript
+- Fe
+- Huo
+- Mirth
+- Rix
+- Rk
+- Slash
 ## 2021-10-06
-- Levi supported
-- SOM supported
+- Levi
+- SOM
 ## 2021-10-07
-- Make supported
+- Make
 ## 2021-10-08
-- Ink supported
-- LittleLang supported
+- Ink
+- LittleLang
 ## 2021-10-09
-- Tamsin supported
+- Tamsin
 ## 2021-10-10
-- 4tH supported
-- Alta supported
+- 4tH
+- Alta
 ## 2021-10-12
-- Emerald supported
+- Emerald
 ## 2021-10-13
-- Alma supported
-- JerryScript supported
+- Alma
+- JerryScript
 ## 2021-10-14
-- RPL/2 supported
+- RPL/2
 ## 2021-10-15
-- Berry supported
-- Ruci supported
-- Sparkling supported
-- SoftScript supported
-- SZL supported
+- Berry
+- Ruci
+- Sparkling
+- SoftScript
+- SZL
 ## 2021-10-16
-- EGA supported
-- StormScript supported
+- EGA
+- StormScript
 ## 2021-10-17
-- CppScript supported
+- CppScript
 ## 2021-10-18
-- Filagree supported
-- LK supported
+- Filagree
+- LK
 ## 2021-10-19
-- elastiC supported
-- Oak supported
+- elastiC
+- Oak
 ## 2021-10-20
-- Jancy supported
-- Pupp supported
-- Seq supported
+- Jancy
+- Pupp
+- Seq
 ## 2021-10-21
-- PIC supported
-- Roff supported
+- PIC
+- Roff
 ## 2021-10-22
-- Latro supported
+- Latro
 ## 2021-10-25
-- Blue supported
-- ICI supported
+- Blue
+- ICI
 ## 2021-10-26
-- Saurus supported
+- Saurus
 ## 2021-10-27
-- Killa supported
-- Luxury supported
+- Killa
+- Luxury
 ## 2021-10-28
-- Mari supported
+- Mari
 ## 2021-10-29
-- Aku supported
-- Strela supported
-- Zebra supported
-- Zion supported
+- Aku
+- Strela
+- Zebra
+- Zion
 ## 2021-10-30
-- Conure supported
-- fox-lang supported
-- JohnsonScript supported
-- Kenaf supported
-- LeekScript supported
-- Nyx supported
+- Conure
+- fox-lang
+- JohnsonScript
+- Kenaf
+- LeekScript
+- Nyx
 ## 2021-10-31
-- Blossom supported
-- Noumenon supported
-- Pagan supported
+- Blossom
+- Noumenon
+- Pagan
 ## 2021-11-01
-- Nuua supported
+- Nuua
 ## 2021-11-06
-- Joao supported
-- Next supported
+- Joao
+- Next
 ## 2021-11-07
-- Foxely supported
+- Foxely
 ## 2021-11-09
-- Boron supported
-- Par supported
+- Boron
+- Par
 ## 2021-11-15
-- Hedgehog supported
+- Hedgehog
 ## 2021-11-20
-- Borealis supported
+- Borealis
 ## 2021-11-21
-- Dragon supported
+- Dragon
 ## 2021-12-07
-- GolfScript supported
-- INTERCAL supported
+- GolfScript
+- INTERCAL
 ## 2021-12-09
-- Whitespace supported
+- Whitespace
 ## 2021-12-16
 - language filtering is functional
 ## 2021-12-17
-- Chef supported
+- Chef
 ## 2022-10-14
-- Minus supported
-- Nibbles supported
+- Minus
+- Nibbles
 ## 2022-10-15
-- Malbolge supported
+- Malbolge
 ## 2022-10-20
-- Carbon supported
+- Carbon
 ## 2022-11-08
-- PicoC supported
+- PicoC
 ## 2022-11-12
-- HQ9+ supported
+- HQ9+
 ## 2023-03-21
-- D2 supported
+- D2
 ## 2023-04-03
-- Graphviz supported
+- Graphviz
 ## 2024-03-06
 - Changed WebSQL to localStorage
 ## 2024-03-27
-- Oracle(mariadb compatible mode) removed
-- Oracle is now supported (Oh!)
-- Pro*C supported (WOW!!)
+- Oracle
+- Pro*C
 ## 2024-05-09
-- DoKev supported
+- DoKev
 ## 2024-08-07
-- Ceu supported
+- Ceu
 ## 2024-08-08
-- Aleph supported
-- H2 supported
+- Aleph
+- H2
 ## 2024-08-23
-- ActionScript3 supported
-- BlueSpec supported
+- ActionScript3
+- BlueSpec
 ## 2024-08-24
-- EmojiCode supported
-- Mojo supported
-- Tula supported
-- Turing supported
+- EmojiCode
+- Mojo
+- Tula
+- Turing
 ## 2024-08-26
-- PLC/ST supported
+- PLC/ST
 ## 2024-08-28
-- DDP supported
-- Sophia supported
+- DDP
+- Sophia
 ## 2024-08-30
-- Nemerle supported
-- P supported
-- P++ supported
+- Nemerle
+- P
+- P++
 ## 2024-08-31
-- Alumina supported
-- Blade supported
+- Alumina
+- Blade
 ## 2024-09-01
-- Chili supported
-- Crafting supported
-- Ecla supported
-- Nmet supported
-- Sacalon supported
-- Saturnus supported
+- Chili
+- Crafting
+- Ecla
+- Nmet
+- Sacalon
+- Saturnus
 ## 2024-09-02
-- Arch Linux supported
-- Kaliy Linux supported
-- Rocky Linux supported
-- LiquidSoap supported
-- Syphon supported
+- Arch Linux
+- Kaliy Linux
+- Rocky Linux
+- LiquidSoap
+- Syphon
 ## 2024-09-03
-- Amrit supported
-- Element supported
-- Gren supported
-- Hylo supported
+- Amrit
+- Element
+- Gren
+- Hylo
 ## 2024-09-04
-- Crumb supported
+- Crumb
 ## 2024-09-05
-- Skew supported
+- Skew
 ## 2024-09-06
-- Inko supported
-- Wisnia supported
+- Inko
+- Wisnia
 ## 2024-09-07
-- Bend supported
-- Clox supported
-- Gleam supported
-- Kind supported
-- Luminique supported
-- Yaksha supported
+- Bend
+- Clox
+- Gleam
+- Kind
+- Luminique
+- Yaksha
 ## 2024-09-08
-- C Shell supported
-- Dashell supported
-- Korn Shell supported
-- Z Shell supported
-- Amun supported
-- Dyon supported
-- Roc supported
+- C Shell
+- Dashell
+- Korn Shell
+- Z Shell
+- Amun
+- Dyon
+- Roc
 - Scopes
-- ShnooTalk supported
+- ShnooTalk
 ## 2024-09-09
-- CupScript supported
+- CupScript
 - FatScript
-- Forter supported
+- Forter
 ## 2024-09-10
-- Interfuse supported
+- Interfuse
 ## 2024-09-11
-- Min supported
-- Sage supported
+- Min
+- Sage
 ## 2024-09-12
-- Hare supported
-- Lil supported
-- Pkl supported
-- Wenyan supported
+- Hare
+- Lil
+- Pkl
+- Wenyan
 ## 2024-09-13
-- Antimony supported
-- CakeLisp supported
+- Antimony
+- CakeLisp
 ## 2024-09-14
-- BBC BASIC supported
-- Brandy supported
+- AdvSys
+- BBC BASIC
+- Brandy
+- Fuzuli
+- RAuREL
+## 2024-09-15
+- ASPL
+- Barn
+- BlackLight
+- Calc4
+- Cant
+- Cish
+## 2024-09-16
+- Clue
+- Cod
+- Cognate
+- Core
+- Cotowali
 
-## To be supported
+## To be continued
 - 42
 - Bite
 - Bruijn
+- Calcit
+- Claire4
 - Dry
 - KCL
 - Lawvere

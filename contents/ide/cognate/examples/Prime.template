@@ -1,0 +1,15 @@
+Def Factor (Zero? Modulo Swap);
+
+Def Primes (
+	Let U is upper bound;
+	initially Empty;
+	For Range 2 to U (
+		Let I be our potential prime;
+		Let Primes are the found primes;
+		Let To-check be Take-while (<= Sqrt I) Primes;
+		When None (Factor of I) To-check
+			(Append List (I)) to Primes;
+	)
+);
+
+Print Primes up to 1000;

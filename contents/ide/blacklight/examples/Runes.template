@@ -1,0 +1,22 @@
+;; showcases the various R (rune) literal syntaxes
+
+;; if you just need to capture a single arbitrary codepoint
+;; use the single backslash syntax, works on multibyte characters too
+
+\世 say
+
+;; for commonly used characters not available on a keyboard
+;; we have the double backslash R literal syntax
+;; below we use \\n to represent the newline R
+
+'Line one' \\n app 'Line two' cat say
+
+;; for simple ASCII we can use the decimal value to specify a R
+;; using the slash-a(scii) variation
+
+\a126 say
+
+;; and finally, for utf-8 characters, we can specify their value in hex
+;; using the slash-u(tf-8) syntax
+
+\uE7958C say

@@ -1,0 +1,14 @@
+;; Inverting the @stack using an until loop
+
+5 4 3 2 1            ;; some stuff we're going to reverse
+
+s-new
+[ swap push ]        ;; take whatever is in he @stack and put it into our user-stack
+[
+  depth 1 eq         ;; compare the @stack depth with 1
+] until
+
+$ swap push          ;; promote our user-stack onto the $stack
+                     ;; this means the user-stack becomes our new @stack
+$decap               ;; get rid of the old system-stack
+@ say                ;; show the contents of the new @stack

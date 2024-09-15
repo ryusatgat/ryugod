@@ -1,0 +1,7 @@
+@import "std.ba"
+@import "os.ba"
+
+fun main() {
+    let system: string = os_current_system()
+    println(system)
+}

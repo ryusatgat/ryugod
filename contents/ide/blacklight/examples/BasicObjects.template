@@ -1,0 +1,18 @@
+;; Object system basics
+;; Here we create, set, get, and fetch
+
+;; Create a new object
+o-new
+
+;; set a slot to a value
+5 num:
+;; recall and display value
+:num say
+
+;; create a Block slot
+[ 'omg hai' say ] greet:
+;; call a Block slot
+:greet
+
+;; view contents of a Block slot
+~greet fetch refl say

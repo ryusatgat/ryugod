@@ -1,7 +1,7 @@
 ARG FROM_IMAGE=ryusatgat/ubuntu
 FROM $FROM_IMAGE    
 
-RUN apt install -y dh-haskell haskell-stack calbal-install
+RUN apt install -y dh-haskell haskell-stack cabal-install
 
 USER $USERNAME
 

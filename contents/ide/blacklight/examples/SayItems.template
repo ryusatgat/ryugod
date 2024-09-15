@@ -1,0 +1,41 @@
+;; display a bunch of different item types
+;; refl returns a T representation useful for debugging
+;; say displays a simplified representation useful for user output
+;; say is also used to display the T from refl,
+;; since it suffixes a newline while print does not
+
+'number' say
+34543 dup refl say say
+'' say
+
+'queue' say
+q-new 1 enq 2 enq 3 enq 4 enq dup refl say say
+'' say
+
+'stack' say
+s-new 1 push 2 push 3 push 4 push dup refl say say
+'' say
+
+'word' say
+~1 dup refl say say
+'' say
+
+'block' say
+[ 1 2 3 4 ] dup refl say say
+'' say
+
+'text' say
+'1 2 3 4' dup refl say say
+'' say
+
+'vector of numbers' say
+(1 2 3 4) dup refl say say
+'' say
+
+'vector of text' say
+('1' '2' '3' '4') dup refl say say
+'' say
+
+'vector of runes' say
+(\u31 \a50 \3 '4' 0 ato swap drop) dup refl say say
+'' say

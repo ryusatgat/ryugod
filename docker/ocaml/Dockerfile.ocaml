@@ -1,9 +1,6 @@
 ARG FROM_IMAGE=ryusatgat/ubuntu
 FROM $FROM_IMAGE    
 
-RUN apt install -y ocaml ocaml-dune make omake ocamlbuild
-RUN apt install -y ocaml ocaml-dune make opam ocamlbuild
+RUN apt install -y ocaml ocaml-dune make omake ocamlbuild opam ocaml-findlib
 
 USER $USERNAME
-
-RUN opam init -y && opam install ocamlfind

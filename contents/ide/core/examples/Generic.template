@@ -1,0 +1,21 @@
+class MyOwnType
+
+impl std::Identity for MyOwnType {
+    fun identicalTo(other: MyOwnType): Bool = true;
+}
+
+impl std::Equals for MyOwnType {
+    fun equals(other: MyOwnType): Bool = true;
+}
+
+impl std::Hash for MyOwnType {
+    fun hash(): Int32 = 0i32;
+}
+
+class Foo {
+    x: std::HashMap[MyOwnType, String],
+}
+
+fun main(): Unit {
+    let foo = Foo(std::HashMap[MyOwnType, String]::new());
+}

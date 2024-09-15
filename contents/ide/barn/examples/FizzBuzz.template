@@ -1,0 +1,16 @@
+@import "std.ba"
+
+fun main() {
+   for let i: int = 0; i != 1000; i++ {
+       if (i % 15) == 0 {
+           println("FizzBuzz\t")
+       } elif (i % 3) == 0 {
+           println("Fizz\t")
+       } elif (i % 5) == 0 {
+           println("Buzz\t")
+       } else {
+           printnum(i)
+           println("\t")
+       }
+   }
+}

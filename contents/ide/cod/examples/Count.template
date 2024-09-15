@@ -1,0 +1,14 @@
+include "std/io.cod"
+include "std/math.cod"
+include "std/stack.cod"
+
+alias start 100
+alias step 1
+
+start
+
+-- Iterate until counter is 0
+while {
+  printn step - -- Print the number
+  10 printc pop -- Print newline char
+}

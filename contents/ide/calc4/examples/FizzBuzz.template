@@ -1,0 +1,44 @@
+/************************************
+ *
+ * FizzBuzz program written in Calc4
+ *
+ ************************************/
+
+// This program shows numbers up to the next value
+// - Change the value as needed
+D[MaxN||100]
+
+// Operators to print "Fizz", "Buzz", or "Fizzbuzz".
+// See the "Hello World" sample code to understand how this works.
+D[printFizzbuzz||70P105P122P122P98P117P122P122P10P]
+D[printFizz||70P105P122P122P10P]
+D[printBuzz||66P117P122P122P10P]
+
+// Operators to print the given integer
+D[or|x,y|x == 0 ? (y == 0 ? 0 ? 1) ? 1]
+D[printIntImpl|n, divisor, printZero|({divisor} != 0) ?
+                                     (/* Print one digit */
+                                      ((((n / {divisor})S != 0) {or} {printZero}) ? ((48 + L)P) ? 0)
+                                      /* Recursive call to process next digit */
+                                      ((n % {divisor}){printIntImpl}({divisor} / 10){printIntImpl}({printZero}{or}(L != 0)))) ?
+                                     0]
+D[printInt|n|n == 0 ?
+             48P ?  // Special case when the operand is zero
+             n{printIntImpl}1000000000000000000{printIntImpl}0]
+
+/**** Core part of the program *****/
+D[fizzbuzz|i|i <= {MaxN} ?
+             (/* Print current number */
+              (i % 15 == 0 ?
+               {printFizzbuzz} ? (
+               i % 3 == 0 ?
+               {printFizz} ? (
+               i % 5 == 0 ?
+               {printBuzz} ?
+               (i{printInt}10P))))
+              /* Recursive call to process the next value */
+              ((i + 1){fizzbuzz})) ?
+             0]
+
+(1{fizzbuzz})
+(10P)

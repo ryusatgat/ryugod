@@ -1,0 +1,8 @@
+$ 
+$    Cish: Hello, World!
+$    https://github.com/TheRealMichaelWang/cish
+$ 
+
+include "stdlib/io.cish";
+
+println("Hello, World!");

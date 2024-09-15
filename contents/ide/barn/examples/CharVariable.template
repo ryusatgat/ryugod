@@ -1,0 +1,5 @@
+let __first_letter_name: char = 'B'
+
+fun main() {
+    let __second_letter_name: char = 'r'
+}

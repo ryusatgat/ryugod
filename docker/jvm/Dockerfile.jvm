@@ -7,6 +7,9 @@ RUN apt install -y openjdk-21-jdk
 # Gradle/Groovy
 RUN apt install -y gradle maven
 
+ADD usr /usr/
+ADD opt /opt/
+
 USER $USERNAME
 
 # install Kotlin

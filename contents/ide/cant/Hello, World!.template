@@ -1,0 +1,6 @@
+;
+;   Cant: Hello, World!
+;   https://github.com/darius/cant
+;
+
+(out .displayln "Hello, World!")

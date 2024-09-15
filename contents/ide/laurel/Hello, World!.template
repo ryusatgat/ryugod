@@ -1,0 +1,8 @@
+%
+%   LAuREL: Hello, World!
+%   https://github.com/dvbmgr/LAuREL
+%
+
+main : None
+main :=
+    print "Hello, World!".

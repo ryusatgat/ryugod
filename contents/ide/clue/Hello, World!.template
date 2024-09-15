@@ -1,0 +1,6 @@
+//
+//   Clue: Hello, World!
+//   https://github.com/ClueLang/Clue
+//
+
+print("Hello, World!")

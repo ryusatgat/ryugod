@@ -1,0 +1,13 @@
+# Recursive Factorial Example
+(function factorial (params x)
+	(if (<= x 1)
+		(return 1)
+		(return (* x (factorial (- x 1))))
+	)
+)
+
+(println "Factorial(5) is " (factorial 5) )
+(println "Factorial(6) is " (factorial 6) )
+(println "Factorial(7) is " (factorial 7) )
+(println "Factorial(8) is " (factorial 8) )
+(println "Factorial(9) is " (factorial 9) )

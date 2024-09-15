@@ -1,0 +1,22 @@
+;
+;   AdvSys: Hello, World!
+;   https://github.com/dbetz/advsys
+;
+
+(adventure Hello 1)
+(define welcome "Hello, World!\n")
+
+@/opt/advsys/objects.adi
+
+(actor adventurer
+  (property
+    initial-location world))
+
+(location world
+  (property
+    description "Enter quit to exit"
+    short-description "Hello."
+    north abort
+    east abort
+    west abort
+    south abort))

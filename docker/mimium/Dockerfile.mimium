@@ -1,0 +1,16 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN git clone https://github.com/mimium-org/mimium
+WORKDIR /mimium
+RUN apt-get update && apt-get install --no-install-recommends -y git cmake llvm-dev build-essential llvm libbison-dev libfl-dev libclalsadrv-dev libz-dev libsndfile-dev libopus-dev libgtest-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y bison
+RUN cmake -Bbuild
+RUN cmake --build build -j
+RUN cmake --build build --target install
+RUN apt purge -y build-essential llvm libbison-dev libfl-dev  && apt autoremove -y

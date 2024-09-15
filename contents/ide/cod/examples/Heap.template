@@ -1,0 +1,49 @@
+include "std/io.cod"
+include "std/stack.cod"
+include "std/math.cod"
+include "std/memory.cod"
+
+macro print_from_offset {
+    swap dup cycle3 + read8 printc pop
+}
+
+macro write_to_offset {
+    cycle3 cycle3 swap dup cycle3 + cycle3 write8
+}
+
+-- Create buffer to store string
+12 malloc
+
+-- 72 101 108 108 111 32 87 111 114 108 100 33 10
+
+-- Write the string 'Hello World!' to
+-- memory one byte at a time
+0  72  write_to_offset
+1  101 write_to_offset
+2  108 write_to_offset
+3  108 write_to_offset
+4  111 write_to_offset
+5  32  write_to_offset
+6  87  write_to_offset
+7  111 write_to_offset
+8  114 write_to_offset
+9  108 write_to_offset
+10 100 write_to_offset
+11 33  write_to_offset
+12 10  write_to_offset
+
+-- Print the string 'ABCDEF'
+-- character by character
+0  print_from_offset
+1  print_from_offset
+2  print_from_offset
+3  print_from_offset
+4  print_from_offset
+5  print_from_offset
+6  print_from_offset
+7  print_from_offset
+8  print_from_offset
+9  print_from_offset
+10 print_from_offset
+11 print_from_offset
+12 print_from_offset

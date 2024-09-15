@@ -1,0 +1,6 @@
+#
+#   Fuzuli: Hello, World!
+#   https://github.com/jbytecode/fuzuli
+#
+
+(println "Hello, World!")

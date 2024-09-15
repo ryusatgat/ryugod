@@ -1,0 +1,43 @@
+/********************************
+ *
+ * Print prime numbers up to 100
+ *
+ ********************************/
+
+// This program shows prime numbers up to the next value
+// - Change the value as needed
+D[MaxN||100]
+
+// An operator to determine whether the given integer is prime or not.
+// - The 'isPrimeImpl' operator recursively calls itself to process the next value.
+// - The 'isPrime' operator wraps it.
+D[isPrimeImpl|n, i|i * i > n ?
+                   1 ? (
+                   n % i == 0 ?
+                   0 ?
+                   n {isPrimeImpl} (i + 1))]
+D[isPrime|n|n {isPrimeImpl} 2]
+
+// Operators to print the given integer
+D[or|x,y|x == 0 ? (y == 0 ? 0 ? 1) ? 1]
+D[printIntImpl|n, divisor, printZero|({divisor} != 0) ?
+                                     (/* Print one digit */
+                                      ((((n / {divisor})S != 0) {or} {printZero}) ? ((48 + L)P) ? 0)
+                                      /* Recursive call to process next digit */
+                                      ((n % {divisor}){printIntImpl}({divisor} / 10){printIntImpl}({printZero}{or}(L != 0)))) ?
+                                     0]
+D[printInt|n|n == 0 ?
+             48P ?  // Special case when the operand is zero
+             n{printIntImpl}1000000000000000000{printIntImpl}0]
+
+/**** Core part of the program *****/
+D[printPrimes|i|i > {MaxN} ?
+                0 ?
+                (/* If 'i' is prime, we print it */
+                 (i{isPrime} ? ((i{printInt})(10P)) ? 0)
+                 /* Recursive call to process the next value */
+                 ((i + 1){printPrimes}))]
+
+// Start program
+(2{printPrimes})
+(10P)   // New line at the end

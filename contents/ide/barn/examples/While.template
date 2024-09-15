@@ -1,0 +1,9 @@
+@import "std.ba"
+
+fun main() {
+    let i: int = 0
+    while i != 10 {
+        println("OK")
+        i += 1
+    }
+}

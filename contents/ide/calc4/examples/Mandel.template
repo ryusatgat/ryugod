@@ -1,0 +1,170 @@
+/***************************************************************
+ *
+ * Mandelbrot Set Program Written in Calc4
+ *
+ * This program displays the Mandelbrot set to the console.
+ * Use an integer of size 64 bits or larger to run the program.
+ *
+ ***************************************************************/
+
+/*****
+ * Definitions of constants
+ * - In Calc4, we use zero-operand operators as constant values
+ *****/
+
+// Operators for fixed-point numbers
+// - Calc4 does not support floating points, instead only integer types are available.
+//   We represent real numbers as fixed-point numbers.
+//   The following operators help fixed-point arithmetic.
+//   For example, the calculation of "2 / 3" can be written as follows:
+//      (2{toFixed}) {div} (3{toFixed})
+D[Shift||65536]             // We multiply this value to represent an integer as fixed-point number
+D[toFixed|x|x * {Shift}]    // Convert the given integer to the fixed-point number
+D[add|x,y|x + y]
+D[sub|x,y|x - y]
+D[mult|x,y|x * y / {Shift}]
+D[div|x,y|x * {Shift} / y]
+
+// The area in the complex plane where we will compute the Mandelbrot set
+D[MinX||(0 - 2){toFixed}]
+D[MaxX||1{toFixed}]
+D[MinY||(0 - 1){toFixed}]
+D[MaxY||1{toFixed}]
+
+// Width of the console to display
+// - If you wish to get high-definition image, please increase these values.
+D[CanvasWidthX||110]
+D[CanvasWidthY||25]
+
+// If the square of the absolute value exceeds this value, we judge it to be divergent.
+D[Inf||4{toFixed}]
+
+// The maximum number of iterations for each point
+D[LoopLimit||1000]
+
+/*****
+ * Helpers
+ *****/
+D[getMax|x,y|x > y ? x ? y]
+D[newline||10P]
+
+/*****
+ *
+ * Computation of the Mandelbrot set
+ *
+ * The Mandelbrot set computation can be expressed like the following pseudocode.
+ *
+ * for (var i = 0; i < CanvasWidthX; i++) {
+ *     for (var j = 0; j < CanvasWidthY; j++) {
+ *         // For each point, determine if it diverges
+ *         for (var loop = 0; loop < LoopLimit; loop++) {
+ *             if (x * x + y * y > Inf) {
+ *                 do something when divergence;
+ *                 break;
+ *             }
+ *
+ *             update current status and continue;
+ *         }
+ *     }
+ * }
+ *
+ * However, Calc4 does not have loops, so we use recursive operators.
+ * First, we extract the loop on i to an operator.
+ *
+ * operator computeX(i) {
+ *     if (i < CanvasWidthX) {
+ *         // The content of the loop will be done in the computeY operator
+ *         computeY(i, 0, a);
+ *
+ *         // Utilize the tail recursion to repeat iterations
+ *         return computeX(i + 1);
+ *     }
+ *
+ *     // End of the loop
+ *     return 0;
+ * }
+ *
+ * operator computeY(i, j, a) {
+ *     for (var j = 0; j < CanvasWidthY; j++) {
+ *         ...
+ *     }
+ * }
+ *
+ * We perform the same transformations on the inner loops in computeY.
+ *
+ *****/
+
+// We store the number of iterations until each point diverges in the memory.
+// The following operator computes the destination index in the memory.
+D[getIndex|i,j|i * ({CanvasWidthX}{getMax}{CanvasWidthY}) + j]
+
+// The operator to store the number of iterations in the memory
+D[setPoint|i,j,loop|{loop}->(i{getIndex}j)]
+
+// The 'index' operand is the value in [0, CanvasWidthXorY).
+// This operator converts the value to the coordinate in the complex plane.
+D[getCoordinate|index,min,max,canvasWidth|({index}{toFixed}) {mult} ({max}{sub}{min}) {div} ({canvasWidth}{toFixed}) {add} {min}]
+
+/***** Core part of the computation *****/
+D[computePoint|loop,x,y,a,b,i,j|((x{mult}x){add}(y{mult}y)) > {Inf} ?
+                                (i{setPoint}j{setPoint}{loop}) ? (
+                                ({loop} >= {LoopLimit}) ?
+                                0 ?
+                                (({loop} + 1)
+                                    {computePoint}
+                                 ((x{mult}x) {sub} (y{mult}y) {add} a)
+                                    {computePoint}
+                                 (2{toFixed} {mult} x {mult} y {add} b)
+                                    {computePoint}
+                                 a
+                                    {computePoint}
+                                 b
+                                    {computePoint}
+                                 i
+                                    {computePoint}
+                                 j))]
+D[computeY|i,j,a|j < {CanvasWidthY} ?
+                 ((i{setPoint}j{setPoint}{LoopLimit})
+                  (0
+                    {computePoint}
+                   0
+                    {computePoint}
+                   0
+                    {computePoint}
+                   a
+                    {computePoint}
+                   (j{getCoordinate}{MinY}{getCoordinate}{MaxY}{getCoordinate}{CanvasWidthY})
+                    {computePoint}
+                   i
+                    {computePoint}
+                   j)
+                  (i{computeY}(j + 1){computeY}a)) ?
+                 0]
+D[computeX|i|i < {CanvasWidthX} ?
+             ((i
+                {computeY}
+               0
+                {computeY}
+               (i{getCoordinate}{MinX}
+                    {getCoordinate}
+                {MaxX}
+                    {getCoordinate}
+                {CanvasWidthX}))
+              ((i + 1){computeX})) ?
+             0]
+
+/*****
+ * Output the result to the console
+ *****/
+
+// Print the computed result
+D[printPoint|v|(v != {LoopLimit} ? 64 ? 32)P]
+D[printX|i, j|i < {CanvasWidthX} ? (((i{getIndex}j)@{printPoint})((i+1){printX}j)) ? (10P)]
+D[printY|j|j < {CanvasWidthY} ? ((0{printX}j)((j+1){printY})) ? 0]
+
+/*****
+ * We have completed the definitions of the required operators.
+ * Start the program by calling them.
+ *****/
+(0{computeX})
+(0{printY})

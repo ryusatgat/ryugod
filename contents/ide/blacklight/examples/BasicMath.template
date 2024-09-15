@@ -1,0 +1,22 @@
+;; the basic math operations
+;; n-to-t converts number to text (T)
+;; cat joins two vectors, in this case joins two bits of text
+;; say sends a text representation to stdout
+
+'1 + 2 = ' 1 2 add
+n-to-t cat say
+
+'2 * 3 = ' 2 3 mul
+n-to-t cat say
+
+'5 - 4 = ' 5 4 sub
+n-to-t cat say
+
+'6 / 3 = ' 6 3 div
+n-to-t cat say
+
+'7 % 4 = ' 7 4 mod
+n-to-t cat say
+
+'-3 + -4 = ' -3 -4 add
+n-to-t cat say

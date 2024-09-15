@@ -1,0 +1,11 @@
+@import "std.ba"
+
+fun main() {
+    fmt_print("Hello, %s\n", "World")
+    fmt_print("Number: %d\n", 1024)
+    fmt_print("Number: %x\n", 1024)
+    fmt_print("Number: %o\n", 1024)
+    fmt_print("Number: %b\n", 1024)
+    fmt_print("Number: %f\n", 1024.20)
+    fmt_print("Number: %l\n", 1024)
+}

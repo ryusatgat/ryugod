@@ -1,0 +1,61 @@
+-- Bottles of beer song example written in Cod
+include "std/io.cod"
+include "std/math.cod"
+include "std/stack.cod"
+
+-- Strings used in the song
+alias song_p1 "of beer on the wall, "
+alias song_p2 "of beer.\nTake one down and pass it around, "
+alias song_p3 "of beer on the wall.\n\n"
+alias song_p4 "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n"
+alias bottle_plural " bottles "
+alias bottle_singular " bottle "
+
+-- Will print bottle or bottles, depending
+-- on how many bottles left
+subroutine print_bottles {
+    dup 1 > if {
+        bottle_plural prints
+    } pop
+
+    dup 1 == if {
+        bottle_singular prints
+    } pop
+
+    dup 0 == if {
+        bottle_plural prints
+    } pop
+}
+
+-- Prints one paragraph of the song
+-- based on how many bottles left
+subroutine print_song_paragraph {
+    -- X bottles of beer on the wall,
+    printn
+    print_bottles
+    song_p1 prints
+
+    -- X bottles of beer. Take one down and pass it around, 
+    printn
+    print_bottles
+    song_p2 prints
+
+    -- Remove a bottle
+    1 -
+    
+    -- X bottles of beer on the wall.
+    printn
+    print_bottles
+    song_p3 prints
+}
+
+-- Starting number of bottles
+99
+
+-- Print out all of the paragraphs
+while {
+    print_song_paragraph
+}
+
+-- Final paragraph
+song_p4 prints

@@ -1,0 +1,11 @@
+;; The self op and it's uses
+
+o-new
+
+;; we can use self much like @ inside of slots to refer to the current object
+[ self say ] inspect:
+:inspect
+
+;; self also allows you to easily use other slots on the same object
+[ 1 2 3 4 5 'I am an object: ' say self :inspect ] pp:
+:pp

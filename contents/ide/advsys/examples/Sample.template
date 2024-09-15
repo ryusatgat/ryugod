@@ -1,0 +1,152 @@
+; OSAMPLE.ADV
+;
+; This is a VERY simple sample adventure that uses the "OBJECTS.ADI"
+; runtime support code.  It isn't interesting to play, but does illustrate
+; most of the features of the adventure authoring system.  Try compiling
+; it using the command:
+;
+;        A>ADVCOM OSAMPLE
+;
+; When the compile has finished, run the adventure using the command:
+;
+;        A>ADVINT OSAMPLE
+;
+; You should then see the initial welcome message and a description of
+; your initial location.  You can use the direction names to move from
+; one location to the next (or the abreviations N,S,E,W).  You should try
+; manipulating objects using TAKE and DROP.  You can manipulate more than
+; one at a time by using the conjunction AND.  You can also GIVE an object
+; to another creature like the DOG or CAT.  You can instruct another
+; creature to perform an action like:
+;
+;       CAT, GIVE THE DOG THE KEY
+;
+; You can also experiment with using adjectives to distinguish between
+; objects (there is more than one KEY in this adventure).
+
+(adventure sample 1)
+
+(define welcome "Welcome to the sample adventure.\n")
+
+@/opt/advsys/objects.adi
+
+(actor adventurer
+  (noun me)
+  (property
+    initial-location livingroom))
+
+(actor dog
+  (noun dog)
+  (adjective small)
+  (property
+    description "There is a small dog here."
+    short-description "a small dog"
+    initial-location kitchen))
+
+(actor cat
+  (noun cat)
+  (property
+    description "There is a cat here."
+    short-description "a cat"
+    initial-location kitchen))
+
+(location storage-room
+  (property
+    description "You are in a small storage room with many empty shelves.
+                 The only exit is a door to the west."
+    short-description "You are in the storage room."
+    west hallway)
+  (method (leave obj dir)
+    (if (send obj carrying? rusty-key)
+      (send-super leave obj dir)
+      (print "You seem to be missing something!\n"))))
+
+(location hallway
+  (property
+    description "You are in a long narrow hallway. There is a door to the
+                 east into a small dark room.  There are also exits on both
+                 the north and south ends of the hall."
+    short-description "You are in the hallway."
+    east storage-room
+    north kitchen
+    south livingroom))
+
+(location kitchen
+  (property
+    description "This is a rather dusty kitchen.  There is a hallway to the
+                 south and a pantry to the west."
+    short-description "You are in the kitchen."
+    south hallway
+    west pantry))
+
+(location pantry
+  (property
+    description "This is the kitchen pantry.  The kitchen is through a 
+                 doorway to the east."
+    short-description "You are in the pantry."
+    east kitchen)
+  (method (enter obj)
+    (send-super enter obj)))
+
+(location livingroom
+  (property
+    description "This appears to be the livingroom.  There is a hallway to
+                 the north and a closet to the west."
+    short-description "You are in the livingroom."
+    north hallway
+    west closet
+    south front-door-1))
+
+(location outside
+  (property
+    description "You are outside a small house.  The front door is to the
+                 north."
+    short-description "You are outside."
+    north front-door-2))
+
+(portal front-door
+  (noun door)
+  (adjective front)
+  (class-property
+    short-description "front door"
+    closed t
+    locked t
+    key rusty-key))
+
+(front-door front-door-1
+  (property
+    initial-location livingroom
+    other-side front-door-2))
+
+(front-door front-door-2
+  (property
+    initial-location outside
+    other-side front-door-1))
+
+(location closet
+  (property
+    description "This is the livingroom closet.  The livingroom is through
+                 a doorway to the east."
+    short-description "You are in the closet."
+    east livingroom)
+  (method (enter obj)
+    (send-super enter obj)))
+
+(thing rusty-key
+  (noun key)
+  (adjective rusty)
+  (property
+    description "There is a rusty key here."
+    short-description "a rusty key"
+    initial-location storage-room))
+
+(thing silver-key
+  (noun key)
+  (adjective small silver)
+  (property
+    description "There is a small silver key here."
+    short-description "a small silver key"
+    initial-location closet))
+
+                                                  
+                                                        

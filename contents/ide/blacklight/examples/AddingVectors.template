@@ -1,0 +1,31 @@
+;; adding together 2 same-sized Vs using two stacks
+;; it will eat the two Vs and output a single result V
+
+;; our Vs
+(1 2 3 4 5)
+(5 4 3 2 1)
+
+;; setup
+$new            ;; create a new working stack
+pop swap        ;; pop l2 from last-stack
+pop swap        ;; pop l1 from last-stack
+
+() push drop    ;; initialize result V on last-stack
+0               ;; initialize counter
+
+;; the work loop
+[
+  dup rot swap ato ^ swap push drop   ;; get N from first list, temp store in last-stack
+  rot rot dup rot swap ato ^ pop      ;; get N from second list, recover first N from last-stack
+  rot add swap pop rot app push drop  ;; add Ns together and put in list on last-stack
+  swap 1 add                          ;; increment counter
+]
+[ dup rot len rot eq rot swap ] until ;; make sure we're not at the end of the list
+
+;; teardown
+^ swap push     ;; put result V on last-stack
+$drop           ;; get rid of our working stack
+drop
+
+;; display result
+say
