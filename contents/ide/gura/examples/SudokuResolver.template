@@ -1,0 +1,128 @@
+#!/usr/bin/env gura
+
+// this script has been inspired by the following site.
+// problems have also been picked up there.
+// http://homepage1.nifty.com/~tetsu/ruby/puzzle/sudoku.html
+
+//import(canvas)
+
+convToNumber(str:string):map = if (str == ' ') { nil } else { tonumber(str):raise }
+makeBoard(boardRaw:string) = boardRaw.split('\n').each():list {|line|
+	convToNumber(line.split()):list
+}
+getBox(board, iRow:number, iCol:number) = {
+	iRow = int(iRow / 3) * 3, iCol = int(iCol / 3) * 3
+	list % board[iRow..(iRow + 2)]::get([iCol..(iCol + 2)]):list
+}
+solve(board, iCell:number) = {
+	repeat {
+		(iCell >= 9 * 9) && return(true)
+		[iRow, iCol] = [int(iCell / 9), iCell % 9]
+		(board[iRow][iCol] == nil) && break
+		iCell += 1
+	}
+	candidates = set(xset(1..9, board[iRow]):xor,
+					xset(1..9, board::get(iCol)):xor,
+					xset(1..9, getBox(board, iRow, iCol)):xor):and
+	(candidates.len() == 0) && return(false)
+	for (digit in candidates) {
+		board[iRow][iCol] = digit
+		solve(board, iCell + 1) && return(true)
+	}
+	board[iRow][iCol] = nil
+	false
+}
+printBoard(board) = {
+	println('+-----+-----+-----+')
+	for (line in board) {|i|
+		fields = [line[0..2], line[3..5], line[6..8]]::nilto(' '):map
+		println('|', fields::join(' ').join('|'), '|')
+		((i + 1) % 3 == 0) && println('+-----+-----+-----+')
+	}
+}
+drawBoard(filename:string, width:number, height:number, board) = {
+	canvas.create_emf(filename, width, height) {|c|
+		size = min(c.width(), c.height()) * .95
+		[x0, y0] = [(c.width() - size) / 2, (c.height() - size) / 2]
+		sizeGrid = size / 9
+		calcX(i:number):map = x0 + i * sizeGrid
+		calcY(i:number):map = y0 + i * sizeGrid
+		repeat(10) {|i|
+			c.setpen(`black, cond(i % 3 == 0, 4, 1), `solid)
+			c.line(calcX(i), calcY(0), calcX(i), calcY(9))
+		}
+		repeat(10) {|i|
+			c.setpen(`black, cond(i % 3 == 0, 4, 1), `solid)
+			c.line(calcX(0), calcY(i), calcX(9), calcY(i))
+		}
+		for (line in board) {|i|
+			for (digit in line) {|j|
+				(digit == nil) && continue
+				c.moveto(calcX(j), calcY(8 - i)).text('%d' % digit, sizeGrid, sizeGrid)
+			}
+		}
+	}
+}
+
+boardRaws = [
+R'''
+   39   2
+6 9 2 7  
+     6  9
+ 8673 1  
+  3   4  
+  5 4863 
+5  2     
+  4 7 9 1
+3   51   ''',
+R'''
+ 41   39 
+   4 7   
+35  8  64
+  93 46  
+2       3
+  71 68  
+47  5  89
+   8 3   
+ 86   23 ''',
+R'''
+     9647
+1 7 4  8 
+2   385  
+ 5 92   8
+9 1   4 6
+6   71 3 
+  956   2
+ 6  8 1 9
+7351     ''',
+R'''
+8   4  69
+24 5   1 
+  98 24  
+  8 1 64 
+7  4 8  5
+ 23 9 8  
+  21 67  
+ 1   4 23
+59  3   6''',
+R'''
+35    1 6
+ 765   84
+2  41  3 
+   2 167 
+  1 9 3  
+ 278 3   
+ 4  29  5
+98   721 
+6 2    49'''
+]
+for (boardRaw in boardRaws) {
+	board = makeBoard(boardRaw)
+	printBoard(board)
+	if (solve(board, 0)) {
+		printBoard(board)
+		//drawBoard('a.emf', 100, 100, board)
+	} else {
+		println("can't find answer for it")
+	}
+}

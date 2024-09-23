@@ -1,0 +1,4 @@
+Function main()
+    print("Hello, World!","
+");
+End Function

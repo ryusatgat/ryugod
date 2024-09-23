@@ -1,0 +1,19 @@
+//
+// 100doors.hk
+//
+
+var square = 1;
+var increment = 3;
+
+println("The open doors are: ");
+
+for (var door = 1; door <= 100; door++)
+{
+  if (door != square)
+    continue;
+  print(to_string(door) + " ");
+  square += increment;
+  increment += 2;
+}
+
+println("");

@@ -1,0 +1,22 @@
+/// Expect:
+/// - output: "weak_foo has_value? false\nweak_foo has_value? true\nweak_foo hello: friends\nweak_foo has_value? false\n"
+
+class Foo {
+    public fn hello(this) throws => "friends"
+}
+
+fn main() {
+    mut weak_foo: weak Foo = None
+
+    println("weak_foo has_value? {}", weak_foo.has_value())
+
+    {
+        let foo = Foo()
+        weak_foo = foo
+
+        println("weak_foo has_value? {}", weak_foo.has_value())
+        println("weak_foo hello: {}", weak_foo!.hello())
+    }
+
+    println("weak_foo has_value? {}", weak_foo.has_value())
+}

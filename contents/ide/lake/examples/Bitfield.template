@@ -1,0 +1,12 @@
+type s struct (
+	_ : 8,
+	c char,
+);
+type u union (
+	_ : 8,
+	c char,
+);
+s1 = sizeof[s];
+s2 = alignof[s];
+u1 = sizeof[u];
+u2 = alignof[u];

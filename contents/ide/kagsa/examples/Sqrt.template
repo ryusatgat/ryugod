@@ -1,0 +1,7 @@
+float num = input 'Enter a number: ';
+sqrt = num ** 0.5
+// you can use this also :
+// Math.sqrt()
+write 'The square root of', num, 'is:', sqrt,nl;
+
+// A program that calculates the square root of a number entered by the user.

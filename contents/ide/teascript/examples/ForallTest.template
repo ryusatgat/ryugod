@@ -1,0 +1,237 @@
+#!/opt/TeaAgeSolutions/TeaScript/bin/TeaScript
+/*
+ * SPDX-FileCopyrightText: Copyright (C) 2024 Florian Thake <contact@tea-age.solutions>. All rights reserved.
+ */
+
+
+
+// This is a test script for test the forall loop in combination with Sequences
+
+
+##minimum_version 0.12
+// fallback for versions older than 0.11 which don't support ##minimum_version.
+// they will produce a parse error when raw string literals are used...
+// cover this case here first and try to produce a readable error.
+// This protects against every new syntax introduced in 0.11 and above!
+if( _version_major < 1 and _version_minor < 12 ) {
+    // return from 'main' exists since 0.8.0 which was the first public release...
+    return """Version is too old. Need 0.12.0 as minimum."""
+}
+
+if( not is_defined _core_config or _core_config mod 16 < 8 /* LevelFull */ ) {
+    return "Tests must always run with CoreLibrary LevelFull."
+}
+
+
+// helper function for optional feature color printing
+func maybe_cprint( color, text )
+{
+    if( is_defined cprint ) {
+        cprint( color, text )
+    } else {
+        print( text )
+    }
+}
+
+func print_failure( text )
+{
+    // red color, because cannot use make_rgb()
+    maybe_cprint( 255*256*256, text )
+}
+
+func print_success( text )
+{
+    // green color, because cannot use make_rgb()
+    maybe_cprint( 255*256, text )
+}
+
+// --- UnitTest function definitions 
+
+func TEST_EQ( val, expected, msg )
+{
+    def res := val == expected
+    if( not res ) {
+        print_failure( "\nFAILED:\n" )
+        fail_with_message( "expected %(expected) but was %(val). " % msg, _exit_failure )
+    }
+}
+
+func TEST_TRUE( c, msg )
+{
+    // enforce a boolean!
+    TEST_EQ( not not c, true, msg )
+}
+
+func TEST_FALSE( c, msg )
+{
+    // enforce a boolean!
+    TEST_EQ( not not c, false, msg )
+}
+
+
+// --- Start the test
+
+_out( "Start testing forall loop and Sequences ...\n" )
+
+
+def res    := 0
+def retval := 0
+
+// positive to positive, forward  
+// _seq( 1, 10, 2 ), last valid is 9
+
+println( "... testing _seq( 1, 10, 2 ) " )
+
+retval := forall( n in _seq( 1, 10, 2 ) ) {
+    print( n % " " )
+    res := res + n
+    n
+}
+
+TEST_EQ( retval, 9, "last value wrong!" )
+TEST_EQ( res, 1+3+5+7+9, "result value wrong!" )
+
+print_success( "ok.\n" )
+
+
+res    := 0
+retval := 0
+
+// positive to positive, backward  
+// _seq( 10, 1, -2 ), last valid is 2
+
+println( "... testing _seq( 10, 1, -2 ) " )
+
+retval := forall( n in _seq( 10, 1, -2 ) ) {
+    print( n % " " )
+    res := res + n
+    n
+}
+
+TEST_EQ( retval, 2, "last value wrong!" )
+TEST_EQ( res, 10+8+6+4+2, "result value wrong!" )
+
+print_success( "ok.\n" )
+
+
+res    := 0
+retval := 0
+
+// negative to negative, forward
+// _seq( -10, -1, 2 ), last valid is -2
+
+println( "... testing _seq( -10, -1, 2 ) " )
+
+retval := forall( n in _seq( -10, -1, 2 ) ) {
+    print( n % " " )
+    res := res + n
+    n
+}
+
+TEST_EQ( retval, -2, "last value wrong!" )
+TEST_EQ( res, -10+-8+-6+-4+-2, "result value wrong!" )
+
+print_success( "ok.\n" )
+
+
+res    := 0
+retval := 0
+
+// negative to negative, backward
+// _seq( -2, -13, -3 ), last valid is -11
+
+println( "... testing _seq( -2, -13, -3 ) " )
+
+retval := forall( n in _seq( -2, -13, -3 ) ) {
+    print( n % " " )
+    res := res + n
+    n
+}
+
+TEST_EQ( retval, -11, "last value wrong!" )
+TEST_EQ( res, -2+-5+-8+-11, "result value wrong!" )
+
+print_success( "ok.\n" )
+
+
+res    := 0
+retval := 0
+
+// negative to positive, forward
+// _seq( -2, 13, 3 ), last valid is 13
+
+println( "... testing _seq( -2, 13, 3 ) " )
+
+retval := forall( n in _seq( -2, 13, 3 ) ) {
+    print( n % " " )
+    res := res + n
+    n
+}
+
+TEST_EQ( retval, 13, "last value wrong!" )
+TEST_EQ( res, -2+1+4+7+10+13, "result value wrong!" )
+
+print_success( "ok.\n" )
+
+
+res    := 0
+retval := 0
+
+// positive to negative, backward
+// _seq( 6, -11, -5 ), last valid is -9
+
+println( "... testing _seq( 6, -11, -5 ) " )
+
+retval := forall( n in _seq( 6, -11, -5 ) ) {
+    print( n % " " )
+    res := res + n
+    n
+}
+
+TEST_EQ( retval, -9, "last value wrong!" )
+TEST_EQ( res, 6+1+-4+-9, "result value wrong!" )
+
+print_success( "ok.\n" )
+
+
+res    := 0
+retval := 0
+
+// positive to 0, backward
+// _seq( 10, 0, -1 ), last valid is 0
+
+println( "... testing _seq( 10, 0, -1 ) " )
+
+retval := forall( n in _seq( 10, 0, -1 ) ) {
+    print( n % " " )
+    res := res + n
+    n
+}
+
+TEST_EQ( retval, 0, "last value wrong!" )
+TEST_EQ( res, 10+9+8+7+6+5+4+3+2+1+0, "result value wrong!" )
+
+print_success( "ok.\n" )
+
+
+res    := 0
+retval := 0
+
+// negative to 0, forward
+// _seq( -10, 0, 1 ), last valid is 0
+
+println( "... testing _seq( -10, 0, 1 ) " )
+
+retval := forall( n in _seq( -10, 0, 1 ) ) {
+    print( n % " " )
+    res := res + n
+    n
+}
+
+TEST_EQ( retval, 0, "last value wrong!" )
+TEST_EQ( res, -10+-9+-8+-7+-6+-5+-4+-3+-2+-1+-0, "result value wrong!" )
+
+print_success( "ok.\n" )
+
+
+print_success( "\n=== TEST PASSED ===\n" )

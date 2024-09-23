@@ -1,0 +1,6 @@
+;
+;  Lush: Hello, World!
+;  https://lush.sourceforge.net
+;
+
+(printf "Hello, World!\n")

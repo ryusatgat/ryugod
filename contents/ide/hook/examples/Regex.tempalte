@@ -1,0 +1,14 @@
+//
+// regex.hk
+//
+
+import regex;
+
+let [r, err] = regex.new("a*b");
+if (err) {
+  panic(err);
+}
+
+println(regex.is_match(r, "aaab"));
+println(regex.is_match(r, "ab"));
+println(regex.is_match(r, "x"));

@@ -1,0 +1,7 @@
+#define x 4
+The answer is:
+#eval x*x + 2*(16-x) + 1998%x
+
+#if defined(x)&&!(3*x+5>17)
+This should be output.
+#endif

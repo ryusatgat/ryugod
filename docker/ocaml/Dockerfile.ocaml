@@ -2,5 +2,6 @@ ARG FROM_IMAGE=ryusatgat/ubuntu
 FROM $FROM_IMAGE    
 
 RUN apt install -y ocaml ocaml-dune make omake ocamlbuild opam ocaml-findlib
+RUN curl -s -L https://github.com/FStarLang/FStar/releases/download/v2024.09.05/fstar_2024.09.05_Linux_x86_64.tar.gz | tar xvz -C /opt && ln -s /opt/fstar/bin/fstar.exe /usr/local/bin/fstar && ln -s /opt/fstar/bin/z3 /usr/local/bin/z3
 
 USER $USERNAME

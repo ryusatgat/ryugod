@@ -1,0 +1,6 @@
+module Main;
+
+import System; 
+using System;
+
+PrintLine("Hello, World!");

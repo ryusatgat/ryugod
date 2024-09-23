@@ -1,0 +1,8 @@
+var number = 20
+
+// use ensure that the contents of ifs and elses are indented with a tab
+if math number == 20
+	print "The number is 20"
+else
+	print "The number is not 20"
+endif

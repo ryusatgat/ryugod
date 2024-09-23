@@ -1,0 +1,25 @@
+//
+// coin_flip.hk
+//
+
+import { srand, rand } from numbers;
+import { time } from os;
+import { round } from math;
+
+srand(time());
+
+fn coin_flip(times) {
+  var heads = 0;
+  var tails = 0;
+  for (var i = 0; i < times; i++) {
+    let n = round(rand() * 1);
+    if (n == 0)
+      heads++;
+    else
+      tails++;
+  }
+  println("heads: " + to_string(heads));
+  println("tails: " + to_string(tails));
+}
+
+coin_flip(10);

@@ -1,0 +1,75 @@
+//constants
+var WIDTH: int const = 12;
+var HEIGHT: int const = 12;
+
+//WIDTH * HEIGHT in size
+var tiles: [[int]] const = [
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1],
+        [1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1],
+        [1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1],
+        [1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] //BUG: map is twisted along this diagonal
+];
+
+var tileset: [int: string] const = [
+        0: "  ",
+        1: "X "
+];
+
+//variables
+var posX: int = 4;
+var posY: int = 4;
+
+//functions
+fn draw() {
+        for (var j: int = 0; j < HEIGHT; j++) {
+                for (var i: int = 0; i < WIDTH; i++) {
+                        //draw the player pos
+                        if (i == posX && j == posY) {
+                                print "O ";
+                                continue;
+                        }
+
+                        print tileset[ tiles[i][j] ];
+                }
+                print "\n";
+        }
+        print "\n";
+}
+
+fn moveRelative(xrel: int, yrel: int) {
+        if (xrel > 1 || xrel < -1 || yrel > 1 || yrel < -1 || (xrel != 0 && yrel != 0)) {
+                print "too fast!\n";
+                return;
+        }
+
+        if (tiles[posX + xrel][posY + yrel] > 0) {
+                print "Can't move that way\n";
+                return;
+        }
+
+        posX += xrel;
+        posY += yrel;
+
+        draw();
+}
+
+//wrap for easy use
+var up: [int] const = [0, -1];
+var down: [int] const = [0, 1];
+var left: [int] const = [-1, 0];
+var right: [int] const = [1, 0];
+
+fn move(dir: [int] const) {
+        return moveRelative(dir[0], dir[1]);
+}
+
+//initial display
+move([0, 0]);

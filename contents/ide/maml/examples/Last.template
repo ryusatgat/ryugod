@@ -1,0 +1,15 @@
+let comment = "Write a function last that returns the last element of a list"
+
+
+let lastFn = fn(x) {
+    let helper = fn(list) {
+        if (len(x) == 0) {
+            return list
+	} else {
+	   helper(rest(list))
+        }
+    }
+    last(x)
+}
+
+puts(lastFn([1,2,3,5,4,5]))

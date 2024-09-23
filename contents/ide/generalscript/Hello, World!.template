@@ -1,0 +1,6 @@
+#
+#  GeneralScript: Hello, World!
+#  https://sourceforge.net/projects/gscript
+#
+
+print(Hello, World!)

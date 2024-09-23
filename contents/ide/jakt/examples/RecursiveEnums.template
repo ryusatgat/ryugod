@@ -1,0 +1,36 @@
+/// Expect:
+/// - output: "result: 15\n"
+
+enum Operation {
+    Add
+}
+
+boxed enum AST {
+    Int(i64)
+    BinaryOperation(lhs: AST, op: Operation, rhs: AST)
+}
+
+fn eval(anon ast: AST) -> i64 {
+    match ast {
+        AST::Int(i) => {
+            return i
+        }
+        AST::BinaryOperation(lhs: lhs, op: op, rhs: rhs) => {
+            match op {
+                Operation::Add => {
+                    return eval(lhs) + eval(rhs)
+                }
+            }
+        }
+    }
+}
+
+fn main() {
+    let ast = AST::BinaryOperation(
+        lhs: AST::Int(5), 
+        op: Operation::Add(), 
+        rhs: AST::Int(10)
+    )
+
+    println("result: {}", eval(ast))
+}

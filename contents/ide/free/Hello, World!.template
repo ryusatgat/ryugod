@@ -1,0 +1,8 @@
+//
+//  Free: Hello, World!
+//  https://github.com/adam-mcdaniel/free
+//
+
+fn start() {
+    println("Hello, World!");
+}

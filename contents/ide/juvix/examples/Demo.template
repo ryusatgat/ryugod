@@ -1,0 +1,48 @@
+module Main;
+
+-- standard library prelude
+import Stdlib.Prelude open;
+
+even : Nat → Bool
+  | zero := true
+  | (suc zero) := false
+  | (suc (suc n)) := even n;
+
+even' : Nat → Bool
+  | n := mod n 2 == 0;
+
+-- base 2 logarithm rounded down
+terminating
+log2 : Nat → Nat
+  | n := ite (n <= 1) 0 (suc (log2 (div n 2)));
+
+type Tree (A : Type) :=
+  | leaf : A → Tree A
+  | node : A → Tree A → Tree A → Tree A;
+
+mirror : {A : Type} → Tree A → Tree A
+  | t@(leaf _) := t
+  | (node x l r) := node x (mirror r) (mirror l);
+
+tree : Tree Nat := node 2 (node 3 (leaf 0) (leaf 1)) (leaf 7);
+
+preorder : {A : Type} → Tree A → List A
+  | (leaf x) := x :: nil
+  | (node x l r) := x :: nil ++ preorder l ++ preorder r;
+
+terminating
+sort {A} {{Ord A}} : List A → List A
+  | nil := nil
+  | xs@(_ :: nil) := xs
+  | xs := uncurry merge (both sort (splitAt (div (length xs) 2) xs));
+
+printNatListLn : List Nat → IO
+  | nil := printStringLn "nil"
+  | (x :: xs) := printNat x >>> printString " :: " >>> printNatListLn xs;
+
+main : IO :=
+  printStringLn "Hello!"
+    >>> printNatListLn (preorder (mirror tree))
+    >>> printNatListLn (sort (preorder (mirror tree)))
+    >>> printNatLn (log2 3)
+    >>> printNatLn (log2 130);

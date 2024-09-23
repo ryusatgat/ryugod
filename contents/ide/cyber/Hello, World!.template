@@ -1,0 +1,6 @@
+--
+--  Cyber: Hello, World!
+--  https://github.com/fubark/cyber
+--
+
+print "Hello, World!"

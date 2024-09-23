@@ -1,0 +1,25 @@
+func add(a, b) {
+    return a + b
+}
+
+func subtract(a, b) {
+    return a - b
+}
+
+func multiply(a, b) {
+    return a * b
+}
+
+func divide(a, b) {
+    return a / b
+}
+
+num1 = toFloat(input'Enter first number: ')
+num2 = toFloat(input'Enter second number: ')
+
+write 'Sum:', add(num1, num2), nl;
+write 'Difference:', subtract(num1, num2), nl;
+write 'Product:', multiply(num1, num2), nl;
+write 'Quotient:', divide(num1, num2), nl;
+
+// This program defines four functions for performing basic arithmetic operations and then asks the user for two numbers to perform the operations on. The program then calls the functions with the given numbers and prints the results.

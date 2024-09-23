@@ -1,0 +1,34 @@
+<$
+print "before everything\n";
+func foo
+        print "in foo\n";
+return
+
+func bar
+        print "in bar\n";
+        foo;
+        blah;
+        print "gonna leave bar now.\n";
+return
+
+func baz
+        print "in baz\n";
+        foo;
+        print "still in baz\n";
+        bar;
+        print "baz is fun.\n";
+return
+
+print "hey\n";
+foo;
+print "hey again\n";
+baz;
+print "After baz.\n";
+
+func blah
+        print "in blah!\n";
+return
+
+print "the end.\n";
+
+$>

@@ -1,0 +1,27 @@
+#
+#   Klaxon: Hello, World!
+#   https://github.com/Jackojc/klaxon
+#
+
+def main {
+    0 { 1 2 - } 34 3 512 0 9 @6 syscall
+    72          # H
+    101 8  << | # e
+    108 16 << | # l
+    108 24 << | # l
+    111 32 << | # o
+    44  40 << | # ,
+    32  48 << | #
+    87  56 << | # W
+    over swap
+    store
+    dup 8 +
+    111         # o
+    114 8  << | # r
+    108 16 << | # l
+    100 24 << | # d
+    33  32 << | # !
+    10  40 << | # \n
+    store
+    14 swap 1 1 @4 syscall
+}

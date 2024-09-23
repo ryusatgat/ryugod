@@ -1,0 +1,19 @@
+//
+// pi.hk
+//
+
+fn pi() {
+  let n = 1000000;
+  var d = 1;
+  var sum = 0;
+  for (var i = 0; i < n; i++) {
+    if (i % 2 == 0)
+      sum += 4 / d;
+    else
+      sum -= 4 / d;
+    d += 2;
+  }
+  return sum;
+}
+
+println(pi());

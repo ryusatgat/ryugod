@@ -1,0 +1,16 @@
+//
+// hanoi.hk
+//
+
+fn hanoi(n, src, dest, aux) {
+  if (n == 1) {
+    println("Move disk 1 from rod " + src + " to rod " + dest + ".");
+    return;
+  }
+  hanoi(n - 1, src, aux, dest);
+  println("Move disk " + to_string(n) + " from rod " + src + " to rod " + dest + ".");
+  hanoi(n-1, aux, dest, src);
+}
+
+let n = 4;
+hanoi(n, "A", "C", "B");

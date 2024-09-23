@@ -1,0 +1,10 @@
+//
+//  Fanx: Hello, World!
+//  https://github.com/fanx-dev/fanx
+//
+
+class Main {
+    fun main() {
+        echo("Hello, World!")
+    }
+}

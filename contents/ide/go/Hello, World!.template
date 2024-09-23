@@ -1,4 +1,6 @@
-/* Go(고) Hello, World 예제 */
+/*
+    Go: Hello, World
+*/
 
 package main
 

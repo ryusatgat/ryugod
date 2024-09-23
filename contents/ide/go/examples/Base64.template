@@ -1,4 +1,4 @@
-/* Go(고) 언어: Base64 인코딩/디코딩 예제 */
+/* Go: Base64 Encoding/Decoding */
 
 package main
 

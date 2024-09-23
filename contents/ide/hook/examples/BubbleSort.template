@@ -1,0 +1,23 @@
+//
+// bubble_sort.hk
+//
+
+fn sort(arr) {
+  var n = len(arr);
+  var has_changed;
+  do {
+    has_changed = false;
+    n--;
+    for (var i = 0; i < n; i++) {
+      if (arr[i] > arr[i + 1]) {
+        let t = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = t;
+        has_changed = true;
+      }
+    }
+  } while (has_changed);
+  return arr;
+}
+
+println(sort([5, 2, 7, 3, 0, 1, 4, 6]));

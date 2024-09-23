@@ -1,0 +1,13 @@
+//
+//  Curv: Hello, World!
+//  https://curv3d.org
+//
+
+let
+    msg = "Hello, World!";
+
+in do
+    print msg;
+
+in
+    rect[1,inf]

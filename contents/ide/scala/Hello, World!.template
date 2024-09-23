@@ -1,5 +1,5 @@
 /*
-    Scala(스칼라): Hello, World! 예제
+    Scala: Hello, World!
 */
 
 object main extends App {

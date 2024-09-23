@@ -1,0 +1,6 @@
+#
+#   CovariantScript: Hello, World
+#   https://github.com/covscript/covscript
+#
+
+system.out.println("Hello, World!")

@@ -1,0 +1,5 @@
+//
+//   Magpie: Hello, World!
+//   https://github.com/munificent/magpie
+//
+print("Hello, World!")

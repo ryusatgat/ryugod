@@ -1,0 +1,30 @@
+func binary_search(arr, x) {
+    var low = 0
+    var high = arr.length() - 1
+
+    while low <= high {
+        var mid = (low + high) // 2
+        if arr.get(mid) < x {
+            low = mid + 1
+        } elseif arr.get(mid) > x {
+            high = mid - 1
+        } else {
+            return mid
+        }
+    }
+
+    return -1
+}
+
+var arr = list(1, 3, 5, 7, 9)
+int x = 7
+
+result = binary_search(arr, x)
+
+if result == -1 {
+    write 'Element not found.\n';
+} else {
+    write 'Element found at index', result, nl;
+}
+
+// This program defines a function that performs binary search on a given array to find a specific element. The program then creates an array and a search element, calls the function with these values, and prints the result.

@@ -1,0 +1,15 @@
+var x;
+
+procedure abs;
+begin
+    if x >= 0 then
+        x := x
+    else
+        x := 0 - x
+end;
+
+begin
+   read x;
+   call abs;
+   write x
+end.

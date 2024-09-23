@@ -1,0 +1,24 @@
+//
+// quick_sort.hk
+//
+
+fn sort(arr) {
+  let n = len(arr);
+  if (n <= 1)
+    return arr;
+  let pivot = arr[0];
+  var left = []; 
+  var right = [];
+  for (var i = 1; i < n; i++) {
+    if (arr[i] < pivot)
+      left[] = arr[i];
+    else
+      right[] = arr[i];
+  }
+  arr = sort(left);
+  arr[] = pivot;
+  arr += sort(right);
+  return arr;
+}
+
+println(sort([5, 2, 7, 3, 0, 1, 4, 6]));

@@ -1,7 +1,9 @@
 ARG FROM_IMAGE=ryusatgat/ubuntu
 FROM $FROM_IMAGE    
 
-RUN apt install -y clang cmake make clang-format
+RUN apt update && apt install -y clang cmake make clang-format
+
+RUN curl -s -L https://github.com/anoma/juvix/releases/download/v0.6.6/juvix-linux-x86_64.tar.gz | tar xvz -C /usr/local/bin && rm -f /usr/local/bin/._juvix
 
 ADD opt /opt/
     

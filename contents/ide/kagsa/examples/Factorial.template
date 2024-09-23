@@ -1,0 +1,19 @@
+func factorial (num) {
+    if num < 0 {
+        write 'error'
+        return ''
+    }elseif num == 0 {
+        return 1
+    }else{
+        var data = 1
+        for i -> nlist(num, zero=false) {
+            var data=data * i;
+        }
+        return data;
+        
+    }
+}
+
+write factorial(5),nl;
+
+// This program defines a function that calculates the factorial of a given number using recursion. The program then calls the function with the number 5 and prints the result.

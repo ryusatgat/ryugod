@@ -1,0 +1,12 @@
+/// Expect:
+/// - output: "3\n"
+
+fn do_pop<T>(anon mut arr: [T]) -> Optional<T> {
+  return arr.pop()
+}
+
+fn main() {
+  mut arr = [1, 2, 3];
+
+  println("{}", do_pop(arr)!)
+}

@@ -1,0 +1,13 @@
+for i -> nlist(100,zero=false) {
+    if (i % 3 == 0) && (i % 5 == 0) {
+        write 'FizzBuzz',nl;
+    } elseif i % 3 == 0 {
+        write 'Fizz',nl;
+    } elseif i % 5 == 0 {
+        write 'Buzz',nl;
+    } else {
+        write i,nl;
+    }
+}
+
+// This program uses a loop to print the numbers from 1 to 100, replacing multiples of 3 with "Fizz", multiples of 5 with "Buzz", and multiples of both with "FizzBuzz".

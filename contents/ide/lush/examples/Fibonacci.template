@@ -1,0 +1,6 @@
+(de fibo (n)
+    (if (= n 0)            ; test if n equals 0
+        0                  ; if yes, return 0
+        (if (= n 1)        ; else test if n equals 1
+            1               ; if yes return 1
+            (+ (fibo (- n 1)) (fibo (- n 2))))))

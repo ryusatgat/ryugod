@@ -1,0 +1,32 @@
+<$
+
+print "The start.\n";
+
+foo 7, 6, 2+9;
+
+print "Whee!\n";
+
+print " \"heya!\\\" \\\\","\n";
+
+func foo
+        int n,x;
+
+        x = 4;
+        int y = x;
+        int z = y + 6;
+
+        int array bob = {9 , 23+66, x};
+
+        print "bob: ",bob[0]," ",bob[1]," ",bob[2],"\n";
+
+        n = $0;
+        x = $#;
+
+        print "vars: ",x," ",y," ",z,"\n";
+
+        print "given to foo: ",n," ",$1," ",$2,"\n";
+        print "raw str: ",$*,"\n";
+        print "foo received ",x," args\n";
+return
+
+$>

@@ -1,0 +1,275 @@
+#!/opt/TeaAgeSolutions/TeaScript/bin/TeaScript
+/*
+ * SPDX-FileCopyrightText:  Copyright (C) 2023 Florian Thake, <contact |at| tea-age.solutions>.
+ * SPDX-License-Identifier: MIT
+ * see included file MIT_LICENSE.txt
+ */
+ 
+
+// This is a demo script for showing the use of named tuple
+
+// You can show, search, delete and add persons to/from a given data set.
+
+// NOTE: For this demo the first and last name of one data entry must be unique. 
+
+
+// factory function for birthday
+func create_birth( year, month, day )
+{
+    def birth := _tuple_create()
+    def birth.year := year
+    def birth.month := month
+    def birth.day := day
+    birth
+}
+
+// factory function for one person
+func create_person( firstname, lastname, birth, email )
+{
+    def person := _tuple_create()
+    
+    def person.first_name := firstname
+    def person.last_name := lastname
+    def person.birth := birth
+    def person.email := email
+    
+    person
+}
+
+// our main data set we are working with.
+def data_set := _tuple_create()
+
+// add some data to start with
+
+_tuple_named_append( data_set, "Doe, Jon", create_person( "Jon", "Doe", create_birth( 1976, 7, 26 ), "jon.doe@somemail.com" ) )
+_tuple_named_append( data_set, "Meyer, Peter", create_person( "Peter", "Meyer", create_birth( 1964, 10, 5 ), "meyer.p@anymail.com" ) )
+_tuple_named_append( data_set, "Moon, Liz", create_person( "Liz", "Moon", create_birth( 1987, 3, 17 ), "moonshine@themail.us" ) )
+
+
+// shows the entry by given index or name
+func show( index_or_name )
+{
+    if( not tuple_contains( data_set, index_or_name ) ) {
+        println( "%(index_or_name) is not in data set." )
+    } else {
+        const  index := if( index_or_name is String ) { _tuple_index_of( data_set, index_or_name ) } else { index_or_name }
+        
+        println( "%(index): %(_tuple_val(data_set, index))" )
+    }
+}
+
+
+// adds a new entry, just do some very basic checks on the input.
+func add_entry()
+{
+    println( "\nAdd new entry (type nothing and press enter will cancel!)" )
+    print( "\nFirstname: ")
+    const firstname := readline()
+    if( not firstname ) {
+        println( "canceled!" )
+        return void
+    }
+    print( "\nLastname: ")
+    const lastname := readline()
+    if( not lastname ) {
+        println( "canceled!" )
+        return void
+    }
+    const key := lastname % ", " % firstname
+    
+    if( tuple_contains( data_set, key ) ) {
+        println( "%(key) exists already!" )
+        return void
+    }
+    
+    print( "\nBirth year: ")
+    const year_str := readline()
+    if( not year_str ) {
+        println( "canceled!" )
+        return void
+    }
+    const year := _strtonum( year_str )
+    if( not year is i64 ) {
+        println( "must be number!" )
+        return void
+    }
+    
+    print( "\nBirth month: ")
+    const month_str := readline()
+    if( not month_str ) {
+        println( "canceled!" )
+        return void
+    }
+    const month := _strtonum( month_str )
+    if( not month is i64 ) {
+        println( "must be number!" )
+        return void
+    }
+    
+    print( "\nBirth day: ")
+    const day_str := readline()
+    if( not day_str ) {
+        println( "canceled!" )
+        return void
+    }
+    const day := _strtonum( day_str )
+    if( not day is i64 ) {
+        println( "must be number!" )
+        return void
+    }
+    
+    print( "\nEmail: ")
+    const email := readline()
+    if( not email ) {
+        println( "canceled!" )
+        return void
+    }
+    if( not strfind( email, "@" ) ) {
+        println( "must be email!" )
+        return void
+    }
+    
+    // and finally add the entry
+    _tuple_named_append( data_set, key, create_person( firstname, lastname, create_birth( year, month, day ), email ) )
+}
+
+
+func delete_entry()
+{
+    println( "\nDelete an entry (type nothing and press enter will cancel!)" )
+    
+    print( "Type index or key: " )
+    def s := readline()
+    
+    def index := _strtonum( s )
+    
+    if( index is i64 ) {
+        if( not _tuple_remove( data_set, index ) ) {
+            println( "%(index) is not in data set." )
+        }
+    } else {
+        if( not _tuple_named_remove( data_set, s ) ) {
+            println( "%(s) is not in data set." )
+        }
+    }
+}
+
+func search_entry()
+{
+    println( "\nSearch an entry (type nothing and press enter will cancel!)" )
+    println( "Choose: 1 = Firstname, 2 = Lastname, 3 = birth year, 4 = birth month, 5 = birth day" )
+    
+    def choice := readline()
+    if( not choice ) {
+        println( "canceled!" )
+        return void
+    }
+    def n := _strtonum( choice )
+    if( not n is i64 or n > 5 or n < 1 ) {
+        println( "must be number between 1 and 5.")
+        return void
+    }
+    
+    println( "Enter the data to search for: " )
+    def s := readline()
+    if( choice > 2 ) {
+        def test := _strtonum(s)
+        if( not test is i64 ) {
+            println( "must be number!" )
+            return void
+        }
+    }
+    
+    // well, there are 1000 of other options to perform the search ...
+    // ... but for this demo we picked to build a predicate on the fly ... 
+    // ... (could also use a map (tuple) with predefined predicates, ...
+    // ... or use the key name and _tuple_named_val() ... or ... or .... )
+    def predicate := func( entry @= ) { false }
+    if( choice == 1 ) {
+        predicate := func( entry @=  ) { entry.first_name == s }
+    } else if( choice == 2 ) {
+        predicate := func( entry @= ) { entry.last_name == s }
+    } else if( choice == 3 ) {
+        predicate := func( entry @= ) { entry.birth.year == s }
+    } else if( choice == 4 ) {
+        predicate := func( entry @= ) { entry.birth.month == s }
+    } else if( choice == 5 ) {
+        predicate := func( entry @= ) { entry.birth.day == s }
+    }
+    
+    println("Searching...")
+    def idx := 0
+    const size := _tuple_size( data_set )
+    repeat {
+        if( idx == size ) { return true }
+        if( predicate( _tuple_val( data_set, idx ) ) ) {
+            show( idx )
+        }
+        idx := idx + 1
+    }
+}
+
+func main()
+{
+    println( "%(_tuple_size(data_set)) entries in the data set.\n" )
+    println( "Enter number for list the entry at index or \"all\" for all (or \"dump\" for dump structure)." )
+    println( "Enter \"search\" for start search" )
+    println( "Enter \"delete\" for start delete" )
+    println( "Enter \"add\" for start add" )
+    println( "Enter \"q\", \"quit\", \"exit\" or \"end\" for end" )
+    
+    def command := readline()
+    
+    if( command == "q" or command == "quit" or command == "exit" or command == "end" ) {
+        return false
+    }
+    if( command == "search" ) {
+        search_entry()
+        return true
+    }
+    if( command == "delete" ) {
+        delete_entry()
+        return true
+    }
+    if( command == "add" ) {
+        add_entry()
+        return true
+    }
+    if( command == "all" ) {
+        println("\nShowing all:")
+        def idx := 0
+        const size := _tuple_size( data_set )
+        repeat {
+            if( idx == size ) { return true }
+            show( idx )
+            idx := idx + 1
+        }
+    }
+    if( command == "dump" ) {
+        println("\nDump:")
+        tuple_print( data_set, "data", 10 )
+        return true
+    }
+    
+    // is it a number?
+    def index := _strtonum( command )
+    if( index is i64 ) {
+        println( "\nShowing:" )
+        show( index )
+        return true
+    }
+    
+    println( "\nUNKNOWN COMMAND! Please, try again.\n" )
+    true
+}
+
+
+println( "This is a TeaScript demo script for showing the use of named tuples." )
+println( "You can show, search, delete and add persons to/from a given data set." )
+
+repeat {
+    if( not main() ) { stop }
+    println("\n")
+}
+
+println( "END!" )

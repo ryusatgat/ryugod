@@ -1,0 +1,65 @@
+#!/opt/TeaAgeSolutions/TeaScript/bin/TeaScript
+/*
+ * SPDX-FileCopyrightText:  Copyright (C) 2023 Florian Thake, <contact |at| tea-age.solutions>.
+ * SPDX-License-Identifier: MIT
+ * see included file MIT_LICENSE.txt
+ */
+ 
+// This is a demo script for showing a double linked list with the help of named tuples.
+
+// NOTE: If you need a list, using an index based tuple together with the following helper functions is a common alternative:
+//       _tuple_append, _tuple_insert, _tuple_remove, _tuple_swap + the ordinary other tuple functions.
+
+
+// factory function for a new node with payload data
+func create_node( data )
+{
+    def node      := _tuple_create()   // empty tuple
+    def node.prev := _tuple_create()   // empty tuple
+    def node.next := _tuple_create()   // empty tuple
+    def node.data := data
+    node
+}
+
+
+// insert a new node with given data right after the given node.
+func insert( node @=, data )
+{
+    def new := create_node( data )
+
+    if( node.next ) { // checks for not empty tuple
+        new.next @= node.next
+        node.next.prev @= new
+    }
+    node.next @= new
+    new.prev  @= node
+
+    void
+}
+
+
+// create the head of the list
+
+def head := create_node( 1 )
+
+// insert some data....
+insert( head, 4 )
+insert( head, 3 )
+insert( head, 2 )
+
+// iterate over the list and print the data 
+def cur @= head
+repeat {
+    if( cur ) { // checks for not empty tuple
+        println( cur.data )
+        cur @= cur.next
+    } else {
+        stop
+    }
+}
+
+// NOTE: for longer running scripts it could be necessary to manual cleanup the list
+//       after it is not needed anymore due to the cyclic references formed by prev/next.
+//       But for short running scripts like this it is not necessary.
+
+println( "END!" )

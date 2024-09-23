@@ -1,0 +1,9 @@
+//
+//  GPP: Hello, World!
+//  https://logological.org/gpp
+//
+
+#define hello Hello,
+#define world World!
+#define concat #1 #2
+concat(hello,world)

@@ -1,0 +1,112 @@
+//
+// num_to_words.hk
+//
+
+let units = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+let teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+let tens = ["", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+
+let places = ["", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth"];
+let teen_places = ["tenth", "eleventh", "twelfth", "thirteenth", "fourteenth", "fifteenth", "sixteenth", "seventeenth", "eighteenth", "nineteenth"];
+let tens_places = ["", "tenth", "twentieth", "thirtieth", "fortieth", "fifthieth", "sixthieth", "seventieth", "eightieth", "ninetieth"];
+
+fn num_to_array(num) {
+	var arr = [];
+	arr[] = to_int(num / 100000000 % 10);
+	arr[] = to_int(num / 10000000 % 10);
+	arr[] = to_int(num / 1000000 % 10);
+	arr[] = to_int(num / 100000 % 10);
+	arr[] = to_int(num / 10000 % 10);
+	arr[] = to_int(num / 1000 % 10);
+	arr[] = to_int(num / 100 % 10);
+	arr[] = to_int(num / 10 % 10);
+	arr[] = to_int(num / 1 % 10);
+	return arr;
+}
+
+fn has_trailing_zeros(arr) {
+	if (arr[6] != 0)
+		return arr[7] == 0 && arr[8] == 0;
+	if (arr[3] != 0 || arr[4] != 0 || arr[5] != 0)
+		return arr[6] == 0 && arr[7] == 0 && arr[8] == 0;
+	if (arr[0] != 0 || arr[1] != 0 || arr[2] != 0)
+		return arr[3] == 0 && arr[4] == 0 && arr[5] == 0 && arr[6] == 0 && arr[7] == 0 && arr[8] == 0;
+}
+
+fn num_to_words(num) {
+	let arr = num_to_array(num);
+	var word = "";
+	if (num == 0)
+		word = "zero";
+	if (num >= 1 && num <= 9)
+		word = units[num];
+	if (num >= 10 && num <= 19)
+		word = teens[to_int(num % 10)];
+	if (num >= 20 && num <= 99) {
+		word += tens[to_int(num / 10)];
+		if (arr[8] != 0)
+			word += " " + units[to_int(num % 10)];
+	}
+	if (num >= 100 && num <= 999) {
+		word += units[arr[6]] + " hundred ";
+		if! (has_trailing_zeros(arr))
+			word += num_to_words(arr[7] * 10 + arr[8]);
+	}
+	if (num >= 1000 && num <= 999999) {
+		word += num_to_words(arr[3] * 100 + arr[4] * 10 + arr[5]) + " thousand ";
+		if! (has_trailing_zeros(arr))
+			word += num_to_words(arr[6] * 100 + arr[7] * 10 + arr[8]);
+	}
+	if (num >= 1000000 && num <= 999999999) {
+		word += num_to_words(arr[0] * 100 + arr[1] * 10 + arr[2]) + " million ";
+		if! (has_trailing_zeros(arr))
+			word += num_to_words(arr[3] * 100000 + arr[4] * 10000 + arr[5] * 1000 + arr[6] * 100 + arr[7] * 10 + arr[8]);
+	}
+	return word;
+}
+
+fn num_to_place(num) {
+	let arr = num_to_array(num);
+	var place = "";
+	if (num == 0)
+		place = "zeroth";
+	if (num >= 1 && num <= 9)
+		place = places[num];
+	if (num >= 10 && num <= 19)
+		place = teen_places[to_int(num % 10)];
+	if (num >= 20 && num <= 99) {
+		if (arr[8] == 0)
+			place += tens_places[to_int(num / 10)];
+		else
+			place += tens[to_int(num / 10)] + " " + places[to_int(num % 10)];
+	}
+	if (num >= 100 && num <= 999) {
+		if (has_trailing_zeros(arr))
+			place += units[arr[6]] + " hundredth";
+		else
+			place += units[arr[6]] + " hundred " + num_to_place(arr[7] * 10 + arr[8]);
+	}
+	if (num >= 1000 && num <= 999999) {
+		if (has_trailing_zeros(arr))
+			place += num_to_words(arr[3] * 100 + arr[4] * 10 + arr[5]) + " thousandth";
+		else {
+			place += num_to_words(arr[3] * 100 + arr[4] * 10 + arr[5]) + " thousand ";
+			if! (has_trailing_zeros(arr))
+				place += num_to_place(arr[6] * 100 + arr[7] * 10 + arr[8]);
+		}
+	}
+	if (num >= 1000000 && num <= 999999999) {
+		if (has_trailing_zeros(arr))
+			place += num_to_words(arr[0] * 100 + arr[1] * 10 + arr[2]) + " millionth";
+		else {
+			place += num_to_words(arr[0] * 100 + arr[1] * 10 + arr[2]) + " million ";
+			if! (has_trailing_zeros(arr))
+				place += num_to_place(arr[3] * 100000 + arr[4] * 10000 + arr[5] * 1000 + arr[6] * 100 + arr[7] * 10 + arr[8]);
+		}
+	}
+	return place;
+}
+
+let num = 1048576;
+println("Word: " + num_to_words(num));
+println("Place: " + num_to_place(num));

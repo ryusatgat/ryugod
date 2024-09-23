@@ -1,0 +1,6 @@
+//
+//  Finch: Hello, World!
+//  https://github.com/munificent/finch
+//
+
+write-line: "Hello, World!"

@@ -1,0 +1,6 @@
+##
+##  Motion: Hello, World!
+##  https://github.com/MotionLang/motion
+##
+
+print "Hello, World!";

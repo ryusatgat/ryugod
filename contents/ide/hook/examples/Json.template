@@ -1,0 +1,21 @@
+//
+// json.hk
+//
+
+import json;
+
+struct Person {
+  name,
+  age
+}
+
+let p = Person { "John", 42 };
+
+let serialized = json.encode(p);
+
+println(serialized);
+
+let q = json.decode(serialized);
+
+println(q.name);
+println(q.age);

@@ -1,0 +1,11 @@
+--
+--   Juvix: Hello, World!
+--   https://github.com/anoma/juvix
+--
+
+module Main;
+
+import Stdlib.Prelude open;
+
+main : IO :=
+    printStringLn "Hello, World!"

@@ -1,0 +1,6 @@
+#!/usr/bin/env gura
+
+n = 100000
+x = rands(nil, n)
+y = rands(nil, n)
+printf('pi = %f\n', (x ** 2 + y ** 2 <= 1).count() * 4 / n)

@@ -1,0 +1,6 @@
+//
+//   KataScript: Hello, World!
+//   https://github.com/brwhale/KataScript
+//
+
+print("Hello, World!");

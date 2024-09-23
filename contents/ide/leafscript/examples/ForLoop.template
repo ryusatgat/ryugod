@@ -1,0 +1,9 @@
+for x 2
+	for y 2
+		for z 2
+			for i 2
+				print concat math x & " " & math y & " " & math z & " " & math i
+			endfor
+		endfor
+	endfor
+endfor

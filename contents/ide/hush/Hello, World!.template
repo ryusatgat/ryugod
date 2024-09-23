@@ -1,0 +1,6 @@
+#
+#  Hush: Hello, World!
+#  https://github.com/hush-shell/hush
+#
+
+std.print("Hello, World!")

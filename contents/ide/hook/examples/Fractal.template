@@ -1,0 +1,29 @@
+//
+// fractal.hk
+//
+
+let y_min = -0.2;
+let y_max =  0.1;
+let x_min = -1.5;
+let x_max = -1.1;
+let pixels = " .:;+=xX$&";
+
+for (var y = 0; y < 40; y++) {
+  let y0 = (y / 40.0) * (y_max - y_min) + y_min;
+  for (var x = 0; x < 79; x++) {
+    let x0 = (x / 78.0) * (x_max - x_min) + x_min;
+    var x = x0;
+    var y = y0;
+    var pixel = ' ';
+    for (var i = 0; i < 80; i++) {
+      x = x * x - y * y + x0;
+      y = 2 * x * y + y0;
+      if (x * x + y * y > 4) {
+        pixel = pixels[to_int(i / 8)];
+        break;
+      }
+    }
+    print(pixel);
+  }
+  println("");
+}

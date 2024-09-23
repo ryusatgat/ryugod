@@ -1,0 +1,6 @@
+#
+#  Ivy: Hello, World!
+#  https://github.com/jhallen/ivy-lang
+#
+
+print "Hello, World!"

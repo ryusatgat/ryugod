@@ -1,0 +1,16 @@
+$ N [ 10 ]
+
+$ readA [# r]
+$ strA  [# swap s]
+$ readB [# 1 + r]
+$ strB  [# 1 + swap s]
+
+0 strA  ~  mem[0] = 0
+1 strB  ~  mem[1] = 1
+
+N 0 while 2dup >= run
+    readA print
+    readB readB readA + strB strA
+    
+    1 +
+end 2drop

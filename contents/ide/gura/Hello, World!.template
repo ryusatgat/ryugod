@@ -1,0 +1,6 @@
+#
+#  Gura: Hello, World!
+#  https://github.com/gura-lang/gura
+#
+
+println("Hello, World!")

@@ -1,0 +1,16 @@
+int cash = 1000
+
+fn save(int number):int {
+    cash = cash + number
+    return cash
+}
+
+print('init, cash=', cash, '\n')
+
+save(10)
+
+print('saved 10, cash=', cash, '\n')
+
+save(20)
+
+print('saved 20, cash=', cash, '\n')

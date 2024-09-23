@@ -1,0 +1,12 @@
+fun foo(a: ptr<ccstring>) int do
+	(printf
+		"%s\n"
+		(deref a)
+	)
+	0
+end
+
+fun main (_: int argv: ptr<ccstring>) int do
+	(unused _)
+	(foo argv)
+end

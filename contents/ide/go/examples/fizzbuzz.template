@@ -1,6 +1,5 @@
 /* 
-    Go(고) 언어: FizzBuzz 예제
-    출처: http://www.rosettacode.org/
+    Go: FizzBuzz
 */
 
 package main

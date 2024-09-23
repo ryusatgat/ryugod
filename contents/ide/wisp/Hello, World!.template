@@ -1,0 +1,6 @@
+;
+;   Wisp: Hello, World!
+;   https://github.com/adam-mcdaniel/wisp
+;
+
+(print "Hello, World!")

@@ -1,0 +1,59 @@
+#!/usr/bin/env gura
+import(conio)
+
+keyDict = %{
+	conio.K_CTRL_A		=> 'CTRL-A'
+	conio.K_CTRL_B		=> 'CTRL-B'
+	conio.K_CTRL_C		=> 'CTRL-C'
+	conio.K_CTRL_D		=> 'CTRL-D'
+	conio.K_CTRL_E		=> 'CTRL-E'
+	conio.K_CTRL_F		=> 'CTRL-F'
+	conio.K_CTRL_G		=> 'CTRL-G'
+	//conio.K_CTRL_H	=> 'CTRL-H'
+	//conio.K_CTRL_I	=> 'CTRL-I'
+	//conio.K_CTRL_J	=> 'CTRL-J'
+	conio.K_CTRL_K		=> 'CTRL-K'
+	conio.K_CTRL_L		=> 'CTRL-L'
+	conio.K_CTRL_M		=> 'CTRL-M'
+	conio.K_CTRL_N		=> 'CTRL-N'
+	conio.K_CTRL_O		=> 'CTRL-O'
+	conio.K_CTRL_P		=> 'CTRL-P'
+	conio.K_CTRL_Q		=> 'CTRL-Q'
+	conio.K_CTRL_R		=> 'CTRL-R'
+	conio.K_CTRL_S		=> 'CTRL-S'
+	conio.K_CTRL_T		=> 'CTRL-T'
+	conio.K_CTRL_U		=> 'CTRL-U'
+	conio.K_CTRL_V		=> 'CTRL-V'
+	conio.K_CTRL_W		=> 'CTRL-W'
+	conio.K_CTRL_X		=> 'CTRL-X'
+	conio.K_CTRL_Y		=> 'CTRL-Y'
+	conio.K_CTRL_Z		=> 'CTRL-Z'
+	conio.K_BACKSPACE	=> 'BACKSPACE'
+	conio.K_TAB			=> 'TAB'
+	conio.K_RETURN		=> 'RETURN'
+	conio.K_ESCAPE		=> 'ESCAPE'
+	conio.K_SPACE		=> 'SPACE'
+	conio.K_UP			=> 'UP'
+	conio.K_DOWN		=> 'DOWN'
+	conio.K_RIGHT		=> 'RIGHT'
+	conio.K_LEFT		=> 'LEFT'
+	conio.K_INSERT		=> 'INSERT'
+	conio.K_HOME		=> 'HOME'
+	conio.K_END			=> 'END'
+	conio.K_PAGEUP		=> 'PAGEUP'
+	conio.K_PAGEDOWN	=> 'PAGEDOWN'
+	conio.K_DELETE		=> 'DELETE'
+}
+repeat {
+	printf('hit any key: ')
+	ch = conio.waitkey()
+	keyName = keyDict.get(ch)
+	if (keyName) {
+		printf('0x%02x %s\n', ch, keyName)
+	} elsif (!(str = chr(ch)).isempty()) {
+		printf('0x%02x \'%s\'\n', ch, str)
+	} else {
+		printf('0x%02x\n', ch)
+	}
+	(ch == 0x03) && break
+}

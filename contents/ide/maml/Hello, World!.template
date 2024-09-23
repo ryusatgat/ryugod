@@ -1,0 +1,6 @@
+//
+//   Maml: Hello, World!
+//   https://github.com/k-kahora/Maml
+//
+
+puts("Hello, World!")

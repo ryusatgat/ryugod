@@ -1,0 +1,6 @@
+//
+//  Nature: Hello, World!
+//  https://github.com/nature-lang/nature
+//
+
+println('Hello, World!')

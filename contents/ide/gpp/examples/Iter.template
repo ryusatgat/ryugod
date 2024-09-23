@@ -1,0 +1,6 @@
+#mode string QQQ "$" "$"
+#define triangle(x,y) y \
+ $#if length(y)<x$ $#define iter triangle$ $#else$ \
+ $#define iter$ $#endif
+$ iter(x,*y)
+triangle(20)

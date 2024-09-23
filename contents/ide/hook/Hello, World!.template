@@ -1,0 +1,6 @@
+//
+//  Hook: Hello, World!
+//  https://github.com/hook-lang/hook
+//
+
+println("Hello, World!");

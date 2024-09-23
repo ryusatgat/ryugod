@@ -1,0 +1,30 @@
+<$
+int bob = 3;
+
+print "Hello, world!\n";
+print 3,"\n";
+
+print "4+5 is ",4+5,"\n";
+print "bob is ",bob,"\n";
+print 5.5 ," is fun!\n";
+
+print "AND and OR test: ", 31 & (4|8) ,"\n";
+
+bob = bob & 2;
+print "The variable \"bob\": ",bob,"\n";
+
+bob =+ 3;
+
+print bob,"\n";
+
+
+$>
+
+
+of course it doesn't make sense..
+its just a test to ensure that this stuff works. ok?
+just run with it...
+
+<$
+# hey, i'm a comment! i don't show up!
+$>

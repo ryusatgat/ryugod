@@ -1,0 +1,6 @@
+%
+%   Fleng: Hello, World!
+%   http://www.call-with-current-continuation.org/fleng/fleng.html
+%
+    -initialization(main).
+    main :- writeln('Hello, World!').

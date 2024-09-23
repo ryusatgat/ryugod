@@ -1,0 +1,8 @@
+#
+#  Goaldi: Hello, World!
+#  https://github.com/proebsting/goaldi
+#
+
+procedure main() {
+    write("Hello, World!")
+}

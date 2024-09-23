@@ -1,0 +1,9 @@
+func is_palindrome(s) {
+    s = s.downcase()
+    return s == s.reverse();
+}
+
+write is_palindrome('racecar'),nl;
+write is_palindrome('hello'),nl;
+
+// This program defines a function that checks whether a given string is a palindrome (i.e., the same forwards and backwards). The program then calls the function with two different strings and prints the results.

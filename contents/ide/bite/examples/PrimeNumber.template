@@ -1,0 +1,37 @@
+module Main;
+
+import System; 
+using System;
+
+function FindPrimeNumber(n)
+{
+    var count=0;
+    var a = 2;
+    while(count<n)
+    {
+        var b = 2;
+        var prime = 1;
+        while(b * b <= a )
+        {
+            if(a % b == 0)
+            {
+                prime = 0;
+                break;
+            }
+            b++;
+        }
+        if(prime > 0)
+        {
+            count++;
+        }
+        a++;
+    }
+    return (--a);
+}
+
+PrintLine(FindPrimeNumber(2));
+PrintLine(FindPrimeNumber(4));
+PrintLine(FindPrimeNumber(8));
+PrintLine(FindPrimeNumber(16));
+PrintLine(FindPrimeNumber(32));
+PrintLine(FindPrimeNumber(64));

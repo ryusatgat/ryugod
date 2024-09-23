@@ -1,0 +1,6 @@
+//
+//   Toy: Hello, World!
+//   https://github.com/Ratstail91/Toy
+//
+
+print("Hello, World!");

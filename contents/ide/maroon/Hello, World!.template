@@ -1,0 +1,6 @@
+//
+//  Maroon: Hello, World!
+//  https://github.com/adam-mcdaniel/maroon-lang
+//
+
+PutStrln["Hello, World!"]

@@ -1,0 +1,608 @@
+#!/opt/TeaAgeSolutions/TeaScript/bin/TeaScript
+/*
+ * SPDX-FileCopyrightText: Copyright (C) 2024 Florian Thake <contact@tea-age.solutions>. All rights reserved.
+ */
+ 
+// This is a follow up Unittest for the TeaScript Core Library written in TeaScript for versions >= 0.15
+// This test focusses on new JSON support and handles also the extended TOML support. 
+// The TOML test will be skipped if the feature is not available. JSON is mandatory.
+
+// NOTE: assuming all C++ UnitTests and test01.tea + test03.tea passed 100%!
+
+##minimum_version 0.15
+
+// pre-check
+if( not is_defined _core_config or (_core_config bit_and 0xf) < 8 /* LevelFull */ ) {
+    return "Tests must always run with CoreLibrary LevelFull."
+}
+
+if( not is_defined features.json or features.json < 1 ) {
+    return "JSON is not present! Cannot test!"
+}
+
+// --- pre check done...
+
+// helper function for (optional feature) color printing
+// You need to add the {fmt} lib to your project in order to have color and format printing.
+// The pre-build TeaScript Host Application always has this feature enabled.
+func maybe_cprint( color, text )
+{
+    if( is_defined cprint ) {
+        cprint( color, text )
+    } else {
+        print( text )
+    }
+}
+
+// use build-in make_rgb function if available or quickly create it.
+is_defined make_rgb or (func make_rgb( r, g, b ) { r bit_lsh 16 bit_or g bit_lsh 8 bit_or b })
+
+
+func print_failure( text )
+{
+    // red color
+    maybe_cprint( make_rgb( 255, 0, 0 ), text )
+}
+
+func print_success( text )
+{
+    // green color
+    maybe_cprint( make_rgb( 0, 255, 0 ), text )
+}
+
+func print_warning( text )
+{
+    // pink color
+    maybe_cprint( make_rgb( 255, 0, 255 ), text )
+}
+
+
+// --- UnitTest function definitions 
+
+func TEST_EQ( val, expected, msg )
+{
+    def res := val == expected
+    if( not res ) {
+        print_failure( "\nFAILED:\n" )
+        fail_with_message( "expected %(expected) but was %(val). " % msg, _exit_failure )
+    }
+}
+
+func TEST_TRUE( c, msg )
+{
+    // enforce a boolean!
+    TEST_EQ( not not c, true, msg )
+}
+
+func TEST_FALSE( c, msg )
+{
+    // enforce a boolean!
+    TEST_EQ( not not c, false, msg )
+}
+
+// --- Start the test
+
+_out( "Start testing TeaScript Core Library ...\n" )
+
+print( "testing JSON with adapter " )
+
+maybe_cprint( make_rgb( 210, 170, 90 ), features.json_adapter % "\n" )
+
+
+// according to Json spec the root value can be any valid value from null to object.
+
+print( "testing simple types ... " )
+
+// null
+{    
+    const null := void  // Maybe we should have this globally available as an alternative to void ?
+    const null_str := "null"
+    const json := readjsonstring( null_str )
+    
+    TEST_EQ( typeof json, typeof null, "wrong json value type!" )
+    TEST_EQ( json, null, "wrong json result!" )
+
+    const str2 := writejsonstring( json )
+    TEST_EQ( null_str, str2, "wrong string result!" ) // for basic values a string compare is enough.
+}
+
+// false/true
+{
+    const false_str := "false"
+    const true_str := "true"
+    
+    def json := readjsonstring( false_str )
+    TEST_EQ( typeof json, typeof false, "wrong json value type!" )
+    TEST_EQ( json, false, "wrong json result!" )
+    
+    def str2 := writejsonstring( json )
+    TEST_EQ( false_str, str2, "wrong string result!" ) // for basic values a string compare is enough.
+
+    json := readjsonstring( true_str )
+    TEST_EQ( typeof json, typeof true, "wrong json value type!" )
+    TEST_EQ( json, true, "wrong json result!" )
+
+    str2 := writejsonstring( json )
+    TEST_EQ( true_str, str2, "wrong string result!" ) // for basic values a string compare is enough.
+}
+
+// integer
+{
+    const int_str := "12345678"
+    const int_str2 := "-12345678"
+    
+    // NOTE: a Json Adapter may use any compatible type like i64, u64 or f64
+    def json := readjsonstring( int_str )
+    TEST_TRUE( json is Number, "wrong json value type!" )
+    TEST_EQ( json, 12345678, "wrong json result!" )
+    
+    def str2 := writejsonstring( json )
+    TEST_EQ( int_str, str2, "wrong string result!" ) // for basic values a string compare is enough.
+    
+    undef json
+    def json := readjsonstring( int_str2 )
+    TEST_TRUE( json is Number, "wrong json value type!" )
+    TEST_EQ( json, -12345678, "wrong json result!" )
+
+    str2 := writejsonstring( json )
+    TEST_EQ( int_str2, str2, "wrong string result!" ) // for basic values a string compare is enough.
+    
+    const intU64 := 9223372036854775807u64 // we cannot get higher than max int64_t for some json adapters.
+    str2 := writejsonstring( intU64 )
+    TEST_EQ( intU64 as String, str2, "wrong string result!" ) // for basic values a string compare is enough.
+    
+    const intU8 := 0xffu8
+    str2 := writejsonstring( intU8 )
+    TEST_EQ( intU8 as String, str2, "wrong string result!" ) // for basic values a string compare is enough.
+}
+
+// float
+{
+    const float_str := "1234.5678"
+    const float_str2 := "-1234.5678"
+    
+    def json := readjsonstring( float_str )
+    TEST_EQ( typeof json, typeof 1234.5678, "wrong json value type!" )
+    TEST_EQ( json, 1234.5678, "wrong json result!" )
+
+    // testing perfect roundtrip.
+    def str := writejsonstring( json )
+    TEST_EQ( typeof str, String, "writejsonstring( json ) failed for " % float_str )
+
+    def json2 := readjsonstring( str )
+    TEST_EQ( typeof json2, typeof json, "roundtrip failed! wrong type!" )
+    TEST_EQ( json2, json, "roundtrip failed! not equal structure!" )
+
+    undef json
+    def json := readjsonstring( float_str2 )
+    TEST_EQ( typeof json, typeof -1234.5678, "wrong json value type!" )
+    TEST_EQ( json, -1234.5678, "wrong json result!" )
+
+    // testing perfect roundtrip.
+    undef str
+    def str := writejsonstring( json )
+    TEST_EQ( typeof str, String, "writejsonstring( json ) failed for " % float_str2 )
+    
+    undef json2
+    def json2 := readjsonstring( str )
+    TEST_EQ( typeof json2, typeof json, "roundtrip failed! wrong type!" )
+    TEST_EQ( json2, json, "roundtrip failed! not equal structure!" )
+}
+
+// string
+{
+    const test_str1 := "\"Hello World!\""
+    const test_str2 := "\"🚀 🍀 ☠ 🔥\""
+    const test_str3 := "\"\""
+
+    def json := readjsonstring( test_str1 )
+    TEST_EQ( typeof json, String, "wrong json value type!" )
+
+    TEST_EQ( "\"" % json % "\"", test_str1, "wrong json result!" )
+    
+    def str2 := writejsonstring( json )
+    TEST_EQ( test_str1, str2, "wrong string result!" ) // for basic values a string compare is enough.
+    
+    json := readjsonstring( test_str2 )
+    TEST_EQ( typeof json, String, "wrong json value type!" )
+    TEST_EQ( "\"" % json % "\"", test_str2, "wrong json result!" )
+    
+    str2 := writejsonstring( json )
+    TEST_EQ( test_str2, str2, "wrong string result!" ) // for basic values a string compare is enough.
+    
+    json := readjsonstring( test_str3 )
+    TEST_EQ( typeof json, String, "wrong json value type!" )
+    TEST_EQ( "\"" % json % "\"", test_str3, "wrong json result!" )
+    
+    str2 := writejsonstring( json )
+    TEST_EQ( test_str3, str2, "wrong string result!" ) // for basic values a string compare is enough.
+}
+
+print_success( "ok.\n" )
+
+print( "testing arrays ... " )
+
+// NOTE: A lot of functionality of arrays is tested via index based Tuples in test03.
+//       But because json arrays are handled a little special, we test it here more 
+//       thouroghly than other value types.
+
+// simple array
+{
+    // start with a simple and common array
+    const simple_array_str := "[1, 2, 3, 4]"
+    
+    def json := readjsonstring( simple_array_str )
+    TEST_EQ( typeof json, Tuple, "wrong json value type!" )
+    TEST_TRUE( json_is_array( json ), "json_is_array( json ) failed for " % simple_array_str )
+    TEST_FALSE( json_is_object( json ), "json_is_object( json ) failed for " % simple_array_str )
+    TEST_FALSE( json_array_empty( json ), "json_array_empty( json ) failed for " % simple_array_str )
+    TEST_EQ( json_array_size( json ), 4, "json_array_size( json ) failed for " % simple_array_str )
+    TEST_EQ( json[0], 1, "json[0] is wrong for " % simple_array_str )
+    TEST_EQ( json[1], 2, "json[1] is wrong for " % simple_array_str )
+    TEST_EQ( json[2], 3, "json[2] is wrong for " % simple_array_str )
+    TEST_EQ( json[3], 4, "json[3] is wrong for " % simple_array_str )
+    
+    // manipulation test.
+    json_array_append( json, 5 )
+    
+    TEST_EQ( json_array_size( json ), 5, "json_array_size( json ) failed for " % simple_array_str )
+    TEST_EQ( json[0], 1, "json[0] is wrong for " % simple_array_str )
+    TEST_EQ( json[1], 2, "json[1] is wrong for " % simple_array_str )
+    TEST_EQ( json[2], 3, "json[2] is wrong for " % simple_array_str )
+    TEST_EQ( json[3], 4, "json[3] is wrong for " % simple_array_str )
+    TEST_EQ( json[4], 5, "json[4] is wrong for " % simple_array_str )
+    
+    json_array_insert( json, 2, 42 )
+    
+    TEST_EQ( json_array_size( json ), 6, "json_array_size( json ) failed for " % simple_array_str )
+    TEST_EQ( json[0], 1, "json[0] is wrong for " % simple_array_str )
+    TEST_EQ( json[1], 2, "json[1] is wrong for " % simple_array_str )
+    TEST_EQ( json[2], 42, "json[2] is wrong for " % simple_array_str )
+    TEST_EQ( json[3], 3, "json[3] is wrong for " % simple_array_str )
+    TEST_EQ( json[4], 4, "json[4] is wrong for " % simple_array_str )
+    TEST_EQ( json[5], 5, "json[5] is wrong for " % simple_array_str )
+    
+    json_array_remove( json, 1 )
+    
+    TEST_EQ( json_array_size( json ), 5, "json_array_size( json ) failed for " % simple_array_str )
+    TEST_EQ( json[0], 1, "json[0] is wrong for " % simple_array_str )
+    TEST_EQ( json[1], 42, "json[1] is wrong for " % simple_array_str )
+    TEST_EQ( json[2], 3, "json[2] is wrong for " % simple_array_str )
+    TEST_EQ( json[3], 4, "json[3] is wrong for " % simple_array_str )
+    TEST_EQ( json[4], 5, "json[4] is wrong for " % simple_array_str )
+    
+    // testing perfect roundtrip.
+    const str := writejsonstring( json )
+    TEST_EQ( typeof str, String, "writejsonstring( json ) failed for " % simple_array_str )
+    
+    const json2 := readjsonstring( str )
+    TEST_EQ( typeof json2, typeof json, "roundtrip failed! wrong type!" )
+    TEST_EQ( json2, json, "roundtrip failed! not equal structure!" )
+}
+
+// mixed arrays
+{
+    const null := void
+    //array with mixed types...
+    const mixed_array_str := "[\"Hello\", 2, 3.14, null, true]"
+    
+    def json := readjsonstring( mixed_array_str )
+    TEST_EQ( typeof json, Tuple, "wrong json value type!" )
+    TEST_TRUE( json_is_array( json ), "json_is_array( json ) failed for " % mixed_array_str )
+    TEST_FALSE( json_is_object( json ), "json_is_object( json ) failed for " % mixed_array_str )
+    TEST_FALSE( json_array_empty( json ), "json_array_empty( json ) failed for " % mixed_array_str )
+    TEST_EQ( json_array_size( json ), 5, "json_array_size( json ) failed for " % mixed_array_str )
+    TEST_EQ( json[0], "Hello", "json[0] is wrong for " % mixed_array_str )
+    TEST_EQ( json[1], 2, "json[1] is wrong for " % mixed_array_str )
+    TEST_EQ( json[2], 3.14, "json[2] is wrong for " % mixed_array_str )
+    TEST_EQ( json[3], null, "json[3] is wrong for " % mixed_array_str )
+    TEST_EQ( json[4], true, "json[0] is wrong for " % mixed_array_str )
+
+    // testing perfect roundtrip.
+    const str := writejsonstring( json )
+    TEST_EQ( typeof str, String, "writejsonstring( json ) failed for " % mixed_array_str )
+    
+    const json2 := readjsonstring( str )
+    TEST_EQ( typeof json2, typeof json, "roundtrip failed! wrong type!" )
+    TEST_EQ( json2, json, "roundtrip failed! not equal structure!" )
+}
+
+print_success( "ok.\n" )
+
+print( "testing special empty array ... " )
+
+// special case: empty array
+{
+    const empty_array_str := "[]"
+    
+    def json := readjsonstring( empty_array_str )
+    TEST_EQ( typeof json, Tuple, "wrong json value type!" )
+    TEST_TRUE( json_is_array( json ), "json_is_array( json ) failed for " % empty_array_str )
+    TEST_FALSE( json_is_object( json ), "json_is_object( json ) failed for " % empty_array_str )
+    TEST_TRUE( json_array_empty( json ), "json_array_empty( json ) failed for " % empty_array_str )
+    TEST_EQ( json_array_size( json ), 0, "json_array_size( json ) failed for " % empty_array_str )
+    
+    json_array_insert( json, 0, 456 )
+    TEST_TRUE( json_is_array( json ), "json_is_array( json ) failed for " % empty_array_str )
+    TEST_FALSE( json_is_object( json ), "json_is_object( json ) failed for " % empty_array_str )
+    TEST_FALSE( json_array_empty( json ), "json_array_empty( json ) failed for " % empty_array_str )
+    TEST_EQ( json_array_size( json ), 1, "json_array_size( json ) failed for " % empty_array_str )
+    
+    json_array_remove( json, 0 )
+    TEST_TRUE( json_is_array( json ), "json_is_array( json ) failed for " % empty_array_str )
+    TEST_FALSE( json_is_object( json ), "json_is_object( json ) failed for " % empty_array_str )
+    TEST_TRUE( json_array_empty( json ), "json_array_empty( json ) failed for " % empty_array_str )
+    TEST_EQ( json_array_size( json ), 0, "json_array_size( json ) failed for " % empty_array_str )
+    
+    // testing perfect roundtrip.
+    const str := writejsonstring( json )
+    TEST_EQ( typeof str, String, "writejsonstring( json ) failed for " % empty_array_str )
+    
+    const json2 := readjsonstring( str )
+    TEST_EQ( typeof json2, typeof json, "roundtrip failed! wrong type!" )
+    TEST_EQ( json2, json, "roundtrip failed! not equal structure!" )
+    
+    json_array_append( json, 789 )
+    TEST_FALSE( json_array_empty( json ), "json_array_empty( json ) failed for " % empty_array_str )
+    TEST_EQ( json_array_size( json ), 1, "json_array_size( json ) failed for " % empty_array_str )
+}
+
+print_success( "ok.\n" )
+
+print( "testing complex array ... " )
+
+{
+    const complex_array_str := "[ {\"name\": \"Jon\"}, [1,2,3], false ]"
+    
+    def json := readjsonstring( complex_array_str )
+    TEST_EQ( typeof json, Tuple, "wrong json value type!" )
+    TEST_TRUE( json_is_array( json ), "json_is_array( json ) failed for " % complex_array_str )
+    TEST_FALSE( json_is_object( json ), "json_is_object( json ) failed for " % complex_array_str )
+    TEST_FALSE( json_array_empty( json ), "json_array_empty( json ) failed for " % complex_array_str )
+    TEST_EQ( json_array_size( json ), 3, "json_array_size( json ) failed for " % complex_array_str )
+    
+    TEST_TRUE( json_is_object( json[0] ), "json_is_object( json[0] ) failed for " % complex_array_str )
+    TEST_EQ( json_object_size( json[0] ), 1, "json_array_size( json[1] ) failed for " % complex_array_str )
+    TEST_TRUE( json_is_array( json[1] ), "json_is_array( json[1] ) failed for " % complex_array_str )
+    TEST_EQ( json_array_size( json[1] ), 3, "json_array_size( json[1] ) failed for " % complex_array_str )
+    TEST_TRUE( json[2] is Bool, "json[2] is Bool failed for " % complex_array_str )
+    
+    // testing perfect roundtrip.
+    const str := writejsonstring( json )
+    TEST_EQ( typeof str, String, "writejsonstring( json ) failed for " % complex_array_str )
+    
+    const json2 := readjsonstring( str )
+    TEST_EQ( typeof json2, typeof json, "roundtrip failed! wrong type!" )
+    TEST_EQ( json2, json, "roundtrip failed! not equal structure!" )
+}
+
+print_success( "ok.\n" )
+
+print( "testing creating array ... " )
+
+{
+    const arr1 := json_make_array( 1, 7.31, "Hello" )
+    TEST_TRUE( json_is_array( arr1 ), "json_is_array( arr1 ) failed!" )
+    TEST_FALSE( json_is_object( arr1 ), "json_is_object( arr1 ) failed!" )
+    TEST_FALSE( json_array_empty( arr1 ), "json_array_empty( arr1 ) failed!" )
+    TEST_EQ( json_array_size( arr1 ), 3, "json_array_size( arr1 ) failed!" )
+    
+    const arr2 := json_make_array()
+    TEST_TRUE( json_is_array( arr2 ), "json_is_array( arr2 ) failed!" )
+    TEST_FALSE( json_is_object( arr2 ), "json_is_object( arr2 ) failed!" )
+    TEST_TRUE( json_array_empty( arr2 ), "json_array_empty( arr2 ) failed!" )
+    TEST_EQ( json_array_size( arr2 ), 0, "json_array_size( arr2 ) failed!" )
+}
+
+print_success( "ok.\n" )
+
+print( "testing object ... " )
+
+{
+    // most fuctionality was tested with generic Tuple functions already in test03.
+    
+    const object_str := """"
+{
+    "name": "Jon",
+    "age": 31,
+    "additional": null
+}
+""""
+    const null := void
+    def json := readjsonstring( object_str )
+    TEST_EQ( typeof json, Tuple, "wrong json value type!" )
+    TEST_FALSE( json_is_array( json ), "json_is_array( json ) failed for " % object_str )
+    TEST_TRUE( json_is_object( json ), "json_is_object( json ) failed for " % object_str )
+    TEST_EQ( json_object_size( json ), 3, "json_array_size( json ) failed for " % object_str )
+    
+    TEST_EQ( json["name"], "Jon", "json[\"name\"] has wrong value!" )
+    TEST_EQ( json["age"], 31, "json[\"age\"] has wrong value!" )
+    TEST_EQ( json["additional"], null, "json[\"additional\"] has wrong value!" )
+    
+    // testing perfect roundtrip.
+    const str := writejsonstring( json )
+    TEST_EQ( typeof str, String, "writejsonstring( json ) failed for " % object_str )
+    
+    const json2 := readjsonstring( str )
+    TEST_EQ( typeof json2, typeof json, "roundtrip failed! wrong type!" )
+    TEST_EQ( json2, json, "roundtrip failed! not equal structure!" )
+    
+    
+    // inner empty object + empty arrays
+    const empty_str := """"
+{
+    "myarray": [],
+    "myobject": {}
+} 
+""""
+    undef json
+    def json := readjsonstring( empty_str )
+    TEST_EQ( typeof json, Tuple, "wrong json value type!" )
+    TEST_FALSE( json_is_array( json ), "json_is_array( json ) failed for " % empty_str )
+    TEST_TRUE( json_is_object( json ), "json_is_object( json ) failed for " % empty_str )
+    TEST_EQ( json_object_size( json ), 2, "json_array_size( json ) failed for " % empty_str )
+    
+    TEST_TRUE( json_is_array( json[0] ), "json_is_array( json[0] ) failed for " % empty_str )
+    TEST_FALSE( json_is_object( json[0] ), "json_is_object( json[0] ) failed for " % empty_str )
+    TEST_EQ( json_array_size( json[0] ), 0, "json_array_size( json[0] ) failed for " % empty_str )
+    
+    TEST_FALSE( json_is_array( json[1] ), "json_is_array( json[1] ) failed for " % empty_str )
+    TEST_TRUE( json_is_object( json[1] ), "json_is_object( json[1] ) failed for " % empty_str )
+    TEST_EQ( json_array_size( json[1] ), 0, "json_array_size( json[1] ) failed for " % empty_str )
+    
+    // testing perfect roundtrip.
+    const str2 := writejsonstring( json )
+    TEST_EQ( typeof str2, String, "writejsonstring( json ) failed for " % empty_str )
+    
+    const json_new := readjsonstring( str2 )
+    TEST_EQ( typeof json_new, typeof json, "roundtrip failed! wrong type!" )
+    TEST_EQ( json_new, json, "roundtrip failed! not equal structure!" )
+    
+    // make object
+    def object := json_make_object(  ("name", "Jon"), ("age", 31), ("secret", false) )
+    TEST_FALSE( json_is_array( object ), "json_is_array( object ) failed!" )
+    TEST_TRUE( json_is_object( object ), "json_is_object( object ) failed!" )
+    TEST_EQ( json_object_size( object ), 3, "json_object_size( object ) failed!" )
+    
+    TEST_EQ( object["name"], "Jon", "object[\"name\"] has wrong value!" )
+    TEST_EQ( object["age"], 31, "object[\"age\"] has wrong value!" )
+    TEST_EQ( object["secret"], false, "object[\"secret\"] has wrong value!" )
+}
+
+print_success( "ok.\n" )
+
+print( "testing bigger json structure ... " )
+
+{
+    const json_str := """"
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": null,
+      "version": 3,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.483605784808901, 51.907188449679325]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "magic": 9223372036854775807,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [3.974369110811523 , 51.907355547778565],
+            [4.173944459020191 , 51.86237166892457 ],
+            [4.3808076710679416, 51.848867725914914],
+            [4.579822414365026 , 51.874487141880024],
+            [4.534413416598767 , 51.9495302480326  ],
+            [4.365110733567974 , 51.92360787140825 ],
+            [4.179550508127079 , 51.97336560819281 ],
+            [4.018096293847009 , 52.00236546429852 ],
+            [3.9424146309028174, 51.97681895676649 ],
+            [3.974369110811523 , 51.907355547778565]
+          ]
+        ]
+      }
+    }
+  ]
+} 
+""""
+
+    def json := readjsonstring( json_str )
+    TEST_EQ( typeof json, Tuple, "wrong json value type!" )
+    _out( "\n" )
+    tuple_print( json, "root", 20 )
+    print_warning( "The structure above must be verified MANUALLY!\n" )
+    
+    // testing perfect roundtrip.
+    const str2 := writejsonstring( json )
+    TEST_EQ( typeof str2, String, "writejsonstring( json ) failed!" )
+    
+    const json_new := readjsonstring( str2 )
+    TEST_EQ( typeof json_new, typeof json, "roundtrip failed! wrong type!" )
+    TEST_EQ( json_new, json, "roundtrip failed! not equal structure!" )
+}
+
+print_success( "ok.\n" )
+
+print( "testing TOML extensions ... " )
+
+// You must add tomlplusplus to your project for have TOML present.
+// The pre-build TeaScript Host Application always has TOML enabled by default.
+const toml_present := is_defined features.toml and features.toml
+if( toml_present ) {
+    
+     const toml_str := """"
+[Table01]
+integers = [ 1, 2, 3 ]
+colors = [ "red", "yellow", "green" ]
+nested_arrays_of_ints = [ [ 1, 2 ], [3, 4, 5] ]
+nested_mixed_array = [ [ 1, 2 ], ["a", "b", "c"] ]
+
+[Table02]
+# Mixed-type arrays are allowed
+numbers = [ 0.1, 0.2, 0.5, 1, 2, 5 ]
+contributors = [
+  "Foo Bar <foo@example.com>",
+  { name = "Baz Qux", email = "bazqux@example.com", url = "https://example.com/bazqux" }
+]
+""""
+    def toml := readtomlstring( toml_str )
+    TEST_EQ( typeof toml, Tuple, "wrong toml value type!" )
+    TEST_FALSE( toml_is_array( toml ), "toml_is_array( toml ) failed!")
+    TEST_TRUE( toml_is_table( toml ), "toml_is_table( toml ) failed!" )
+    TEST_EQ( toml_table_size( toml ), 2, "toml_table_size( toml ) failed!" )
+    
+    // just random pick sth...
+    TEST_EQ( toml["Table01"].colors[1], "yellow", "toml[\"Table01\"].colors[1] has wrong value!" )
+    TEST_EQ( toml.Table01.nested_mixed_array[1].0, "a", "toml.Table01.nested_mixed_array[1].0 has wrong value!" )
+    TEST_EQ( toml.Table02.contributors[1]["name"], "Baz Qux", "toml.Table02.contributors[1][\"name\"] has wrong value!" )
+    
+    // testing perfect roundtrip.
+    const str2 := writetomlstring( toml )
+    TEST_EQ( typeof str2, String, "writetomlstring( toml ) failed!" )
+    
+    const toml_new := readtomlstring( str2 )
+    TEST_EQ( typeof toml_new, typeof toml, "roundtrip failed! wrong type!" )
+    TEST_EQ( toml_new, toml, "roundtrip failed! not equal structure!" )
+    
+    // quickly check empty array
+    def arr2 := toml_make_array()
+    TEST_TRUE( toml_is_array( arr2 ), "toml_is_array( arr2 ) failed!" )
+    TEST_FALSE( toml_is_table( arr2 ), "toml_is_table( arr2 ) failed!" )
+    TEST_TRUE( toml_array_empty( arr2 ), "toml_array_empty( arr2 ) failed!" )
+    TEST_EQ( toml_array_size( arr2 ), 0, "toml_array_size( arr2 ) failed!" )
+    
+    toml_array_append( arr2, "Hello World!" )
+    TEST_TRUE( toml_is_array( arr2 ), "toml_is_array( arr2 ) failed!" )
+    TEST_FALSE( toml_is_table( arr2 ), "toml_is_table( arr2 ) failed!" )
+    TEST_FALSE( toml_array_empty( arr2 ), "toml_array_empty( arr2 ) failed!" )
+    TEST_EQ( toml_array_size( arr2 ), 1, "toml_array_size( arr2 ) failed!" )
+    
+    toml_array_remove( arr2, 0 )
+    TEST_TRUE( toml_is_array( arr2 ), "toml_is_array( arr2 ) failed!" )
+    TEST_FALSE( toml_is_table( arr2 ), "toml_is_table( arr2 ) failed!" )
+    TEST_TRUE( toml_array_empty( arr2 ), "toml_array_empty( arr2 ) failed!" )
+    TEST_EQ( toml_array_size( arr2 ), 0, "toml_array_size( arr2 ) failed!" )
+    
+    // make table
+    def table := toml_make_table(  ("name", "Jon"), ("age", 31), ("secret", false) )
+    TEST_FALSE( toml_is_array( table ), "toml_is_array( table ) failed!" )
+    TEST_TRUE( toml_is_table( table ), "toml_is_table( table ) failed!" )
+    TEST_EQ( toml_table_size( table ), 3, "toml_table_size( table ) failed!" )
+    
+    TEST_EQ( table["name"], "Jon", "table[\"name\"] has wrong value!" )
+    TEST_EQ( table["age"], 31, "table[\"age\"] has wrong value!" )
+    TEST_EQ( table["secret"], false, "table[\"secret\"] has wrong value!" )
+    
+    print_success( "ok.\n" )
+} else {
+    print_warning( "\nTOML is not present! TOML test skipped!\n" )
+}
+
+print_success( "=== TEST PASSED ===\n" )

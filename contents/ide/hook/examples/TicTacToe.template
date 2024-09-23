@@ -1,0 +1,116 @@
+//
+// tic_tac_toe.hk
+//
+
+import { stdin, readln } from io;
+
+fn grid_char(i) {
+  return match (i) {
+    -1 => "X",
+    0 => " ",
+    _ => "O"
+  };
+}
+
+fn draw(board) {
+  println(" " + grid_char(board[0]) + " | " + grid_char(board[1]) + " | " + grid_char(board[2]));
+  println("---+---+---");
+  println(" " + grid_char(board[3]) + " | " + grid_char(board[4]) + " | " + grid_char(board[5]));
+  println("---+---+---");
+  println(" " + grid_char(board[6]) + " | " + grid_char(board[7]) + " | " + grid_char(board[8]));
+}
+
+fn win(board) {
+  let wins = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (var i = 0; i < 8; i++) {
+    if (board[wins[i][0]] != 0 && board[wins[i][0]] == board[wins[i][1]] &&
+        board[wins[i][0]] == board[wins[i][2]])
+      return board[wins[i][2]];
+  }
+  return 0;
+}
+
+fn minimax(board, player) {
+  var winner = win(board);
+  if (winner != 0)
+    return winner * player;
+  var move = -1;
+  var score = -2;
+  for (var i = 0; i < 9; i++) {
+    if (board[i] == 0) {
+        board[i] = player;
+        let this_score = - minimax(board, player * -1);
+        if (this_score > score) {
+          score = this_score;
+          move = i;
+        }
+        board[i] = 0;
+    }
+  }
+  if (move == -1)
+    return 0;
+  return score;
+}
+
+fn cpu_move(board) {
+  println("Thinking...");
+  var move = -1;
+  var score = -2;
+  for (var i = 0; i < 9; i++) {
+    if (board[i] == 0) {
+      board[i] = 1;
+      let temp_score = - minimax(board, -1);
+      board[i] = 0;
+      if (temp_score > score) {
+        score = temp_score;
+        move = i;
+      }
+    }
+  }
+  board[move] = 1;
+  return board;
+}
+
+fn player_move(board) {
+  var move;
+  do {
+    print("Input move ([0..8]): ");
+    move = to_int(readln(stdin));
+  } while (move >= 9 || move < 0 && board[move] == 0);
+  board[move] = -1;
+  return board;
+}
+
+var board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+println("CPU: O, You: X");
+println("Play (1)st or (2)nd? ");
+
+let player = to_int(readln(stdin));
+
+for (var turn = 0; turn < 9 && win(board) == 0; turn++) {
+  if ((turn + player) % 2 == 0) {
+    board = cpu_move(board);
+    continue;
+  }
+  draw(board);
+  board = player_move(board);
+}
+
+match (win(board)) {
+  0 => println("A draw. How droll.");
+  1 => {
+    draw(board);
+    println("You lose.");
+  }
+  -1 => println("You win. Inconceivable!");
+}

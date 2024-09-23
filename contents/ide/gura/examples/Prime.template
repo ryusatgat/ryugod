@@ -1,0 +1,36 @@
+#!/usr/bin/env gura
+
+prime() = {
+	p = []
+	for (n in 2..):xiter {
+		if (!(n % p.each() == 0).or()) {
+			p.add(n)
+			n
+		}
+	}
+}
+
+prime_faster() = {
+	p = []
+	for (n in (2, range(3, nil, 2))):xiter {
+		if (!(n % p.each() == 0).or()) {
+			p.add(n)
+			n
+		}
+	}
+}
+
+prime_fastest() = {
+	p = []
+	for (n in (2, range(3, nil, 2))):xiter {
+		if (!(n % p.while(p.each() * p <= n) == 0).or()) {
+			p.add(n)
+			n
+		}
+	}
+}
+
+println(prime(), ' ', prime_faster(), ' ', prime_fastest())
+//primes = prime_fastest()
+//twins = primes.filter(primes + 2 == primes.offset(1)):iter {|n| [n, n + 2]}
+//println(twins)

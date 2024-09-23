@@ -1,0 +1,26 @@
+#mode string "`" "`" "\\"
+#define ASIS(x) x
+#define SILENT(x) ASIS()
+#define EVAL(x,f,v) SILENT(
+  #mode string QQQ "`" "`" "\\"
+  #defeval TEMP0 x
+  #defeval TEMP1 (
+    \#define \TEMP2(TEMP0) f
+  )
+  TEMP1
+  )TEMP2(v)
+#define LAMBDA(x,f,v) SILENT(
+  #ifneq (v) ()
+  #define TEMP3(a,b,c) EVAL(a,b,c)
+  #else
+  #define TEMP3(a,b,c) \LAMBDA(a,b)
+  #endif
+  )TEMP3(x,f,v)
+#define EVALAMBDA(x,y) SILENT(
+  #defeval TEMP4 x
+  #defeval TEMP5 y
+  )
+#define APPLY(f,v) SILENT(
+  #defeval TEMP6 ASIS(\EVA)f
+  TEMP6
+  )EVAL(TEMP4,TEMP5,v)

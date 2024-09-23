@@ -1,0 +1,10 @@
+global: makePoint is: [x y] => (
+    method => (
+        if: method = "x" then: () => x else: () => y
+    )
+)
+
+def: a is: makePoint (1, 2)
+
+print (a "x") () # prints 1
+print (a "y") () # prints 2

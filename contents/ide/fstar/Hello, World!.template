@@ -1,0 +1,10 @@
+(*
+    FStar: Hello, World!
+    https://github.com/FStarLang/FStar
+*)
+
+module Main
+
+open FStar.IO
+
+let main = print_string "Hello F*!\n"

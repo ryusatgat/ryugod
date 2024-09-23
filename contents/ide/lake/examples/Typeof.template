@@ -1,0 +1,9 @@
+f(_*char) int;
+f, g type(f);
+
+x type(g(0->[*char]));
+x int;
+
+t *int;
+y mut type(t);
+y mut *int;

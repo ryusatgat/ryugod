@@ -1,0 +1,20 @@
+//
+// 99bottles.hk
+//
+
+var n = 99;
+
+while (n > 1) {
+  println(to_string(n) + " bottles of beer on the wall,");
+  println(to_string(n) + " bottles of beer!");
+  println("You take one down, pass it around,");
+  n--;
+  println(to_string(n) + " bottles of beer on the wall!");
+  println("");
+}
+
+println(to_string(n) + " bottle of beer on the wall,");
+println(to_string(n) + " bottle of beer!");
+println("You take it down, pass it around,");
+println("No more bottles of beer!");
+println("");

@@ -1,0 +1,7 @@
+  ? ;; define the function
+  ? (de harmonic (n)
+        ((-double-) n)
+        (let* ((z 0) (i 0))
+         ((-double-) z i)
+          (while (< i n) (incr i) (incr z (/ i)))))
+  = harmonic

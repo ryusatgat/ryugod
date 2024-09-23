@@ -1,0 +1,38 @@
+# (letrec ((female (lambda(n)
+#                    (if (= n 0) 1
+#                        (- n (male (female (- n 1)))))))
+#          (male (lambda(n)
+#                  (if (= n 0) 0
+#                      (- n (female (male (- n 1))))))))
+#   (display "i male(i) female(i)")(newline)
+#   (do ((i 0 (+ i 1)))
+#       ((> i 8) #f)
+#     (display i) (display "   ")(display (male i))(display "         ")(display (female i))
+#     (newline)))
+
+def: female is: n => (if: n = 0 then: 1 else: n - male female (n - 1));
+def:   male is: n => (if: n = 0 then: 0 else: n - female male (n - 1));
+
+print "female";
+print female 0;
+print female 1;
+print female 2;
+print female 3;
+print female 4;
+print female 5;
+print female 6;
+print female 7;
+print female 8;
+print female 9;
+
+print "male";
+print male 0;
+print male 1;
+print male 2;
+print male 3;
+print male 4;
+print male 5;
+print male 6;
+print male 7;
+print male 8;
+print male 9;

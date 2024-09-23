@@ -1,0 +1,6 @@
+for i 100
+	print math i
+	if math i == 15
+		var i = 100
+	endif
+endfor

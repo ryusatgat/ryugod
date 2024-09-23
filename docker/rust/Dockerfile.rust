@@ -1,7 +1,7 @@
 ARG FROM_IMAGE=ryusatgat/ubuntu
 FROM $FROM_IMAGE
 
-RUN apt install -y rustc cargo
+RUN apt install -y rustc cargo rustup
 
 ADD opt /opt/
 

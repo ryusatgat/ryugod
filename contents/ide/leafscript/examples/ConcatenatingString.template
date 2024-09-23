@@ -1,0 +1,6 @@
+var name = "Simon"
+
+// use the keyword "concat" to perform string concatenation and "&" to join parts together 
+var extendedName = concat string name & " is a good name"
+
+print string extendedName

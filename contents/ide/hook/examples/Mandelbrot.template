@@ -1,0 +1,36 @@
+//
+// mandelbrot.hk
+//
+
+import { floor } from math;
+let pixels = [" ", ".", ":", ";", "+", "=", "x", "X", "$", "&"];
+
+let y_min = -0.2;
+let y_max = 0.1;
+let x_min = -1.5;
+let x_max = -1.1;
+
+for (var y_pixel = 0; y_pixel < 24; y_pixel++) {
+  let y = (y_pixel / 24) * (y_max - y_min) + y_min;
+  for (var x_pixel = 0; x_pixel < 80; x_pixel++) {
+    let x = (x_pixel / 79) * (x_max - x_min) + x_min;
+    var pixel = " ";
+    var x0 = x;
+    var y0 = y;
+    for (var iter = 0; iter < 80; iter++) {
+      var x1 = (x0 * x0) - (y0 * y0);
+      var y1 = 2 * x0 * y0;
+      x1 = x1 + x;
+      y1 = y1 + y;
+      x0 = x1;
+      y0 = y1;
+      let d = (x0 * x0) + (y0 * y0);
+      if (d > 4) {
+        pixel = pixels[floor(iter / 8)];
+        break;
+      }
+    }
+    print(pixel);
+  }
+  println("");
+}

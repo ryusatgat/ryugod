@@ -1,0 +1,9 @@
+?
+?  DayBreak: Hello, World!
+?  https://github.com/ExoKomodo/Daybreak
+?
+
+fun main () int do
+  (puts "Hello, World")
+	0
+end

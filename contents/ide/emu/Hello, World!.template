@@ -1,0 +1,8 @@
+<$
+#
+#   Emu: Hello, World!
+#   https://sourceforge.net/projects/emulang
+#
+
+print "Hello, World!"
+$>

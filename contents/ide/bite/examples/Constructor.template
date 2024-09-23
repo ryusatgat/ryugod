@@ -1,0 +1,33 @@
+module Main;
+
+import System; 
+using System;
+
+class Foo
+{
+    var x = 5;
+}
+
+class TestClass : Foo
+{
+    function TestClass(n)
+    {
+        x = n;
+    }
+}
+
+function TestFunction(n)
+{
+    n.x = 10;
+}
+
+var t = new TestClass(500);
+PrintLine(t.x);
+
+var a = new TestClass(150);
+
+PrintLine(a.x);
+
+TestFunction(a);
+
+PrintLine(a.x);

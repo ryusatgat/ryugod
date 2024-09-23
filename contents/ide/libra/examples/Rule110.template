@@ -1,0 +1,59 @@
+$ N [ 20 ]
+
+~ Memory from 0=<mem<N is reserved for the array
+~ Memory N is A, memory (N+1) is B
+
+$ rA [ # N + 1 + r]
+$ sA [ # N + 1 + swap s]
+$ rB [ # N + 2 + r]
+$ sB [ # N + 2 + swap s]
+
+$ c0 [ " " ]
+$ c1 [ "x" ]
+
+$ printArray [
+  N 0 while 2dup > run
+    # over + r              ~ get 0 or 1 from array
+    dup 0 = if c0 put end
+    dup 1 = if c1 put end
+    drop 1 +
+  end 2drop "" print
+]
+
+$ nextGen [
+dup 1 = rA 1 = rB 1 = & & if 0 swap end
+dup 1 = rA 1 = rB 0 = & & if 1 swap end
+dup 1 = rA 0 = rB 1 = & & if 1 swap end
+dup 1 = rA 0 = rB 0 = & & if 1 swap end
+dup 0 = rA 1 = rB 1 = & & if 1 swap end
+dup 0 = rA 1 = rB 0 = & & if 0 swap end
+dup 0 = rA 0 = rB 1 = & & if 1 swap end
+dup 0 = rA 0 = rB 0 = & & if 0 swap end
+drop
+]
+
+~ Initialize array to be all 0's with a 1 at the end
+N 1 - 0 while 2dup > run
+  # over + 0 s
+  1 +
+end # over + 1 s 2drop
+
+printArray
+
+N 1 while 2dup > run
+  # r sA
+  # 1 + r sB
+
+  N 1 - 1 while 2dup > run
+    # over + 1 + r
+    dup nextGen
+    rB sA swap sB
+    over # swap + swap s
+    1 +
+  end 2drop
+
+  dup N 1 - = if # 1 s end
+  
+  printArray
+  1 +
+end 2drop

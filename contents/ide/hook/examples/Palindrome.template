@@ -1,0 +1,11 @@
+//
+// palindrome.hk
+//
+
+import { reverse } from strings;
+
+fn palindrome(str) {
+	return reverse(str) == str;
+}
+
+println(palindrome("mutum"));

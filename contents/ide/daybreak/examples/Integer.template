@@ -1,0 +1,7 @@
+fun main () int do
+	(printf
+		"Integer: %d\n"
+		420)
+
+	0
+end

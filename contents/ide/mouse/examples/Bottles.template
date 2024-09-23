@@ -1,0 +1,23 @@
+( "HOW MANY VERSES? "
+   S ? = S. ^ 10 S. - [ #V,S. 1 + ; ] )
+
+$V %A 1 - [ #N,%A; #B; #W; ",!"
+           #N,%A; #B; ";!" #F; ",!"
+           #N,%A 1 -; #B; #W; ".!!"
+           #V,%A 1 -;                ] @
+
+$B " GREEN BOTTLES" @
+$W " STANDING ON THE WALL" @
+$F "IF ONE OF THOSE BOTTLES SHOULD HAPPEN TO FALL" @
+
+$N %A 9 - [ "NINE"  @ ]
+   %A 8 - [ "EIGHT" @ ]
+   %A 7 - [ "SEVEN" @ ]
+   %A 6 - [ "SIX"   @ ]
+   %A 5 - [ "FIVE"  @ ]
+   %A 4 - [ "FOUR"  @ ]
+   %A 3 - [ "THREE" @ ]
+   %A 2 - [ "TWO"   @ ]
+   %A 1 - [ "ONE"   @ ]
+   %A     [ "NO"    @ ] @
+$$

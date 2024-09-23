@@ -1,0 +1,8 @@
+nums = list()
+for i -> nlist(10,zero=0) {
+    nums.append(Random.int(1, 100))
+}
+nums = nums.sorted()
+write 'The sorted list is: ', nums,nl
+
+// A program that generates a list of random numbers and then sorts them in ascending order.

@@ -1,0 +1,18 @@
+func divide(a, b) {
+    if b == 0{
+        ZeroDivisionERR('Cannot divide by zero')
+    }
+    return a / b
+}
+
+try{
+    result = divide(10, 0)
+}catch{
+    var data = getError()
+    write data.type , nl
+    write 'message :',data.text , nl
+    write "%{data.file} in line %{data.lineno}, :", nl;
+    write data.line,nl;
+}
+
+// rasise an error and get all the information about it.

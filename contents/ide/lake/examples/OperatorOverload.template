@@ -1,0 +1,17 @@
+type a struct(x, y int);
+
+.+(x, y a) a {
+	return [a](x.x + y.x, x.y + y.y);
+}
+
+.++(x *mut a) void {
+	*x += [a](1, 1);
+}
+
+f() void {
+	auto x a = (6, 6);
+	auto y a = (7, 7);
+	auto z mut = x + y;
+	auto w = z++;
+}
+

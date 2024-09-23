@@ -1,5 +1,4 @@
-# MNIST matplotlib 표시 예제
-# 출처: https://www.ryugod.com
+# Python: MNIST matplotlib
 
 import tensorflow as tf
 import matplotlib.pyplot as plt

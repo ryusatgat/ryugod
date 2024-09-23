@@ -1,0 +1,54 @@
+--- Towers of Hanoi is a puzzle with three rods and n disks of decreasing size.
+--- The disks are stacked on top of each other through the first rod.
+--- The aim of the game is to move the stack of disks to another rod while
+--- following these rules:
+---
+--- 1. Only one disk can be moved at a time
+---
+--- 2. You may only move a disk from the top of one of the stacks to the top of another stack
+---
+--- 3. No disk may be moved on top of a smaller disk
+---
+--- The function ;hanoi; computes the sequence of moves to solve puzzle.
+module Main;
+
+import Stdlib.Prelude open;
+
+--- Concatenates a list of strings
+--- ;concat (("a" :: nil) :: "b" :: nil); evaluates to ;"a" :: "b" :: nil;
+concat : List String → String := foldl (++str) "";
+
+intercalate : String → List String → String
+  | sep xs := concat (intersperse sep xs);
+
+--- Produce a singleton List
+singleton : {A : Type} → A → List A
+  | a := a :: nil;
+
+--- Produce a ;String; representation of a ;List Nat;
+showList : List Nat → String
+  | xs := "[" ++str intercalate "," (map natToString xs) ++str "]";
+
+--- A Peg represents a peg in the towers of Hanoi game
+type Peg :=
+  | left : Peg
+  | middle : Peg
+  | right : Peg;
+
+showPeg : Peg → String
+  | left := "left"
+  | middle := "middle"
+  | right := "right";
+
+--- A Move represents a move between pegs
+type Move := move : Peg → Peg → Move;
+
+showMove : Move → String
+  | (move from to) := showPeg from ++str " -> " ++str showPeg to;
+
+--- Produce a list of ;Move;s that solves the towers of Hanoi game
+hanoi : Nat → Peg → Peg → Peg → List Move
+  | zero _ _ _ := nil
+  | (suc n) p1 p2 p3 := hanoi n p1 p3 p2 ++ singleton (move p1 p2) ++ hanoi n p3 p2 p1;
+
+main : IO := printStringLn (unlines (map showMove (hanoi 5 left middle right)));

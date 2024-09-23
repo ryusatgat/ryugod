@@ -1,5 +1,4 @@
-# 회귀분석 파이썬 시각화 예제
-# 출처: https://www.ryugod.com
+#  Regression
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -37,6 +36,5 @@ ax1.plot(x, yh)
 
 plt.savefig('regression.png')
 
-# imshow는 표준 명령어가 아닙니다. ryugod.com에서 이미지를 표시하기 위한 명령입니다.
 import os
 os.system('imshow regression.png')

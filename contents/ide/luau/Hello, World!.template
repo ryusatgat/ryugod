@@ -1,0 +1,6 @@
+--
+--  Luau: Hello, World!
+--  https://github.com/luau-lang/luau
+--
+
+print "Hello, World!"

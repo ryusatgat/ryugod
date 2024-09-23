@@ -1,0 +1,11 @@
+//
+//  Lake: Hello, World!
+//  https://git.sr.ht/~lieks/lakec-old
+//
+
+puts(_ []char) int;
+
+pub main() int {
+    puts("Hello, World!");
+    return 0;
+}

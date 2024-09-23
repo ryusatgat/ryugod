@@ -5,6 +5,7 @@ DOCKERFILE_TAG=
 
 ifeq ($(TARGET),ms)
 	FROM_IMAGE=mcr.microsoft.com/mssql/server:2022-latest
+	GRAND_IMAGE=$(DOCKERIMAGE)
 else ifeq ($(TARGET),ubuntu1404)
 	FROM_IMAGE=ubuntu:14.04
 	GRAND_IMAGE=$(DOCKERIMAGE)

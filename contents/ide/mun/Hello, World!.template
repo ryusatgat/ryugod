@@ -1,0 +1,9 @@
+//
+//   Mun: Hello, World!
+//   https://github.com/mun-lang/mun
+//
+
+pub fn main() -> i64 {
+    // Not yet supported.
+    "Hello, World!"
+}

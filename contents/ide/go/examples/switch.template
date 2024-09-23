@@ -1,4 +1,3 @@
-/* Go(고) 언어 switch 구문 예제 */
 package main
 
 import (
@@ -9,29 +8,28 @@ import (
 func main() {
 
     i := 2
-    fmt.Print(i, " 숫자는 다음처럼 읽습니다: ")
     switch i {
     case 1:
-        fmt.Println("하나")
+        fmt.Println("One")
     case 2:
-        fmt.Println("둘")
+        fmt.Println("Two")
     case 3:
-        fmt.Println("셋")
+        fmt.Println("Tree")
     }
 
     switch time.Now().Weekday() {
     case time.Saturday, time.Sunday:
-        fmt.Println("주말입니다")
+        fmt.Println("It's the weekend")
     default:
-        fmt.Println("주중입니다")
+        fmt.Println("It's not the weekend")
     }
 
     t := time.Now()
     switch {
     case t.Hour() < 12:
-        fmt.Println("오전입니다")
+        fmt.Println("It's the morning")
     default:
-        fmt.Println("오후입니다")
+        fmt.Println("It's the afternoon")
     }
 
     whatAmI := func(i interface{}) {
@@ -41,7 +39,7 @@ func main() {
         case int:
             fmt.Println("int")
         default:
-            fmt.Printf("형식을 판단할 수 없습니다: %T\n", t)
+            fmt.Printf("Known type: %T\n", t)
         }
     }
     whatAmI(true)

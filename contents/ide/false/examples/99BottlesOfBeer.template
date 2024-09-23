@@ -1,0 +1,3 @@
+99b:
+[b;0=["No more bottles of beer"]?b;1=["1 more bottle of beer"]?b;1>[b;." bottles of beer"]?]a:
+[b;0>][a;!" on the wall"10,a;!10,"Take one down, pass it around"10,b;1-b:a;!" on the wall"]#10,

@@ -1,0 +1,8 @@
+type a union(x bool, y int);
+type b struct(_ a, z int);
+x b;
+
+f() bool {
+	return x.x;
+}
+

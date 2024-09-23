@@ -1,0 +1,3 @@
+begin
+    write(1234)
+end.

@@ -1,0 +1,19 @@
+var x, y, n;
+
+procedure fib;
+var tmp;
+begin
+    if n # 0 then
+    begin
+        write y;
+        tmp := y;
+        y := y + x;
+        x := tmp;
+        n := n - 1;
+        call fib
+    end
+end;
+
+begin
+    x := 0 ; y := 1 ; n := 10 ; call fib
+end.

@@ -1,0 +1,13 @@
+$ N [ 20 ]
+
+$ div3 [ 3 % 0 = ]
+$ div5 [ 5 % 0 = ]
+
+N 1 while 2dup >= run
+  dup div3 over div5 & if "FizzBuzz" print end
+  dup div3 over div5 ! & if "Fizz" print end
+  dup div3 ! over div5 & if "Buzz" print end
+  dup div3 ! over div5 ! & if dup print end
+  
+  1 +
+end 2drop

@@ -1,0 +1,6 @@
+#
+#  Execline: Hello, World!
+#  https://skarnet.org/software/execline
+#
+
+echo "Hello, World!"

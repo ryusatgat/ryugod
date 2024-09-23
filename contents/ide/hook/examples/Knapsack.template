@@ -1,0 +1,30 @@
+//
+// knapsack.hk
+//
+
+fn knapsack(weight_cap, weights, values) {
+  var high = 0;
+  let n = len(weights);
+  for (var i = 0; i < n; i++) {
+    var cap = weights[i];
+    var value = values[i];
+    let new_cap = weights[i];
+    let new_value = values[i];
+    for (var j = i + 1; j < n; j++) {
+      if (cap < weight_cap && cap + weights[j] <= weight_cap) {
+        cap += weights[j];
+        value += values[j];
+      } else if (new_cap + weights[j] <= weight_cap) {
+        cap = new_cap + weights[j];
+        value = new_value + values[j];
+      }
+      high = if (value > high) value else high;
+    }
+  }
+  return high;
+}
+
+let weight_cap = 10;
+let weights = [3, 6, 3];
+let values = [70, 60, 100];
+println(knapsack(weight_cap, weights, values));

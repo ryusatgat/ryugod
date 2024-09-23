@@ -1,0 +1,127 @@
+#!/usr/bin/env gura
+import(conio)
+
+PushAnyKey() = {
+	[w, h] = conio.getwinsize()
+	str = ' push any key '
+	conio.moveto((w - str.len()) / 2, h / 2 - 3)
+	conio.setcolor(`black, `white) {
+		print(str)
+	}
+	conio.waitkey():raise
+}
+scope {
+	bg = `black
+	conio.clear()
+	conio.setcolor(`red, bg) {
+		println('red')
+		conio.setcolor(`blue, bg) {
+			println('blue')
+			conio.setcolor(`green, bg) {
+				println('green')
+				conio.setcolor(`yellow, bg) {
+					println('yellow')
+				}
+				println('green again')
+				conio.setcolor(`bright_red, bg)
+				println('bright_red')
+				conio.setcolor(`bright_blue, bg)
+				println('bright_blue')
+				conio.setcolor(`bright_green, bg)
+				println('bright_green')
+			}
+			println('blue again')
+		}
+		println('red again')
+	}
+	PushAnyKey()
+}
+scope {
+	conio.clear()
+	[w, h] = conio.getwinsize()
+	txt = chr(0x30 + [0..9].cycle(w - 4)).join()
+	for (region in [`left, `right, `line]) {
+		conio.clear()
+		range(h) {|y|
+			conio.moveto(0, y) { printf('%s%4d', txt, y) }
+		}
+		[x, y] = [int(w / 2), int(h / 2)]
+		conio.moveto(x, y)
+		print('#')
+		conio.moveto(x, y)
+		PushAnyKey()
+		conio.moveto(x, y)
+		conio.clear(region)
+		PushAnyKey()
+	}
+}
+scope {
+	conio.clear()
+	[w, h] = conio.getwinsize()
+	conio.moveto(0, 0) {
+		print('left-top')
+	}
+	conio.moveto(0, h - 1) {
+		print('left-bottom')
+	}
+	conio.moveto(w - 12, h - 1) {
+		print('right-bottom')
+	}
+	conio.moveto(w - 9, 0) {
+		print('right-top')
+	}
+	PushAnyKey()
+}
+scope {
+	conio.clear()
+	[w, h] = conio.getwinsize()
+	conio.moveto(0, 0) {
+		print('*' * w)
+	}
+	conio.moveto(0, 1 .. (h - 2)) {
+		print('*', ' ' * (w - 2), '*')
+	}
+	conio.moveto(0, h - 1) {
+		print('*' * w)
+	}
+	[x, y] = [int(w / 2), int(h / 2)]
+	[xDir, yDir] = [1, 1]
+	repeat(100) {
+		conio.moveto(x, y) { print('#') }
+		sys.stdout.flush()
+		if (x + xDir == 0) {
+			xDir = 1
+		} elsif (x + xDir == w - 1) {
+			xDir = -1
+		}
+		if (y + yDir == 0) {
+			yDir = 1
+		} elsif (y + yDir == h - 1) {
+			yDir = -1
+		}
+		os.sleep(.05)
+		conio.moveto(x, y) { print('.') }
+		x += xDir, y += yDir
+	}
+	PushAnyKey()
+}
+scope {
+	conio.clear()
+	colors = [
+		`black, `blue, `green, `cyan, `red, `magenta, `yellow, `white
+		`gray, `bright_blue, `bright_green, `bright_cyan,
+		`bright_red, `bright_magenta, `bright_yellow, `bright_white
+	]
+	for (fg in colors) {
+		for (bg in colors) {
+			conio.setcolor(fg, bg) {
+				print('####')
+			}
+		}
+		println()
+	}
+	conio.moveto(3..20, 1..) {
+		print('hello')
+	}
+	PushAnyKey()
+}

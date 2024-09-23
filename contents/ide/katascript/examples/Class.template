@@ -1,0 +1,13 @@
+class test {
+    var x = 1;
+    var y = "This is from the class message!";
+    func test() {
+        x = 2;
+    }
+}
+
+a = test();
+
+if (a.x == 2) {
+    print(a.y);
+}

@@ -1,0 +1,6 @@
+//
+//  TeaScript: Hello, World!
+//  https://tea-age.solutions/teascript
+//
+
+print("Hello, World!\n")

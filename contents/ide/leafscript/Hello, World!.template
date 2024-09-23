@@ -1,0 +1,6 @@
+//
+//   Leafscript: Hello, World!
+//   https://github.com/odddollar/Leafscript
+//
+
+print "Hello, World!"

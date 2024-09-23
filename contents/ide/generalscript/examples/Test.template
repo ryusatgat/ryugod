@@ -1,0 +1,19 @@
+=($b 5)
+# This is comment line
+if ($b)
+	print(Testing while loop)
+	print(Logical condition is ($b > 0 and $a < 3))
+	=($a 0)
+	do
+		--($b)
+		++($a)
+		print(Variable A)
+		printint($a)
+		print(Variable B)
+		printint($b)
+	while ( &( >($b 0) <($a 3) ) )
+	print(While loop ended)
+fi
+
+print(Ok. The execution of the script has almost come to the end.)
+print(Read test.gscript file to find out what actually happened.)

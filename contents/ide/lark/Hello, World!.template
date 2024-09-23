@@ -1,0 +1,6 @@
+#
+#   Lark: Hello, World!
+#   https://github.com/munificent/lark
+#
+
+print "Hello, World!";

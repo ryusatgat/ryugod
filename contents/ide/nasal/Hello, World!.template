@@ -1,0 +1,6 @@
+#
+#  Nasal: Hello, World!
+#  https://web.archive.org/web/20140714101212/http://plausible.org/nasal
+#
+
+print("Hello, World!\n");

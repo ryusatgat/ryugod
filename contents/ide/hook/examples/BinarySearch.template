@@ -1,0 +1,25 @@
+//
+// binary_search.hk
+//
+
+fn binary_search(arr, key) {
+  var low = 0;
+  var high = len(arr) - 1;
+  while (low <= high) {
+    let middle = to_int((low + high) / 2);
+    let cmp = compare(key, arr[middle]);
+    if (cmp > 0) {
+      low = middle + 1;
+      continue;
+    }
+    if (cmp < 0) {
+      high = middle - 1;
+      continue;
+    }
+    return middle;
+  }
+  return -1;
+}
+
+let arr = [ -1, 0, 3, 5, 9, 12 ];
+println(binary_search(arr, 9));

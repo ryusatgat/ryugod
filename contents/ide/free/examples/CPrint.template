@@ -1,0 +1,21 @@
+fn start() {
+    def str = alloc(16);
+
+    if 0 {
+        *str = "True!\n\0";
+    } else {
+        *str = "False!\n\0";
+    }
+
+    cprint(str);
+}
+
+fn cprint(str) {
+    def counter = 0;
+    def running = *add(str, counter);
+    while running {
+        print(running);
+        counter = add(counter, 1);
+        running = *add(str, counter);
+    }
+}

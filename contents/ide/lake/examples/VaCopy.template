@@ -1,0 +1,5 @@
+f(...) void {
+	auto a = ...;
+	auto b mut __builtin_va_list;
+	b = a;
+}

@@ -1,4 +1,3 @@
-/* Go(고) 언어 for 구문 예제 */
 package main
 
 import "fmt"
@@ -16,7 +15,7 @@ func main() {
     }
 
     for {
-        fmt.Println("for 구문 나가기")
+        fmt.Println("Exit the for statement")
         break
     }
 

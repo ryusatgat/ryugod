@@ -1,0 +1,44 @@
+<html>
+<HEAD><TITLE>Test:</title></head>
+
+<$
+int foo = 2;
+int bar = 1, baz=9;
+
+real array ray;
+real array roy = 5;
+real array rob = {6,7,12}, bob;
+
+int xyzzy1 = 4;
+
+str strtest2 = "billybob";
+
+real plugh = 4.6;
+
+foo = 4;
+bar = foo * 3;
+baz = 12*34*4;
+bar = foo * foo / 3;
+bar = 2/4*6/ 25;
+baz = 4 + 2;
+baz = 3+ 5/10;
+bar = (3+5)/10;
+bar = 2;
+bar = 21+(4/3);
+baz = bar + bar;
+baz = roy[0];
+bob[3] = rob[0] + roy[0];
+bob[2*2] = rob[0-1+2-1] * 2;
+
+
+
+
+
+print "Hello, World!\n";
+print bob[1+2],",",bob[4],"\n";
+
+$>
+
+
+
+</head>

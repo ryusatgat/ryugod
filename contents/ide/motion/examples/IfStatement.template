@@ -1,0 +1,7 @@
+var x = 11;
+
+if (x == 10) {
+    print "If condition";
+} else{
+    print "Else Condition";
+}
