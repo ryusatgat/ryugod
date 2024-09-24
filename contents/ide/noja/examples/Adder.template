@@ -1,0 +1,12 @@
+fun makeAdder(n) {
+    fun adder(m) {
+        return m + n;
+    }
+    return adder;
+}
+
+add10 = makeAdder(10);
+add20 = makeAdder(20);
+
+assert(add10(1) == 11);
+assert(add20(1) == 21);

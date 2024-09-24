@@ -1,0 +1,6 @@
+--
+--   Passerine: Hello, World!
+--   https://github.com/vrtbl/passerine
+--
+
+println "Hello, World!"

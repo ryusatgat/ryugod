@@ -1,0 +1,6 @@
+#
+#  Noja: Hello, World!
+#  https://github.com/cozis/Noja
+#
+
+print('Hello, World!\n');

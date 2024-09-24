@@ -29,7 +29,7 @@ export var conf = {
     ],
     onEnterRules: [
         {
-            beforeText: new RegExp('^\\s*(?:fn|for|if|else).*?\\s*$'),
+            beforeText: new RegExp('^\\s*(?:fn|for|if|else|interface).*?\\s*$'),
             action: { indentAction: languages.IndentAction.Indent }
         }
     ],
@@ -107,7 +107,7 @@ export var language = {
             { include: '@strings' },
             [/[,:;]/, 'delimiter'],
             [/[{}\[\]()]/, '@brackets'],
-            [/#\[.*\]$/, 'metatag'],
+            [/@[a-zA-Z_]\w*/, 'tag'],
             [
                 /[a-zA-Z_]\w*/,
                 {
@@ -134,7 +134,7 @@ export var language = {
         // Recognize hex, negatives, decimals, imaginaries, longs, and scientific notation
         numbers: [
             [/-?0x([abcdef]|[ABCDEF]|\d)+[lL]?/, 'number.hex'],
-            [/-?\d+\.?\.?\d*([eE][+\-]?\d+)?[jJ]?[lL]?/, 'number']
+            [/-?(\d*\.)?\d+([eE][+\-]?\d+)?[jJ]?[lL]?/, 'number']
         ],
         // Recognize strings, including those broken across lines with \ (but not without)
         strings: [

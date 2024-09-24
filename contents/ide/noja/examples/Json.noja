@@ -1,0 +1,370 @@
+scan = import("scan.noja");
+
+newScanner = scan.newScanner;
+Scanner = scan.Scanner;
+isDigit = scan.isDigit;
+ord = string.ord;
+
+fun parseString(scan: Scanner) {
+
+    assert(scan->current() == '"');
+    char = scan->consume(); # Consume the opening "
+
+    temp = "";
+    while char != '"' and char != none: {
+        temp = string.cat(temp, char);
+        char = scan->consume();
+    }
+
+    if char == none: {
+        val = none;
+        err = "Source ended inside a string literal";
+    } else {
+        assert(char == '"');
+        scan->consume();
+        val = temp;
+        err = none;
+    }
+
+    return val, err;
+}
+
+fun parseObject(scan: Scanner) {
+    
+    assert(scan->current() == '{');
+    scan->consume(); 
+
+    obj = {};
+    char = scan->consumeSpaces();
+    if char != '}': do {
+        
+        key, err = parseValue(scan);
+        if err != none: 
+            return none, err;
+        if type(key) != String:
+            return none, "Object key isn't a string";
+
+        char = scan->consumeSpaces();
+        if char != ':':
+            return none, "Missing ':' separator after key";
+        scan->consume();
+
+        val, err = parseValue(scan);
+        if err != none:
+            return none, err;
+
+        if obj[key] != none:
+            return none, "Duplicate key in object";
+        obj[key] = val;
+
+        char = scan->consumeSpaces();
+        if char == '}':
+            done = true;
+        else {
+            if char != ',':
+                return none, "Invalid character where either ',' or '}' were expected";
+            scan->consume(); # Consume the ","
+            done = false;
+        }
+    } while not done;
+    assert(scan->current() == '}');
+    scan->consume();
+    return obj;
+}
+
+fun parseArray(scan: Scanner) {
+    
+    assert(scan->current() == '[');
+    scan->consume(); # Consume the [
+    
+    array = [];
+    
+    char = scan->consumeSpaces();
+    if char != ']': do {
+
+        val, err = parseValue(scan);
+        if err != none:
+            return none, err;
+        append(array, val);
+
+        char = scan->consumeSpaces();
+        if char == ']':
+            done = true;
+        else {
+            if scan->current() != ',':
+                return none, "Invalid character where either ',' or ']' were expected";
+            scan->consume(); # Consume the ","
+            done = false;
+        }
+    } while not done;
+    assert(scan->current() == ']');
+    scan->consume();
+    return array;
+}
+
+fun parseFalse(scan: Scanner) {
+    
+    assert(scan->current() == 'f');
+    char = scan->consume();
+
+    if char != 'a':
+        return none, "Invalid character after 'f'";
+    char = scan->consume();
+
+    if char != 'l':
+        return none, "Invalid character after 'fa'";
+    char = scan->consume();
+
+    if char != 's':
+        return none, "Invalid character after 'fal'";
+    char = scan->consume();
+
+    if char != 'e':
+        return none, "Invalid character after 'fals'";
+    scan->consume();
+
+    return false;
+}
+
+fun parseTrue(scan: Scanner) {
+    
+    assert(scan->current() == 't');
+    char = scan->consume();
+
+    if char != 'r':
+        return none, "Invalid character after 't'";
+    char = scan->consume();
+
+    if char != 'u':
+        return none, "Invalid character after 'tr'";
+    char = scan->consume();
+
+    if char != 'e':
+        return none, "Invalid character after 'tru'";
+    scan->consume();
+
+    return true;
+}
+
+fun parseNull(scan: Scanner) {
+    
+    assert(scan->current() == 'n');
+    char = scan->consume();
+
+    if char != 'u':
+        return none, "Invalid character after 'n'";
+    char = scan->consume();
+
+    if char != 'l':
+        return none, "Invalid character after 'nu'";
+    char = scan->consume();
+
+    if char != 'l':
+        return none, "Invalid character after 'nul'";
+    scan->consume();
+
+    return none;
+}
+
+fun parseNumber(scan: Scanner) {
+
+    char = scan->current();
+    
+    sign = 1;
+    if char == '+' or char == '-': {
+        
+        sign = {'+': 1, '-': -1}[char];
+
+        char = scan->consume();
+        if not isDigit(char):
+            return none, "Invalid character after +/-";
+    }
+
+    temp = 0.0;
+    do {
+        assert(isDigit(char));
+
+        n = integerFromDigit(char);
+        temp = temp * 10 + n;
+
+        char = scan->consume();
+
+    } while isDigit(char);
+
+    if char == '.' and isDigit(scan->hint(1)): {
+        
+        char = scan->consume(); # Consume the dot
+         
+        q = 1.0;
+        do {
+            q = q / 10;
+            n = integerFromDigit(char);
+            temp = temp + q * n;
+            char = scan->consume();
+        } while isDigit(char);
+    }
+
+    return sign * temp;
+}
+
+fun parseValue(scan: Scanner) {
+
+    table = {
+        '"': parseString,
+        '{': parseObject,
+        '[': parseArray,
+        'f': parseFalse,
+        't': parseTrue,
+        'n': parseNull,
+        '+': parseNumber,
+        '-': parseNumber,
+        '0': parseNumber,
+        '1': parseNumber,
+        '2': parseNumber,
+        '3': parseNumber,
+        '4': parseNumber,
+        '5': parseNumber,
+        '6': parseNumber,
+        '7': parseNumber,
+        '8': parseNumber,
+        '9': parseNumber
+    };
+
+    char = scan->consumeSpaces();
+    if char == none: {
+        val = none;
+        err = "Source ended where a value was expected";
+    } else {
+        callback = table[char];
+        if callback == none: {
+            val = none;
+            err = "Invalid character where a value was expected";
+        } else
+            (val, err) = callback(scan);
+    }
+    return (val, err);
+}
+
+fun parse(src: String) {
+    scan = newScanner(src);
+    val, err = parseValue(scan);
+    return val, err;
+}
+
+fun readFile(name: String) {
+    stream, error = files.openFile(name, files.READ);
+    if error != none:
+        return error;
+
+    text = "";
+    size = 256;
+    do {
+        
+        size = size * 2;
+        buff = buffer.new(size);
+
+        read_bytes, error = files.read(stream, buff);
+        if error != none:
+            return error;
+
+        text2, error = buffer.toString(buff);
+        if error != none:
+            return none, error;
+        assert(text2 != none);
+        
+        text = string.cat(text, text2);
+
+    } while count(buff) == read_bytes;
+
+    return text;
+}
+
+fun parseFile(name: String) {
+    text, error = readFile(name);
+    if error != none:
+        return none, error;
+    assert(text != none);
+    result, error = parse(text);
+    return result, error;
+}
+
+fun test() {
+
+    compareAny = import("compare.noja").compareAny;
+
+    Error = String;
+    JSONValueType = (bool | float | String | Map | List | None);
+    TestCase = [String, ?JSONValueType, ?Error];
+    
+    fun runAllTestCases(test_cases: List) {
+        total  = count(test_cases);
+        passed = 0;
+        evaluated = 0;
+        while evaluated < total: {
+            
+            test_case = test_cases[evaluated];
+            input  = test_case[0];
+            expres = test_case[1]; # Expected result
+            experr = test_case[2]; # Expected error
+
+            res, err = parse(input);
+            
+            #print("res=", res, ", err=", err, "\n");
+            #print("expres=", expres, ", experr=", experr, "\n");
+            
+            result = compareAny(res, expres)
+                 and compareAny(err, experr);
+
+            if result: {
+                print("Test ", evaluated, ": PASSED\n");
+                passed = passed+1;
+            } else {
+
+                print("Test ", evaluated, ": FAILED\n");
+                print("\tInput:\n");
+                print("\t\t", input, "\n");
+
+                if experr == none: {
+                    if err == none:
+                        print("\tGot result ", res, " but was expected ", expres, "\n");
+                    else
+                        print("\tFailed unexpectedly [", err, "]\n");
+                } else if err == none:
+                    print("\tSucceded unexpectedly. Was expected error [", experr, "]\n");
+                else
+                    print("\tWas expected error [", experr, "], but got [", err, "]\n");
+            }
+            evaluated = evaluated+1;
+        }
+        return passed, (total-passed), total;
+    }
+
+    fun newPassingTestCase(src: String, res: JSONValueType)
+        return [src, res, none];
+
+    fun newFailingTestCase(src: String, err: String)
+        return [src, none, err];
+
+    test_cases = [
+        newPassingTestCase("null", none),
+        newPassingTestCase("true", true),
+        newPassingTestCase("false", false),
+        newPassingTestCase("\"Hello, world!\"", "Hello, world!"),
+        newPassingTestCase("1", 1.0),
+        newPassingTestCase("2.3", 2.3),
+        newPassingTestCase("[]", []),
+        newPassingTestCase("[1]", [1.0]),
+        newPassingTestCase("[1, 2]", [1.0, 2.0]),
+        newPassingTestCase("[1, 2, 3]", [1.0, 2.0, 3.0]),
+        newPassingTestCase("{}", {}),
+        newPassingTestCase("{\"k1\": true}", {k1: true}),
+        newPassingTestCase("{\"k1\": true, \"k2\": false}", {k1: true, k2: false})
+    ];
+
+    passed, failed, total = runAllTestCases(test_cases);
+    print("passed: ", passed, "\n");
+    print("failed: ", failed, "\n");
+    print(" total: ", total,  "\n");
+}
+
+return {parse: parse, parseFile: parseFile, test: test};

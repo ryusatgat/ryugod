@@ -10,8 +10,8 @@ ARG USER_GID=1000
 USER root
 
 ENV ACCEPT_EULA=Y
-RUN apt-get update; apt-get -y upgrade; echo
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends binutils net-tools git wget vim curl adduser sudo locales zip unzip xz-utils bzip2 upx make cmake; echo
+RUN apt-get update; apt-get -y upgrade; true
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends binutils net-tools git wget vim curl adduser sudo locales zip unzip xz-utils bzip2 upx make cmake strace binutils; echo
 RUN locale-gen ko_KR.utf8 en_US.utf8
 
 RUN deluser ubuntu; echo
@@ -21,6 +21,6 @@ RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME ; echo
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
-RUN echo 'export PS1="\e[m\]\[\e[32;5;172m\]\u\[\e[m\]@\[\e[33;5;153m\]\h\[\e[m\] \[\e[38;5;214m\]\W\[\e[m\]\[\e[m\]\\$ "' >> /home/$USERNAME/.bashrc
+RUN echo 'export PS1="\[\e[m\]\[\e[32;5;172m\]\u\[\e[m\]@\[\e[33;5;153m\]\h\[\e[m\] \[\e[38;5;214m\]\W\[\e[m\]\$ "' >> /home/$USERNAME/.bashrc
 
 ADD usr /usr

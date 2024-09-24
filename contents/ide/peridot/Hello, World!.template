@@ -1,0 +1,6 @@
+#
+#  Peridot: Hello, World!
+#  https://github.com/peridot/peridot
+#
+
+println("Hello, World!")

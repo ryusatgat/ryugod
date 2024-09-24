@@ -815,6 +815,17 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Nasal
 - Nature
 - Toy
+## 2024-09-23
+- Noja
+- Orion
+- Passerine
+## 2024-09-24
+- Loxido
+- Pinecone
+- Qi
+## 2024-09-25
+- Quirrel
+- RhaiScript
 
 ## To be continued
 - 42

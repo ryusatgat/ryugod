@@ -1,0 +1,6 @@
+//
+//   Rhai: Hello, World!
+//   https://github.com/rhaiscript/rhai
+//
+
+print("Hello, World!");

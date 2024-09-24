@@ -1,7 +1,7 @@
 ARG FROM_IMAGE=ryusatgat/ubuntu
 FROM $FROM_IMAGE    
 
-RUN apt install -y llvm-17 build-essential cmake erlang
+RUN apt install -y llvm-17 build-essential cmake erlang nasm libpcre3 libclang1-18
 RUN "curl -fsSL https://deno.land/install.sh" | DENO_INSTALL=/usr/local sh
 RUN curl -s -L https://ziglang.org/builds/zig-linux-x86_64-0.14.0-dev.1550+4fba7336a.tar.xz | tar xvJ --transform 's/^zig-linux-x86_64-0.14.0-dev.1550+4fba7336a/zig/' -C /opt && ln -s /opt/zig/zig /usr/local/bin && upx /opt/zig/zig
 RUN curl -L https://github.com/gren-lang/compiler/releases/download/0.4.5/gren_linux > /usr/local/bin/gren && chmod 755 /usr/local/bin/gren && upx /usr/local/bin/gren
@@ -21,9 +21,7 @@ RUN curl -sLO http://mirrors.covariant.cn/covscript/covscript-amd64.deb && sudo 
 RUN curl -s -L https://github.com/fubark/cyber/releases/download/latest/cyber-linux-x64.tar.gz | tar xvz -C /usr/local/bin && upx /usr/local/bin/cyber
 RUN curl -s -L https://github.com/hook-lang/hook/releases/download/0.1.0/hook-0.1.0-linux-x64.tar.gz | tar xvz --transform 's/^hook-0.1.0-linux-x64/hook/' -C /opt && ln -s /opt/hook/bin/hook /usr/local/bin && upx /opt/hook/bin/hook
 RUN curl -s -L https://github.com/hush-shell/hush/releases/download/v0.1.4-alpha/hush-0.1.4-x86_64.tar.gz | tar xvz -C /usr/local/bin && rm -f LICENSE && upx /usr/local/bin/hush
-RUN apt install -y libclang1-18
-RUN curl -s -L https://tea-age.solutions/sdc_download/1694/?key=lterqez9cnmcxxnjt3idiyex19mu81 | tar xvz -C /opt && ln -s ln -s /opt/TeaScript/bin/TeaScript /usr/local/bin
-RUN apt install -y nasm libpcre3
+RUN curl -s -L https://tea-age.solutions/sdc_download/1694/?key=lterqez9cnmcxxnjt3idiyex19mu81 | tar xvz -C /opt && ln -s /opt/TeaScript/bin/TeaScript /usr/local/bin
 
 ADD opt /opt/
 ADD usr /usr/

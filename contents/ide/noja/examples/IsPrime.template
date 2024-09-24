@@ -1,0 +1,49 @@
+fun isPrime(n: int) {
+    prime = true; # First assumption
+    if n < 3: {
+        if n == 2:
+            prime = true;
+        else
+            prime = false;
+    } else {
+        i = 2;
+        sqrt = math.sqrt(n/1.0);
+        do {
+            if n % i == 0: {
+                prime = false;
+                break;
+            }
+            i = i+1;
+        } while i <= sqrt;
+    }
+    return prime;
+}
+
+numbers = [
+    [-1, false],
+    [ 0, false],
+    [ 1, false],
+    [ 2, true],
+    [ 3, true],
+    [ 4, false],
+    [ 5, true],
+    [ 6, false],
+    [ 7, true],
+    [ 9, false],
+    [10, false],
+    [11, true],
+    [12, false],
+    [13, true],
+    [14, false],
+    [15, false]
+];
+
+i = 0;
+while i < count(numbers): {
+    num = numbers[i][0];
+    exp = numbers[i][1];
+    res = isPrime(numbers[i][0]);
+    print("isPrime(", num, ") == ", res, "\n");
+    assert(res == exp);
+    i = i+1;
+}

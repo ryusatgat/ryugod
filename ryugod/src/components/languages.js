@@ -5084,6 +5084,19 @@ export const languages =
       errorRegEx: "\\[line (\\d+)\\] (Error.+)",
       keyBindings: null
     },
+    'Loxido':{
+      desc: "Based on the clox reference, Rust implementation",
+      highlighting:"lox",
+      ext: 'lox',
+      kor: '록시도',
+      template:"loxido",
+      icon:'mdi-fuel-cell',
+      command:"loxido {ARGS} {FILENAME}.{EXT}",
+      cli: "loxido {ARGS}",
+      errorRegEx: "\\[line (\\d+)\\] Error(.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Lua':{
       desc: "Lightweight, embeddable, dynamic scripting language",
       highlighting:"lua",
@@ -5880,6 +5893,19 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/base"
     },
+    'Noja':{
+      desc: "Very high level language, main inspirations was CPython",
+      highlighting:"noja",
+      ext: 'noja',
+      kor: '노자',
+      template:"noja",
+      icon:'mdi-island-variant',
+      command:"noja {ARGS} {FILENAME}.{EXT}",
+      cli: "noja",
+      errorRegEx: '.+?\\.noja:(\\d+)',
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Noumenon':{
       desc: "Statically-typed, functional, mathematical focus",
       highlighting:"noumenon",
@@ -6102,6 +6128,19 @@ export const languages =
       errorRegEx: ".+?\\.orc:(\\d+)(.*)",
       keyBindings: null
     },
+    'Orion':{
+      desc: "High level, purely functional, lightness, portable, LISP based",
+      highlighting:"lisp",
+      ext: 'orn',
+      kor: '오리온',
+      template:"orion",
+      icon:'mdi-lambda',
+      command:"orion {ARGS} {FILENAME}.{EXT}",
+      cli: 'orion',
+      errorRegEx: null, // not supported
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Otus Lisp':{
       desc: "Symbolic computation and AI tool",
       highlighting:"lisp",
@@ -6240,6 +6279,19 @@ export const languages =
       errorRegEx: ".*?\\.pas\\((\\d+)(?:,\\d+)?\\) (.*)",
       keyBindings: null
     },
+    'Passerine':{
+      desc: "Small, extensible, embeddable, highly expressive, light and fast",
+      highlighting:"passerine",
+      ext: 'pn',
+      kor: '패서린',
+      template:"passerine",
+      icon:'mdi-bird',
+      command:"aspen new {FILENAME} 2> /dev/null; cp -f {FILENAME}.{EXT} {FILENAME}/src/main.{EXT} && aspen run {FILENAME}",
+      cli: 'aspen repl',
+      errorRegEx: ".+?\\.pn:(\\d+):\\d+",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Pawn':{
       desc: "Lightweight scripting language for game mods",
       highlighting:"pawn",
@@ -6264,6 +6316,21 @@ export const languages =
       errorRegEx: "(\\d+):\\d+: .+",
       keyBindings: null
     },
+/* still, 32bit environment does not supported
+    'Peridot':{
+      desc: "Dynamically typed, interpreted, embeddable, fast, asynchronous",
+      highlighting:"peridot",
+      ext: 'pd',
+      kor: ' 페리도트',
+      template:"peridot",
+      icon:'mdi-diamond-stone',
+      command:"peridot {ARGS} {FILENAME}.{EXT}",
+      cli: "peridot",
+      errorRegEx: '',
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },    
+*/
     'Perl':{
       desc: "Text processing, flexible, scripting language",
       highlighting:"perl",
@@ -6373,6 +6440,19 @@ export const languages =
         cli: null,
         errorRegEx: null,
         keyBindings: null
+    },
+    'Pinecone':{
+      desc: "Fast, concise, intuitive, general purpose, multi-paradigm, high performance",
+      highlighting:"pinecone",
+        ext: 'pn',
+        kor: '파인콘',
+        template:"pinecone",
+        icon:'mdi-',
+        command:"pinecone {ARGS} {FILENAME}.{EXT}",
+        cli: 'pinecone',
+        errorRegEx: "error in '.+?\\.pn' on line (\\d+):\r\n(.*)",
+        keyBindings: null,
+        dockerImage: "ryusatgat/etc"
     },
     'Pkl':{
       desc: "Embeddable, configuration language, data templating and validation",
@@ -6691,6 +6771,19 @@ export const languages =
       errorRegEx: "! File .+?\\.q, line (\\d+): (.+)",
       keyBindings: null
     },
+    'Qi':{
+      desc: "Lightweight, fast, Chinese",
+      highlighting:"qi",
+      ext: 'qi',
+      kor: '치',
+      template:"qi",
+      icon:'mdi-ideogram-cjk',
+      command:"qi {ARGS} {FILENAME}.{EXT}",
+      cli: "qi {ARGS}",
+      errorRegEx: ".*?\r\n【行 (\\d+)】在 脚本",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'QBE':{
       desc: "Compiler backend, user-friendly, performant",
       highlighting:"qbe",
@@ -6727,6 +6820,19 @@ export const languages =
       cli: "ln -sfT /opt/dos/qb45 qb45 && emu2 qb45/qb.exe -- 'PATH=C:\\qb45'",
       errorRegEx: null,
       keyBindings: null
+    },
+    'Quirrel':{
+      desc: "Based on Squirrel, inspired by Python, Lexical scoping",
+      highlighting:"squirrel",
+      ext: 'nut',
+      kor: '퀴럴',
+      template:"quirrel",
+      icon:'mdi-nut',
+      command:"sq {ARGS} {FILENAME}.{EXT}",
+      cli: 'sq',
+      errorRegEx: ".+? line = \\((\\d+)\\) column = \\(\\d+\\) : (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
     },
     'R':{
       desc: "Statistical computing, data analysis language",
@@ -6846,6 +6952,19 @@ export const languages =
       cli: null,
       errorRegEx: ".+? \\\".+?\\\", line (\\d+): (.+)",
       keyBindings: null
+    },
+    'RhaiScript':{
+      desc: "Embedded scripting, evaluation engine",
+      highlighting:"rhaiscript",
+      ext: 'rhai',
+      kor: '라이스크립트',
+      template:"rhaiscript",
+      icon:'mdi-barley',
+      command:"rhai-run {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: "(\\d+): .*",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
     },
     'RIGAL':{
       desc: "Declarative, Rule-based, Logic programming, High-level, Data-oriented",

@@ -21,6 +21,6 @@ RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME ; echo
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
-RUN echo 'export PS1="\e[m\]\[\e[32;5;172m\]\u\[\e[m\]@\[\e[33;5;153m\]\h\[\e[m\] \[\e[38;5;214m\]\W\[\e[m\]\[\e[m\]\\$ "' >> /home/$USERNAME/.bashrc
+RUN echo 'export PS1="\[\e[m\]\[\e[32;5;172m\]\u\[\e[m\]@\[\e[33;5;153m\]\h\[\e[m\] \[\e[38;5;214m\]\W\[\e[m\]\$ "' >> /home/$USERNAME/.bashrc
 
 ADD usr /usr

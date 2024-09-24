@@ -1,0 +1,32 @@
+# Calculate the arithmetic-geometric mean of x,y.
+fun agm(x: Numeric, y: Numeric, 
+                epsilon: float = 0.00001) 
+{
+        sqrt = math.sqrt;
+
+        # Make sure they're floats by 
+        # multiplying by 1.0
+        a = 1.0 * x;
+        g = 1.0 * y;
+
+        while abs(a - g) > epsilon: {
+
+                a2 = (a + g) / 2;
+                g2 = sqrt(a * g);
+
+                #print("a=", a, ", a2=", a2, "\n");
+                #print("g=", g, ", g2=", g2, "\n");
+
+                # It must converge!
+                assert(abs(a2 - g2) < abs(a - g));
+
+                a = a2;
+                g = g2;
+        }
+
+        return a, g;
+}
+
+x = 24;
+y = 6;
+print(agm(x, y), '\n');

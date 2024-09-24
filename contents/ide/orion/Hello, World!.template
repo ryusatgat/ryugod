@@ -1,0 +1,6 @@
+;
+;   Orion: Hello, World!
+;   https://github.com/Wafelack/orion
+;
+
+(print "Hello, World!")

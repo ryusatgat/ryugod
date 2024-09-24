@@ -4,8 +4,8 @@
  *--------------------------------------------------------------------------------------------*/
 import { registerLanguage } from '../_.contribution.js';
 registerLanguage({
-    id: 'zzz',
-    extensions: ['.zzz'],
-    aliases: ['zzz', 'zzz'],
-    loader: function () { return import('./zzz.js'); }
+    id: 'lang',
+    extensions: ['.lang'],
+    aliases: ['Lang', 'lang'],
+    loader: function () { return import('./language.js'); }
 });

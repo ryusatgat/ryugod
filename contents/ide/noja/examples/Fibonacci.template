@@ -1,0 +1,16 @@
+fun fibonacci(n: int) {
+    
+    if n < 0:
+        error("Only non-negative integers allowed");
+
+    if n == 0 or n == 1: 
+        return 1;
+
+    if n == 2: 
+        return 2;
+
+    return fibonacci(n-1)
+         + fibonacci(n-2);
+}
+
+print(fibonacci(10), "\n");

@@ -1,0 +1,26 @@
+# Functions
+function sum(x, y)
+  return x + y
+end
+
+# String interpolation
+println("5 + 2 = #{sum(5, 2)}")
+
+# Modules
+import math
+println(math.sin(30))
+
+# Classes
+class Person
+  function init(name, age)
+    self.name = name
+    self.age = age
+  end
+
+  function speak(text)
+    println("#{self.name}: #{text}")
+  end
+end
+
+john = Person("John", 16)
+john.speak("Hello, World!")

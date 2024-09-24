@@ -1,0 +1,6 @@
+#
+#   Pinecone: Hello, World!
+#   https://github.com/wmww/Pinecone
+#
+
+print: "Hello World!"

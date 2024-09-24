@@ -1,0 +1,6 @@
+fun sayHello(name: String = "unnamed person")
+    print("Hello, ", name, "!\n");
+
+sayHello("Francesco");
+sayHello();
+sayHello(none);

@@ -1,0 +1,40 @@
+fun compareLists(a: List, b: List) {
+    len = count(a);
+    if len != count(b):
+        return false;
+    i = 0;
+    while i < len: {
+        if a[i] != b[i]:
+            return false;
+        i = i+1;
+    }
+    return true;
+}
+
+fun compareMaps(a: Map, b: Map) {
+    keys = keysof(a);
+    len  = count(keys);
+    if len != count(b):
+        return false;
+    i = 0;
+    while i < len: {
+        k = keys[i];
+        if a[k] != b[k]:
+            return false;
+        i = i+1;
+    }
+    return true;
+}
+
+fun compareAny(a, b) {
+    Ta = type(a);
+    Tb = type(b);
+
+    if Ta != Tb:
+        return false;
+    if Ta == List:
+        return compareLists(a, b);
+    if Ta == Map:
+        return compareMaps(a, b);
+    return a == b;
+}
