@@ -1,0 +1,9 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN curl -sk -L https://github.com/YakshaLang/Yaksha/releases/download/vP20240519.113990e/yaksha_vP20240519.113990e_linux-x86_64.tar.gz | \
+    tar xvz --transform 's/^yaksha_linux-x86_64/yaksha/' -C /opt && chmod -R a+r /opt/yaksha && chown -R root:root /opt/yaksha && ln -s /opt/yaksha/bin/yaksha /usr/local/bin
+RUN chmod -R a+rx /opt/yaksha/bin
+ADD opt /opt/
+
+USER $USERNAME

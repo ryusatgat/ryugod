@@ -1,0 +1,17 @@
+fn Fibonacci(n)
+  
+    if n < 0 then
+        writeln("Incorrect input")
+    
+
+    elif n == 0 then
+        return 0
+    
+    elif n == 1 or n == 2 then
+        return 1
+     
+    else
+        return Fibonacci(n-1) + Fibonacci(n-2)
+    
+   end 
+end

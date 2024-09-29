@@ -826,6 +826,25 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 ## 2024-09-25
 - Quirrel
 - RhaiScript
+- Rune
+## 2024-09-26
+- RustScript
+- Sac
+## 2024-09-27
+- Egel
+- Shiika
+- SmallBasic
+## 2024-09-28
+- Tokay
+- Victim
+- Wa
+- Zang
+- ZetScript
+## 2024-09-29
+- Arduino (compile only)
+- Duktape
+- Python1
+- Zenon
 
 ## To be continued
 - 42

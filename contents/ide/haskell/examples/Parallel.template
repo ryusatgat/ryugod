@@ -3,13 +3,13 @@
 --  https://wiki.haskell.org/
 --
 
-import Control.Parallel
+import GHC.Conc
 
 main = a `par` b `par` c `pseq` print (a + b + c)
     where
         a = ack 3 10
-        b = fac 42
-        c = fib 34
+        b = fac 24
+        c = fib 14
 
 fac 0 = 1
 fac n = n * fac (n-1)

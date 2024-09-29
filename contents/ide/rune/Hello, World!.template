@@ -1,0 +1,6 @@
+//
+//   Rune: Hello, World!
+//   https://github.com/rune-rs/rune
+//
+
+print("Hello, World!\n")

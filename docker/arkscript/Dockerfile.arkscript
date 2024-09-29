@@ -1,0 +1,12 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN mkdir /opt/arkscript && cd /opt/arkscript sh && curl -ksL https://github.com/ArkScript-lang/Ark/releases/download/v4.0.0-9/linux-gcc-14.zip > ark.zip \
+    && unzip ark.zip && rm ark.zip && chmod a+rx /opt/arkscript/arkscript && ln -s /opt/arkscript/arkscript /usr/local/bin
+
+ADD opt /opt/
+
+USER $USERNAME
+
+RUN echo export ARKSCRIPT_PATH=/opt/arkscript >> /home/$USERNAME/.bashrc
+RUN echo export LD_LIBRARY_PATH=/opt/arkscript >> /home/$USERNAME/.bashrc

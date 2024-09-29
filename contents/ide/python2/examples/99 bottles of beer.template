@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 """
-    Python(파이썬) 2.7: 99 bottles of beer 예제
+    Python2.7: 99 bottles of beer
 """
 
 for quant in range(99, 0, -1):

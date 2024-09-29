@@ -1,0 +1,8 @@
+//
+//   Wa: Hello, World!
+//   https://github.com/wa-lang/wa
+//
+
+func main {
+    println("Hello, World!")
+}

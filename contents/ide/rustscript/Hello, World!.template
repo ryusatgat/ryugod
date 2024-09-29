@@ -1,0 +1,6 @@
+#
+#  RustScript: Hello, World!
+#  https://github.com/mkhan45/RustScript2
+#
+
+println("Hello, World!")

@@ -4,7 +4,7 @@ docker run --name oracle -d \
 	-e ORACLE_PWD=ryugod \
 	-e ORACLE_CHARACTERSET=KOREAN_KOREA.KO16MSWIN949 \
 	container-registry.oracle.com/database/free:latest
-sleep 60
+sleep 120
 docker container cp ot_schema.sql oracle:/
 docker container cp ot_data.sql oracle:/
 

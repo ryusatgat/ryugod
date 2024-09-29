@@ -1,0 +1,6 @@
+//
+//  ZetScript: Hello, World!
+//  https://github.com/jespa007/zetscript
+//
+
+Console::outln("Hello, World!");

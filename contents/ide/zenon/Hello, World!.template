@@ -1,0 +1,12 @@
+//
+//  Zenon: Hello, World!
+//  https://github.com/miki151/zenon
+//
+
+import "std/io.znn";
+
+int main(string[] args) {
+    printf("Hello, World!\n");
+
+    return 0;
+}

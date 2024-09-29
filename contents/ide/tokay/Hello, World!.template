@@ -1,0 +1,6 @@
+#
+#  Tokay: Hello, World!
+#  https://github.com/tokay-lang/tokay
+#
+
+print("Hello, World!")

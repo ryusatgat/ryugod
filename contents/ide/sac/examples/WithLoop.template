@@ -1,0 +1,12 @@
+use StdIO: all;
+use Array: all;
+
+int main()
+{
+    a = with {
+       ([0] <= iv < [5]): 42;
+    }: genarray([7], 0);
+
+    print(a);
+    return 0;
+}

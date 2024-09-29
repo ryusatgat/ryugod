@@ -1,0 +1,11 @@
+for i = 1 to 101 then
+    if i%5 == 0 and i%3 == 0 then
+       writeln("FizzBuzz")
+    elif i%3 == 0 then
+       writeln("Fizz")
+    elif i%5 == 0 then
+       writeln("Buzz")
+    elif i%5 != 0 and i%3 != 0 then
+       writeln(i)
+    end
+end

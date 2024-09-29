@@ -14,7 +14,7 @@ RUN mkdir /opt/dotnet && curl -s -L https://download.visualstudio.microsoft.com/
 ADD opt /opt/
 ADD usr /usr/
 
-USER ryugod
+USER $USERNAME
 RUN dotnet tool install --global P
 ENV PATH="$PATH:$HOME/.dotnet/tools"
 

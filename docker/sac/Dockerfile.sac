@@ -1,0 +1,11 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN curl -sLOk https://gitlab.sac-home.org/sac-group/sac-packages/-/raw/master/packages/weekly/Ubl22-x86_64/1.3.3-1238-1/basic/sac2c-1.3.3-MijasCosta-1238-gf2398-omnibus.deb
+RUN curl -sLOk https://gitlab.sac-home.org/sac-group/sac-packages/-/raw/master/packages/weekly/Ubl22-x86_64/1.3.3-1238-1/basic/sac-stdlib-1.3-172-g650d.deb
+RUN apt install -y uuid-runtime libhwloc-dev
+RUN dpkg -i sac2c*.deb && dpkg -i sac-stdlib*.deb && rm -f *.deb
+
+ADD opt /opt/
+
+USER $USERNAME

@@ -1,0 +1,6 @@
+#
+#  Shiika: Hello, World!
+#  https://github.com/shiika-lang
+#
+
+puts "Hello, World!"

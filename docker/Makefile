@@ -38,7 +38,7 @@ endif
 $(TARGET):	$(PWD)/$(TARGET)/Dockerfile
 
 $(PWD)/$(TARGET)/Dockerfile: $(PWD)/$(TARGET)/Dockerfile.$(TARGET) $(GRAND_IMAGE)
-	docker build -t $(DOCKERIMAGE) -f $(TARGET)/Dockerfile.$(TARGET) --build-arg FROM_IMAGE=$(GRAND_IMAGE) $(TARGET)
+	ionice -c 3 docker build -t $(DOCKERIMAGE) -f $(TARGET)/Dockerfile.$(TARGET) --build-arg FROM_IMAGE=$(GRAND_IMAGE) $(TARGET)
 
 $(GRAND_IMAGE):
-	docker build -t $(GRAND_IMAGE) -f in/Dockerfile.in$(DOCKERFILE_TAG) --build-arg FROM_IMAGE=$(FROM_IMAGE) in
+	ionice -c 3 docker build -t $(GRAND_IMAGE) -f in/Dockerfile.in$(DOCKERFILE_TAG) --build-arg FROM_IMAGE=$(FROM_IMAGE) in

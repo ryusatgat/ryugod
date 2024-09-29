@@ -1,0 +1,11 @@
+#
+#   Egel: Hello, World!
+#   https://github.com/egel-lang/egel
+#
+
+using System
+
+def hello =
+    [ _ -> print "Hello, World!\n" ]
+
+def main = hello 1

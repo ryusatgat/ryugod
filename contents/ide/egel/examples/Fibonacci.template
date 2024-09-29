@@ -1,0 +1,16 @@
+# The standard Fibonacci function defined in Egel.
+#
+# see: https://en.wikipedia.org/wiki/Fibonacci_number
+
+namespace Fibonacci (
+  using System
+
+  def fib =
+    [ 0 -> 1
+    | 1 -> 1
+    | N -> fib (N- 2) + fib (N- 1) ]
+)
+
+using Fibonacci
+
+def main = fib 20

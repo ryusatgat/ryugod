@@ -1,0 +1,23 @@
+{-
+    looping in Victim
+-}
+
+
+fn square (x)
+{
+    return x ** 2;
+}
+
+
+-- printing squares of numbers between 5 and 10
+
+var i := 0;
+
+while (true)
+{
+    i := i + 1;
+    if      (i < 5 ) continue;
+    else if (i > 10) break;
+    
+    print( square(i) );
+}

@@ -1,10 +1,13 @@
 ARG FROM_IMAGE=ryusatgat/ubuntu
 FROM $FROM_IMAGE
 
-RUN apt install -y rustc cargo rustup
+RUN apt install -y opam
+
 
 ADD opt /opt/
 
-RUN cargo install --root /usr/local hvm bend-lang && rm -fr /root/.cargo
-    
 USER $USERNAME
+
+RUN bash -c "bash <(curl https://sh.rustup.rs -sSf) -y"
+RUN echo 'export PATH=$PATH:~/.cargo/bin' >> ~/.bashrc
+RUN ~/.cargo/bin/cargo install hvm bend-lang

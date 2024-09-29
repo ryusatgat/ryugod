@@ -1,0 +1,7 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN cd /opt && curl -sk -L https://github.com/wa-lang/wa/releases/download/v0.16.0/wa_v0.16.0_linux-amd64.zip > /opt/wa.zip && unzip wa.zip && rm -f wa.zip
+RUN ln -s /opt/wa/bin/wa /usr/local/bin
+
+USER $USERNAME

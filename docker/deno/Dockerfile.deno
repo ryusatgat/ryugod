@@ -1,0 +1,8 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN curl -ksL https://deno.land/install.sh | DENO_INSTALL=/usr/local sh
+
+ADD opt /opt/
+
+USER $USERNAME

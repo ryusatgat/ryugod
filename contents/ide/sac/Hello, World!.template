@@ -1,0 +1,13 @@
+//
+//  Sac: Hello, World!
+//  https://www.sac-home.org
+//
+
+use StdIO: all;
+use Array: all;
+
+int main()
+{
+    printf("Hello, World!\n");
+    return 0;
+}

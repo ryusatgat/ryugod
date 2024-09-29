@@ -1,0 +1,11 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt install -y ca-certificates && update-ca-certificates
+RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
+
+ADD opt /opt/
+
+USER $USERNAME
+
+RUN arduino-cli config init && arduino-cli core install arduino:avr && arduino-cli lib install LiquidCrystal Servo IRremote Stepper

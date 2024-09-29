@@ -1,0 +1,6 @@
+#
+#  Zang: Hello, World!
+#  https://github.com/cmspeedrunner/Zang
+#
+
+writeln("Hello, World!")

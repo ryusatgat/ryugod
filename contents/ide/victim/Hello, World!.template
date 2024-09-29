@@ -1,0 +1,6 @@
+{-
+    Victim: Hello, World!
+    https://github.com/Sekomer/Victim
+-}
+
+print("Hello, World!");

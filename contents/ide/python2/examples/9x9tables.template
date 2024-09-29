@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 #
-#   Python2 구구단 예제
-#   Written by ryugod.com
+#   Python2: 9x9 tables
+#   Written by ryusatgat
 #
 
 a = [(str(i),'*',str(j),'=',str(i*j)) for i in range(2, 10) for j in range(1, 10)]

@@ -1,0 +1,6 @@
+#
+#   Anko: Hello, World!
+#   https://github.com/mattn/anko
+#
+
+println("Hello, World!")

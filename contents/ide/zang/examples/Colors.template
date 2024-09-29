@@ -1,0 +1,5 @@
+writeln(col_red+"Red text!"+col_reset)
+writeln(col_green+"Green text!"+col_reset)
+writeln(col_purple+"Purple text!"+col_reset)
+writeln(col_yellow+"Yellow text!"+col_reset)
+writeln(col_blue+"Blue text!"+col_reset)

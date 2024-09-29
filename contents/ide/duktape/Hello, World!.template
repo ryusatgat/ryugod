@@ -1,0 +1,6 @@
+//
+//  Duktape: Hello, World!
+//  https://duktape.org/
+//
+
+print('Hello, World!')

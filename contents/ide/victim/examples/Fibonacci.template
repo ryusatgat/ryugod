@@ -1,0 +1,27 @@
+{- 
+    fibonacci function written in Victim
+-}
+
+
+fn fibo (n)
+{
+    -- function that returns nth fibonacci number
+    -- 0 1 1 2 3 5 8 ...
+
+    var prev := 1;
+    var curr := 0;
+
+    while (n > 1)
+    {
+        var tmp := prev;
+        prev := curr;
+        curr := tmp + curr;
+
+        n := n - 1;
+    }
+
+    return curr;
+}
+
+
+print( fibo(6) );
