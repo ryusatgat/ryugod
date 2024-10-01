@@ -1,5 +1,6 @@
 /*
-    Jsish(제이시) Hello, World! 예제
+    Jsish: Hello, World!
+    https://github.com/pcmacdon/jsish
 */
 
 function hello() {printf("Hello, World!\n");}

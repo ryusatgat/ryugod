@@ -9,7 +9,7 @@ ARG USER_GID=1000
 
 USER root
 
-RUN pacman -Syu; echo
+RUN date; pacman -Syu; echo
 RUN pacman -S --noconfirm net-tools git wget vim sudo zip; echo
 #RUN localedef -v -c -i en_US -f UTF-8 en_US.UTF-8
 #RUN localedef -v -c -i ko_KR -f UTF-8 ko_KR.UTF-8

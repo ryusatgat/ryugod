@@ -1,0 +1,20 @@
+/*
+    JavaScript: Regular Expression
+*/
+
+const data = ([
+    "error: main.c: 8: missing identifier at: static",
+    "error: main.c: 8: ';' expected",
+    "error: main.c: 8: ')' expected",
+    "error: main.c: 8: ';' expected",
+    "error: main.c: 8: 'void' is not a valid type: const",
+]).join('\r\n')
+
+const errorRegEx = "error: .+: (\\d+): (.+)"
+
+const regexp = new RegExp(errorRegEx, "g")
+let match = null
+
+while ((match = regexp.exec(data)) !== null) {
+    console.log(match[0] + ' ! ' + match[1] + ' ! ' + match[2])
+}

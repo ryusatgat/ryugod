@@ -19,7 +19,7 @@ export var conf = {
 export var language = {
     // Set defaultToken to invalid to see what you do not tokenize yet
     defaultToken: 'invalid',
-    tokenPostfix: '.haskell',
+    tokenPostfix: '.hs',
     keywords: [
         'qualified',
         'hiding',
@@ -34,6 +34,7 @@ export var language = {
         'infix',
         'infixr',
         'let',
+        'module',
         'of',
         'then',
         'type',
@@ -41,7 +42,22 @@ export var language = {
         'show',
         '_'
     ],
-    typeKeywords: [],
+    builtins: [
+        'succ',
+        'pred',
+        'min',
+        'max',
+        'div',
+        'mod',
+        'gcd',
+        'lcm',
+        'even',
+        'odd',
+        'error',
+        'print',
+        'putStrLn',
+        'hPutStr',
+    ],
     operators: [
         '<=',
         '>=',
@@ -102,11 +118,12 @@ export var language = {
                 {
                     cases: {
                         '@keywords': 'keyword',
+                        '@builtins': 'type.identifier',
                         '@default': 'identifier'
                     }
                 }
             ],
-            [/[A-Z][\w\$]*/, 'type.identifier'],
+            [/[A-Z][\w\$]*/, 'keyword.flow'],
             // [/[A-Z][\w\$]*/, 'identifier'],
             // whitespace
             { include: '@whitespace' },

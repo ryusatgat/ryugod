@@ -227,8 +227,13 @@ export var language = {
         ],
         // Recognize hex, negatives, decimals, imaginaries, longs, and scientific notation
         numbers: [
-            [/-?0x([abcdef]|[ABCDEF]|\d)+[lL]?/, 'number.hex'],
-            [/-?(\d*\.)?\d+([eE][+\-]?\d+)?[jJ]?[lL]?/, 'number']
+            [/[0-9]+((e|E)[0-9]+)?(z|(u|i)(8|16|32|64)?)?/, 'number.int'],
+            [/0b[0-1]+(z|(u|i)(8|16|32|64)?)?/, 'number.binary'],
+            [/0o[0-7]+(z|(u|i)(8|16|32|64)?)?/, 'number.octal'],
+            [/0x[0-9A-Fa-f]+(z|(u|i)(8|16|32|64)?)?/, 'number.hex'],
+            [/[0-9]+\.[0-9]+((e|E)(\+|-)?[0-9]+)?(f(32|64))?/, 'number.float'],
+            
+            
         ],
         // Recognize strings, including those broken across lines with \ (but not without)
         strings: [

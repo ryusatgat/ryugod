@@ -1,0 +1,8 @@
+--
+--  Jinx: Hello, World!
+--  https://jamesboer.github.io/Jinx
+--
+
+import core
+
+write line "Hello, World!"

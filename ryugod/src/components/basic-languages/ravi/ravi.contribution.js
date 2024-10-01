@@ -4,8 +4,8 @@
  *--------------------------------------------------------------------------------------------*/
 import { registerLanguage } from '../_.contribution.js';
 registerLanguage({
-    id: 'ark',
-    extensions: ['.ark'],
-    aliases: ['Ark', 'ark'],
-    loader: function () { return import('./ark.js'); }
+    id: 'ravi',
+    extensions: ['.ravi'],
+    aliases: ['Ravi', 'ravi'],
+    loader: function () { return import('./ravi.js'); }
 });

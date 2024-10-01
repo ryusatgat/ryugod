@@ -67,157 +67,6 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
     },
-    'Java (OpenJDK)':{
-      desc: "Object-oriented, high-performance, and cross-platform",
-      highlighting:"java",
-      ext: 'java',
-      kor: '자바',
-      template:"java",
-      icon:'mdi-language-java',
-      command:"javac {ARGS} {FILENAME}.{EXT} && java {FILENAME}",
-      cli: 'jshell',
-      defaultFilename: 'Main',
-      errorRegEx: ".+?:(\\d+): (\\w+: .+)",
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_V),
-      dockerImage: "ryusatgat/jvm"
-    },
-    'Javascript (Node.js)':{
-      desc: "JavaScript runtime, event-driven, and non-blocking",
-      highlighting:"javascript1",
-      ext: 'js',
-      kor: '자바스크립트 (노드.js)',
-      template:"javascript",
-      icon:'mdi-nodejs',
-      command:"node {ARGS} {FILENAME}.{EXT}",
-      cli: 'node {ARGS}',
-      errorRegEx: ".+:(\\d+)\r\n.+\r\n.+\r\n\r\n(.+)\r\n",
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_J),
-      dockerImage: "ryusatgat/base"
-    },
-    'Javascript (FireMonkey)':{
-      desc: "JavaScript-based, GUI framework, and cross-platform",
-      highlighting:"javascript1",
-      ext: 'js',
-      kor: '자바스크립트 (파이어몽키)',
-      template:"firemonkey",
-      icon:'mdi-language-javascript',
-      command:"js115 {ARGS} {FILENAME}.{EXT}",
-      cli: 'js115 {ARGS}',
-      errorRegEx: ".+?\\.js:(\\d+):\\d+ (.+)",
-      keyBindings: null,
-      dockerImage: "ryusatgat/base"
-    },
-    'Javascript (JerryScript)':{
-      desc: "Embedded, lightweight, and JavaScript engine",
-      highlighting:"javascript1",
-      ext: 'js',
-      kor: '자바스크립트 (제리스크립트)',
-      template:"jerryscript",
-      icon:'mdi-language-javascript',
-      command:"jerry {ARGS} {FILENAME}.{EXT}",
-      cli: 'jerry {ARGS}',
-      errorRegEx: null,
-      keyBindings: null
-    },
-    'Javascript (Rhino)':{
-      desc: "JavaScript engine, Java-integrated, and embeddable",
-      highlighting:"javascript1",
-      ext: 'js',
-      kor: '자바스크립트 (라이노)',
-      template:"rhino",
-      icon:'mdi-language-javascript',
-      command:"rhino {ARGS} {FILENAME}.{EXT}",
-      cli: 'rhino {ARGS}',
-      errorRegEx: ".+?: .+?, line (\\d+): (.+)",
-      keyBindings: null
-    },
-    'TypeScript':{
-      desc: "JavaScript with static types and tooling",
-      highlighting:"typescript1",
-      ext: 'ts',
-      kor: '타입스크립트',
-      template:"typescript",
-      icon:'mdi-language-typescript',
-      args: "--pretty false --target es2015",
-      command:"tsc {ARGS} {FILENAME}.{EXT} && node {FILENAME}.js",
-      cli: 'ts-node',
-      errorRegEx: ".+?\\((\\d+),\\d+\\): (.+)",
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_T),
-      dockerImage: "ryusatgat/base"
-    },
-    'TypeScript - Deno':{
-      desc: "Secure, modern, and TypeScript runtime",
-      highlighting:"javascript1",
-      ext: 'ts',
-      kor: '데노',
-      template:"deno",
-      icon:'mdi-language-typescript',
-      command:"deno {ARGS} -q run {FILENAME}.{EXT}",
-      cli: 'deno repl {ARGS}',
-      errorRegEx: ".+?: .+?:(\\d+):(\\d+)",
-      keyBindings: null,
-      dockerImage: "ryusatgat/deno"
-    },
-    'HTML5':{
-      desc: "Markup language, multimedia, and web standard",
-      highlighting:"html",
-      ext: 'html',
-      kor: 'HTML5',
-      template:"html",
-      icon:'mdi-language-html5',
-      command:null,
-      isCompiler:false,
-      cli: null,
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_H)
-    },
-    'AngularJS':{
-      desc: "JavaScript framework, MVC-based, and dynamic web applications",
-      highlighting:"html",
-      ext: 'html',
-      kor: '앵귤러JS',
-      template:"angular",
-      icon:'mdi-angularjs',
-      command:null,
-      isCompiler:false,
-      cli: null,
-      keyBindings: null
-    },
-    'JQuery':{
-      desc: "JavaScript library, DOM manipulation, and cross-browser",
-      highlighting:"html",
-      ext: 'html',
-      kor: '제이쿼리',
-      template:"jquery",
-      icon:'mdi-jquery',
-      command:null,
-      isCompiler:false,
-      cli: null,
-      keyBindings: null
-    },
-    'React.js':{
-      desc: "Component-based, declarative, and UI library",
-      highlighting:"html",
-      ext: 'html',
-      kor: '리액트',
-      template:"react",
-      icon:'mdi-react',
-      command:null,
-      isCompiler:false,
-      cli: null,
-      keyBindings: null
-    },
-    'Vue.js':{
-      desc: "Reactive, Component-based, Lightweight, Flexible, Progressive",
-      highlighting:"html",
-      ext: 'html',
-      kor: '뷰',
-      template:"vue",
-      icon:'mdi-vuejs',
-      command:null,
-      isCompiler:false,
-      cli: null,
-      keyBindings: null
-    },
     'C (gcc)':{
       desc: "Low-level, efficient, and fast compiler",
       highlighting:"c",
@@ -491,6 +340,222 @@ export const languages =
       cli: null,
       defaultFilename: 'Main',
       errorRegEx: ".*\\((\\d+),\\d+\\): (.*)",
+      keyBindings: null
+    },
+    'Java (OpenJDK)':{
+      desc: "Object-oriented, high-performance, and cross-platform",
+      highlighting:"java",
+      ext: 'java',
+      kor: '자바',
+      template:"java",
+      icon:'mdi-language-java',
+      command:"javac {ARGS} {FILENAME}.{EXT} && java {FILENAME}",
+      cli: 'jshell',
+      defaultFilename: 'Main',
+      errorRegEx: ".+?:(\\d+): (\\w+: .+)",
+      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_V),
+      dockerImage: "ryusatgat/jvm"
+    },
+    'Javascript (Node.js)':{
+      desc: "JavaScript runtime, event-driven, and non-blocking",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '자바스크립트 (노드.js)',
+      template:"javascript",
+      icon:'mdi-nodejs',
+      command:"node {ARGS} {FILENAME}.{EXT}",
+      cli: 'node {ARGS}',
+      errorRegEx: ".+:(\\d+)\r\n.+\r\n.+\r\n\r\n(.+)\r\n",
+      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_J),
+      dockerImage: "ryusatgat/base"
+    },
+    'Javascript (FireMonkey)':{
+      desc: "JavaScript-based, GUI framework, and cross-platform",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '자바스크립트 (파이어몽키)',
+      template:"firemonkey",
+      icon:'mdi-language-javascript',
+      command:"js115 {ARGS} {FILENAME}.{EXT}",
+      cli: 'js115 {ARGS}',
+      errorRegEx: ".+?\\.js:(\\d+):\\d+ (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/base"
+    },
+    'Javascript (JerryScript)':{
+      desc: "Embedded, lightweight, and JavaScript engine",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '자바스크립트 (제리스크립트)',
+      template:"jerryscript",
+      icon:'mdi-language-javascript',
+      command:"jerry {ARGS} {FILENAME}.{EXT}",
+      cli: 'jerry {ARGS}',
+      errorRegEx: null,
+      keyBindings: null
+    },
+    'Javascript (Rhino)':{
+      desc: "JavaScript engine, Java-integrated, and embeddable",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '자바스크립트 (라이노)',
+      template:"rhino",
+      icon:'mdi-language-javascript',
+      command:"rhino {ARGS} {FILENAME}.{EXT}",
+      cli: 'rhino {ARGS}',
+      errorRegEx: ".+?: .+?, line (\\d+): (.+)",
+      keyBindings: null
+    },
+    'Javascript (Duktape)':{
+      desc: "Embeddable Javascript engine",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: 'Javascript (덕테이프)',
+      template:"duktape",
+      icon:'mdi-tape-drive',
+      command: 'duk {ARGS} {FILENAME}.{EXT}',
+      cli: 'duk',
+      errorRegEx: '.+?: .+? \\(line (\\d+)[\\),]',
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
+    'Javascript (Espruino)':{
+      desc: "Javascript interpreter for microcontrollers",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '자바스크립트 (에스프루이노)',
+      template:"espruino",
+      icon:'mdi-language-javascript',
+      command:"espruino {ARGS} {FILENAME}.{EXT}",
+      cli: 'espruino',
+      errorRegEx: null, // not supported
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
+    'Javascript (goja)':{
+      desc: "Implementation of ECMAScript 5.1 in pure Go with emphasis on standard compliance and performance",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '자바스크립트 (goja)',
+      template:"goja",
+      icon:'mdi-language-javascript',
+      command:"goja {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".+?: Line (\\d+):\\d+ (.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
+    'Javascript (mujs)':{
+      desc: "Lightweight Javascript interpreter designed for embedding",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '자바스크립트 (mujs)',
+      template:"mujs",
+      icon:'mdi-language-javascript',
+      command:"mujs {ARGS} {FILENAME}.{EXT}",
+      cli: 'mujs',
+      errorRegEx: "",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
+    'Javascript (njs)':{
+      desc: "Nginx module that extends the server's functionality through JavaScript scripting",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '자바스크립트 (njs)',
+      template:"njs",
+      icon:'mdi-language-javascript',
+      command:"njs {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".+?Error: .+?\r?\n?.+?\\.js:(\\d+)\\)?",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
+    'TypeScript':{
+      desc: "JavaScript with static types and tooling",
+      highlighting:"typescript1",
+      ext: 'ts',
+      kor: '타입스크립트',
+      template:"typescript",
+      icon:'mdi-language-typescript',
+      args: "--pretty false --target es2015",
+      command:"tsc {ARGS} {FILENAME}.{EXT} && node {FILENAME}.js",
+      cli: 'ts-node',
+      errorRegEx: ".+?\\((\\d+),\\d+\\): (.+)",
+      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_T),
+      dockerImage: "ryusatgat/base"
+    },
+    'TypeScript (Deno)':{
+      desc: "Secure, modern, and TypeScript runtime",
+      highlighting:"javascript1",
+      ext: 'ts',
+      kor: '데노',
+      template:"deno",
+      icon:'mdi-language-typescript',
+      command:"deno {ARGS} -q run {FILENAME}.{EXT}",
+      cli: 'deno repl {ARGS}',
+      errorRegEx: ".+?: .+?:(\\d+):(\\d+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/deno"
+    },
+    'HTML5':{
+      desc: "Markup language, multimedia, and web standard",
+      highlighting:"html",
+      ext: 'html',
+      kor: 'HTML5',
+      template:"html",
+      icon:'mdi-language-html5',
+      command:null,
+      isCompiler:false,
+      cli: null,
+      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_H)
+    },
+    'AngularJS':{
+      desc: "JavaScript framework, MVC-based, and dynamic web applications",
+      highlighting:"html",
+      ext: 'html',
+      kor: '앵귤러JS',
+      template:"angular",
+      icon:'mdi-angularjs',
+      command:null,
+      isCompiler:false,
+      cli: null,
+      keyBindings: null
+    },
+    'JQuery':{
+      desc: "JavaScript library, DOM manipulation, and cross-browser",
+      highlighting:"html",
+      ext: 'html',
+      kor: '제이쿼리',
+      template:"jquery",
+      icon:'mdi-jquery',
+      command:null,
+      isCompiler:false,
+      cli: null,
+      keyBindings: null
+    },
+    'React.js':{
+      desc: "Component-based, declarative, and UI library",
+      highlighting:"html",
+      ext: 'html',
+      kor: '리액트',
+      template:"react",
+      icon:'mdi-react',
+      command:null,
+      isCompiler:false,
+      cli: null,
+      keyBindings: null
+    },
+    'Vue.js':{
+      desc: "Reactive, Component-based, Lightweight, Flexible, Progressive",
+      highlighting:"html",
+      ext: 'html',
+      kor: '뷰',
+      template:"vue",
+      icon:'mdi-vuejs',
+      command:null,
+      isCompiler:false,
+      cli: null,
       keyBindings: null
     },
     'Markdown':{
@@ -1958,6 +2023,34 @@ export const languages =
       errorRegEx: "\\[line (\\d+)\\] runtime error: (.+)",
       keyBindings: null
     },
+    'ChibiScheme':{
+      desc: "Small library intended for use as an extension and scripting language",
+      highlighting:"scheme",
+      ext: 'scm',
+      kor: '치비스킴',
+      template:"chibischeme",
+      icon:'mdi-lambda',
+      args: null,
+      command:"chibi-scheme {ARGS} {FILENAME}.{EXT}",
+      cli: "chibi-scheme",
+      errorRegEx: "ERROR on line (\\d+) of file .+",
+      keyBindings: null,
+      dockerImage: "ryusatgat/scheme"
+    },
+    'CHICKEN Scheme':{
+      desc: "Implements R5RS",
+      highlighting:"scheme",
+      ext: 'scm',
+      kor: '치킨스킴',
+      template:"chickenscheme",
+      icon:'mdi-lambda',
+      args: null,
+      command:"csc {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
+      cli: null,
+      errorRegEx: ".+?\\.scm:(\\d+): (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/scheme"
+    },
     'Chili':{
       desc: "Concurrent, Reactive, Statically-typed, Embedded, Efficient",
       highlighting:"chili",
@@ -2779,20 +2872,7 @@ export const languages =
       cli: "duck",
       errorRegEx: "Error: .+\\.ds Line: (\\d+)(.+)",
       keyBindings: null
-    },
-    'Duktape':{
-      desc: "Embeddable Javascript engine",
-      highlighting:"javascript1",
-      ext: 'duk',
-      kor: '덕테이프',
-      template:"duktape",
-      icon:'mdi-tape-drive',
-      command: 'duk {ARGS} {FILENAME}.{EXT}',
-      cli: 'duk',
-      errorRegEx: '.+?: .+? \\(line (\\d+)[\\),]',
-      keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
-    },
+    },    
     'Dylan':{
       desc: "Dynamic, multi-paradigm, expressive, object-oriented, functional",
       highlighting:"dylan",
@@ -3846,6 +3926,19 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/base"
     },
+    'GPython':{
+      desc: "Re-implementation, part port of the Python 3.4 interpreter in Go",
+      highlighting:"python",
+      ext: 'py',
+      kor: 'G파이썬',
+      template:"gpython",
+      icon:'mdi-language-python',
+      command:"gpython {ARGS} {FILENAME}.{EXT}",
+      cli: 'gpython {ARGS}',
+      errorRegEx: ".+?\\.py\", line (\\d+)(?:.*?\r\n)+?(.*?Error: .*)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/python"
+    },
     'Grace':{
       desc: "Educational, Object-oriented, Simple, High-level, Human-friendly",
       highlighting:"grace",
@@ -4489,6 +4582,19 @@ export const languages =
       errorRegEx: ".+?\\.j:(\\d+): (.+)",
       keyBindings: null
     },
+    'Jinx':{
+      desc: "Lightweight embeddable scripting language, written in modern C++",
+      highlighting:"jinx",
+      ext: 'jinx',
+      kor: '징크스',
+      template:"jinx",
+      icon:'mdi-magic-staff',
+      command:"jinx {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: "Error at line (\\d+), column \\d+: (.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
     'Joao':{
       desc: "Minimalistic, Educational, Functional, Simple, Lightweight",
       highlighting:"joao",
@@ -4547,7 +4653,8 @@ export const languages =
       command:"jsish {ARGS} {FILENAME}.{EXT}",
       cli: "jsish {ARGS}",
       errorRegEx: ".+?:(\\d+): \\w+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
     },
     'JsonNet':{
       desc: "Data-centric, Configuration, JSON-based, Lightweight, Integration",
@@ -4673,6 +4780,19 @@ export const languages =
       cli: null,
       errorRegEx: null,
       keyBindings: null
+    },
+    'Ketos':{
+      desc: "Lisp dialect, scripting and extension, written in the Rust",
+      highlighting:"lisp",
+      ext: 'ketos',
+      kor: '케토스',
+      template:"ketos",
+      icon:'mdi-code-parentheses',
+      command:"ketos {ARGS} {FILENAME}.{EXT}",
+      cli: 'ketos',
+      errorRegEx: '.+?\\.ketos:(\\d+):\\d+:(.+)',
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
     },
     'Killa':{
       desc: "Lua-based, Scripting, Lightweight, Embeddable, Fast",
@@ -5630,6 +5750,19 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
     },
+    'mruby':{
+      desc: "Lightweight implementation of the Ruby",
+      highlighting:"ruby",
+      ext: 'rb',
+      kor: 'm루비',
+      template:"mruby",
+      icon:'mdi-language-ruby',
+      command:"mruby {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".+?\\.rb:(\\d+): (.*)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/ruby"
+    },
     'Mu':{
       desc: "Statically-typed, functional, minimalist language",
       highlighting:"mu",
@@ -6211,6 +6344,19 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
     },
+    'Otto':{
+      desc: "JavaScript parser and interpreter written natively in Go",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '오또',
+      template:"otto",
+      icon:'mdi-language-javascript',
+      command:"otto {ARGS} {FILENAME}.{EXT}",
+      cli: "otto {ARGS}",
+      errorRegEx: ".+?: Line (\\d+):\\d+ (.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
     'Otus Lisp':{
       desc: "Symbolic computation and AI tool",
       highlighting:"lisp",
@@ -6413,6 +6559,20 @@ export const languages =
       errorRegEx: ".* line (\\d+)([,\\.].*)",
       keyBindings: null
     },
+    'PForth':{
+      desc: "Portable ANS-like Forth written in ANSI 'C'",
+      highlighting:"forth",
+      ext: 'fth',
+      kor: 'P포스',
+      template:"pforth",
+      icon:'mdi-dice-4-outline',
+      args: '-q',
+      command:"pforth {ARGS} {FILENAME}.{EXT}",
+      cli: "pforth {ARGS}",
+      errorRegEx: ".+?:(\\d+): (.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
     'Pharo':{
       desc: "Object-oriented programming environment",
       highlighting:"pharo",
@@ -6590,6 +6750,19 @@ export const languages =
       cli: '/opt/pocketlang/bin/pocket',
       errorRegEx: ".+\r\n.+?\\.pk\":(\\d+)(.*)",
       keyBindings: null
+    },
+    'Pocketpy':{
+      desc: "Lightweight Python 3.x interpreter for game scripting",
+      highlighting:"python",
+      ext: 'py',
+      kor: '포켓파이',
+      template:"pocketpy",
+      icon:'mdi-language-python',
+      command:"pocketpy {ARGS} {FILENAME}.{EXT}",
+      cli: 'pocketpy {ARGS}',
+      errorRegEx: ".+?\\.py\", line (\\d+)(?:.*?\r\n)+?(.*?Error: .*)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/python"
     },
     'Pony':{
       desc: "Object-oriented, Actor-based, Concurrent, Type-safe, High-performance",
@@ -6891,6 +7064,19 @@ export const languages =
       errorRegEx: null,
       keyBindings: null
     },
+    'QuickJS':{
+      desc: "Small and embeddable Javascript engine, fast interpreter",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '퀵JS',
+      template:"quickjs",
+      icon:'mdi-language-javascript',
+      command:"qjs {ARGS} {FILENAME}.{EXT}",
+      cli: "qjs {ARGS}",
+      errorRegEx: ".+?\r\n +? at .+?\\.js:(\\d+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
     'Quirrel':{
       desc: "Based on Squirrel, inspired by Python, Lexical scoping",
       highlighting:"squirrel",
@@ -6974,6 +7160,19 @@ export const languages =
       cli: "ratfor {ARGS}",
       errorRegEx: null,
       keyBindings: null
+    },
+    'Ravi':{
+      desc: "Dialect of Lua with limited optional static typing and features",
+      highlighting:"ravi",
+      ext: 'ravi',
+      kor: '라비',
+      template:"ravi",
+      icon:'mdi-weather-sunny',
+      command:"ravi {ARGS} {FILENAME}.{EXT}",
+      cli: "ravi {ARGS}",
+      errorRegEx: 'ravi: .+?\\.ravi:(\\d+): (.+)',
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
     },
     'Rebol':{
       desc: "Concise, Lightweight, Data-centric, Dynamic, Scripting",
@@ -7515,6 +7714,20 @@ export const languages =
       errorRegEx: "\\*\\*\\*  Error.+? line (\\d+) .+?\\.setl(.*)",
       keyBindings: null
     },
+    'SGScript':{
+      desc: "C-like syntax, highly optimized, register-based VM",
+      highlighting:"sgscript",
+      ext: 'sgs',
+      kor: 'SG스크립트',
+      template:"sgscript",
+      icon:'mdi-cube-outline',
+      args: '-c',
+      command:"sgsc {ARGS} {FILENAME}.{EXT}>/dev/null && sgsvm {FILENAME}.sgc",
+      cli: null,
+      errorRegEx: "Error: \\[line (\\d+)\\] (.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
     'Shen':{
       desc: "Functional, logic-based, dynamic, expressive, concise",
       highlighting:"shen",
@@ -7872,6 +8085,20 @@ export const languages =
       cli: 'starlark {ARGS}',
       errorRegEx: ".+?\\.star:(\\d+):\\d+: (.+)",
       keyBindings: null
+    },
+    'Steel':{
+      desc: "Functional, minimalist, dialect, recursive, expressive",
+      highlighting:"scheme",
+      ext: 'scm',
+      kor: '스틸',
+      template:"steel",
+      icon:'mdi-lambda',
+      args: null,
+      command:"steel {ARGS} {FILENAME}.{EXT}",
+      cli: "steel",
+      errorRegEx: ".+?\r\n.+?\\.scm:(\\d+):\\d+",
+      keyBindings: null,
+      dockerImage: "ryusatgat/scheme"
     },
     'Storm':{
       desc: "Concurrent, distributed, high-performance, scalable, resilient",
@@ -8266,11 +8493,12 @@ export const languages =
       ext: 'um',
       kor: '움카',
       template:"umka",
-      icon:'mdi-mouse',
-      command:"/opt/umka/bin/umka {ARGS} {FILENAME}.{EXT}",
+      icon:'mdi-teddy-bear',
+      command:"umka {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "Error .+\\.um \\((\\d+), \\d+\\): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
     },
     'Umple':{
       desc: "Model-oriented, code generation, UML-based language",

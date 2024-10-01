@@ -1,6 +1,6 @@
 \
-\   Forth(포스): 99 bottles of beer 예제
-\   출처: http://www.rosettacode.org/
+\   Forth: 99 bottles of beer
+\   http://www.rosettacode.org
 \
 
 :noname   dup . ." bottles" ;

@@ -1,0 +1,6 @@
+set var1 to null                   -- null type
+set var2 to 123.456                -- number type
+set var3 to 42                     -- integer type
+set var4 to false                  -- boolean type
+set var5 to "a string value"       -- string type
+set var6 to "red", "green", "blue" -- collection type

@@ -18,7 +18,7 @@
           v-model="languageFilter"
           style="max-width: 120px;min-width: 120px;"
           solo
-          :filter="(item, queryText, itemText) => {return itemText.toLocaleLowerCase().startsWith(queryText.toLocaleLowerCase())}"
+          :filter="(item, queryText, itemText) => {return itemText.toLocaleLowerCase().includes(queryText.toLocaleLowerCase())}"
         ></v-combobox>
         <v-tooltip bottom>
           <span>{{$t('connect')}}</span>

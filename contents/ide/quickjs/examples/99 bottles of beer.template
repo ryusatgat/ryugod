@@ -1,0 +1,17 @@
+/*
+    QuickJS: 99 bottles of beer
+    https://bellard.org/quickjs
+*/
+
+function plural(n) { return (bottles == 1) ? "" : "s"; }
+function no(n) { return (bottles == 0) ? "No" : n.toString(); }
+ 
+var bottles = 99;
+do {
+    console.log(bottles, "bottle", plural(bottles), "of beer on the wall");
+    console.log(bottles, "bottle", plural(bottles), "of beer");
+    console.log("Take one down, pass it around");
+    bottles--;
+    console.log(no(bottles), "bottle", plural(bottles), "of beer on the wall\n");
+} while (bottles > 0);
+

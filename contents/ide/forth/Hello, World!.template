@@ -1,3 +1,5 @@
-\ Forth(포스) Hello, World! 예제
+\
+\  Forth: Hello, World!
+\
 
 .( Hello, World!) CR

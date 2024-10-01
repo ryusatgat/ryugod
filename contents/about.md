@@ -843,8 +843,24 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 ## 2024-09-29
 - Arduino (compile only)
 - Duktape
+- Otto
 - Python1
+- QuickJS
 - Zenon
+## 2024-09-30
+- ChibiScheme
+- GPython
+- mruby
+- Pocketpy
+- Ravi
+- SGScript
+- Steel
+## 2024-10-01
+- Jinx
+- Kotos
+- mujs
+- njs
+- PForth
 
 ## To be continued
 - 42

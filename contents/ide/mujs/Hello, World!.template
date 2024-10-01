@@ -1,0 +1,8 @@
+/*
+    JavaScript: Hello, World
+    https://mujs.com
+*/
+
+str = "Hello, World!";
+
+console.log(str)

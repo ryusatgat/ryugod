@@ -1,0 +1,6 @@
+/*
+    Otto: Hello, World!
+    https://github.com/robertkrimen/otto
+*/
+
+console.log("Hello, World!");

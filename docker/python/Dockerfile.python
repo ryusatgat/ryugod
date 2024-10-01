@@ -8,9 +8,11 @@ RUN curl -s -L https://github.com/Fus3n/cupscript/archive/refs/tags/0.2.2.tar.gz
 
 ADD opt /opt/
 ADD usr /usr/
+
+RUN ldconfig
     
 USER $USERNAME
 
 RUN mkdir /home/$USERNAME/.venv && python3 -m venv /home/$USERNAME/.venv 
-RUN . /home/$USERNAME/.venv/bin/activate && pip3 install numpy pandas seaborn scikit-learn matplotlib kagsa
+RUN . /home/$USERNAME/.venv/bin/activate && pip3 install numpy pandas seaborn scikit-learn matplotlib kagsa selenium
 RUN echo 'export VIRTUAL_ENV_DISABLE_PROMPT=1\n. /home/$USERNAME/.venv/bin/activate' >> /home/$USERNAME/.bashrc

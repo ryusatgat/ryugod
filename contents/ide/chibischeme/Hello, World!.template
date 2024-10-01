@@ -1,0 +1,8 @@
+;;
+;;  ChibiScheme: Hello, World!
+;;  https://github.com/ashinn/chibi-scheme
+;;
+
+(import (scheme base))
+
+(write-string "Hello, World!\n")

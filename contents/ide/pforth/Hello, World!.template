@@ -1,0 +1,6 @@
+\
+\  PForth: Hello, World!
+\  https://github.com/philburk/pforth
+\
+
+.( Hello, World!) CR

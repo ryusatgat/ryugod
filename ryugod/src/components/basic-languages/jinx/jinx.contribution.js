@@ -4,8 +4,8 @@
  *--------------------------------------------------------------------------------------------*/
 import { registerLanguage } from '../_.contribution.js';
 registerLanguage({
-    id: 'ark',
-    extensions: ['.ark'],
-    aliases: ['Ark', 'ark'],
-    loader: function () { return import('./ark.js'); }
+    id: 'jinx',
+    extensions: ['.jinx'],
+    aliases: ['Jinx', 'jinx'],
+    loader: function () { return import('./jinx.js'); }
 });

@@ -1,6 +1,6 @@
 /*
-	Jsish(제이시) 99 bottles of beer 예제
-	출처: http://www.rosettacode.org/
+	Jsish: 99 bottles of beer
+	http://www.rosettacode.org/
 */
 
 function plural(n:number):string { return (bottles == 1) ? "" : "s"; }

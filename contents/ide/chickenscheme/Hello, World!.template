@@ -1,0 +1,6 @@
+;;
+;;  ChickenScheme: Hello, World!
+;;  https://code.call-cc.org/
+;;
+
+(print "Hello, World!")

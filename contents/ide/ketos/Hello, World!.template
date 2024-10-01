@@ -1,0 +1,6 @@
+;
+;  Ketos: Hello, World!
+;  https://github.com/murarth/ketos
+;
+
+(println "Hello, World!")

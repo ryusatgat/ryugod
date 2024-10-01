@@ -1,0 +1,4 @@
+#-*- coding: utf-8 -*-
+# Pocketpy: Hello, World!
+
+print("Hello, World!")

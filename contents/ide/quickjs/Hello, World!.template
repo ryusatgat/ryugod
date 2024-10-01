@@ -1,0 +1,6 @@
+/*
+    QuickJS: Hello, World!
+    https://bellard.org/quickjs
+*/
+
+console.log("Hello, World!");

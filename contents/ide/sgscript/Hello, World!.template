@@ -1,0 +1,6 @@
+//
+//  SGScript: Hello, World!
+//  https://github.com/archo5/sgscript
+//
+
+printlns("Hello, World!");

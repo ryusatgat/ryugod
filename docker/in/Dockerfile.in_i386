@@ -10,9 +10,9 @@ ARG USER_GID=1000
 USER root
 
 ENV ACCEPT_EULA=Y
-RUN apt-get update; apt-get -y upgrade; echo
+RUN date; apt-get update; apt-get -y upgrade; echo
 RUN apt-get install -y binutils net-tools git wget vim curl adduser sudo zip locales xz-utils bzip2 upx make cmake; echo
-RUN apt-get install -y locales
+RUN apt-get install -y locales ca-certificates && update-ca-certificates
 RUN echo ko_KR.UTF-8 UTF-8 >> /etc/locale.gen && echo en_US.UTF-8 UTF-8 >> /etc/locale.gen && locale-gen
 RUN update-locale LANG=ko_KR.UTF-8 && update-locale LANG=en_US.UTF-8
 

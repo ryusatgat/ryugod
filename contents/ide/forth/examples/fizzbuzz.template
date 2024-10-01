@@ -1,6 +1,6 @@
 \
-\   Forth(포스): FizzBuzz 예제
-\   출처: http://www.rosettacode.org/
+\   Forth: FizzBuzz
+\   http://www.rosettacode.org
 \
 
 : fizz ( n -- ) drop ." Fizz" ;
