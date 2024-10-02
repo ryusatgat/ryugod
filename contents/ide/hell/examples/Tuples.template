@@ -1,0 +1,7 @@
+main = do
+  let demo = \(x, y) -> y
+  let foobar = (123, "foo")
+  Text.putStrLn (demo foobar)
+
+  let (foo,bar) = (123, "foo")
+  Text.putStrLn bar

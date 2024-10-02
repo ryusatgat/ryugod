@@ -1,0 +1,6 @@
+#
+#  Elvish: Hello, World!
+#  https://github.com/elves/elvish
+#
+
+echo Hello, World!

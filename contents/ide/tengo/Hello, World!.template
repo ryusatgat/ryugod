@@ -1,0 +1,8 @@
+//
+//  Tango: Hello, World!
+//  https://github.com/d5/tengo
+//
+
+fmt := import("fmt")
+
+fmt.println("Hello, World!")

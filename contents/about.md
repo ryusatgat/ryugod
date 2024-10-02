@@ -861,6 +861,11 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - mujs
 - njs
 - PForth
+## 2024-10-02
+- Elvish
+- Jaksel
+- Tengo
+- Hell
 
 ## To be continued
 - 42

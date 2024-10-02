@@ -1,0 +1,6 @@
+--
+--  Hell: Hello, World!
+--  https://github.com/chrisdone/hell
+--
+
+main = Text.putStrLn "Hello, World!"

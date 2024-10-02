@@ -18,7 +18,6 @@
     "monaco-editor": "^0.25.2",
     "monaco-editor-locales-plugin": "^0.0.3",
     "monaco-editor-webpack-plugin": "^4.0.0",
-    "node-sass": "^6.0.0",
     "qrcode": "^1.4.4",
     "sass": "~1.32.12",
     "sass-loader": "^7.0.0",

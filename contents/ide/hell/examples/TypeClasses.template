@@ -1,0 +1,9 @@
+main = do
+  Text.putStrLn (Show.show 123)
+  Text.putStrLn (Show.show Bool.True)
+
+  env <- Environment.getEnvironment
+  Maybe.maybe
+    (Text.putStrLn "Seems the environment variable is not there.")
+    (\path -> Text.putStrLn (Text.concat ["HOME is ", path]))
+    (List.lookup "HOME" env)

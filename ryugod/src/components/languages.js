@@ -4176,6 +4176,19 @@ export const languages =
       errorRegEx: ".+?\\.hg:(\\d+):(.+)",
       keyBindings: null
     },
+    'Hell':{
+      desc: "Shell scripting language that is a tiny dialect of Haskell",
+      highlighting:"hell",
+      ext: 'hell',
+      kor: '헬',
+      template:"hell",
+      icon:'mdi-emoticon-devil-outline',
+      command:"hell {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: null,  // not supported
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
     'Hermes':{
       desc: "JavaScript engine, Lightweight, Fast, React Native, Optimized",
       highlighting:"hermes",
@@ -4530,6 +4543,20 @@ export const languages =
       cli: "/opt/jstar/bin/jstar",
       errorRegEx: ".+?\\[line[: ](\\d+)\\].+\r\n(.*)",
       keyBindings: null
+    },
+    'Jaksel':{
+      desc: "Modern, easy to learn, using Indonesia-slang",
+      highlighting:"jaksel",
+      ext: 'jaksel',
+      kor: '작셀',
+      template:"jaksel",
+      icon:'mdi-island-variant',
+      args: null,
+      command: 'jaksel {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: null,  // not supported
+      keyBindings: null,
+      dockerImage: "ryusatgat/base"
     },
     'Jakt':{
       desc: "Memory-safe, transpiles to C++",
@@ -8259,9 +8286,22 @@ export const languages =
       icon:'mdi-tea',
       command:"TeaScript {FILENAME}.{EXT}",
       cli: 'TeaScript',
-      errorRegEx: "",
+      errorRegEx: "in line .*?m(\\d+).*?, column .*?m\\d+.*?:\r\n(.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
+    },
+    'Tengo':{
+      desc: "Small, dynamic, fast, secure script language for Go",
+      highlighting:"tengo",
+      ext: 'tengo',
+      kor: '텡고',
+      template: 'tengo',
+      icon:'mdi-language-go',
+      command:"tengo {ARGS} {FILENAME}.{EXT}",
+      cli: 'Tengo',
+      errorRegEx: ".+?\r\n.+?\\.tengo:(\\d+):\\d+",
+      keyBindings: null,
+      dockerImage: "ryusatgat/go"
     },
     'TeX':{
       desc: "Typesetting, document preparation system",
@@ -9151,7 +9191,7 @@ export const languages =
       command:"chmod 755 {FILENAME}.{EXT} && bash {ARGS} ./{FILENAME}.{EXT}",
       cli: "csh",
       errorRegEx: ".+?\\.csh: line (\\d+): (.+)",
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_L),
+      keyBindings: null,
       dockerImage: "ryusatgat/base"
     },
     'Dashell':{
@@ -9164,7 +9204,20 @@ export const languages =
       command:"chmod 755 {FILENAME}.{EXT} && bash {ARGS} ./{FILENAME}.{EXT}",
       cli: "dash",
       errorRegEx: ".+?\\.dash: line (\\d+): (.+)",
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_L),
+      keyBindings: null,
+      dockerImage: "ryusatgat/base"
+    },
+    'Elvish':{
+      desc: "Powerful modern shell scripting",
+      highlighting:"elvish",
+      ext: 'elv',
+      kor: '엘비쉬',
+      template:"elvish",
+      icon:'mdi-bash',
+      command:"chmod 755 {FILENAME}.{EXT} && elvish {ARGS} ./{FILENAME}.{EXT}",
+      cli: "elvish",
+      errorRegEx: ".+?\\.elv:(\\d+):\\d+-\\d+: (.+)",
+      keyBindings: null,
       dockerImage: "ryusatgat/base"
     },
     'Korn Shell':{
@@ -9177,20 +9230,20 @@ export const languages =
       command:"chmod 755 {FILENAME}.{EXT} && bash {ARGS} ./{FILENAME}.{EXT}",
       cli: "ksh",
       errorRegEx: ".+?\\.ksh: line (\\d+): (.+)",
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_L),
+      keyBindings: null,
       dockerImage: "ryusatgat/base"
     },
     'Z Shell':{
       desc: "Shell scripting, command-line, and Unix-based",
       highlighting:"shell",
       ext: 'zsh',
-      kor: '콘셸 - zsh',
+      kor: 'Z셸 - zsh',
       template:"zsh",
       icon:'mdi-bash',
       command:"chmod 755 {FILENAME}.{EXT} && bash {ARGS} ./{FILENAME}.{EXT}",
       cli: "zsh",
       errorRegEx: ".+?\\.zsh: line (\\d+): (.+)",
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_L),
+      keyBindings: null,
       dockerImage: "ryusatgat/base"
     },
     'Arch Linux':{

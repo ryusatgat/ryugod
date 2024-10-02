@@ -1,0 +1,20 @@
+main = do
+
+  -- Run two things concurrently and return both results
+  (left, right) <-
+    Async.concurrently
+       (Main.curl "https://worldtimeapi.org/api/timezone/Europe/London")
+       (Main.curl "https://worldtimeapi.org/api/timezone/Europe/Rome")
+  Text.putStrLn left
+  Text.putStrLn right
+
+  -- Run two things concurrently and return the one that completes first
+  result <-
+    Async.race
+       (Main.curl "https://worldtimeapi.org/api/timezone/Europe/London")
+       (Main.curl "https://worldtimeapi.org/api/timezone/Europe/Rome")
+  Either.either Text.putStrLn Text.putStrLn result
+
+curl = \url -> do
+  (out, err) <- Text.readProcess_ (Process.proc "curl" [url])
+  IO.pure out
