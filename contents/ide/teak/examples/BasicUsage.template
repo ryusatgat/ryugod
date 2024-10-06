@@ -1,0 +1,593 @@
+// This file demonstrates the usage and syntax of the main language features.
+// Line comments begin with two forward slashes.
+/* Block comments are delimited like this. */
+
+void Start() {
+	// The script starts executing in the Start function.
+
+//////////////////////////////// VARIABLES ////////////////////////////////
+
+	// Variables are declared by putting the type name then the variable name.
+	// All variables are initialized to 0 or an empty value, depending on the type.
+	int x;
+	// You can set the value of a variable with equals.
+	x = 5;
+	// You can also set the value of a variable when it is declared.
+	int y = 3;
+
+//////////////////////////////// ARITHMETIC ////////////////////////////////
+
+	// Standard integer arithmetic and bitwise operators are available.
+	int z = ((3 * x + y / (1 + 1)) << 1) | 1;
+	// The only unconventional syntax is for bitwise XOR.
+	z = z ~| 10;
+	// Some arithmetic operators can be merged with assignment.
+	x += 10;
+
+//////////////////////////////// STRING LITERALS ////////////////////////////////
+
+	// Strings are delimited by speech marks.
+	Log("Hello!");
+	// You can escape special characters using a backslash.
+	Log("\\ \" \%");
+	// You can insert special characters using a backslash.
+	Log("\n \r \t");
+	// You can insert an expression into a string delimiting it with percentage signs.
+	Log("The value of y is %y%.");
+
+//////////////////////////////// BASIC TYPES ////////////////////////////////
+
+	// The basic types are bool (true or false), float (double precision), 
+	// int (64-bit, signed) and str (immutable byte array).
+	bool b0 = true;
+	float f0 = 10.5;
+	int i0 = -100 * 0x40 + 0b1001; // Decimal, hexadecimal and binary literals.
+	int j0 = 1_234_567; // Underscores are ignored in numeric literals.
+	str s0 = "String";
+	
+//////////////////////////////// STRINGS ////////////////////////////////
+
+	// You can index specific byte from a string.
+	str s1 = s0[5];
+	Log("%s1%"); // Prints g.
+	// You can slice ranges from a string.
+	Log(s0:slice(1 /* start */, 3 /* end */)); // Prints tr.
+	// You can concatenate strings with the add operator.
+	str s2 = s1 + s0;
+	Log("%s2%"); // Prints gString.
+	// String equality comparison compares the individual bytes of the strings.
+	// No Unicode normalization or validating is done to either string.
+	assert "Hello" == "Hel" + "lo";
+
+	// You can get the value of a byte in the string.
+	int byteValue = s0:byte(1);
+	// And convert byte values to one-byte strings.
+	str oneByteString = byteValue:str();
+
+//////////////////////////////// LOGIC ////////////////////////////////
+
+	// Standard logic operators (with short circuiting) are available.
+	bool b1 = !b0 && (z > y || z > x);
+
+	// A ternary operator is available, with syntax similar to Python.
+	str pick = "a" if 1 < 0 else "b" if 2 < 3 else "c";
+	Log(pick); // Outputs "b".
+
+//////////////////////////////// FLOATING POINT ////////////////////////////////
+
+	// Standard floating point operators are available. 
+	f0 *= 2.5;
+	// Floats and integers cannot be mixed.
+	// f0 += i0; (won't compile)
+	// Float can be cast to integers and vice-versa.
+	int i1 = f0:truncate();
+	float f1 = i1:float();
+	Log("f0 is %f0%");
+	Log("f1 is %f1%");
+
+//////////////////////////////// FOR, WHILE, IF ////////////////////////////////
+
+	// There are while loops.
+	int count = 0;
+	i0 = -100;
+	while i0 < 0 {
+		count += 1;
+		i0 += 1;
+	}
+	Log("count is %count%.");
+
+	// There are for loops.
+	for int i = 0; i < 5; i += 1 {
+		Log("%i + 1%/5");
+	}
+
+	// There are for-in loops.
+	// These work with strings and lists. We'll look at lists later.
+	// For strings, they enumerate over each byte (not codepoints or characters!).
+	for str byte in "Hello" {
+		Log("%byte%");
+	}
+
+	// There are if, else if and else statements.
+	if count > 100 {
+		Log("count is large");
+	} else if count > 50 {
+		Log("count is medium");
+	} else {
+		Log("count is small");
+	}
+
+//////////////////////////////// ASSERTIONS ////////////////////////////////
+
+	// You can assert a boolean expression is true.
+	// If it is false, the script stops and prints a back trace.
+	assert count == 100;
+
+//////////////////////////////// FUNCTIONS ////////////////////////////////
+
+	// Functions are called by putting the name of the function,
+	// and then the arguments in round brackets.
+	// Function arguments are evaluated from right to left.
+	// Please note that 'ops' that start with a colon like f0:truncate() are NOT function calls,
+	// but rather language builtins, and as such their arguments may be evaluated differently.
+	int result = MyFunction(1, 2, 3);
+	Log("result of MyFunction is %result%.");
+	Part2();
+}
+
+// To declare a function, first put the return type (or void, if it does not return a value).
+// Then the name of the function, followed by a round bracketed list of arguments.
+int MyFunction(int a, int b, int c) {
+	// You can return a value from a function using a return statement.
+	return a + b + c;
+}
+
+void Part2() {
+//////////////////////////////// LISTS ////////////////////////////////
+
+	// List types are made by putting [] after the element type.
+	int[] list;
+
+	// Lists start as null objects.
+	assert list == null;
+	Log("%list%");
+	// You can get the length of a list using the :len() op.
+	assert list:len() == 0;
+
+	// You can create an empty list using the new operator.
+	list = new int[];
+	assert list != null;
+	assert list:len() == 0;
+	Log("%list%");
+
+	// You can create a non-empty list by enumerating the elements between square brackets.
+	list = [1, 2, 3, 5, 10];
+	Log("%list%");
+	Log("%list:len()%");
+	// You can't use the bracket syntax to create an empty list.
+	// list = []; (won't compile)
+	// All the elements of a list must have the same type.
+	// list = [3, "String"]; (won't compile)
+
+	// You can get the first and last elements of a list.
+	assert list:first() == 1;
+	assert list:last() == 10;
+	// You can index a specific element of a list. Indices start at 0.
+	assert list[2] == 3;
+	list[0] = -5;
+
+	// You can find the index of an element in the list.
+	assert list:find(3) == 2;
+	// If the element isn't found, -1 is returned.
+	assert list:find(100) == -1;
+
+	// You can resize the list to a specific size.
+	// New space is initialized to the variable type's default value (e.g. 0).
+	list:resize(4);
+	list:resize(6);
+	Log("%list%"); // Prints [ -5, 2, 3, 5, 0, 0 ].
+
+	// You can add elements at the end of the list.
+	list:add(20);
+	assert list:last() == 20;
+	// Or at a specific index.
+	list:insert(30, 1);
+	assert list[1] == 30;
+
+	// You can insert multiple elements initialized to the default value.
+	Log("%list%"); // Prints [ -5, 30, 2, 3, 5, 0, 0, 20 ].
+	list:insert_many(1, 3);
+	Log("%list%"); // Prints [ -5, 0, 0, 0, 30, 2, 3, 5, 0, 0, 20 ].
+
+	// You can iterate over a list with the aforementioned for-in loop.
+	for int x in list { Log("%x%"); }
+
+	// You can delete the item at a specific index.
+	list:delete(5);
+	// Or find an item to delete by its value.
+	// Only the first instance of the item is deleted.
+	// This returns false if the value was not found.
+	list:find_and_delete(30);
+	Log("%list%"); // Prints [ -5, 0, 0, 0, 3, 5, 0, 0, 20 ].
+	// You can delete a range of items, by the first index and the number to delete.
+	list:delete_many(1, 5);
+	Log("%list%"); // Prints [ -5, 0, 0, 20 ].
+	// You can clear a list to an empty one.
+	list:delete_all();
+	Log("%list%"); // Prints [].
+
+	// List equality ignores the contents of the list;
+	// it checks if the list objects are actually the same.
+	int[] l0 = [ 1, 2, 3 ];
+	int[] l1 = [ 1, 2, 3 ];
+	int[] l2 = l0;
+	assert l0 != l1;
+	assert l0 == l2;
+
+	// Continuing in the next function...
+	Part3();
+}
+
+//////////////////////////////// STRUCTURES ////////////////////////////////
+
+// Structures are declared with the struct keyword,
+// followed by the name of the structure,
+// then a list of the fields delimited by curly brackets.
+struct Vector2 {
+	float x;
+	float y;
+};
+
+void Part3() {
+	// Structures start initialized to null.
+	Vector2 v;
+	assert v == null;
+
+	// You can alllocate a new structure with the new operator.
+	// All its fields will be initialized to the default value for their type.
+	v = new Vector2;
+
+	// Lists, structures and other objects are garbage collected.
+	// You don't need to explicitely free them.
+	v = new Vector2; // No memory is leaked here.
+
+	// You can access a field of the structure using the dot operator.
+	v.x = 3.0;
+	v.y = v.x + 5.0;
+	Log("(%v.x%, %v.y%)");
+
+	// Structs can be initialized using the initializer syntax.
+	// Values are evaluated in the order they are given in the initializer.
+	v = [ x = 3.0, y = 4.0 ];
+	// You don't have specify all values.
+	v = [ x = 3.0 ];
+	// In fact, you don't have to specify any.
+	v = [];
+
+	// Note that this syntax can only be used in a few places
+	// such as in assignment, as a return value, or as a function call argument.
+	// For instance, the following
+	// 	float z = [ x = 3.0, y = 4.0 ].x;
+	// won't compile, since the type of the structure is not present
+	// either implicitly or explicitly.
+
+//////////////////////////////// MAPS ////////////////////////////////
+
+	// Map types are made by putting [int] or [str] after the element type.
+	// [int] uses integer keys, and [str] uses string keys.
+	float[str] map;
+
+	// You can create an empty map using the new operator.
+	map = new float[str];
+
+	// You can then put items into the map using the square bracket syntax.
+	map["hello"] = 3.0;
+	map["world"] = 5.0;
+	// And read them back similarly.
+	assert map["hello"] == 3.0;
+	assert map["world"] == 5.0;
+
+	// You can get the number of key-value pairs in the map with :len().
+	assert map:len() == 2;
+
+	// You can test if a key is in the map with :has().
+	assert map:has("hello");
+	assert map:has("world");
+	assert !map:has("what");
+
+	// You can delete items with :delete() or :delete_all().
+	map:delete("hello");
+	map:delete_all();
+	// If you try to get the value of a key that's not in the map,
+	// the default uninitialized value for that type is returned.
+	assert map["world"] == 0.0;
+
+	// You can use map initializers to quickly construct maps.
+	map = [ "a" = 1.0, "b" = 2.0 ];
+	assert map["a"] == 1.0;
+	assert map["b"] == 2.0;
+	// Keys in the initializer don't need to be constants.
+	map = [ StringToLowerRaw("HELLO") = 1.0, StringToUpperRaw("hello") = 2.0 ];
+	assert map["hello"] == 1.0;
+	assert map["HELLO"] == 2.0;
+
+	// You can get an item from a map wrapped in an error type
+	// (see the later section on these) using :get().
+	err[float] wrapped;
+	wrapped = map:get("hello");
+	assert wrapped:success(); // Key is in the map; success.
+	assert wrapped:default(-1.0) == 1.0;
+	wrapped = map:get("world");
+	assert !wrapped:success(); // Key is not in the map; failure.
+	assert wrapped:default(-1.0) == -1.0;
+
+//////////////////////////////// TUPLES ////////////////////////////////
+
+	// Functions can return multiple values via tuples.
+	// See the function definition below.
+	int x, str y = MultipleReturnValues(false);
+	Log("%x% %y%");
+	// You can assign variables directly, or declare new ones as above.
+	x, y = MultipleReturnValues(true);
+	Log("%x% %y%");
+
+	// Continuing in the next part...
+	Part4();
+}
+
+// To denote that a function returns multiple values, use the tuple syntax.
+// Note that tuples can only be used for returning multiple values from a function;
+// they're not allowed anywhere else in the language.
+tuple[int, str] MultipleReturnValues(bool which) {
+	if which {
+		return 5, "World"; // Separate the return values with a comma.
+	} else {
+		return 3, "Hello";
+	}
+}
+
+//////////////////////////////// INTTYPES ////////////////////////////////
+
+// You can declare custom integer types using the keyword inttype.
+// They're useful for enums, bitsets and the like.
+inttype Flags {
+	FLAG1 = 1 << 0;
+	FLAG2 = 1 << 1;
+	FLAG3 = 1 << 2;
+};
+
+// inttypes can inherit from other inttypes.
+inttype FlagsExtended : Flags {
+	FLAG4 = 1 << 3;
+};
+
+void Part4() {
+	// You can perform arithmetic operations on inttypes.
+	Flags f = FLAG1 | FLAG3;
+	Log("%f%"); // Prints 5.
+
+	// inttypes cannot be mixed with normal integers, except for 0.
+	// f = f | 10; (won't compile)
+	f = 0; // Does compile.
+	// You also can't mix inttypes with other inttypes.
+
+	// inttypes can be implicitely converted to types that inherit from them.
+	FlagsExtended extended = f | FLAG4;
+	// But not the other way around.
+	// f = extended; (won't compile)
+
+	// Continuing...
+	Part5();
+}
+
+//////////////////////////////// FUNCTION POINTERS ////////////////////////////////
+
+// To use function pointers, you first need to define a name for the function signature.
+// This is called a function type. The syntax is very similar to defining a function.
+functype int IntegerFunction(int input);
+functype int IntegerFunctionAlternate(int input);
+functype void InputOnlyFunction(int input);
+functype int OutputOnlyFunction();
+functype void BooleanInputFunction(bool input);
+
+// Pointers to this function will be storable in variables of type IntegerFunction.
+int Square(int x) { return x * x; }
+
+bool LogicalNegate(bool b) { return !b; }
+
+void Part5() {
+	IntegerFunction f = Square;
+
+	// You can call function pointers just like normal functions.
+	int y = f(10);
+	Log("10 * 10 = %y%");
+
+	// You can modify the function so that it can be used in different situations.
+	// You can discard the return value with :discard().
+	InputOnlyFunction inputOnly = f:discard();
+	inputOnly(5);
+
+	// You can "bake in" arguments from left-to-right using :curry().
+	OutputOnlyFunction outputOnly = f:curry(5);
+	y = outputOnly();
+	Log("5 * 5 = %y%");
+
+	// You can remove a boolean return value of a function,
+	// and have it automatically asserted when called.
+	BooleanInputFunction g = LogicalNegate:assert();
+	g(false);
+	// g(true); (assertion fails)
+
+	// Function types with identical signatures can be used interchangably.
+	// (Unlike inttypes!)
+	IntegerFunctionAlternate h = f;
+
+//////////////////////////////// ERROR TYPES ////////////////////////////////
+
+	// If you want to ensure that a value is checked for errors before it is used, you can wrap it into an error type.
+	// Error types contain either an error message string or an actual value.
+	// The type name between the [] indicates the value's type. The error message is always stored as a string.
+	err[int] e1;
+	err[int] e2;
+	err[int] e3;
+
+	// You can store an error message like this:
+	e1 = new err[int] "Something bad happened.";
+	// You can store a value directly.
+	e2 = 15;
+
+	// The error message can be accessed with :error().
+	// If a value is stored (that is, there was no error), the empty string is returned.
+	Log("e1:error() = '%e1:error()%', e2:error() = '%e2:error()%', e3:error() = '%e3:error()%'");
+	// The default value of an error type variable contains the error message "UNKNOWN".
+
+	// You can determine whether an error value indicates an error or success with :success().
+	assert e1:success() == false;
+	assert e2:success() == true;
+	assert e3:success() == false;
+
+	// You can access the value inside an error variable using :default(),
+	// providing a default value to use if there was an error.
+	assert e1:default(-1) == -1;
+	assert e2:default(-1) == 15; // An actual value is stored here, so that is returned.
+	assert e3:default(-1) == -1;
+
+	// Alternatively, you can assert that an error did not occur to obtain the value.
+	Log("%e2:assert()%"); // Prints 15.
+	// Log("%e1:assert()%"); (assertion fails)
+
+	// If you don't have a value to store, you can create a err[void] variable.
+	// You can't use the :default() or :assert() ops on them.
+	err[void] e4 = new err[void] "Operation failed.";
+	Log("%e4:error()%");
+	assert !e4:success();
+
+	// You can store a success in err[void] variables with the #success constant.
+	e4 = #success;
+	assert e4:success();
+
+	// You can use an if statement to switch on whether an error variable contains an error.
+	if int x in e2 {
+		Log("e2 contained the integer %x%.");
+	} else {
+		Log("e2 contained the error %e2:error()%.");
+	}
+
+	// See below for the definition of RetErrExample and an explanation of the reterr statement.
+	Log("%RetErrExample():error()%"); // Prints "Oh no!".
+
+	// Continuing...
+	Part6();
+}
+
+err[int] RetErrExample() {
+	err[int] x = 5;
+	err[int] y = new err[int] "Oh no!";
+
+	// reterr <value> is equivalent to if <value>:error() { return <value>; }
+	reterr  x; // This will do nothing, because x is not an error.
+	reterr  y; // This will return y, because y is an error.
+	return 10; // This is not reached.
+}
+
+//////////////////////////////// COROUTINES ////////////////////////////////
+
+void MyCoroutine1() {
+	for int i = 0; i < 5; i += 1 {
+		Log("%i + 1%");
+		SystemSleepMs(1000);
+	}
+}
+
+void MyCoroutine2() {
+	Log("start sleeping");
+	SystemShellExecute("sleep 3");
+	Log("finish sleeping");
+}
+
+void Part6() {
+	// Create a coroutine using the :async() op.
+	// The function must have no arguments and no return values.
+	// Use :discard(), :assert() and :curry() to get it into this form, as necessary.
+	int id1 = MyCoroutine1:async();
+	int id2 = MyCoroutine2:async();
+	// An integer is returned, uniquely identifying the coroutine.
+
+	// You can wait for coroutines to make progress using the await statement.
+	// This takes a list of coroutines IDs and returns the ID of the first one that finishes.
+	// If one has already finished, its ID is returned without blocking.
+	// If the list is empty, -1 is returned.
+	int[] tasks = [id1, id2];
+	int finished = await tasks;
+	Log("finished coroutine %finished%");
+	tasks:find_and_delete(finished);
+	Log("remaining tasks %tasks%");
+	finished = await tasks;
+	Log("finished coroutine %finished%");
+	tasks:find_and_delete(finished);
+	// To wait for all the tasks in a list to finish, use:
+	// while tasks:find_and_delete(await tasks);
+
+	// The coroutine that is currently executing can only change at an await statement.
+	// All coroutines must complete before the Start() function returns!
+
+//////////////////////////////// GLOBAL VARIABLES ////////////////////////////////
+
+	// See the global variables declared below.
+	// These can be used like local variables.
+	globalInt = 5;
+	Log("globalInt = %globalInt%");
+
+	// Marking a global variable with #option means its initial value can be specified when the script is launched.
+	// Try launching this script with the command line "./teak examples/basic_usage.teak globalOption=10"
+	Log("globalOption = %globalOption%");
+
+	// Global variables can be saved between executions of the script by marking them with #persist.
+	// You need to specify the file they're saved to first, though.
+	PersistRead("temp.dat");
+	globalPersist += 1;
+	Log("globalPersist = %globalPersist%"); // The printed value will increment every time the script is run.
+
+	Part7();
+}
+
+int globalInt;
+int globalOption #option;
+int globalOption2 #option(50, "It's an option.", "externalName"); // You can optionally specify a default value, description, and the external name to use on the command line.
+int globalPersist #persist;
+
+void Part7() {
+//////////////////////////////// ANY TYPE ////////////////////////////////
+
+	// anytype variables can store any type of data.
+	anytype x;
+	x = 5;
+	x = "test";
+
+	// You can cast it back to its original type with the :cast() op.
+	str string = x:cast(str);
+	Log("%string%");
+
+	// If you try to cast it to the wrong type, the script crashes.
+	// int integer = x:cast(int); (script crashes)
+
+	Part8();
+}
+
+//////////////////////////////// MODULES ////////////////////////////////
+
+// You can import another module or script file using the #import statement.
+// Pass it a path relative to the current source file,
+// and the prefix (here "img") to use for the imported symbols.
+// If you prefix the path with "core:", it is interpreted relative to the
+// directory containing the scripting engine's executable, rather than the current source file.
+// If the file is not found, the engine will retry with "/index.teak" appended to the path.
+#import "core:modules/imaging" img;
+
+void Part8() {
+	// You can access the types and functions of the module using the prefix you chose.
+	img.Bitmap bitmap = img.Create(100, 100);
+	Log("%img.Width(bitmap)%"); // Outputs 100.
+
+	// You can't modify global variables from imported modules, although you can read them.
+}

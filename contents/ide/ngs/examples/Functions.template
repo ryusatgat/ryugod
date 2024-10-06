@@ -1,0 +1,11 @@
+F my_func(x:Int) x*10 # Single expression does not require { ... } syntax
+
+doc This method is documented!
+F my_func(s:Str) {
+	t = s * 2
+	"[" + t + "]" # Last value returned as the result
+}
+
+echo(my_func(1))
+echo(my_func("xyz"))
+echo(my_func)

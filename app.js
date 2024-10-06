@@ -172,6 +172,7 @@ app.get('*\.(html|jsls)$', (req, res) => {
 app.get('/sitemap.xml', (req, res) => {
     const path = base_dir + '/contents'
     const file_list = []
+    const host = req.get('host');
 
     readdir = (path, file_list) => {
         if (fs.existsSync(path, {encoding:'utf-8'})) {
@@ -193,7 +194,7 @@ app.get('/sitemap.xml', (req, res) => {
                     if (file.slice(-3) === '.png')
                         continue
 
-                    file_list.push(`<url><loc>https://www.ryugod.com${fpath.replace(base_dir, '').replace(/\/contents\//, '/pages/')}</loc>` +
+                    file_list.push(`<url><loc>https://${host}${fpath.replace(base_dir, '').replace(/\/contents\//, '/pages/')}</loc>` +
                         `<lastmod>${stats.mtime.toISOString()}</lastmod></url>`)
                 }
             }

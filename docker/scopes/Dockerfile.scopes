@@ -1,0 +1,6 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN curl -s -L https://hg.sr.ht/~duangle/scopes-binaries/raw/scopes-0.18-glibc_2.31-linux-x86_64.tar.xz | tar xvJ --transform 's/^scopes-0.18-glibc_2.31-linux-x86_64/scopes/' -C /opt && ln -s /opt/scopes/bin/scopes /usr/local/bin
+
+USER $USERNAME

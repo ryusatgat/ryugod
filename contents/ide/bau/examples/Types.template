@@ -1,0 +1,8 @@
+type point
+    x int
+    y int
+
+p := new(point)
+p.x = 10
+p.y = 20
+println('x=' p.x ' y=' p.y)

@@ -1,0 +1,26 @@
+// Mandelbrot example adopted from Wren
+// https://github.com/wren-lang/wren/blob/main/example/mandelbrot.wren
+
+let chars = str::code_points(" .-:;+=xX$& ");
+let yPixel = 0;
+while yPixel < 24 {
+  let y = yPixel / 12.0 - 1.0;
+  let xPixel = 0;
+  while xPixel < 80 {
+    let x = xPixel / 30.0 - 2.0;
+    let x0 = x;
+    let y0 = y;
+    let iter = 0;
+    while iter < 11.0 && (x0 * x0 + y0 * y0) <= 4.0 {
+      let x1 = (x0 * x0) - (y0 * y0) + x;
+      let y1 = 2.0 * x0 * y0 + y;
+      x0 = x1;
+      y0 = y1;
+      iter += 1;
+    }
+    print chars[iter];
+    xPixel += 1;
+  }
+  print "\n";
+  yPixel += 1;
+}

@@ -1,0 +1,8 @@
+#!/bin/local/nu
+# Nushell: Hello, World!
+
+def greet [name] {
+  [Hello, ",", $name, "!"]
+}
+
+greet "World"

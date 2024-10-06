@@ -1,0 +1,4 @@
+fun int square() int
+    return this * this
+
+println(12.square())

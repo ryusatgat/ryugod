@@ -1,0 +1,6 @@
+--
+--  Sol: Hello, World!
+--  https://github.com/sol-lang/sol
+--
+
+print('Hello, World!')

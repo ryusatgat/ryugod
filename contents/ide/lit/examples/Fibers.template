@@ -1,0 +1,42 @@
+/*
+ * So what's a fiber? Basically, it's a function, that you can stop at any time.
+ * And not just stop, but return back to it, and continue going, like nothing happened!
+ */
+
+var walker = new Fiber(() => {
+        print("Walking...")
+
+        // Pause the execution of the fiber and go back to whoever called it
+        Fiber.yield()
+
+        print("And walking...")
+
+        // You can even return values with it
+        Fiber.yield("I'm tired")
+        return 32
+})
+
+walker.run() // Expected: Walking...
+print("Fiber returned control") // Expected: Fiber returned control
+
+var result = walker.run() // Expected: And walking...
+print(result) // Expected: I'm tired
+
+walker.run()
+
+// You can check, if the fiber ended execution yet
+print(walker.done) // Expected: true
+
+/*
+ * Fibers also double up as exception handles.
+ * Whenever something is wrong, you can call Fiber.abort() to abort the execution.
+ * You can (better do) provide a error message.
+ */
+
+var errorMaker = new Fiber(() => {
+        null()
+})
+
+// In order to catch the error, you have to call errorMaker.try() and not errorMaker.run()
+print(errorMaker.try()) // Expected: Attempt to call a null value
+print(errorMaker.error) // Expected: Attempt to call a null value

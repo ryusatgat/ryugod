@@ -1,0 +1,5 @@
+( calculate fibionacci numbers from 1 to 1e9 )
+
+: fib 1 1 begin .. dup rot rot + dup 1e9 > until ;
+
+fib cr

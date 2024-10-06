@@ -1,0 +1,6 @@
+//
+//  Lit: Hello, World!
+//  https://github.com/egordorichev/lit
+//
+
+print("Hello, World!")

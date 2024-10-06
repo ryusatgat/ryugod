@@ -1,0 +1,8 @@
+#
+#  Faeyne: Hello, World!
+#  https://github.com/nevakrien/Faeyne_lang
+#
+
+def main(system){
+    system(:println)("Hello, World!");
+}

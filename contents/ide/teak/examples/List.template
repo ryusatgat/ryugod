@@ -1,0 +1,614 @@
+// TODO Use floats instead of integers?
+
+// ---------------------
+// Types and definitions
+// ---------------------
+
+functype Object BuiltinCallback(Parameters p);
+
+inttype ObjectType {
+	OBJ_INTEGER = 1;
+	OBJ_SYMBOL  = 2;
+	OBJ_STRING  = 3;
+	OBJ_PAIR    = 4;
+	OBJ_NIL     = 5;
+	OBJ_BUILTIN = 6;
+	OBJ_LAMBDA  = 7;
+};
+
+inttype NextParamFlags : ObjectType {
+	OBJ_TYPE_MASK = 0xF;
+	PARAM_ANY   = 1 <<  8; // Match any type.
+	PARAM_QUOTE = 1 <<  9; // Don't evaluate the parameter.
+	PARAM_FINAL = 1 << 10; // Check this is the last parameter.
+	PARAM_NIL   = 1 << 11; // Allow nil as well as the specified type.
+	PARAM_LET   = 1 << 12; // Allow let when evaluating the parameter.
+};
+
+struct Parameters {
+	Object list;
+	bool allowLet;
+};
+
+struct Object {
+	ObjectType type;
+	Object car;
+	Object cdr;
+	int integer;
+	str string;
+};
+
+struct EnvironmentEntry {
+	str key;
+	Object object;
+};
+
+struct Builtin {
+	str name;
+	BuiltinCallback callback;
+};
+
+// ------------
+// Global state
+// ------------
+
+str input #option;
+int inputPosition;
+Object tokenCloseBrace;
+Object tokenDot;
+Object tokenEOF;
+
+Builtin[] builtins;
+Object[] symbolTable;
+EnvironmentEntry[] environment;
+Object objectNil;
+Object object1;
+
+// ----------------
+// Helper functions
+// ----------------
+
+void AddBuiltin(str name, BuiltinCallback callback) {
+	environment:add([ key = name, object = [ type = OBJ_BUILTIN, integer = builtins:len() ] ]);
+	builtins:add([ name = name, callback = callback ]);
+}
+
+Object Integer(int i) {
+	return [ type = OBJ_INTEGER, integer = i ];
+}
+
+Object Boolean(bool b) {
+	return object1 if b else objectNil;
+}
+
+Object InternSymbol(str string) {
+	for Object symbol in symbolTable {
+		if symbol.string == string {
+			return symbol;
+		}
+	}
+
+	Object object = [ type = OBJ_SYMBOL, string = string ];
+	symbolTable:add(object);
+	return object;
+}
+
+Object NextParam(Parameters p, NextParamFlags flags) {
+	if p.list.type != OBJ_PAIR {
+		LogError("Not enough parameters.");
+		SystemExit(1);
+	}
+
+	Object param = p.list.car;
+	p.list = p.list.cdr;
+
+	if (flags & PARAM_QUOTE) == 0 {
+		param = EvaluateObject(param, (flags & PARAM_LET) != 0);
+	}
+
+	if (flags & PARAM_ANY) == 0 && !((flags & PARAM_NIL) != 0 && param == objectNil) && !((flags & OBJ_TYPE_MASK) == param.type) {
+		LogError("Incorrect parameter type.");
+		SystemExit(1);
+	}
+
+	if (flags & PARAM_FINAL) != 0 && p.list != objectNil {
+		LogError("Too many parameters.");
+		SystemExit(1);
+	}
+
+	return param;
+}
+
+// ---------------
+// Reading objects
+// ---------------
+
+Object ReadObject() {
+	while inputPosition < input:len() {
+		str c = input[inputPosition];
+
+		if CharacterIsSpace(c) {
+			inputPosition += 1;
+		} else if c == ";" {
+			while inputPosition < input:len() && input[inputPosition] != "\n" {
+				inputPosition += 1;
+			}
+		} else if c == ")" {
+			inputPosition += 1;
+			return tokenCloseBrace;
+		} else if c == "." {
+			inputPosition += 1;
+			return tokenDot;
+		} else if c == "\"" {
+			inputPosition += 1;
+			str s = "";
+
+			while inputPosition < input:len() {
+				c = input[inputPosition];
+
+				if c == "\"" { 
+					break; 
+				} else if c == "\\" && inputPosition + 1 < input:len() { 
+					inputPosition += 1; 
+					c = input[inputPosition];
+
+					if c == "\\" { s += "\\"; } 
+					else if c == "\"" { s += "\""; } 
+					else if c == "n" { s += "\n"; } 
+					else if c == "t" { s += "\t"; } 
+					else { /* TODO error messages */ assert false; }
+				} else {
+					s += c;
+				}
+
+				inputPosition += 1;
+			}
+
+			if inputPosition == input:len() {
+				LogError("Unexpected end of file during string.");
+				SystemExit(1);
+			}
+
+			inputPosition += 1;
+			return [ type = OBJ_STRING, string = s ];
+		} else if c == "(" {
+			Object result = objectNil;
+			Object tail;
+			inputPosition += 1;
+
+			while true {
+				Object object = ReadObject();
+
+				if object == tokenDot {
+					if result == tail {
+						result.cdr = ReadObject();
+
+						if result.cdr.type == 0 || ReadObject() != tokenCloseBrace {
+							LogError("Invalid dotted list.");
+							SystemExit(1);
+						}
+
+						break;
+					} else {
+						LogError("Invalid dotted list.");
+						SystemExit(1);
+					}
+				} else if object == tokenCloseBrace {
+					if tail != null { tail.cdr = objectNil; }
+					break;
+				} else if object.type != 0 {
+					if result == objectNil {
+						result = [ type = OBJ_PAIR, car = object ];
+						tail = result;
+					} else {
+						tail.cdr = [ type = OBJ_PAIR, car = object ];
+						tail = tail.cdr;
+					}
+				} else {
+					LogError("Unexpected token in list.");
+					SystemExit(1);
+				}
+			}
+
+			return result;
+		} else {
+			int start = inputPosition;
+			bool isInteger = true;
+
+			while inputPosition < input:len() {
+				c = input[inputPosition];
+				if StringContains("();.\" \n\t", c) { break; }
+				if c == "-" && inputPosition != start { isInteger = false; }
+				if c != "-" && !CharacterIsDigit(c) { isInteger = false; }
+				inputPosition += 1;
+			}
+
+			str text = input:slice(start, inputPosition);
+
+			if isInteger && text != "-" {
+				// TODO Detecting overflow.
+
+				int value = 0;
+				bool negate = false;
+
+				for str d in text {
+					if d == "-" {
+						negate = true;
+					} else {
+						value *= 10;
+						value += d:byte(0) - "0":byte(0);
+					}
+				}
+
+				return Integer(-value if negate else value);
+			} else {
+				return InternSymbol(text);
+			}
+		}
+	}
+
+	return tokenEOF;
+}
+
+// ------------------
+// Evaluating objects
+// ------------------
+
+Object EvaluateObject(Object object, bool allowLet) {
+	if object.type == OBJ_PAIR {
+		Object function = EvaluateObject(object.car, false);
+
+		if function.type == OBJ_BUILTIN {
+			Parameters p = [ list = object.cdr, allowLet = allowLet ];
+			return builtins[function.integer].callback(p);
+		} else if function.type == OBJ_LAMBDA {
+			Object parameterSymbols = function.car;
+			Object inputParameters = object.cdr;
+			EnvironmentEntry[] toAdd = [];
+
+			while parameterSymbols != objectNil {
+				if inputParameters == objectNil {
+					LogError("Not enough parameters passed to the lambda.");
+					SystemExit(1);
+				}
+
+				if parameterSymbols.car.type != OBJ_SYMBOL {
+					LogError("Parameter list for the lambda contains a non-symbol.");
+					SystemExit(1);
+				}
+
+				Object o = EvaluateObject(inputParameters.car, false);
+				toAdd:add([ key = parameterSymbols.car.string, object = o ]);
+				inputParameters = inputParameters.cdr;
+				parameterSymbols = parameterSymbols.cdr;
+			}
+
+			if inputParameters != objectNil {
+				LogError("Too many parameters passed to the lambda.");
+				SystemExit(1);
+			}
+
+			int restore = environment:len();
+			for EnvironmentEntry entry in toAdd { environment:add(entry); }
+			Object result = EvaluateObject(function.cdr, false);
+			environment:resize(restore);
+			return result;
+		} else {
+			LogError("Object is not callable.");
+			SystemExit(1);
+		}
+	} else if object.type == OBJ_SYMBOL {
+		for int i = environment:len() - 1; i >= 0; i -= 1 {
+			if environment[i].key == object.string {
+				return environment[i].object;
+			}
+		}
+
+		LogError("Could not find '%object.string%' in the environment.");
+		SystemExit(1);
+		return null;
+	}
+
+	return object;
+}
+
+// ----------------
+// Printing objects
+// ----------------
+
+str PrintObject(Object object, int depthLimit, bool quoteStrings) {
+	if object.type == OBJ_BUILTIN {
+		return "<builtin:%builtins[object.integer].name%>";
+	} else if object.type == OBJ_SYMBOL || (!quoteStrings && object.type == OBJ_STRING) {
+		return object.string;
+	} else if object.type == OBJ_STRING {
+		return "\"%object.string%\"";
+	} else if object.type == OBJ_NIL {
+		return "nil";
+	} else if object.type == OBJ_INTEGER {
+		return "%object.integer%";
+	} else if object.type == OBJ_LAMBDA {
+		return "<lambda>";
+	} else if object.type == OBJ_PAIR {
+		str string = "(";
+
+		if depthLimit == 0 { 
+			string += "...)";
+		} else {
+			Object o = object;
+
+			while true {
+				string += PrintObject(o.car, depthLimit - 1, quoteStrings);
+
+				if o.cdr.type == OBJ_PAIR {
+					string += " ";
+					o = o.cdr;
+				} else if o.cdr.type == OBJ_NIL {
+					break;
+				} else {
+					string += " . " + PrintObject(o.cdr, depthLimit - 1, quoteStrings);
+					break;
+				}
+			}
+		}
+
+		return string + ")";
+	} else {
+		return "<??>";
+	}
+}
+
+// --------------
+// Builtins: core
+// --------------
+
+Object DoBuiltinQuote(Parameters p) { return NextParam(p, PARAM_ANY | PARAM_QUOTE | PARAM_FINAL); }
+Object DoBuiltinCons(Parameters p) { return [ type = OBJ_PAIR, car = NextParam(p, PARAM_ANY), cdr = NextParam(p, PARAM_ANY | PARAM_FINAL) ]; }
+
+Object DoBuiltinCar(Parameters p) { return NextParam(p, OBJ_PAIR | PARAM_FINAL).car; }
+Object DoBuiltinCdr(Parameters p) { return NextParam(p, OBJ_PAIR | PARAM_FINAL).cdr; }
+
+Object DoBuiltinSetcar(Parameters p) { 
+	Object pair = NextParam(p, OBJ_PAIR); 
+	Object object = NextParam(p, PARAM_ANY | PARAM_FINAL);
+	pair.car = object;
+	return object; 
+}
+
+Object DoBuiltinSetcdr(Parameters p) { 
+	Object pair = NextParam(p, OBJ_PAIR); 
+	Object object = NextParam(p, PARAM_ANY | PARAM_FINAL);
+	pair.cdr = object;
+	return object; 
+}
+
+Object DoBuiltinList(Parameters p) {
+	Object result = objectNil;
+	Object tail;
+
+	while p.list != objectNil {
+		Object object = NextParam(p, PARAM_ANY);
+
+		if result == objectNil {
+			result = [ type = OBJ_PAIR, car = object ];
+			tail = result;
+		} else {
+			tail.cdr = [ type = OBJ_PAIR, car = object ];
+			tail = tail.cdr;
+		}
+	}
+
+	if tail != null { tail.cdr = objectNil; }
+	return result;
+}
+
+Object DoBuiltinDo(Parameters p) {
+	Object last = objectNil;
+	int restore = environment:len();
+	while p.list != objectNil { last = NextParam(p, PARAM_ANY | (PARAM_LET if p.list.cdr != objectNil else 0)); }
+	environment:resize(restore);
+	return last;
+}
+
+Object DoBuiltinLet(Parameters p) {
+	if !p.allowLet {
+		LogError("'let' cannnot be used in this context.");
+		assert false;
+		SystemExit(1);
+	}
+
+	environment:add([ key = NextParam(p, OBJ_SYMBOL | PARAM_QUOTE).string, object = NextParam(p, PARAM_ANY | PARAM_FINAL) ]);
+	return objectNil;
+}
+
+Object DoBuiltinSet(Parameters p) {
+	str key = NextParam(p, OBJ_SYMBOL | PARAM_QUOTE).string;
+	Object object = NextParam(p, PARAM_ANY | PARAM_FINAL);
+
+	for int i = environment:len() - 1; i >= 0; i -= 1 {
+		if environment[i].key == key {
+			environment[i].object = object;
+			return object;
+		}
+	}
+
+	LogError("Could not find '%key%' in the environment.");
+	SystemExit(1);
+	return null;
+}
+
+Object DoBuiltinWhile(Parameters p) {
+	Object original = p.list;
+
+	while NextParam(p, PARAM_ANY) != objectNil {
+		NextParam(p, PARAM_ANY | PARAM_FINAL);
+		p.list = original;
+	}
+
+	return objectNil;
+}
+
+Object DoBuiltinIf(Parameters p) {
+	if p.list == objectNil || p.list.cdr == objectNil { NextParam(p, PARAM_ANY); NextParam(p, PARAM_ANY); }
+
+	while true {
+		if (p.list != objectNil && p.list.cdr == objectNil) || NextParam(p, PARAM_ANY) != objectNil {
+			return NextParam(p, PARAM_ANY);
+		} else {
+			NextParam(p, PARAM_ANY | PARAM_QUOTE);
+		}
+	}
+}
+
+Object DoBuiltinIs(Parameters p) {
+	Object a = NextParam(p, PARAM_ANY);
+	Object b = NextParam(p, PARAM_ANY | PARAM_FINAL);
+	if a == b { return object1; }
+	if a.type != b.type { return objectNil; }
+	return Boolean((a.type == OBJ_INTEGER && a.integer == b.integer) || ((a.type == OBJ_SYMBOL || a.type == OBJ_STRING) && a.string == b.string));
+}
+
+Object DoBuiltinFunction(Parameters p) {
+	return [ type = OBJ_LAMBDA, car = NextParam(p, OBJ_PAIR | PARAM_QUOTE | PARAM_NIL), cdr = NextParam(p, PARAM_ANY | PARAM_QUOTE | PARAM_FINAL) ];
+}
+
+// --------------------------------
+// Builtins: arithmetic and strings
+// --------------------------------
+
+Object DoBuiltinAdd(Parameters p) { 
+	int sum = 0;
+	while p.list != objectNil { sum += NextParam(p, OBJ_INTEGER).integer; }
+	return Integer(sum); 
+}
+
+Object DoBuiltinSub(Parameters p) { return Integer(NextParam(p, OBJ_INTEGER).integer - NextParam(p, OBJ_INTEGER | PARAM_FINAL).integer); }
+Object DoBuiltinMul(Parameters p) { return Integer(NextParam(p, OBJ_INTEGER).integer * NextParam(p, OBJ_INTEGER | PARAM_FINAL).integer); }
+Object DoBuiltinDiv(Parameters p) { return Integer(NextParam(p, OBJ_INTEGER).integer / NextParam(p, OBJ_INTEGER | PARAM_FINAL).integer); }
+
+Object DoBuiltinLT (Parameters p) { return Boolean(NextParam(p, OBJ_INTEGER).integer <  NextParam(p, OBJ_INTEGER | PARAM_FINAL).integer); }
+Object DoBuiltinLTE(Parameters p) { return Boolean(NextParam(p, OBJ_INTEGER).integer <= NextParam(p, OBJ_INTEGER | PARAM_FINAL).integer); }
+Object DoBuiltinGT (Parameters p) { return Boolean(NextParam(p, OBJ_INTEGER).integer >  NextParam(p, OBJ_INTEGER | PARAM_FINAL).integer); }
+Object DoBuiltinGTE(Parameters p) { return Boolean(NextParam(p, OBJ_INTEGER).integer >= NextParam(p, OBJ_INTEGER | PARAM_FINAL).integer); }
+
+Object DoBuiltinNot(Parameters p) { return Boolean(NextParam(p, PARAM_ANY | PARAM_FINAL) == objectNil); }
+Object DoBuiltinAtom(Parameters p) { return Boolean(NextParam(p, PARAM_ANY | PARAM_FINAL).type != OBJ_PAIR); }
+Object DoBuiltinAnd(Parameters p) { while p.list != objectNil { if NextParam(p, PARAM_ANY) == objectNil { return objectNil; } } return object1; }
+Object DoBuiltinOr(Parameters p) { while p.list != objectNil { if NextParam(p, PARAM_ANY) != objectNil { return object1; } } return objectNil; }
+
+Object DoBuiltinMod(Parameters p) {
+	int a = NextParam(p, OBJ_INTEGER).integer;
+	return Integer(IntegerModulo(a, NextParam(p, OBJ_INTEGER | PARAM_FINAL).integer)); 
+}
+
+Object DoBuiltinStrlen(Parameters p) { return Integer(NextParam(p, OBJ_STRING | PARAM_FINAL).string:len()); }
+Object DoBuiltinToUpper(Parameters p) { return [ type = OBJ_STRING, string = StringToUpperRaw(NextParam(p, OBJ_STRING | PARAM_FINAL).string) ]; }
+Object DoBuiltinToLower(Parameters p) { return [ type = OBJ_STRING, string = StringToLowerRaw(NextParam(p, OBJ_STRING | PARAM_FINAL).string) ]; }
+Object DoBuiltinToStr(Parameters p) { return [ type = OBJ_STRING, string = PrintObject(NextParam(p, PARAM_ANY | PARAM_FINAL), 100, true) ]; }
+
+Object DoBuiltinNthChar(Parameters p) { 
+	str s = NextParam(p, OBJ_STRING).string;
+	int a = NextParam(p, OBJ_INTEGER | PARAM_FINAL).integer;
+
+	if a < 0 || a >= s:len() {
+		LogError("Invalid index %a% into '%s%'.");
+		SystemExit(1);
+	}
+
+	return [ type = OBJ_STRING, string = s[a] ]; 
+}
+
+Object DoBuiltinSubstr(Parameters p) { 
+	str s = NextParam(p, OBJ_STRING).string;
+	int a = NextParam(p, OBJ_INTEGER).integer;
+	int b = NextParam(p, OBJ_INTEGER | PARAM_FINAL).integer;
+
+	if a > b || a < 0 || b > s:len() {
+		LogError("Invalid range [%a%, %b%) for substring of '%s%'.");
+		SystemExit(1);
+	}
+
+	return [ type = OBJ_STRING, string = s:slice(a, b) ]; 
+}
+
+Object DoBuiltinAppend(Parameters p) {
+	Object path = NextParam(p, OBJ_STRING);
+	return Boolean(FileAppend(path.string, NextParam(p, OBJ_STRING | PARAM_FINAL).string):success());
+}
+
+Object DoBuiltinWrite(Parameters p) {
+	Object path = NextParam(p, OBJ_STRING);
+	return Boolean(FileWriteAll(path.string, NextParam(p, OBJ_STRING | PARAM_FINAL).string):success());
+}
+
+Object DoBuiltinRead(Parameters p) {
+	return [ type = OBJ_STRING, string = FileReadAll(NextParam(p, OBJ_STRING | PARAM_FINAL).string):default("") ];
+}
+
+// --------------
+// Initialisation
+// --------------
+
+void Start() {
+	tokenCloseBrace = [];
+	tokenDot = [];
+	tokenEOF = [];
+	symbolTable = [];
+	environment = [];
+	builtins = [];
+	objectNil = [ type = OBJ_NIL ];
+	object1 = Integer(1);
+
+	environment:add([ key = "nil", object = objectNil ]);
+
+	AddBuiltin("+",        DoBuiltinAdd);
+	AddBuiltin("-",        DoBuiltinSub);
+	AddBuiltin("*",        DoBuiltinMul);
+	AddBuiltin("/",        DoBuiltinDiv);
+	AddBuiltin("mod",      DoBuiltinMod);
+	AddBuiltin("<",        DoBuiltinLT);
+	AddBuiltin("<=",       DoBuiltinLTE);
+	AddBuiltin(">",        DoBuiltinGT);
+	AddBuiltin(">=",       DoBuiltinGTE);
+	AddBuiltin("and",      DoBuiltinAnd);
+	AddBuiltin("or",       DoBuiltinOr);
+	AddBuiltin("not",      DoBuiltinNot);
+	AddBuiltin("strlen",   DoBuiltinStrlen);
+	AddBuiltin("nth-char", DoBuiltinNthChar);
+	AddBuiltin("substr",   DoBuiltinSubstr);
+	AddBuiltin("to-upper", DoBuiltinToUpper);
+	AddBuiltin("to-lower", DoBuiltinToLower);
+	AddBuiltin("to-str",   DoBuiltinToStr);
+	AddBuiltin("atom",     DoBuiltinAtom);
+	AddBuiltin("q",        DoBuiltinQuote);
+	AddBuiltin("car",      DoBuiltinCar);
+	AddBuiltin("cdr",      DoBuiltinCdr);
+	AddBuiltin("cons",     DoBuiltinCons);
+	AddBuiltin("list",     DoBuiltinList);
+	AddBuiltin("setcar",   DoBuiltinSetcar);
+	AddBuiltin("setcdr",   DoBuiltinSetcdr);
+	AddBuiltin("is",       DoBuiltinIs);
+	AddBuiltin("append",   DoBuiltinAppend);
+	AddBuiltin("write",    DoBuiltinWrite);
+	AddBuiltin("read",     DoBuiltinRead);
+	AddBuiltin("do",       DoBuiltinDo);
+	AddBuiltin("if",       DoBuiltinIf);
+	AddBuiltin("while",    DoBuiltinWhile);
+	AddBuiltin("let",      DoBuiltinLet);
+	AddBuiltin("=",        DoBuiltinSet);
+	AddBuiltin("fun",      DoBuiltinFunction);
+
+	if input == "" {
+		Log("Example usage: ./teak examples/lisp.teak input=\"(do (let factorial (fun (n) (if (is n 0) 1 (* n (factorial (- n 1)))))) (factorial 5))\"");
+		str s = "";
+		for Builtin b in builtins { s += " %b.name%"; }
+		Log("Available builtins:%s%");
+	} else {
+		input = StringTrim(input);
+
+		while inputPosition != input:len() {
+			Log(PrintObject(EvaluateObject(ReadObject(), true), 100, true));
+		}
+	}
+
+}

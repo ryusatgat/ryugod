@@ -1,0 +1,6 @@
+#
+#  NGS: Hello, World!
+#  https://github.com/ngs-lang/ngs
+#
+
+echo "Hello, World!"

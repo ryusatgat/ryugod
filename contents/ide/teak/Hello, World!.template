@@ -1,0 +1,8 @@
+//
+//  Teak: Hello, World!
+//  https://github.com/nakst/teak
+//
+
+void Start() {
+    Log("Hello, World!");
+}

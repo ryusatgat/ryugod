@@ -1,0 +1,8 @@
+//
+//  StaticScript: Hello, World!
+//  https://github.com/StaticScript/StaticScript
+//
+
+let content: string = "Hello, World!";
+
+ss_println_string(content);

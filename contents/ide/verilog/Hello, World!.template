@@ -1,4 +1,6 @@
-// Verilog(베릴로그) Hello, World! 예제
+//
+// Verilog: Hello, World!
+//
 
 module main;
   initial begin

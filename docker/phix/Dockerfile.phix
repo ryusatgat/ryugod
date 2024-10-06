@@ -1,0 +1,26 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:haxe/releases -y
+RUN apt-get update
+RUN apt-get install haxe -y
+
+RUN mkdir /opt/phix && \
+    cd /opt && curl -LksO http://phix.x10.mx/phix.1.0.5.zip && \
+    curl -LksO http://phix.x10.mx/phix.1.0.5.1.zip && \
+    curl -LksO http://phix.x10.mx/phix.1.0.5.2.zip && \
+    curl -LksO http://phix.x10.mx/phix.1.0.5.3.zip && \
+    curl -LksO http://phix.x10.mx/phix.1.0.5.4.zip && \
+    curl -LksO http://phix.x10.mx/p64 && \
+    unzip phix.1.0.5.zip -d phix && \
+    unzip phix.1.0.5.1.zip -d phix && \
+    unzip phix.1.0.5.2.zip -d phix && \
+    unzip phix.1.0.5.3.zip -d phix && \
+    unzip phix.1.0.5.4.zip -d phix && \
+    rm -f *.zip && mv p64 phix/p && chmod 755 phix/p && \
+    ln -s /opt/phix/builtins /usr/local/bin && ln -s /opt/phix/p /usr/local/bin
+
+ADD opt /opt/
+
+USER $USERNAME

@@ -1,0 +1,12 @@
+import org.bau.Utils
+
+for i := range(1, 10)
+    switch Utils.random() & 7
+    case 0
+        println('zero')
+    case 1
+        println('one')
+    case 2, 3
+        println('2 or 3')
+    else  
+        println('other') 

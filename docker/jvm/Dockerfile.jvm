@@ -10,6 +10,7 @@ RUN apt install -y openjdk-21-jdk
 RUN apt install -y gradle maven
 
 RUN cd /opt && curl -s -L https://github.com/fanx-dev/fanx/releases/download/v4.3.1/fanx-4.3.1.zip > fanx.zip && unzip fanx.zip && rm -f fanx.zip && mv fanx* fanx && chmod a+x /opt/fanx/bin/* && ln -s /opt/fanx/bin/fan /usr/local/bin
+RUN apt install -y gcc
 
 ADD usr /usr/
 ADD opt /opt/

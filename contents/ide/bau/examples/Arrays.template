@@ -1,0 +1,10 @@
+data : new(i8[], 10)
+if data.len
+    i := 0..data.len
+    while 1
+        data[i]! = i * i
+        next : i + 1
+        break next >= data.len
+        i = next
+ for j := until(data.len)
+    println('#' j ' = ' data[j])

@@ -1,0 +1,9 @@
+import org.bau.List
+    List
+    newList
+
+list := newList(int)
+list.add(100)
+list.add(80)
+println('size: ' list.size)
+println('[0]:  ' list.array[0])

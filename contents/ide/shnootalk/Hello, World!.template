@@ -4,6 +4,6 @@
 
 fn main() -> int
 {
-    println("Hello world")
+    println("Hello, World!")
     return 0
 }

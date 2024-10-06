@@ -1,0 +1,46 @@
+class Person {
+        constructor(name, age) {
+                this.name = name
+                this.age = age
+        }
+
+        greet() {
+                print($"Hello, my name is {this.name}, I'm {this.age}!")
+        }
+}
+
+class Employee : Person {
+        constructor(name, age, profession) {
+                // Pass the name and age to the constructor of Person (defined at line 2).
+                super(name, age)
+
+                this.profession = profession
+        }
+
+        greet() {
+                print($"Hello, my name is {this.name}, I'm a {this.profession}")
+        }
+
+        yeet(object) {
+                print($"{this.name} yeeted {object} out of the window!")
+        }
+}
+
+var bob = new Person("Bob", 23)
+bob.greet() // Expected: Hello, my name is Bob, I'm 23!
+
+var dug = new Person("Dug", 32)
+dug.greet() // Expected: Hello, my name is Dug, I'm 32!
+
+var maanex = new Employee("Maanex", 42, "programmer")
+maanex.greet() // Expected: Hello, my name is Maanex, I'm a programmer
+
+// The Person class doesn't define the method, it's defined in it's child class.
+print(bob.yeet) // Expected: null
+maanex.yeet("potato") // Expected: Maanex yeeted potato out of the window!
+
+print(bob is Person) // Expected: true
+print(bob is Employee) // Expected: false
+
+print(maanex is Person) // Expected: true
+print(maanex is Employee) // Expected: true

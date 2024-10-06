@@ -1,0 +1,8 @@
+/*
+    Microvium: Hello, World
+    https://github.com/coder-mike/microvium
+*/
+
+const str = "Hello, World!";
+
+console.log(str)

@@ -1,0 +1,105 @@
+/*
+ * Functions are blocks of code with a name, that you can call.
+ * They can take arguments (up to 255) and return something back to you (or null by default).
+ */
+
+function welcome() {
+        print("Hello, World!")
+}
+
+welcome() // Expected: Hello, World!
+var result = welcome() // Expected: Hello, World!
+
+print(result) // Expected: null
+
+/*
+ * This function takes two arguments, a and b. If you provide more than that,
+ * the left over arguments will be ignored. But if you forget to provide some of the arguments,
+ * they will default to null.
+ */
+function sum(a, b) {
+        return a + b
+}
+
+print(sum(10, 20)) // Expected: 30
+
+// Functions are variables too, and you can use that to your advantage!
+var totallyNotSumFunction = sum
+print(totallyNotSumFunction(1, 2)) // Expected: 3
+
+// You can even pass functions to other functions!
+function caller(callback) {
+        callback("test")
+}
+
+function tester(arg) {
+        print(arg)
+}
+
+caller(tester) // Expected: test
+
+// For cases like this, you can use lambdas - functions, without names:
+
+caller((arg) => print(arg)) // Expected: test
+
+caller((arg) => {
+        print("Whatever")
+        return 3
+}) // Expected: Whatever
+
+// Functions can also specify default values for arguments, in case user doesn't provide them:
+function rain(where, what = "chocolate") {
+        print($"It's raining {what} in the {where}!")
+}
+
+rain("town") // Expected: It's raining chocolate in the town!
+rain("city", "lemonade") // Expected: It's raining lemonade in the city!
+
+/*
+ * You can have multiple default-arguments, but they always must be at the end of the argument list
+ * function rain(where = 32, what)
+ * ^ this won't work, because what doesn't have a default value
+ */
+
+
+/*
+ * Sometimes you want to pass an unknown amount of arguments to a function.
+ * I've been putting this feature off for a long while, because I always said,
+ * that you can just pass an array (and that's how it works under the hood anyway).
+ * But you know, who doesn't like some sweet sweet syntax sugar?
+ */
+
+function check(...) {
+        print(...[0] == "coffee")
+}
+
+// Note, that the vararg must be the last one in the parameters list.
+function shout(a, ...) {
+        print(a) // Expected: tea
+
+        var b = ...
+        print(b) // Expected: [ "coffee", "sugar" ]
+
+        // You can treat ... as a regular variable:
+        for var arg in ... {
+                print(arg) // Expected: coffee
+                // Expected: sugar
+        }
+
+        check(...) // Expected: true
+}
+
+shout("tea", "coffee", "sugar")
+
+// Warning: we are entering advaned territory here: upvalues!
+function makePrinter(text) {
+        return () => {
+                print($"Printer goes brr and prints {text}")
+        }
+}
+
+var moneyPrinter = makePrinter("money")
+moneyPrinter() // Expected: Printer goes brr and prints money
+
+var issuePrinter = makePrinter("issues")
+issuePrinter() // Expected: Printer goes brr and prints issues

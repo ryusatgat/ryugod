@@ -1,0 +1,6 @@
+#
+#  TinyScript: Hello, World!
+#  https://github.com/totalspectrum/tinyscript
+#
+
+print "Hello, World!"

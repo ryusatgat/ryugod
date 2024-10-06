@@ -1,0 +1,70 @@
+/*
+ * This is all standard stuff, nothing new here
+ */
+
+if (10 > 4) {
+        print("Math works out just fine")
+} else {
+        print("Excuse me")
+} // Expected: Math works out just fine
+
+var food = "orange"
+
+if (food == "muffin") {
+        print("Yesss")
+} else if (food == "tomato") {
+        print("Yummy")
+} else if (food == "orange") {
+        print("My favorite juice flavor!")
+} else {
+        print("I don't know this food!")
+} // Expected: My favorite juice flavor!
+
+var array = []
+
+for (var i = 0; i < 3; i++) {
+        array.add("banana")
+}
+
+print(array) // Expected: [ "banana", "banana", "banana" ]
+
+var sum = 0
+
+// The range is always inclusive (it means we will go with 1, 2, 3)
+for (var i in 1 .. 3) {
+        sum += i
+}
+
+print(sum) // Expected: 6
+
+var iterations = 0
+
+while (sum > 0) {
+        sum -= 2
+        iterations++
+}
+
+print(iterations) // Expected: 3
+
+/*
+ * Nothing new? Well, almost, there are a few things.
+ * First of all, you can ignore () on any of those flow-control-statements.
+ * They don't carry any meaning, besides looking cool (perhaps).
+ */
+
+if true {
+        print("Yes")
+} // Expected: Yes
+
+// And also, instead of doing this:
+var condition = false
+
+if (!(condition || false)) {
+        print("Orange")
+} // Expected: Orange
+
+// You can do this:
+
+if !(condition || false) {
+        print("Banana")
+} // Expected: Banana

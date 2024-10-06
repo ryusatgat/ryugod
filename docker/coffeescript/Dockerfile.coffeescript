@@ -1,0 +1,6 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt install -y coffeescript
+
+USER $USERNAME

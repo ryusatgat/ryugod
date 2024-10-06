@@ -1,0 +1,6 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN curl -s -L https://github.com/cotowali/cotowali/releases/download/v0.1.1/cotowali_Linux_x86_64.tar.gz | tar xvz -C /opt && ln -s /opt/cotowali/bin/lic /usr/local/bin
+
+USER $USERNAME

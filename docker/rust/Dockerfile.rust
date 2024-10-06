@@ -5,9 +5,11 @@ RUN apt install -y opam
 
 
 ADD opt /opt/
+ADD usr /usr/
 
 USER $USERNAME
 
 RUN bash -c "bash <(curl https://sh.rustup.rs -sSf) -y"
 RUN echo 'export PATH=$PATH:~/.cargo/bin' >> ~/.bashrc
 RUN ~/.cargo/bin/cargo install hvm bend-lang
+RUN echo 'export PYTHONPATH=/usr/lib/python3.12' >> ~/.bashrc

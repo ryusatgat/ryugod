@@ -1,0 +1,6 @@
+//
+//  Aument: Hello, World!
+//  https://github.com/aument-lang/aument
+//
+
+print "Hello, World!\n"

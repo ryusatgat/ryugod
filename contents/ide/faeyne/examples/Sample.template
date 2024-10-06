@@ -1,0 +1,267 @@
+#from path import func;
+
+def handler(event) {
+    match event {
+        :click => {
+            process_click(event);
+            update_ui();
+        },
+        :hover => {
+            highlight_element();
+        },
+        _ => {}
+    };
+}
+
+def dumby(k) {
+    match fn {
+        0 => 2,
+        1 => 3,
+        2 => 2,
+    }(k)
+}
+
+def bug(i) {
+    match i>0 {
+        true => {},
+        false => {return true;}
+    };
+
+    9
+}
+
+def bug_main(system){
+    system(:println)(bug(-4));
+}
+
+def base_factorial(i) {
+    match i {
+        0 => 1,
+        #PARSER BUG: _ => {return a*base_factorial(i-1);}
+        _ => {a = base_factorial(i-1); return i*a;}
+    }
+}
+
+def factorial(i) {
+    match i>=0 {
+        true => base_factorial(i),
+        false => :err
+    }
+}
+#def factorial(i){}
+
+def err_in_lamda() {
+    f = fn (x) -> {
+        x+true
+    };
+
+    a = :a;
+
+    f(a)
+}
+
+def valid_lambda() {
+    f = fn (x) -> {
+        x
+    };
+
+    a = :a;
+
+    f(a)
+}
+
+
+def err_in_lamda_def() {
+    f = fn (x) -> {
+        y+x+true
+    };
+}
+
+def err_compile_time_in_lamda_def() {
+    x=1;
+    f = fn () -> {
+        x+true
+    };
+    f()
+}
+
+def rev(id,ag,source) {
+    match id>=0{
+        true => {
+            ag=ag+source(id);
+            rev(id-1,ag,source)
+        },
+        false => ag,
+    }
+}
+
+def div_loop(x) {
+    match x > 0 {
+        true=>x/div_loop(x-1),
+        false => 1.0,
+    }
+}
+
+def waste_time(x) {
+    match x {
+        0 => nil,
+        _ => waste_time(x-1)
+    }
+}
+
+def waste_more_time(x) {
+    match x {
+        0 => nil,
+        _ => {waste_time(x);waste_more_time(x-1)}
+    }
+}
+
+def reverse_string(s) {
+    #type check
+    match ''+s == s {
+        true => rev(s(:len) -1,'',s),
+        false => :err
+    }
+}
+
+def make_nested_lamda(n) {
+    _make_nested_lamda(n,fn (x) -> {x})
+}
+
+def _make_nested_lamda(n,f) {
+    match n {
+        0 => f,
+        _ => {
+            a = 1==1;
+            f2 = _make_nested_lamda(n-1,f); 
+            fn (x) -> {1+f2(x)}
+        }
+    }
+}
+
+def run_loop(func,num_iters) {
+    0|> fn(n) -> {
+        match n<num_iters {
+            true => {
+                func(n);
+                self(n+1)
+            },
+            false =>{}
+        }
+    }()
+}
+
+def loopy_main(system) {
+    system(:println)('hello world');
+    print = system(:println);
+    0|> fn(n) -> {
+        match n<2 {
+            true => {
+                print('iteration number: '+n);
+                self(n+1)
+            },
+            false =>{}
+        }
+    }();
+
+    run_loop (fn(n) {print('iteration number: '+ n)},10); 
+}
+
+def main(system){
+    bug_main(system);
+    factorial(4)  |> system(:println)();
+    factorial(-4) |> system(:println)();
+    system(:println)(dumby(2));
+    system(:println)(system(:println));
+    system(:println)("hello world");
+    system(:println)("hello"+ "world");
+    system(:println)(system(:type)("hi"));
+
+    #a = :ok;
+    #a()
+    #dumby(:dumb)
+    print = system(:println);
+
+    valid_lambda() |> print();
+    #err_in_lamda();
+    #err_in_lamda_def();
+    #system(:read_file)('Cargo.toml') |>system(:println)();
+    system(:write_file)('junk','I made this in Fayenelang') |>system(:println)();
+    system(:delete_file)('junk') |>system(:println)();
+    #system(:delete_file)(:ok) |>system(:println)();
+
+#    system(:read_dir)('src')(0) |>system(:println)();
+#    cargo = system(:read_dir)('/')
+#    |>system(:println)();
+#
+#    system(:println)(cargo(0));
+
+    s = "hey there";
+    system(:println)(s(:len));
+
+    reverse_string(s)|>system(:println)();
+    reverse_string(:ok)|>system(:println)();
+
+    factorial(12) |>system(:println)();
+    div_loop(100) |>system(:println)();
+    div_loop(100);
+    waste_more_time(1000);
+    waste_more_time(300);
+    waste_more_time(300);
+    waste_more_time(300);
+    waste_more_time(300);
+    waste_more_time(300);
+    waste_more_time(300);
+
+    #x=self;
+    f=make_nested_lamda(100);
+    f(1) |>system(:println)();
+    f(1) |>system(:println)();
+    f(1) |>system(:println)();
+    f(1) |>system(:println)();
+    f(1) |>system(:println)();
+    f(1) |>system(:println)();
+    f(1) |>system(:println)();
+    f(1) |>system(:println)();
+    f(1) |>system(:println)();
+    f(1) |>system(:println)();
+    f(1) |>system(:println)();
+
+    
+    f = fn(x,acc) {
+        match x {
+            0=> acc,
+            _ => {acc+x+self(x-1,acc)}
+        }
+    };
+
+    system(:println)('\n\nrecursive lambda');
+    f(10,0) |>system(:println)();
+
+    #x = 1;
+    #x();
+
+    #err_compile_time_in_lamda_def();
+}
+
+def weird(system) {
+    a = fn(x) {
+        match x {
+            0 => self,
+            _ => self(x - 1)
+        }
+    };
+    
+    b = fn(x) {
+        match x {
+            0 => 3,
+            _ => fn(x) {self(x - 1)|>a()}
+        }
+    };
+    print = system(:println);
+
+    print("a \n\n");
+    a|> print();
+    print("b \n\n");
+    b(10)|> print();
+}

@@ -1,0 +1,50 @@
+// The simplest Turing-complete language written in Aument
+// https://en.wikipedia.org/wiki/Brainfuck
+
+let instructions = str::bytes(io::input());
+let ilen = list::len(instructions);
+let tape = array::repeat(0, 8192);
+let ip = 0;
+let dp = 0;
+while ip < ilen {
+  let current_insn = instructions[ip];
+  if current_insn == '>'c {
+    dp += 1;
+  } else if current_insn == '<'c {
+    dp -= 1;
+  } else if current_insn == '+'c {
+    tape[dp] += 1;
+  } else if current_insn == '-'c {
+    tape[dp] -= 1;
+  } else if current_insn == '.'c {
+    print str::char(tape[dp]);
+  } else if current_insn == ','c {
+    tape[dp] = int::into(io::input());
+  } else if current_insn == '['c {
+    if tape[dp] == 0 {
+      let loop = 1;
+      while loop > 0 {
+        ip += 1;
+        current_insn = instructions[ip];
+        if current_insn == '['c {
+          loop += 1;
+        } else if current_insn == ']'c {
+          loop -= 1;
+        }
+      }
+    }
+  } else if current_insn == ']'c {
+    let loop = 1;
+    while loop > 0 {
+      ip -= 1;
+      let current_insn = instructions[ip];
+      if current_insn == '['c {
+        loop -= 1;
+      } else if current_insn == ']'c {
+        loop += 1;
+      }
+    }
+    ip -= 1;
+  }
+  ip += 1;
+}

@@ -1,0 +1,8 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+ADD opt /opt/
+
+USER $USERNAME
+
+RUN echo 'eval "$(/opt/ciao/build/bin/ciao-env --sh)"' >> ~/.bashrc

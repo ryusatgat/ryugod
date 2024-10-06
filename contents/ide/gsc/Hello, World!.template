@@ -1,0 +1,8 @@
+//
+//  GSC: Hello, World!
+//  https://github.com/riicchhaarrd/cgsc
+//
+
+main() {
+    printf("Hello, World!\n");
+}

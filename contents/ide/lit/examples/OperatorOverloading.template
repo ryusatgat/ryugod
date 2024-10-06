@@ -1,0 +1,55 @@
+class Vector {
+        constructor(x, y) {
+                this.x = x ?? 0
+                this.y = y ?? 0
+        }
+
+        toString() {
+                return $"({this.x}, {this.y})"
+        }
+
+        operator + (v) {
+                return new Vector(this.x + v.x, this.y + v.y)
+        }
+
+        operator - (v) {
+                return new Vector(this.x - v.x, this.y - v.y)
+        }
+
+        operator * (i) {
+                return new Vector(this.x * i, this.y * i)
+        }
+
+        operator / (i) {
+                return new Vector(this.x / i, this.y / i)
+        }
+
+        operator [] (index, value) {
+                // Make sure, that our index is either 0 or 1
+                index %= 2
+
+                // If value is non-null, that means we called assigment to the []
+                if (value != null) {
+                        if (index == 0) {
+                                this.x = value
+                        } else {
+                                this.y = value
+                        }
+                }
+
+                return index == 0 ? this.x : this.y
+        }
+}
+
+var a = new Vector(2, 3)
+print(a) // Expected: (2, 3)
+print(a[0]) // Expected: 2
+print(a[1]) // Expected: 3
+
+var b = new Vector(4, 4)
+
+print(b) // Expected: (4, 4)
+print(a + b) // Expected: (6, 7)
+
+a[0] = 1
+print(a[0]) // Expected: 1

@@ -1034,10 +1034,14 @@ console.log(this.options['tabSize'])
       //term.write(reset)
       term.clear()
       term.write(this.$t('connectToServer'))
-
-      //const ws = new WebSocket(`wss://${window.location.host}/terminal`)
-      const ws = new WebSocket(`wss://www.ryugod.com/terminal?dockerImage=${this.languages[this.selectedLanguage].dockerImage}`)
-      //const ws = new WebSocket(`ws://192.168.0.20:5001/terminal?dockerImage=${this.languages[this.selectedLanguage].dockerImage}`)
+      let host;
+      console.log(window.location.host)
+      if (/^192\.168\./.test(window.location.host))
+        host = 'ws://' + window.location.host.replace(':8081', ':5000')
+      else
+        host = 'wss://' + window.location.host
+      const ws = new WebSocket(`${host}/terminal?dockerImage=${this.languages[this.selectedLanguage].dockerImage}`)
+      //const ws = new WebSocket(`wss://www.ryugod.com/terminal?dockerImage=${this.languages[this.selectedLanguage].dockerImage}`)
 
       ws.onopen = () => {
         term.write(this.$t('connected'))

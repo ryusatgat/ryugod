@@ -1,0 +1,23 @@
+fun insertionSort(a T[])
+    for i := range(1, a.len)
+        t := a[i]
+        j := i - 1
+        while j >= 0 and a[j] > t
+            a[j + 1] = a[j]
+            j -= 1
+        a[j + 1] = t
+
+import org.bau.Utils
+x : new(int[], 10)
+for i := until(x.len)
+    x[i] = Utils.random()
+insertionSort(x)
+for i := until(x.len)
+    println('x[' i '] = ' x[i])
+
+y : new(f64[], 10)
+for i := until(y.len)
+    y[i] = f64(Utils.random()) / 1_000_000_000_000
+insertionSort(y)
+for i := until(y.len)
+    println('y[' i '] = ' y[i])

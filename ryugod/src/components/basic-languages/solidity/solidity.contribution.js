@@ -4,8 +4,8 @@
  *--------------------------------------------------------------------------------------------*/
 import { registerLanguage } from '../_.contribution.js';
 registerLanguage({
-    id: 'sol',
+    id: 'solidity',
     extensions: ['.sol'],
-    aliases: ['sol', 'solidity', 'Solidity'],
+    aliases: ['solidity', 'Solidity'],
     loader: function () { return import('./solidity.js'); }
 });

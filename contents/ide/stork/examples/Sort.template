@@ -1,0 +1,53 @@
+function void swap(number& x, number& y) {
+	number tmp = x;
+	x = y;
+	y = tmp;
+}
+
+function void quicksort(number[]& arr, number begin, number end, number(number, number) comp) {
+	if (end - begin < 2)
+		return;
+	
+	number pivot = arr[end-1];
+
+	number i = begin;
+	
+	for (number j = begin; j < end-1; ++j)
+		if (comp(arr[j], pivot))
+			swap(&arr[i++], &arr[j]);
+	
+	swap (&arr[i], &arr[end-1]);
+
+	quicksort(&arr, begin, i, comp);
+	quicksort(&arr, i+1, end, comp);
+}
+
+function void sort(number[]& arr, number(number, number) comp) {
+	quicksort(&arr, 0, sizeof(arr), comp);
+}
+
+function number greater(number x, number y) {
+	return x > y;
+}
+
+function number less(number x, number y) {
+	return x < y;
+}
+
+public function void main() {
+	number[] arr;
+	
+	for (number i = 0; i < 100; ++i) {
+		arr[sizeof(arr)] = rnd(100);
+	}
+	
+	trace(tostring(arr));
+	
+	sort(&arr, less);
+	
+	trace(tostring(arr));
+	
+	sort(&arr, greater);
+	
+	trace(tostring(arr));
+}

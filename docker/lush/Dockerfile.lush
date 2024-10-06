@@ -1,0 +1,9 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt install -y libx11-6
+
+ADD opt /opt/
+ADD usr /usr/
+
+USER $USERNAME

@@ -1,0 +1,6 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN mkdir /opt/bbcbasic && cd /opt/bbcbasic && curl -s -L https://www.bbcbasic.co.uk/console/bbcbasic_console_linux.zip > bbc.zip && unzip bbc.zip && rm -f bbc.zip *.bbc *.dat && ln -s /opt/bbcbasic/bbcbasic /usr/local/bin/bbcbasic
+
+USER $USERNAME

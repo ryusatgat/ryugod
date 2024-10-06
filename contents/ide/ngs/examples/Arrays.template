@@ -1,0 +1,5 @@
+a = [1, 2, 3]
+arr = a.map(X*2) # arr is now [2, 4, 6]
+for i in arr {
+	echo(i)
+}

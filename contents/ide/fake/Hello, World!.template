@@ -1,0 +1,8 @@
+--
+--  Fake: Hello, World!
+--  https://github.com/esrrhs/fake
+--
+
+func main()
+    print("Hello, World!")
+end

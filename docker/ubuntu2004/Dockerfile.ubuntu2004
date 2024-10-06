@@ -4,6 +4,7 @@ FROM $FROM_IMAGE
 #RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xB4112585D386EB94 && add-apt-repository -y https://dl.hhvm.com/ubuntu && apt update
 RUN apt install -y python2.7 software-properties-common apt-transport-https
 RUN apt install -y llvm-12-dev build-essential
+RUN apt install -y clang
 RUN echo "export LD_LIBRARY_PATH=/opt/dale/lib" >> /home/ryugod/.bashrc
 
 ADD opt /opt/

@@ -1,0 +1,25 @@
+struct Human { name }
+
+func human(name) {
+  return new Human {
+    name: name
+  };
+}
+
+func (self: Human) say() {
+  print "I'm ", @name, "\n";
+}
+
+struct Cat;
+
+func (self: Cat) say() {
+  print "meow!\n";
+}
+
+let alice = human("Alice");
+let bob = human("Bob");
+let cat = new Cat;
+
+alice.say();
+bob.say();
+cat.say();

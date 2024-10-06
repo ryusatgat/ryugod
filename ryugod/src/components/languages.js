@@ -445,6 +445,20 @@ export const languages =
       keyBindings: null,
       dockerImage: 'ryusatgat/etc'
     },
+    'Javascript (Microvium)':{
+      desc: "Tiny JavaScript engine for microcontrollers for running a small",
+      highlighting:"javascript1",
+      ext: 'js',
+      kor: '자바스크립트 (마이크로비엄)',
+      template:"microvium",
+      icon:'mdi-language-javascript',
+      args: '--no-snapshot',
+      command:"microvium {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".+?\r\n.+? at \\(.+?\\.js:(\\d+):\\d+\\)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/base'
+    },
     'Javascript (mujs)':{
       desc: "Lightweight Javascript interpreter designed for embedding",
       highlighting:"javascript1",
@@ -454,7 +468,7 @@ export const languages =
       icon:'mdi-language-javascript',
       command:"mujs {ARGS} {FILENAME}.{EXT}",
       cli: 'mujs',
-      errorRegEx: "",
+      errorRegEx: ".+?\\.js:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc'
     },
@@ -1292,6 +1306,19 @@ export const languages =
       errorRegEx: ".+?\\.avl:(\\d+):\\d+: (.+)",
       keyBindings: null
     },
+    'AviatorScript':{
+      desc: "Lightweight, high performance scripting language hosted on the JVM",
+      highlighting:"aviator",
+      ext: 'av',
+      kor: ' 에이비에이터',
+      template:"aviator",
+      icon:'mdi-account-tie-hat-outline',
+      command:'aviator {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: ".+?\\(.+?\\.av:(\\d+)\\)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/jvm'
+    },
     'Awk':{
       desc: "Pattern-matching, text-processing, and scripting",
       highlighting:"shell",
@@ -1304,6 +1331,20 @@ export const languages =
       cli: null,
       errorRegEx: "\\w+?: .+?: line (\\d+): (.+)",
       keyBindings: null
+    },
+    'Aument':{
+      desc: "Dynamically-typed, scripting, simple, easy to use",
+      highlighting:"aument",
+      ext: 'au',
+      kor: '오먼트',
+      template:"aument",
+      icon:'mdi-augmented-reality',
+      args: 'run',
+      command:'aument {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: '(\\d+) \\| (.+)',
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
     },
     'AutoHotKey':{
       desc: "Pattern-matching, text-processing, and scripting",
@@ -1432,6 +1473,20 @@ export const languages =
       errorRegEx: null,
       keyBindings: null
     },
+    'Bau':{
+      desc: "simple, concise, safe, powerful and fast, memory-safe, statically typed",
+      highlighting:"bau",
+      ext: 'bau',
+      kor: '바우',
+      template:'bau',
+      icon:'mdi-bookmark-outline',
+      args: null,
+      command:'bau {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: '.+? at line (\\d+):',
+      keyBindings: null,
+      dockerImage: 'ryusatgat/jvm'
+    },
     'BBC BASIC':{
       desc: "Interpreted",
       highlighting:"vb",
@@ -1444,7 +1499,7 @@ export const languages =
       cli: 'bbcbasic',
       errorRegEx: ".+? at line (\\d+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/bbcbasic"
     },
     'BC':{
       desc: "Precision, arithmetic, and command-line calculator",
@@ -1606,11 +1661,11 @@ export const languages =
       kor: '블레이드',
       template:'blade',
       icon:'mdi-alpha-b',
-      command:'/opt/blade/blade {ARGS} {FILENAME}.{EXT}',
-      cli: '/opt/blade/blade',
+      command:'blade {ARGS} {FILENAME}.{EXT}',
+      cli: 'blade',
       errorRegEx: ".+?: .+?\r\n.+\\.b:(\\d+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/blade"
     },
     'Blossom':{
       desc: "Declarative, type-safe, modular, concise, expressive",
@@ -2088,7 +2143,8 @@ export const languages =
       command:'ciaoc {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: "ciao",
       errorRegEx: "ERROR: \\(lns \\d+-(\\d+)\\)(.+\r\n.+\r\n.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: 'ryusatgat/ciao'
     },
     'CIL':{
       desc: "Intermediate, portable, platform-independent, bytecode, modular",
@@ -2330,7 +2386,8 @@ export const languages =
       command:'coffee {ARGS} {FILENAME}.{EXT}',
       cli: "coffee {ARGS}",
       errorRegEx: ".*?:(\\d+):\\d+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: "ryusatgat/coffeescript"
     },
     'Cognate':{
       desc: "Dynamic, quasi-concatenative, functional, simple",
@@ -2357,7 +2414,7 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.lm:(\\d+):\\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/colm"
     },
     'Comal':{
       desc: "Educational, procedural, structured, simple, portable",
@@ -2468,7 +2525,7 @@ export const languages =
       cli: null,
       errorRegEx: "error: .+?\\.li (\\d+),\\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/cotowali"
     },
     'CovariantScript':{
       desc: "Bloat-free extension, scripting, interpreter",
@@ -2967,12 +3024,12 @@ export const languages =
       ext: 'eg',
       kor: '이겔',
       template:"egel",
-      icon:'mdi-',
+      icon:'mdi-razor-double-edge',
       command:'egel {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: '.+?\\.eg:(\\d+):\\d+:.*',
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/egel"
     },
     'Egison':{
       desc: "Pattern-based, functional, extensible, expressive, unique",
@@ -3159,7 +3216,7 @@ export const languages =
       cli: null,
       errorRegEx: ".+?:(\\d+):\\d+: (.*)",
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_E),
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/erlang"
     },
     'Esterel':{
       desc: "Concurrent, deterministic, real-time, reactive, formal",
@@ -3240,6 +3297,32 @@ export const languages =
       defaultFilename: 'Main',
       errorRegEx: "(\\d+): \\w+: .+?\r\n.+?\r\n(.+)",
       keyBindings: null
+    },
+    'Faeyne':{
+      desc: "Functions are everything you need EXCEPTION",
+      highlighting:"faeyne",
+      ext: 'fay',
+      kor: '페인',
+      template:"faeyne",
+      icon:'mdi-function',
+      command:"faeyne {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".+?\r\n.+?:(\\d+):\\d+",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
+    'Fake':{
+      desc: "Lightweight embedded scripting language",
+      highlighting:"fake",
+      ext: 'fk',
+      kor: '페이크',
+      template:"fake",
+      icon:'mdi-auto-fix',
+      command:"fake {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".+?\\.fk:(\\d+)\\) (.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/fake'
     },
     'Falcon':{
       desc: "Dynamic, extensible, object-oriented, lightweight, expressive",
@@ -3403,13 +3486,27 @@ export const languages =
       errorRegEx: "\\d+ - (?:.+\r\n)?.+?\\.fg,? line (\\d+)(.*)",
       keyBindings: null
     },
+/*
+    'Filament':{
+      desc: "Hardware description language (HDL) that uses a type system to specify",
+      highlighting:"filament",
+      ext: 'fil',
+      kor: '필라멘트',
+      template:"filament",
+      icon:'mdi-lightbulb-variant-outline',
+      command:"filament {ARGS} {FILENAME}.{EXT}",
+      cli: "filament",
+      errorRegEx: "",
+      keyBindings: null
+    },
+*/
     'Finch':{
       desc: "Simple bytecode interpreted, purely object-oriented, prototype-based, dynamically-typed",
       highlighting:"finch",
       ext: 'fin',
       kor: '핀치',
       template:"finch",
-      icon:'mdi-',
+      icon:'mdi-bird',
       command:"finch {ARGS} {FILENAME}.{EXT}",
       cli: 'finch {ARGS}',
       errorRegEx: "",
@@ -3793,11 +3890,11 @@ export const languages =
       template:"gleam",
       icon:'mdi-lightbulb-on-10',
       args: 'run',
-      command:"gleam new {FILENAME}_gleam 2>/dev/null; mv {FILENAME}.{EXT} {FILENAME}_gleam/src && cd {FILENAME}_gleam && gleam {ARGS}; cd ..",
+      command:"gleam new {FILENAME} 2>/dev/null; mv {FILENAME}.{EXT} {FILENAME}/src && cd {FILENAME} && gleam {ARGS}; cd ..",
       cli: "gleam new repl_gleam 2>/dev/null; cd repl_gleam && gleam shell; cd ..",
       errorRegEx: ".+?error.+?\r\n.+?\\.gleam:(\\d+):\\d+",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/erlang"
     },
     'Gluon':{
       desc: "Machine-learning, High-level, Neural networks, Tensor-based, Flexible",
@@ -4018,6 +4115,20 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/jvm"
     },
+    'GSC':{
+      desc: "Embeddable scripting language in C",
+      highlighting:"gsc",
+      ext: 'gsc',
+      kor: 'generator-scripting-language',
+      template:"gsc",
+      icon:'mdi-script',
+      args: null,
+      command:"gsc {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: null, // not supported
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
     'GSL':{
       desc: "Mathematical, C-based, Numerical, High-performance, Library",
       highlighting:"gsl",
@@ -4236,7 +4347,7 @@ export const languages =
       command:"hook {ARGS} {FILENAME}.{EXT}",
       errorRegEx: ".+?\r\n  at .+?\\.hk:(\\d+).*",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/hook"
     },
     'Hope':{
       desc: "Declarative, high-level, and functional programming",
@@ -4860,6 +4971,20 @@ export const languages =
       errorRegEx: ".+?\\.ktn:(\\d+)\\.\\d+-\\d+:(.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
+    },
+    'Kinx':{
+      desc: "Looks like JavaScript, feels like Ruby, and it is a script language fitting in C programmers",
+      highlighting:"kinx",
+      ext: 'kx',
+      kor: '킹스',
+      template:"kinx",
+      icon:'mdi-jump-rope',
+      args: null, 
+      command:"kinx {ARGS} {FILENAME}.{EXT}",
+      cli: 'kinx --exec:repl',
+      errorRegEx: "Error: .+? <.+?\\.kx>:(\\d+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/kinx"
     },    
     'Klaxon':{
       desc: "Minimal, modular, simple",
@@ -5114,6 +5239,19 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
     },
+    'LightningScript':{
+      desc: "Modern syntax, uncompromising performance, first-class embedding support",
+      highlighting:"lightning",
+      ext: 'li',
+      kor: '라이트닝',
+      template:"lightning",
+      icon:'mdi-lightning-bolt',
+      command:"li {ARGS} {FILENAME}.{EXT}",
+      cli: 'li',
+      errorRegEx: ".+?\\.li:(\\d+)\\] (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Lil':{
       desc: "Cross platform, HW accelerated 2d/3d graphics engine, native apps and games",
       highlighting:"lil",
@@ -5177,6 +5315,19 @@ export const languages =
       cli: null,
       errorRegEx: null,
       keyBindings: null
+    },
+    'Lit':{
+      desc: "dynamicaly-typed, inspired by highly-hackable Lua and familiar C-styled JavaScipt",
+      highlighting:"lit",
+      ext: 'lit',
+      kor: '릿',
+      template:"lit",
+      icon:'mdi-emoticon-lol-outline',
+      command:"lit {ARGS} {FILENAME}.{EXT}",
+      cli: "lit {ARGS}",
+      errorRegEx: "",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
     },
     'Little':{
       desc: "Minimalist, educational, small-scale language",
@@ -5387,7 +5538,7 @@ export const languages =
       cli: "lush {ARGS}",
       errorRegEx: null, // not supported
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/lush"
     },    
     'Luxury':{
       desc: "High-level, Object-oriented, Dynamic, Elegant, Expressive",
@@ -5589,6 +5740,19 @@ export const languages =
       errorRegEx: ".+?\\.min\\((\\d+),\\d+\\) (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
+    },
+    'MiniLua':{
+      desc: "Contained in a single header to be bundled in C/C++ applications with ease",
+      highlighting:"lua",
+      ext: 'lua',
+      kor: '미니루아',
+      template:"minilua",
+      icon:'mdi-language-lua',
+      command:"minilua {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: null, // not supported
+      keyBindings: null,
+      dockerImage: "ryusatgat/base"
     },
     'Miniscript':{
       desc: "Lightweight, Scripting, Embedded, Concise, Dynamic",
@@ -5824,7 +5988,7 @@ export const languages =
       command:"mun new {FILENAME} 2> /dev/null; cp -f {FILENAME}.{EXT} {FILENAME}/src/mod.mun && cd {FILENAME} && (mun build && mun start target/mod.munlib); cd ..",
       errorRegEx: 'error: .+?\r\n --> .+?\\.mun:(\\d+):\\d+',
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/mun"
     },
     'Muon':{
       desc: "Concurrent, high-performance, functional language",
@@ -6035,6 +6199,19 @@ export const languages =
       cli: "next",
       errorRegEx: ".+?\\.n:(\\d+)> (.+)",
       keyBindings: null
+    },
+    'NGS':{
+      desc: "Next Generation Shell",
+      highlighting:"ngs",
+      ext: 'ngs',
+      kor: 'NGS',
+      template:"ngs",
+      icon:'mdi-cloud-arrow-right',
+      command:"ngs {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".+?\\.ngs:(\\d+):\\d+ - \\d+:\\d+",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/ngs'
     },
     'Nial':{
       desc: "Array programming, functional, concise language",
@@ -6623,7 +6800,8 @@ export const languages =
       command:'echo -e "\\n" | p {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+?:(\\d+)\r\n(.+\r\n.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: 'ryusatgat/phix'
     },
     'PIC':{
       desc: "Microcontroller programming environment",
@@ -6704,7 +6882,7 @@ export const languages =
         ext: 'pn',
         kor: '파인콘',
         template:"pinecone",
-        icon:'mdi-',
+        icon:'mdi-pine-tree-variant',
         command:"pinecone {ARGS} {FILENAME}.{EXT}",
         cli: 'pinecone',
         errorRegEx: "error in '.+?\\.pn' on line (\\d+):\r\n(.*)",
@@ -6723,7 +6901,7 @@ export const languages =
       cli: 'pkl repl',
       errorRegEx: "(\\d+) \\| (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/pkl"
     },
     'PL/0':{
       desc: "Intended as an educational, similar to but much simpler than Pascal",
@@ -7323,7 +7501,7 @@ export const languages =
       cli: "roc repl",
       errorRegEx: null,
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/roc"
     },
     'Rockstar':{
       desc: "Esoteric, Minimalistic, Humor-oriented, Turing-complete, Syntax-driven",
@@ -7409,6 +7587,19 @@ export const languages =
       command:"rustc {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?: .+?\r\n.+?:(\\d+):(.*)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/rust"
+    },
+    'RustPython':{
+      desc: "Python-3 Interpreter written in Rust",
+      highlighting:"python",
+      ext: 'py',
+      kor: '러스트파이썬',
+      template:"rustpython",
+      icon:'mdi-language-python',
+      command:"rustpython {ARGS} {FILENAME}.{EXT}",
+      cli: 'rustpython {ARGS}',
+      errorRegEx: ".+?\\.py\", line (\\d+)(?:.*?\r\n)+?(.*?Error: .*)",
       keyBindings: null,
       dockerImage: "ryusatgat/rust"
     },
@@ -7648,7 +7839,7 @@ export const languages =
       cli: "scopes",
       errorRegEx: ".+?\\.sc:(\\d+):\\d+:(.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/scopes"
     },
     'Scriptol':{
       desc: "Scripting, high-level, easy-to-learn, portable, expressive",
@@ -7793,7 +7984,7 @@ export const languages =
       cli: null,
       errorRegEx: "ERROR in Line (\\d+) Col \\d+",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/shnootalk"
     },
     'Simula':{
       desc: "Object-oriented, class-based, simulation, high-level, pioneering",
@@ -7979,9 +8170,23 @@ export const languages =
       errorRegEx: "Line (\\d+) in .+?\\.ss\r\nError: (.+)",
       keyBindings: null
     },
+    'Sol':{
+      desc: "Scripting, lightweight, re-entrant, multi-user runtime",
+      highlighting:"sol",
+      ext: 'sol',
+      kor: '솔',
+      template:"sol",
+      icon:'mdi-music',
+      args: 'r',
+      command:"sol {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".+?\r\n\\(at lines (\\d+)-\\d+, cols \\d+-\\d+\\)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
     'Solidity':{
       desc: "Smart contract, blockchain, Ethereum-based language",
-      highlighting:"sol",
+      highlighting:"solidity",
       ext: 'sol',
       kor: '솔리디티',
       template:"solidity",
@@ -8015,6 +8220,19 @@ export const languages =
       command: "aesophia_cli {ARGS} {FILENAME}.{EXT}",
       errorRegEx: ".*? at line (\\d+), col \\d+:\r\n(.*)",
       keyBindings: null
+    },
+    'SourcePawn':{
+      desc: "Smart contract, blockchain, functional language",
+      highlighting:"sourcepawn",
+      ext: 'sp',
+      kor: '소스폰',
+      template:"sourcepawn",
+      icon:'mdi-chess-pawn',
+      args: '-v 0 -i /opt/sourcepawn/include',
+      command: "spcomp {ARGS} {FILENAME}.{EXT} && spshell {FILENAME}.smx",
+      errorRegEx: ".+?\\.sp\\((\\d+)\\) : error \\d+: (.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/sourcepawn'
     },
     'Sparkling':{
       desc: "Dynamic, high-level, expressive, modular, modern",
@@ -8113,6 +8331,19 @@ export const languages =
       errorRegEx: ".+?\\.star:(\\d+):\\d+: (.+)",
       keyBindings: null
     },
+    'StaticScript':{
+      desc: "Statically typed, syntactically like TypeScript",
+      highlighting:"typescript1",
+      ext: 'ss',
+      kor: '스태틱스크립트',
+      template:"staticscript",
+      icon:'mdi-cheese',
+      command:"staticscript {ARGS} {FILENAME}.{EXT} && ./{FILENAME}-out.exe",
+      cli: null,
+      errorRegEx: 'line (\\d+):\\d+ (.+)',
+      keyBindings: null,
+      dockerImage: 'ryusatgat/clang'
+    },
     'Steel':{
       desc: "Functional, minimalist, dialect, recursive, expressive",
       highlighting:"scheme",
@@ -8126,6 +8357,19 @@ export const languages =
       errorRegEx: ".+?\r\n.+?\\.scm:(\\d+):\\d+",
       keyBindings: null,
       dockerImage: "ryusatgat/scheme"
+    },
+    'Stork':{
+      desc: "Small footprint scripting language",
+      highlighting:"stork",
+      ext: 'stork',
+      kor: '스토크',
+      template:"stork",
+      icon:'mdi-bird',
+      command:"stork {FILENAME}.{EXT} {FILENAME}",
+      cli: null,
+      errorRegEx: '^\\((\\d+)\\) (.+)',
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
     },
     'Storm':{
       desc: "Concurrent, distributed, high-performance, scalable, resilient",
@@ -8277,6 +8521,19 @@ export const languages =
       errorRegEx: ".+?:\r\n.+?\\.tea:(\\d+)(.*)",
       keyBindings: null
     },
+    'Teak':{
+      desc: "Small scripting language to replace Unix shell scripts",
+      highlighting:"teak",
+      ext: 'teak',
+      kor: '틱',
+      template:"teak",
+      icon:'mdi-tree-outline',
+      command:"teak {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: "Error on line (\\d+) of .+?",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'TeaScript':{
       desc: "Concise, functional, high-level, expressive, modern",
       highlighting:"teascript",
@@ -8288,7 +8545,7 @@ export const languages =
       cli: 'TeaScript',
       errorRegEx: "in line .*?m(\\d+).*?, column .*?m\\d+.*?:\r\n(.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/teascript"
     },
     'Tengo':{
       desc: "Small, dynamic, fast, secure script language for Go",
@@ -8375,6 +8632,19 @@ export const languages =
       cli: null,
       errorRegEx: ".*\r+\n.*\r+\n.*\r+\n.* line (\\d+)(.*)?",
       keyBindings: null
+    },
+    'TinyScript':{
+      desc: "Scripting, designed for very tiny machines",
+      highlighting:"tinyscript",
+      ext: 'ts',
+      kor: '타이니스크립트',
+      template:"tinyscript",
+      icon:'mdi-mini-sd',
+      command:"tinyscript {ARGS} {FILENAME}.{EXT}",
+      cli: 'tinyscript',
+      errorRegEx: null, // not supported
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
     },
     'TIScript':{
       desc: "Scripting, dynamic, extensible, lightweight, high-level",
@@ -8503,18 +8773,6 @@ export const languages =
       errorRegEx: "Error on line (\\d+) \\[\\d+\\] of .*?: (.+)",
       keyBindings: null
     },
-    'U++':{
-      desc: "C++-based, modular, cross-platform, high-performance, expressive",
-      highlighting:"cpp",
-      ext: 'cc',
-      kor: '마이크로 C++ - μC++',
-      template:"upp",
-      icon:'mdi-microscope',
-      command:"u++ {ARGS} -o {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}",
-      cli: null,
-      errorRegEx: ".+?\\.cc:(\\d+):\\d+:(.*)",
-      keyBindings: null
-    },
     'ubasic':{
       desc: "Simple, procedural, interpreted, educational, lightweight",
       highlighting:"vb",
@@ -8526,6 +8784,19 @@ export const languages =
       cli: null,
       errorRegEx: null,
       keyBindings: null
+    },
+    'uC++':{
+      desc: "C++-based, modular, cross-platform, high-performance, expressive",
+      highlighting:"cpp",
+      ext: 'cc',
+      kor: '마이크로 C++',
+      template:"upp",
+      icon:'mdi-microscope',
+      command:"u++ {ARGS} -o {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}",
+      cli: null,
+      errorRegEx: ".+?\\.cc:(\\d+):\\d+:(.*)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/base'
     },
     'Umka':{
       desc: "Procedural, lightweight, efficient, embedded, simple",
@@ -8751,7 +9022,7 @@ export const languages =
       icon:'mdi-school-outline',
       command:"wisnia {ARGS} {FILENAME}.{EXT} && ./a.out",
       cli: null,
-      errorRegEx: null, // not supported
+      errorRegEx: '.+\\.wsn:(\\d+)',
       keyBindings: null,
       insertSpaces: false,
       dockerImage: "ryusatgat/etc"
@@ -9011,6 +9282,34 @@ export const languages =
       keyBindings: null,
       dockerImage: 'ryusatgat/base'
     },
+    'ZetScript':{
+      desc: "API that allows bind C++ code in script side",
+      highlighting:"zetscript",
+      ext: 'zs',
+      kor: '제트스크립트',
+      template:"zetscript",
+      icon:'mdi-zend',
+      args: '--no-execution-time',
+      command:"zs {ARGS} {FILENAME}.{EXT}",
+      cli: 'zs',
+      errorRegEx: "\\[.+?\\.zs:(\\d+)\\] (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
+    'zForth':{
+      desc: " Forth environment combines the compiler with an interactive shell",
+      highlighting:"forth",
+      ext: 'zf',
+      kor: '지포스',
+      template:"zforth",
+      icon:'mdi-bus-side',
+      args: '-q /opt/zforth/forth/core.zf',
+      command:"zforth -x {ARGS} {FILENAME}.{EXT}",
+      cli: 'zforth {ARGS}',
+      errorRegEx: '.+?\\.zf:(\\d+): (.+)',
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc"
+    },
     'Zig':{
       desc: "Low-level, statically-typed, performant, concise, safety-oriented",
       highlighting:"zig",
@@ -9018,11 +9317,11 @@ export const languages =
       kor: '지그',
       template:"zig",
       icon:'mdi-alpha-z-box-outline',
-      command:"/opt/zig/zig run {ARGS} {FILENAME}.{EXT}",
+      command:"zig run {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?:(\\d+):\\d+:(.+: .+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/zig"
     },
     'Zimbu':{
       desc: "Statically-typed, efficient, modern, functional, expressive",
@@ -9061,20 +9360,19 @@ export const languages =
       cli: 'runzkl {ARGS}',
       errorRegEx: ".+?:Line (\\d+):(.+)",
       keyBindings: null
-    },
-    'ZetScript':{
-      desc: "API that allows bind C++ code in script side",
-      highlighting:"zetscript",
-      ext: 'zs',
-      kor: '제트스크립트',
-      template:"zetscript",
-      icon:'mdi-zend',
-      args: '--no-execution-time',
-      command:"zs {ARGS} {FILENAME}.{EXT}",
-      cli: 'zs',
-      errorRegEx: "\\[.+?\\.zs:(\\d+)\\] (.+)",
+    },    
+    'Zx':{
+      desc: "Tool for writing better scripts",
+      highlighting:"javascript1",
+      ext: 'mjs',
+      kor: 'Zx',
+      template:"zx",
+      icon:'mdi-timer-sand-empty',
+      command:"zx {ARGS} {FILENAME}.{EXT}",
+      cli: 'xz --repl',
+      errorRegEx: ".+?\\.mjs:(\\d+)\r\n.+\r\n.+\r\n\r\n(.+)\r\n",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/base"
     },
     '4tH':{
       desc: "Stack-based, concatenative, minimalist, esoteric, functional",
@@ -9230,6 +9528,19 @@ export const languages =
       command:"chmod 755 {FILENAME}.{EXT} && bash {ARGS} ./{FILENAME}.{EXT}",
       cli: "ksh",
       errorRegEx: ".+?\\.ksh: line (\\d+): (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/base"
+    },
+    'Nushell':{
+      desc: "New type of shell",
+      highlighting:"shell",
+      ext: 'nu',
+      kor: '너셸',
+      template:"nushell",
+      icon:'mdi-bash',
+      command:"chmod 755 {FILENAME}.{EXT} && nu {ARGS} ./{FILENAME}.{EXT}",
+      cli: "nu",
+      errorRegEx: ".+?\\.nu.+?m:(\\d+):\\d+\\]",
       keyBindings: null,
       dockerImage: "ryusatgat/base"
     },

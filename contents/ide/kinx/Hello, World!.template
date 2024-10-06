@@ -1,0 +1,6 @@
+//
+//  Kinx: Hello, World!
+//  https://github.com/Kray-G/kinx
+//
+
+System.println("Hello, World!");

@@ -164,7 +164,6 @@ export var language = {
         strings: [
             [/'$/, 'string.escape', '@popall'],
             [/'/, 'string.escape', '@stringBody'],
-            [/"$/, 'string.escape', '@popall'],
             [/"/, 'string.escape', '@dblStringBody']
         ],
         stringBody: [

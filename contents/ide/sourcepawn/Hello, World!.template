@@ -1,0 +1,11 @@
+//
+//  SourcePawn: Hello, World!
+//  https://github.com/alliedmodders/sourcepawn
+//
+
+#include <shell>
+
+public main()
+{
+    print("Hello, World!\n");
+}

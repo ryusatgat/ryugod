@@ -9,7 +9,7 @@
     "markdown-it-mdi": "^0.1.0",
     "mkfifo": "^2.1.0",
     "node-pty": "^0.10.1",
-    "node-telegram-bot-api": "^0.53.0",
+    "node-telegram-bot-api": "^0.66.0",
     "serve-index": "^1.9.1",
     "ssh2": "^0.8.9",
     "urlencode": "^1.1.0",

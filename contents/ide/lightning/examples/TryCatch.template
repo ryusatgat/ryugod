@@ -1,0 +1,37 @@
+const throw_this = || { throw self }
+
+const T0 = || {
+   try {
+      5
+   } catch {
+      6
+   }
+}
+assert(T0() == 5)
+
+const T1 = || {
+   try {
+      throw 5
+   } catch {
+      6
+   }
+}
+assert(T1() == 6)
+
+const T2 = || {
+   try {
+      throw 7
+   } catch x {
+      x
+   }
+}
+assert(T2() == 7)
+
+const T3 = || {
+   try {
+      8::throw_this()
+   } catch x {
+      x
+   }
+}
+assert(T3() == 8)

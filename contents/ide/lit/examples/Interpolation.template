@@ -1,0 +1,24 @@
+// Using a plus with two strings is just fine.
+print("Hello, " + "World!") // Expected: Hello, World!
+
+/*
+ * But when there is more stuff to it, it gets a bit memory-allocation-heavy.
+ * That's why interpolation exists (it's also much nicer looking).
+ */
+
+var name = "Tim"
+var target = "icecream"
+var amount = 3
+
+print($"{name} went out for {target} and spent {amount} dollars") // Expected: Tim went out for icecream and spent 3 dollars
+
+// If you wonder, how it works under the hood, it's basically converted to something like this:
+print([ name, " went out for ", target, " and spent ", amount, " dollars"].join()) // Expected: Tim went out for icecream and spent 3 dollars
+
+/*
+ * As you can see, to use interpolation in a string, you need to put a $ before the string start.
+ * After that, feel free to put any expressions in brackets, and they will be converted to string.
+ * If you want your { be just printed out, use \{
+ */
+
+print($"\{} \{ {name}") // Expected: {} { Tim

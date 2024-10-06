@@ -9,10 +9,10 @@
 - This site is optimized for 'Chrome' and 'Edge Browser'.
 
 # Ryugod Server Specifications
-- 1EA
-- Intel(R) Celeron(R) CPU  J1900  @ 1.99GHz
-- 8GB RAM
-- 256GB SSD
+- CPU: Intel(R) N100  @ 700MHz
+- RAM: 16GB
+- Storage: 512GB SSD
+- OS: Ubuntu 24.04
 
 # How to load source using hyperlink
 - You can add a source to a hyperlink and load it directly into the editor.
@@ -863,9 +863,32 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - PForth
 ## 2024-10-02
 - Elvish
-- Jaksel
-- Tengo
 - Hell
+- Jaksel
+- RustPython
+- Tengo
+## 2024-10-03
+- Nushell
+- Zx
+## 2024-10-04
+- Aviator
+- SourcePawn
+## 2024-10-05
+- Faeyne
+- GSC
+- Lit
+- Microvium
+- MiniLua
+- Sol
+- TinyScript
+## 2024-10-06
+- Aument
+- Kinx
+- LightningScript
+- NGS
+- Teak
+- Stork
+- zForce
 
 ## To be continued
 - 42

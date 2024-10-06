@@ -1,0 +1,6 @@
+##
+##  AviatorScript: Hello, World!
+##  https://github.com/killme2008/aviatorscript
+##
+
+println("Hello, World!");

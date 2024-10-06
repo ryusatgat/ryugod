@@ -1,0 +1,8 @@
+//
+//  Stork: Hello, World!
+//  https://github.com/esrrhs/fake
+//
+
+public function void main() {
+    trace("Hello, World!");
+}

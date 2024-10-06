@@ -1,0 +1,20 @@
+fn fact(i) {
+   if i <= 1 {
+      1 
+   } else {
+      i * fact(i-1)
+   }
+}
+assert(fact(3)==6)
+
+const tbl = {}
+tbl.test = || self*2
+tbl.test2 = || self.test
+assert(4::tbl.test() == 8)
+assert(tbl->test2() == tbl.test)
+
+fn f1(x) {x.y}
+assert(f1{y:5}==5)
+
+fn f2(x) {x}
+assert(f2"x" == "x")

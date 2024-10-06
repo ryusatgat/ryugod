@@ -1,0 +1,12 @@
+const ar = {a:3, b:4}::join({a:6, c:5})
+const ae = {a:6, b:4, c:5}
+assert(ar::len() == ae::len())
+for k,v in ae {
+   assert(ar[k]==v)
+}
+const ar = [1,2]::join([3,4])
+const ae = [1,2,3,4]
+assert(ar::len() == ae::len())
+for k,v in ae {
+   assert(ar[k]==v)
+}

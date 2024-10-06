@@ -1,0 +1,21 @@
+const reduce = || {
+   let k = 0
+   for i in 0.. {
+      let v = self[i]
+      if !v {
+         break k
+      } else {
+         k += v
+      }
+   }
+}
+
+const getself = || self
+assert(getself() == nil)
+
+const arr = [1,2,0,3]
+assert(arr::reduce()==6)
+
+const tbl = {a:3, get_a: || {++self.a}}
+assert(tbl->get_a()==4)
+assert(tbl->get_a()==5)

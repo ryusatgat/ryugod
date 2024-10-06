@@ -1,0 +1,9 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+ADD opt /opt/
+ADD usr /usr/
+
+USER $USERNAME
+
+RUN echo 'export LD_LIBRARY_PATH=/opt/egel' >> ~/.bashrc

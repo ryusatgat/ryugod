@@ -1,0 +1,1 @@
+ls /opt/nushell | enumerate | each { |elt| $"Item #($elt.index) is size ($elt.item.size)" }

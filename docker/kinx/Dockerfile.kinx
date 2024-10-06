@@ -1,0 +1,9 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN sudo apt install -y libc6-dev
+RUN curl -sLO http://github.com/Kray-G/kinx/releases/download/v1.1.1/kinx_1.1.1-0_amd64.deb && sudo dpkg -i *.deb && rm -f *.deb
+
+ADD opt /opt/
+
+USER $USERNAME

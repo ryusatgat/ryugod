@@ -1,0 +1,12 @@
+a := 1
+if a = 0
+    println('zero')
+elif a = 1
+    println('one')
+else
+    println('many')
+    
+# prints 1 to 4
+for i := range(0 10)
+    break i = 5
+    println(i)

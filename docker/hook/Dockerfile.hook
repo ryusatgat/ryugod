@@ -1,0 +1,6 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN curl -s -L https://github.com/hook-lang/hook/releases/download/0.1.0/hook-0.1.0-linux-x64.tar.gz | tar xvz --transform 's/^hook-0.1.0-linux-x64/hook/' -C /opt && ln -s /opt/hook/bin/hook /usr/local/bin && upx /opt/hook/bin/hook
+
+USER $USERNAME

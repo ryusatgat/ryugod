@@ -1,0 +1,17 @@
+enum weekday
+    sunday
+    monday
+    tuesday
+    wednesday
+    thursday
+    friday
+    saturday
+
+for a := until(weekday.saturday + 1)
+    switch a
+    case weekday.sunday
+        println('sunday')
+    case weekday.monday
+        println('monday')
+    else
+        println('some other day: #' a)

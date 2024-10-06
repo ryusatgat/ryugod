@@ -1,0 +1,7 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt install -y erlang
+RUN curl -s -L https://github.com/gleam-lang/gleam/releases/download/v1.4.0/gleam-v1.4.0-x86_64-unknown-linux-musl.tar.gz | tar xvz -C /usr/local/bin
+
+USER $USERNAME

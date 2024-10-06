@@ -1,0 +1,6 @@
+#
+#  LightingScript: Hello, World!
+#  https://github.com/li-script/lightning
+#
+
+print("Hello, World!")

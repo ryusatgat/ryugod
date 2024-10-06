@@ -1,0 +1,131 @@
+func new_debug_state(res)
+	return {
+		tb = res[2],
+		framenum = (#(res[2])) - 1,
+		err = res[1],
+		frame = func(self)
+			return self.tb[self.framenum]
+		end,
+		fun = func(self)
+			return self:frame()[2]
+		end,
+		locals = func(self)
+			return self:frame()[1]
+		end,
+		node = func(self)
+			return self:frame()[0]
+		end,
+		goto = func(self, fn)
+			if (fn < 0) || (fn >= (#self.tb)) then
+				print('Bad frame number')
+			else
+				self.framenum = fn
+			end
+		end,
+	}
+end
+
+func list_join(l, sep)
+	res = l:reduce(lambda(x, y) x + sep + y end, '')
+	return res:sub(#sep, #res)
+end
+
+func list_slice(l, frm, to)
+	if frm < 0 then frm += (#l) end
+	if to < 0 then to += (#l) end
+	dist = to - frm
+	return for idx in range(dist) do
+		continue l[frm + idx]
+	end
+end
+
+commands = {
+	print = func(ds, line)
+		nd = parse(line).stmtlist[0].expr
+		print(nd(ds:locals()))
+	end,
+	error = func(ds, line)
+		print(ds.err)
+	end,
+	fun = func(ds, line)
+		print(ds:fun())
+	end,
+	backtrace = func(ds, line)
+		idx = 0
+		for frm in ds.tb do
+			print(if idx == ds.framenum then '=> ' else '   ' end,'In', frm[2], 'at', frm[0].loc.line, ',', frm[0].loc.col, ':', frm[0])
+			idx += 1
+		end
+	end,
+	locals = func(ds, line)
+		loc = ds:locals()
+		for var in loc do
+			print(var, ':', type(loc[var]))
+		end
+	end,
+	up = func(ds, line)
+		ds:goto(ds.framenum - 1)
+	end,
+	down = func(ds, line)
+		ds:goto(ds.framenum + 1)
+	end,
+	to = func(ds, line)
+		ds:goto(toint(line))
+	end,
+	code = func(ds, line)
+		ast.print(ds:node())
+	end,
+	eval = func(ds, line)
+		nd = parse(line)
+		nd(ds:locals())
+	end,
+	cont = func(ds, line)
+		ds.running = false
+	end,
+	help = func(ds, line)
+		print('Valid commands:')
+		for k in commands do
+			print(k)
+		end
+	end,
+}
+
+commands.p = commands.print
+commands.u = commands.up
+commands.d = commands.down
+commands.t = commands.to
+commands.c = commands.code
+commands['!'] = commands.eval
+commands['continue'] = commands.cont
+commands['func'] = commands.fun
+commands.f = commands.fun
+commands.bt = commands.backtrace
+
+func postmortem(ds)
+	ds.running = true
+	while ds.running do
+		io.stdout:write('==> ')
+		ln = io.stdin:read(io.LINE):sub(0, -1)
+		parts = ln:split(" ")
+		cmd = parts[0]
+		arg = list_join(list_slice(parts, 1, #parts), " ")
+		cfunc = commands[cmd]
+		if None == cfunc then
+			try(commands.help, ds, '')
+			continue
+		end
+		res = try(cfunc, ds, arg)
+		if !(res[0]) then print("Postmortem Internal Error:", res[1]) end
+	end
+end
+
+io.stdout:write('Enter filename to run: ')
+__fname = io.stdin:read(io.LINE):sub(0, -1)
+__result = try(execfile, __fname)
+if __result[0] then
+	print('Subprogram exited successfully')
+else
+	print('Subprogram terminated with an error: ', __result[1])
+	__debst = new_debug_state(__result)
+	postmortem(__debst)
+end

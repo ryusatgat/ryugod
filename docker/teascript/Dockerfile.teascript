@@ -1,0 +1,6 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN curl -s -L https://tea-age.solutions/sdc_download/1694/?key=lterqez9cnmcxxnjt3idiyex19mu81 | tar xvz -C /opt && ln -s /opt/TeaScript/bin/TeaScript /usr/local/bin
+
+USER $USERNAME

@@ -1,0 +1,2 @@
+h = {"a": 1, "b1": 2, "b2": 3}
+echo(h.filterk(/^b/).mapv(X+10))

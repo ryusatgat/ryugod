@@ -1,0 +1,6 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN curl -s -L https://github.com/apple/pkl/releases/download/0.26.3/pkl-linux-amd64 > /usr/local/bin/pkl && chmod 755 /usr/local/bin/pkl
+
+USER $USERNAME

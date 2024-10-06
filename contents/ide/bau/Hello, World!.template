@@ -1,0 +1,6 @@
+#
+#  Bau: Hello, World!
+#  https://github.com/thomasmueller/bau-lang
+#
+
+println('Hello, World!')

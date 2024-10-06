@@ -1,0 +1,13 @@
+import org.bau.Exception
+    exception
+
+fun square(x int) int throws exception
+    if x > 3_000_000_000
+        throw exception('Too big')
+    return x * x
+    
+for i := range(2_999_999_999, 3_000_000_002)
+  x := square(i)
+  println(i '^2 = ' x)
+  catch e
+    println(i '^2 = ' e.message)

@@ -1,0 +1,23 @@
+#import "core:modules/imaging" im;
+
+void Start() {
+    im.Bitmap frame = im.Create(200, 200);
+    im.Animation animation = im.AnimationCreate(200, 200);
+
+    for int i = 0; i < 100; i += 5 {
+        im.DrawBlock(frame, 0, 200, 0, 200, 0x000000);
+        im.DrawBlock(frame, i, 200 - i, i, 200 - i, 0xFFFFFF);
+        im.AnimationAddFrame(animation, frame, 0.033);
+    }
+
+    for int i = 0; i < 100; i += 5 {
+        im.DrawBlock(frame, 0, 200, 0, 200, 0xFFFFFF);
+        im.DrawBlock(frame, i, 200 - i, i, 200 - i, 0x000000);
+        im.AnimationAddFrame(animation, frame, 0.033);
+    }
+
+    assert FileWriteAll("test.gif", im.AnimationSave(animation, "gif"):assert());
+    Log("Written output to 'test.gif'.");
+
+    SystemShellExecute("imshow test.gif");
+}

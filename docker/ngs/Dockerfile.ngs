@@ -1,0 +1,6 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN curl -sLk https://ngs-lang.org/install.sh | bash
+
+USER $USERNAME
