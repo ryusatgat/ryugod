@@ -3197,10 +3197,10 @@ export const languages =
       ext: 'emu',
       kor: '에뮤',
       template:"emu",
-      icon:'mdi-',
+      icon:'mdi-code-block-tags',
       command:'emu {ARGS} {FILENAME}.{EXT}',
       cli: null,
-      errorRegEx: null,
+      errorRegEx: null,  // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
       url: 'https://sourceforge.net/projects/emulang'
@@ -4856,6 +4856,18 @@ export const languages =
       errorRegEx: "^(\\d+) \\| .+?\r\n.+?\r\n(.*)",
       keyBindings: null,
       dockerImage: "ryusatgat/clang"
+    },
+    'Jx9':{
+      desc: "Embeddable scripting engine that implements a Turing complete based on JSON",
+      highlighting:"jx9",
+      ext: 'jx9',
+      kor: 'Jx9',
+      template:"jx9",
+      icon:'mdi-open-source-initiative',
+      command:"jx9 {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: '(\\d+) Error: (.+)',
+      dockerImage: "ryusatgat/etc"
     },
     'Jython':{
       desc: "Python-based, JVM-compatible, Dynamic, Interpreted, Cross-platform",
@@ -7165,7 +7177,7 @@ export const languages =
       ext: 'psl',
       kor: 'PSL',
       template:"psl",
-      icon:'mdi-',
+      icon:'mdi-script-text-play-outline',
       command:"PSL {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "error .+?\\.psl (\\d+),\\d+: (.+)",

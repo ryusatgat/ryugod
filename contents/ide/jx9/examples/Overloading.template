@@ -1,0 +1,25 @@
+/* Test the powerful overloading mechanism introduced by Jx9
+ *  Refer to the Jx9 Programming Language Reference Manual at
+ *   http://jx9.symisc.net/jx9_lang.html
+ */
+ //Wikipedia example
+
+// volume of a cube
+function volume(int $s)
+{
+  return $s*$s*$s;
+}
+// volume of a cylinder
+function volume(float $r,int $h)
+{
+  return 3.14*$r*$r*$h;
+}
+// volume of a cuboid
+function volume(float $l,int $b,int $h)
+{
+  return $l*$b*$h;
+}
+/* Test the overloading mechanism */
+print volume(10)..JX9_EOL; /* You should see 1000 */
+print volume(2.5,8)..JX9_EOL; /* You should see 157 */
+print volume(100,75,15),JX9_EOL; /* You should see 112500 */

@@ -1,0 +1,15 @@
+
+
+function test($callback = function(){ print "Hello World!\n";})
+{
+ /* Check if we are dealing with a callback */
+if( !is_callable($callback) ){
+ die("Expecting a callback");
+}
+/* Invoke the callback */
+$callback();
+}
+/* Call without arguments */
+test(); /* You should see: Hello World */
+/* Call with a single argument */
+test(function(){ print "Welcome guest", JX9_EOL;}); /* You should see: Welcome guest */

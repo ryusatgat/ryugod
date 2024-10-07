@@ -1,0 +1,12 @@
+/* Variable function */
+
+function hello(string $name)
+{
+  print "Hello $name\n";
+}
+
+//Assign the function name to the variable $x
+$x = 'he'..'llo';
+
+//Invoke whatever $x evaluate to
+$x('Dean'); //Hello Dean

@@ -890,6 +890,7 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Stork
 - zForce
 ## 2024-10-07
+- Jx9
 - MeowScript
 - PSL
 
@@ -902,4 +903,3 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - KCL
 - Lawvere
 - Nox
-- Pipefish

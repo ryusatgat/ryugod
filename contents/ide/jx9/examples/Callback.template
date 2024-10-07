@@ -1,0 +1,20 @@
+
+/* Test the callback mechanism */
+function my_function(callable $x)
+{
+    return $x();
+}
+ 
+function my_callback_function(){return 'Hello Nettuts!'.. JX9_EOL;}
+
+ 
+print my_function(function(){return 'Hello Nettuts!'.. JX9_EOL;}); // anonymous function
+print my_function('my_callback_function'); // callback function
+
+
+/*
+ Should output
+Hello Nettuts
+Hello Nettuts
+
+*/

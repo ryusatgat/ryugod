@@ -1,0 +1,18 @@
+//Perform the union of two JSON objects using the overloaded '+' operator
+$a = {
+     a :  "apple",
+     b : "banana"
+ };
+$b =  {
+      a : "pear",
+      b : "strawberry", 
+      c  : "cherry"
+    };
+
+$c = $a + $b; // Union of $a and $b
+print "Union of \$a and \$b: \n";
+print $c;
+
+$c = $b + $a; // Union of $b and $a
+print "\nUnion of \$b and \$a: \n";
+print $c, JX9_EOL; 

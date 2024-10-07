@@ -1,0 +1,18 @@
+/*
+ * This simple Jx9 script ask for three numbers (64 bit integers)
+ * from the standard input (STDIN), store the given numbers in
+ * a JSON array, perform a merge-sort using the built-in sort 
+ * function and output the sorted array.
+ */
+
+//Declare an empty JSON array
+$num = [1, 5, 3, 2, 9, 10, 8, 5, 6, 7];
+
+//show content
+print "Before sorting\n";
+print $num;
+
+//Sort the array now
+sort($num);
+print "\nAfter sorting\n";
+print $num, JX9_EOL;

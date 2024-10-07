@@ -225,7 +225,8 @@
           height="24px"
         >
           <v-tab key="0" href="#tab-0">{{$t('terminal')}}{{connected && count ?` - ${count}`:""}}</v-tab>
-          <v-tab key="1" href="#tab-1">{{$t('output')}}</v-tab>
+          <v-tab key="1" href="#tab-1">{{$t('input')}}</v-tab>
+          <v-tab key="2" href="#tab-2">{{$t('output')}}</v-tab>
         </v-tabs>
 
         <!--
@@ -237,7 +238,7 @@
         <v-tooltip bottom>
           <span>{{$t('clear')}}</span>
           <template v-slot:activator="{ on, attrs }">
-          <v-btn icon small @click='removeImages()' v-bind="attrs" v-on="on" :disabled="terminalTab!=='tab-1'">
+          <v-btn icon small @click='removeImages()' v-bind="attrs" v-on="on" :disabled="terminalTab!=='tab-2'">
             <v-icon dense>mdi-image-off-outline</v-icon>
           </v-btn>
           </template>
@@ -274,7 +275,16 @@
           <div id='terminal' @drop="onDrop" @dragover="onDragOver"></div>
         </div>
       </v-tab-item>
-      <v-tab-item eager key="1" value="tab-1">
+      <v-tab-item key="1" value="tab-1">
+        <div id="con-input" class='con-html'>
+          <v-textarea
+            v-model="inputValue"
+            :placeholder="$t('autoinput')"
+            rows=25
+          ></v-textarea>
+        </div>
+      </v-tab-item>
+      <v-tab-item eager key="2" value="tab-2">
         <div id="con-html" class='con-html'>
         </div>
       </v-tab-item>
@@ -390,6 +400,7 @@ export default {
     termStr: "",
     fullTerminal: false,
     contents: "",
+    inputValue: "",
     languageIcon: 'mdi-bash',
     selectedLanguage: 'Bash',
     QRCode: '',
@@ -924,7 +935,7 @@ console.log(this.options['tabSize'])
         return
       }
 
-      this.terminalTab = 'tab-1'
+      this.terminalTab = 'tab-2'
 
       if (ext === 'html' || ext === 'php') {
         con_html.innerHTML = "<iframe id='iframe-html' frameborder='0' width='100%' height='100%' style='background:white;overflow-y:scroll; overflow-x:hidden;'></iframe>"
@@ -1182,7 +1193,7 @@ console.log(this.options['tabSize'])
           con_html.style.overflowY = 'hidden'
         }
 
-        this.terminalTab = 'tab-1'
+        this.terminalTab = 'tab-2'
         return
       }
 
@@ -1202,13 +1213,15 @@ console.log(this.options['tabSize'])
           if (!args)
             args = this.languages[this.selectedLanguage].args?this.languages[this.selectedLanguage].args:""
 
-          command = ("bind 'set disable-completion on'\ncat << 'RYUGOD_EOF' > {FILENAME}.{EXT}\n{SOURCE}\nRYUGOD_EOF\nbind 'set disable-completion off'\nhistory -c\n" +
+          command = (" stty -echo\n cat <<- 'RYUGOD_EOF' > {FILENAME}.{EXT}\n{SOURCE}\nRYUGOD_EOF\n clear;stty echo\n" +
             this.languages[this.selectedLanguage].command)
             .replace(/{ARGS}/g, args)
             .replace(/{FILENAME}/g, this.filename.replace(`.${ext}`, ''))
             .replace(/{EXT}/g, ext)
             .replace('{SOURCE}', this.editor.getValue().replaceAll('$','$$$$'))
 //            .replace(/\t/g, '    ')
+          if (this.inputValue)
+            command += `\n${this.inputValue}\n`
         }
         else if (selectedText) {
           command = selectedText
@@ -1284,6 +1297,7 @@ console.log(this.options['tabSize'])
       if (this.selectedLanguage != language)
         this.sourceControl('tabs', language)
       this.disconnect()
+      this.inputValue = ""
       this.languageFilter = language
       this.defaultFilename = this.languages[language].defaultFilename?this.languages[language].defaultFilename:"main"
       this.languageIcon = this.languages[language].icon

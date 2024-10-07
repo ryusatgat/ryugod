@@ -1,0 +1,57 @@
+
+/* Test the built-in printf() function */
+$s = 'monkey';
+$t = 'many monkeys';
+
+printf("[%s]\n",      $s); // standard string output
+printf("[%10s]\n",    $s); // right-justification with spaces
+printf("[%-10s]\n",   $s); // left-justification with spaces
+printf("[%010s]\n",   $s); // zero-padding works on strings too
+printf("[%'#10s]\n",  $s); // use the custom padding character '#'
+printf("[%10.10s]\n", $t); // left-justification but with a cutoff of 10 characters
+/*
+ * Should output
+
+[monkey]
+[    monkey]
+[monkey    ]
+[0000monkey]
+[####monkey]
+[many monke]
+*/
+$n =  43951789;
+$u = -43951789;
+$c = 65; // ASCII 65 is 'A'
+
+// notice the double %%, this prints a literal '%' character
+printf("%%b = '%b'\n", $n); // binary representation
+printf("%%c = '%c'\n", $c); // print the ascii character, same as chr() function
+printf("%%d = '%d'\n", $n); // standard integer representation
+printf("%%e = '%e'\n", $n); // scientific notation
+printf("%%u = '%u'\n", $n); // unsigned integer representation of a positive integer
+printf("%%u = '%u'\n", $u); // unsigned integer representation of a negative integer
+printf("%%f = '%f'\n", $n); // floating point representation
+printf("%%o = '%o'\n", $n); // octal representation
+printf("%%s = '%s'\n", $n); // string representation
+printf("%%x = '%x'\n", $n); // hexadecimal representation (lower-case)
+printf("%%X = '%X'\n", $n); // hexadecimal representation (upper-case)
+
+printf("%%+d = '%+d'\n", $n); // sign specifier on a positive integer
+printf("%%+d = '%+d'\n", $u); // sign specifier on a negative integer
+/*
+ should output
+
+%b = '10100111101010011010101101'
+%c = 'A'
+%d = '43951789'
+%e = '4.39518e+7'
+%u = '43951789'
+%u = '4251015507'
+%f = '43951789.000000'
+%o = '247523255'
+%s = '43951789'
+%x = '29ea6ad'
+%X = '29EA6AD'
+%+d = '+43951789'
+%+d = '-43951789'
+*/

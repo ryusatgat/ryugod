@@ -1,0 +1,17 @@
+//Test the if..else..else if...elseif statements
+
+$x = 10, $y = 20; //Comma operator (Two instructions in one)
+
+if( $x > $y ){
+
+ print "\$x is greater than \$y\n";
+
+}elseif ($x < $y ){
+
+ print "\$x is smaller than \$y\n";
+
+}else{
+
+ print "\$x and \$y are equals\n";
+
+}

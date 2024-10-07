@@ -1,0 +1,21 @@
+/* Iterate over a JSON object */
+$person = {
+    firstName : "John",
+    lastName: "Smith",
+    age: 25,
+    addr: {
+        "streetAddress": "21 2nd Street",
+        city: "New York",
+        state : "NY",
+        postalCode : 10021
+    }
+}; //Don't forget the semi-colon here
+
+foreach( $person as $key, $value ){
+  print "$key ==> $value\n";
+} 
+
+/* Iterate over a JSON array */
+foreach( [5,6,7,8,9,10] as $value ){
+  print "$value\n";
+ }

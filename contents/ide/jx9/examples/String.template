@@ -1,0 +1,9 @@
+//Double quoted string and the variable expanding mechanism
+$name = 'Dean';
+print "Hello, my name is = $name\n"; //Hello, my name is Dean
+//Declare a simple JSON object
+$person = {name : 'Wolf', age : 27 };
+print "Mr $person.name is $person.age years old\n"; //Mr Wolf is 27 years old
+//Declare a simple JSON array
+$num = [27, 512];
+print "$num[0+1] is greater than $num[0]\n"; //512 is greater than 27

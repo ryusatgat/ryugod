@@ -334,6 +334,7 @@ import './jstar/jstar.contribution.js';
 import './juvix/juvix.contribution.js';
 import './jq/jq.contribution.js'; 
 import './julia/julia.contribution.js';
+import './jx9/jx9.contribution.js';
 import './kagsa/kagsa.contribution.js';
 import './katascript/katascript.contribution.js';
 import './kenaf/kenaf.contribution.js';

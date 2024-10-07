@@ -1,0 +1,14 @@
+
+//An implementation of the famous factorial function
+
+$num = 20;
+
+function factorial(int $num)
+{
+  if( $num == 0 || $num == 1 )
+	return 1;
+  else
+    return $num * factorial($num - 1);
+}
+
+print "Facorial of $num = " .. factorial($num), JX9_EOL;

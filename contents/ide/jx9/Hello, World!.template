@@ -1,0 +1,6 @@
+//
+//  Jx9: Hello, World!
+//  https://jx9.symisc.net
+//
+
+print "Hello, World!", JX9_EOL;

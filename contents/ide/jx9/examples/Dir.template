@@ -1,0 +1,24 @@
+
+/*
+ * Perform a directory listing on the given path
+ * or the current working directory if no given arguments.
+ */
+ if( count($argv) > 0 && is_string($argv[0]) ){
+  /* List the given path */
+  $dir = $argv[0];
+ }else{
+  /* List the current working directory */
+   $dir = getcwd();
+  }
+if ($handle = opendir($dir) ) {
+    print "Directory handle: $handle\n";
+    print "Files:\n";
+
+    while (false !== ($file = readdir($handle))) {
+        print "$file:\t"..size_format(filesize($dir..'/'..$file))..JX9_EOL;
+    }
+
+    closedir($handle);
+}else{
+ die("Cannot list: $dir\n");
+}
