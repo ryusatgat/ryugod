@@ -1,0 +1,24 @@
+using os
+
+new amount {input("Please enter the range:")}
+
+if({typeof {number(amount)}} == "Void") {
+    print "Please enter a valid number!"
+    os.exit(0)
+}
+set amount {number(amount)}
+
+for i in amount {
+    if(i % 3 == 0 && i % 2 == 0) {
+        print "FizzBuzz"
+    }
+    elif(i % 2 == 0) {
+        print "Fizz"
+    }
+    elif(i % 3 == 0) {
+        print "Buzz"
+    }
+    else {
+        print i
+    }
+}

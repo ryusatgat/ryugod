@@ -1,0 +1,31 @@
+struct Stack {
+    new data []
+    gen_get data
+
+    func push(d)->Void {
+        data.push_back(d)
+    }
+    func pop()->Void {
+        data.pop_back()
+    }
+
+    func top()->Any {
+        return {data.back()}
+    }
+
+    func size()->Number {
+        return {data.length()}
+    }
+}
+
+Stack stk()
+
+stk.push(11)
+stk.push("hihi")
+stk.push([1,2,3])
+
+while({stk.size()} != 0) {
+    new top {stk.top()}
+    stk.pop()
+    print top
+}

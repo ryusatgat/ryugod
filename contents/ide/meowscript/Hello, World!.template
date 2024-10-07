@@ -1,0 +1,6 @@
+#
+#  MeowScript: Hello, World!
+#  https://codeberg.org/LabRicecat/meowscript
+#
+
+print "Hello, World!"

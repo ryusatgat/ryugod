@@ -397,6 +397,7 @@ import './maude/maude.contribution.js';
 import './maxc/maxc.contribution.js';
 import './maxima/maxima.contribution.js';
 import './melon/melon.contribution.js';
+import './meowscript/meowscript.contribution.js';
 import './mercury/mercury.contribution.js';
 import './min/min.contribution.js';
 import './minus/minus.contribution.js';

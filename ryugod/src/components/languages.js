@@ -5716,6 +5716,19 @@ export const languages =
       errorRegEx: ".+?\\(at line (\\d+):(.*)",
       keyBindings: null
     },
+    'MeowScript':{
+      desc: "Small interpreted, easy extendable",
+      highlighting:"meowscript",
+      ext: 'mws',
+      kor: '야옹스크립트',
+      template:"meowscript",
+      icon:'mdi-cat',
+      command:"meow-script {ARGS} {FILENAME}.{EXT}",
+      cli: 'meow-script -s',
+      errorRegEx: "Error in line (\\d+):\r\n(.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
     'Mercury':{
       desc: "Logic programming, strong typing, declarative",
       highlighting:"mercury",
