@@ -6373,7 +6373,8 @@ export const languages =
       command:"nyx {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?Error: .+? at line (\\d+), (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
     },
     'Oak':{
       desc: "Precursor to Java, object-oriented",
@@ -7157,6 +7158,19 @@ export const languages =
       cli: null,
       errorRegEx: ".+?: .+?\\.pal line (\\d+): (.+)",
       keyBindings: null
+    },
+    'PSL':{
+      desc: "Embeddable, scripting",
+      highlighting:"psl",
+      ext: 'psl',
+      kor: 'PSL',
+      template:"psl",
+      icon:'mdi-',
+      command:"PSL {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: "error .+?\\.psl (\\d+),\\d+: (.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
     },
     'Pug':{
       desc: "HTML templating, Concise, Dynamic, Lightweight, Easy-to-read",

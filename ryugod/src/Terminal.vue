@@ -1183,7 +1183,7 @@ export default {
           if (!args)
             args = this.languages[this.selectedLanguage].args?this.languages[this.selectedLanguage].args:""
 
-          command = ("bind 'set disable-completion on'\ncat << 'RYUGOD_EOF' > {FILENAME}.{EXT}\n{SOURCE}\nRYUGOD_EOF\nbind 'set disable-completion off'\nhistory -c\n" +
+          command = (" stty -echo\n cat << 'RYUGOD_EOF' > {FILENAME}.{EXT}\n{SOURCE}\nRYUGOD_EOF\n stty echo\n" +
             this.languages[this.selectedLanguage].command)
             .replace(/{ARGS}/g, args)
             .replace(/{FILENAME}/g, this.filename.replace(`.${ext}`, ''))

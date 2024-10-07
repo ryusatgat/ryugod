@@ -1,0 +1,6 @@
+//
+//  PSL: Hello, World!
+//  https://github.com/Silica/PSL
+//
+
+print("Hello, World!\n");

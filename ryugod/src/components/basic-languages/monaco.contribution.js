@@ -485,6 +485,7 @@ import './processing/processing.contribution.js';
 import './promela/promela.contribution.js';
 import './prolog/prolog.contribution.js';
 import './prose/prose.contribution.js';
+import './psl/psl.contribution.js';
 import './pug/pug.contribution.js';
 import './pupp/pupp.contribution.js';
 import './puppet/puppet.contribution.js';
