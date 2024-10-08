@@ -1,0 +1,93 @@
+// NONE
+def () foo
+    puts("CALL A")
+end
+
+foo()
+
+// TUPLE
+def (elem: (int)) foo
+    putl(len(elem), elem)
+end
+
+foo((1, 2, 3))
+
+// MAP
+def (elem: <int, str>) foo
+    putl("len = ", len(elem), "elem = ", elem)
+end
+
+foo({1: "OP", 4: "KL", 2: "US"})
+
+// ARRAY
+def (elem: []int) foo
+    putl(len(elem), elem)
+end
+
+foo([1, 2, 3])
+
+def Too
+    OK
+    NO
+end
+
+def (elem: Too) foo -> Too
+    putl(elem)
+    ret elem
+end
+
+puts(foo(Too.OK))
+
+// FUNCTION
+def (f: |int, int| -> float) op -> float
+    ret f(23, 46)
+end
+
+def (a + b: int) add -> float
+    ret a + b
+end
+
+def (a + b: int) sub -> float
+    ret a - b
+end
+
+def (a + b: int) mul -> float
+    ret a * b
+end
+
+def (a + b: int) div -> float
+    ret a / b
+end
+
+putl(op(add), op(sub), op(mul), op(div))
+
+//
+
+def () oop
+    puts("CALL!!")
+end
+
+def (x: ||) what
+    putl(type(x), x)
+end
+
+what(oop)
+
+//
+
+def (x: int) foo -> |int, int| -> []int
+    putl("x = ", x)
+
+    ret def (a + b: int) -> []int
+        ret [
+            a,
+            b,
+            a + b,
+            a - b,
+            a * b,
+            a / b
+        ]
+    end
+end
+
+putl(foo(12)(3, 4))

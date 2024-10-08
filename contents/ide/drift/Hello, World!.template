@@ -1,0 +1,6 @@
+//
+//  Drift: Hello, World!
+//  https://github.com/drift-lang/drift-cpp
+//
+
+puts("Hello, World!!")

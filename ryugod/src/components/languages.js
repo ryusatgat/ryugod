@@ -2906,6 +2906,19 @@ export const languages =
       errorRegEx: "\\[.+?\\.drg\\] \\[Line: (\\d+)\\] (.+)",
       keyBindings: null
     },
+    'Drift':{
+      desc: "Minimalist grammar, frame and stack structure interpreter",
+      highlighting:"drift",
+      ext: 'ft',
+      kor: '드리프트',
+      template:"drift",
+      icon:'mdi-weather-dust',
+      command:"drift {ARGS} {FILENAME}.{EXT}",
+      cli: "drift {ARGS}",
+      errorRegEx: ".+?\\.ft:(\\d+)(.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
+    },
     'Duck':{
       desc: "Dynamic, lightweight, flexible, scripting, easy",
       highlighting:"duck",

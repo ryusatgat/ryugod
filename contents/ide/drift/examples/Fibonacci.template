@@ -1,0 +1,11 @@
+def (n: int) fib -> int
+    if n == 0
+        ret 0
+    ef n == 1
+        ret 1
+    nf
+        ret fib(n - 1) + fib(n - 2)
+    end
+end
+
+putl("fibonacci 20 = ", fib(20))

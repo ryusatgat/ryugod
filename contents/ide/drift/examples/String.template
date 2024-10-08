@@ -1,0 +1,12 @@
+def x: str
+
+puts(len(x) == 0) // T
+
+x = " "
+puts(len(x)) // 1
+
+def a: int
+putl("a = ", a) // 0
+
+a = 34
+putl("a = ", a) // 34

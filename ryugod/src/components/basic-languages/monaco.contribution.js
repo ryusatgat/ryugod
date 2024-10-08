@@ -190,6 +190,7 @@ import './dino/dino.contribution.js';
 //import './dockerfile/dockerfile.contribution.js';
 import './dogescript/dogescript.contribution.js';
 import './dragon/dragon.contribution.js';
+import './drift/drift.contribution.js';
 import './duck/duck.contribution.js';
 import './duckscript/duckscript.contribution.js';
 import './dylan/dylan.contribution.js';
