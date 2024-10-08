@@ -1,0 +1,11 @@
+#
+#  MiniLang: Hello, World!
+#  https://github.com/NICUP14/MiniLang
+#
+
+import stdlib.io.print
+
+fun main: int64
+    println("Hello, World!")
+    ret 0
+end

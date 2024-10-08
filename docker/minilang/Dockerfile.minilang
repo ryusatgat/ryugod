@@ -1,0 +1,10 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt install -y gcc
+RUN apt install -y python3
+
+ADD opt /opt/
+ADD usr /usr/
+
+USER $USERNAME

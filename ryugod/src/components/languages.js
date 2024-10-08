@@ -5485,9 +5485,22 @@ export const languages =
       icon:'mdi-language-lua',
       command:"lua {ARGS} {FILENAME}.{EXT}",
       cli: "lua {ARGS}",
-      errorRegEx: "lua: .+?:(\\d+): (.*)",
+      errorRegEx: "lua.+?\\.lua:(\\d+): (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/lua"
+    },
+    'LuaJIT':{
+      desc: "Just-In-Time (JIT) compiler for the Lua",
+      highlighting:"lua",
+      ext: 'lua',
+      kor: '루아짓',
+      template:"luajit",
+      icon:'mdi-language-lua',
+      command:"luajit {ARGS} {FILENAME}.{EXT}",
+      cli: "luajit {ARGS}",
+      errorRegEx: "lua.+?\\.lua:(\\d+): (.*)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/lua"
     },
     'Luau':{
       desc: "Fast, small, safe, gradually typed, embeddable, scripting, derived from Lua",
@@ -5500,7 +5513,7 @@ export const languages =
       cli: "luau {ARGS}",
       errorRegEx: ".+?\\.lua:(\\d+): (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/lua"
     },
     'Luci':{
       desc: "Declarative, Data-centric, Scripting, Lightweight, Simple",
@@ -5766,6 +5779,19 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
     },
+    'MiniLang':{
+      desc: "Modern, compiled, procedural, strongly typed, type and memory safe",
+      highlighting:"minilang",
+      ext: 'ml',
+      kor: '미니랭',
+      template:"minilang",
+      icon:'mdi-mini-sd',
+      command:"minilang {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
+      cli: null,
+      errorRegEx: '.+?\\.ml:(\\d+):\\d+: (.+)',
+      keyBindings: null,
+      dockerImage: "ryusatgat/minilang"
+    },
     'MiniLua':{
       desc: "Contained in a single header to be bundled in C/C++ applications with ease",
       highlighting:"lua",
@@ -5777,7 +5803,7 @@ export const languages =
       cli: null,
       errorRegEx: null, // not supported
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/lua"
     },
     'Miniscript':{
       desc: "Lightweight, Scripting, Embedded, Concise, Dynamic",

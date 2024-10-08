@@ -891,8 +891,11 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - zForce
 ## 2024-10-07
 - Jx9
+- LuaJIT
 - MeowScript
 - PSL
+## 2024-10-08
+- MiniLang
 
 ## To be continued
 - 42

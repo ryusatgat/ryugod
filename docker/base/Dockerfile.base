@@ -2,7 +2,7 @@ ARG FROM_IMAGE=ryusatgat/ubuntu
 FROM $FROM_IMAGE    
 
 RUN apt install -y build-essential cmake libboost-all-dev libtbb-dev libpcre2-dev llvm-dev ghc cabal-install hugs nodejs npm libmozjs-115-dev
-RUN apt install -y liquidsoap re2c php php-json php-dev libpcre3-dev libsdl2-ttf-dev libsdl2-image-dev csh dash ksh zsh lua5.4 gpp
+RUN apt install -y liquidsoap re2c php php-json php-dev libpcre3-dev libsdl2-ttf-dev libsdl2-image-dev csh dash ksh zsh gpp
 RUN npm install -g npm node --upgrade && npm update -g npm && npm install -g typescript skew kind-lang @wenyan/cli
 RUN curl -s -L https://github.com/c3lang/c3c/releases/download/latest/c3-ubuntu-20.tar.gz | tar xvz -C /opt && ln -s /opt/c3/c3c /usr/local/bin/c3c
 RUN mkdir /opt/zephir && curl -s -L https://github.com/zephir-lang/zephir/releases/download/0.17.0/zephir.phar > /opt/zephir/zephir.phar
