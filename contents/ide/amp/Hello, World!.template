@@ -1,0 +1,12 @@
+//
+//  Amp: Hello, World!
+//  https://github.com/amp-lang/amp
+//
+
+const Printf = func printf(&u8): i32;
+
+const Main = func main(): i32 {
+    Printf("Hello, World!
+");
+    return 0;
+};

@@ -1,0 +1,6 @@
+//
+//  Cript: Hello, World!
+//  https://github.com/clarkok/cript
+//
+
+global.println('Hello, World!');

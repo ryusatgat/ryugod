@@ -1,0 +1,17 @@
+global.println('Test typeof ...');
+
+let int = 1;
+let str = 'string';
+let obj = {};
+let arr = [];
+let clos = function () {};
+let func = global.print;
+
+global.println('integer ', global.typeof(int));
+global.println('string ',  global.typeof(str));
+global.println('object ',  global.typeof(obj));
+global.println('array ', global.typeof(arr));
+global.println('closure ',  global.typeof(clos));
+global.println('light_function ',  global.typeof(func));
+
+global.println('Done');

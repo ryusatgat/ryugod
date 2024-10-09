@@ -5,7 +5,6 @@
 export var conf = {
     comments: {
         lineComment: '//',
-        blockComment: ["/*", "*/"]
     },
     brackets: [
         ['{', '}'],
@@ -36,36 +35,34 @@ export var conf = {
 };
 export var language = {
     defaultToken: 'invalid',
-    tokenPostfix: '.ft',
+    tokenPostfix: '.amp',
     keywords: [
+        'const',
+        'func',
+        'return',
+        'mut',
         'if',
-        'ef',
-        'nf',
+        'else',
+        'var',
+        'while',
+        'export',
+        'import',
+        'struct',
         'for',
-        'ret',
-        'end',
-        'out',
-        'go',
-        'def',
     ],
     builtins: [
-        'puts',
-        'put',
-        'putl',
-        'len',
-        'sleep',
-        'type',
-        'randomStr',
+        'Printf',
     ],
     typeKeywords: [
-        'use',
-        'del',
-        'mod',
-        'aop',
-        'new',
-        'int',
-        'str',
-        'float',
+        'type',
+        'u8',
+        'u16',
+        'u32',
+        'u64',
+        'i8',
+        'i16',
+        'i32',
+        'i64',
     ],
     brackets: [
         { open: '{', close: '}', token: 'delimiter.curly' },
@@ -96,12 +93,6 @@ export var language = {
         whitespace: [
             [/\s+/, 'white'],
             [/(\/\/.*$)/, 'comment'],
-            [/\/\*/, 'comment', '@comment'],
-        ],
-        comment: [
-            [/[^\/*]+/, 'comment'],
-            [/\*\//, 'comment', '@pop'],
-            [/[\/*]/, 'comment']
         ],
         // Recognize hex, negatives, decimals, imaginaries, longs, and scientific notation
         numbers: [
@@ -112,7 +103,6 @@ export var language = {
         strings: [
             [/'$/, 'string.escape', '@popall'],
             [/'/, 'string.escape', '@stringBody'],
-            [/"$/, 'string.escape', '@popall'],
             [/"/, 'string.escape', '@dblStringBody']
         ],
         stringBody: [
@@ -123,7 +113,6 @@ export var language = {
             [/\\$/, 'string']
         ],
         dblStringBody: [
-            [/[^\\"]+$/, 'string', '@popall'],
             [/[^\\"]+/, 'string'],
             [/\\./, 'string'],
             [/"/, 'string.escape', '@popall'],

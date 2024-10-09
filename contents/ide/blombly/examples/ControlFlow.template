@@ -1,0 +1,19 @@
+x = 1;
+if (x>0) 
+    print("positive")  // no semicolon (because the command would end)
+else if(x<0)
+    print("negative");
+
+counter = 0;
+while (counter<10) {
+    print("Counter is: " + str(counter));
+    counter = counter + 1;
+}
+
+counter = 0;
+try while (true) {
+    counter = counter + 1;
+    print("Counter is: " + str(counter));
+    if(counter==10)
+        return;  // keeps exiting the code until intercepted by try
+}

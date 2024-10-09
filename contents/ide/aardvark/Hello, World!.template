@@ -1,0 +1,6 @@
+#
+#  Aardvark: Hello, World!
+#  https://aardvark-docs.replit.app
+#
+
+stdout.write("Hello, World!\n")

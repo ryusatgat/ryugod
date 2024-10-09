@@ -1,0 +1,6 @@
+//
+//  Blombly: Hello, World!
+//  https://blombly.readthedocs.io
+//
+
+print("Hello, World!");

@@ -650,6 +650,19 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/wine"
     },
+    'Aardvark':{
+      desc: "Designed to be easy, yet powerful, compiling to LLVM and self-hosting",
+      highlighting:"aardvark",
+      ext: 'adk',
+      kor: '아드바크',
+      template:"aardvark",
+      icon:'mdi-pig-variant',
+      command:"adk {ARGS} {FILENAME}.{EXT}",
+      cli: "adk",
+      errorRegEx: ".+?\\.adk:(\\d+):\\d+",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/aardvark'
+    },
     'ABC':{
       desc: "Educational, procedural, simple, high-level, interactive",
       highlighting:"abc",
@@ -985,6 +998,20 @@ export const languages =
       errorRegEx: "ERROR: .+\r\nLINE (\\d+):.+",
       keyBindings: null
     },
+    'Amp':{
+      desc: "General-purpose systems language built on modern standards",
+      highlighting:"amp",
+      ext: 'amp',
+      kor: '앰프',
+      template:"amp",
+      icon:'mdi-amplifier',
+      args: 'build-obj',
+      command:'ampc {ARGS} {FILENAME}.{EXT} -o {FILENAME}.o && gcc -Wl,-no-pie -o {FILENAME} {FILENAME}.o && ./{FILENAME}',
+      cli: null,
+      errorRegEx: '.+?\\.amp:(\\d+):\\d+: (.+)',
+      keyBindings: null,
+      dockerImage: "ryusatgat/amp"
+    },
     'Amrit':{
       desc: "Interpreted, WASM, based on Hindi",
       highlighting:"amrit",
@@ -1035,6 +1062,20 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: 'ryusatgat/go'
+    },
+    'Ante':{
+      desc: "Providing extensibility through the use of a compile-time API",
+      highlighting:"ante",
+      ext: 'an',
+      kor: '안테',
+      template:"ante",
+      icon:'mdi-antenna',
+      args: null,
+      command:'ante {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: ".+?:(\\d+):\\d+.+",
+      keyBindings: null,
+      dockerImage: "ryusatgat/ante"
     },
     'Antimony':{
       desc: "Bullshit-free (©) programming language",
@@ -1667,6 +1708,19 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/blade"
     },
+    'Blombly':{
+      desc: "interpreted by the BLOck aseMBLY Virtual Machine",
+      highlighting:"blombly",
+      ext: 'bb',
+      kor: '블롬블리',
+      template:'blombly',
+      icon:'mdi-code-block-brackets',
+      command:'blombly {ARGS} {FILENAME}.{EXT}',
+      cli: null,
+      errorRegEx: ".+?\\.bb line (\\d+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/blombly'
+    },
     'Blossom':{
       desc: "Declarative, type-safe, modular, concise, expressive",
       highlighting:"blossom",
@@ -2178,7 +2232,7 @@ export const languages =
       template:"cish",
       icon:'mdi-alpha-c',
       args: '-cr -s {FILENAME}.{EXT}',
-      command:'ln -sfT /opt/cish/stdlib && cish {ARGS}',
+      command:'ln -sf /opt/cish/stdlib && cish {ARGS}',
       cli: null,
       errorRegEx: ".+?\\.cish: row (\\d+), col \\d+",
       keyBindings: null,
@@ -2578,7 +2632,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
     },
-    'Cricket(rust)':{
+    'Cricket':{
       desc: "Functional, object-oriented",
       highlighting:"cricket",
       ext: 'ct',
@@ -2586,11 +2640,25 @@ export const languages =
       template:"cricket",
       icon:'mdi-cricket',
       args: null,
-      command:"ln -sfT /opt/cricket/stdlib && cricket_rs {ARGS} {FILENAME}.{EXT}",
+      command:"ln -sf /opt/cricket/stdlib && cricket_rs {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?:(\\d+):\\d+`.",
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
+    },
+    'Cript':{
+      desc: "simple and lightweight script language",
+      highlighting:"cript",
+      ext: 'cr',
+      kor: '크립트',
+      template:"cript",
+      icon:'mdi-lock-outline',
+      args: null,
+      command:"cript {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: "ERROR: .+?\r\n.+?\\.cr:(\\d+) \\d+",
+      keyBindings: null,
+      dockerImage: "ryusatgat/i386"
     },
     'Crumb':{
       desc: "High level, functional, interpreted, dynamically typed, general-purpose",
@@ -5124,6 +5192,19 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc"
     },
+    'Language 84':{
+      desc: "Self-hosting compiler, functional, designed with basic type theory",
+      highlighting:"l84",
+      ext: '84',
+      kor: '랭귀지 84',
+      template:"l84",
+      icon:'mdi-numeric-8-box-multiple-outline',
+      command:"l84 {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
+      cli: null,
+      errorRegEx: '.+?\\.84:(\\d+): (.+)',
+      keyBindings: null,
+      dockerImage: "ryusatgat/l84"
+    },
     'Lark':{
       desc: "Lxperiment in designing a homoiconic, syntax inspired by SmallTalk",
       highlighting:"lark",
@@ -5400,7 +5481,8 @@ export const languages =
       command:"lk {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "^(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc'
     },
     'LLVM-IR':{
       desc: "Intermediate representation for compiler design",
@@ -5886,7 +5968,7 @@ export const languages =
       kor: '머스',
       template:"mirth",
       icon:'mdi-alpha-m-box',
-      command:"mkdir -p bin src\nln -sfT /opt/mirth/src/* src\nmv {FILENAME}.{EXT} src && mirth {ARGS} {FILENAME}.{EXT} && make bin/{FILENAME} && bin/{FILENAME}",
+      command:"mkdir -p bin src\nln -sf /opt/mirth/src/* src\nmv {FILENAME}.{EXT} src && mirth {ARGS} {FILENAME}.{EXT} && make bin/{FILENAME} && bin/{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.mth:(\\d+):\\d+: error:(.+)",
       keyBindings: null

@@ -2,10 +2,11 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
+import { languages } from '../fillers/monaco-editor-core.js';
 export var conf = {
     comments: {
-        lineComment: '//',
-        blockComment: ["/*", "*/"]
+        lineComment: '#',
+        blockComment: ["#*", "*#"]
     },
     brackets: [
         ['{', '}'],
@@ -26,6 +27,12 @@ export var conf = {
         { open: '"', close: '"' },
         { open: "'", close: "'" }
     ],
+    onEnterRules: [
+        {
+            beforeText: new RegExp('^\\s*(?:fn|for|if|else).*?\\s*$'),
+            action: { indentAction: languages.IndentAction.Indent }
+        }
+    ],
     folding: {
         offSide: true,
         markers: {
@@ -36,36 +43,102 @@ export var conf = {
 };
 export var language = {
     defaultToken: 'invalid',
-    tokenPostfix: '.ft',
+    tokenPostfix: '.adk',
     keywords: [
-        'if',
-        'ef',
-        'nf',
+        'as',
+        'async',
+        'break',
+        'case',
+        'catch',
+        'class',
+        'continue',
+        'defer',
+        'delete',
+        'else',
+        'extending',
+        'extends',
         'for',
-        'ret',
-        'end',
-        'out',
-        'go',
-        'def',
+        'from',
+        'function',
+        'if',
+        'in',
+        'include',
+        'pause-until',
+        'return',
+        'static',
+        'switch',
+        'throw',
+        'try',
+        'type',
+        'while',
+        'xor',
+        'yield',
     ],
     builtins: [
-        'puts',
-        'put',
-        'putl',
-        'len',
-        'sleep',
-        'type',
-        'randomStr',
+        'abs',
+        'add',
+        'alloc',
+        'ceil',
+        'contains',
+        'cos',
+        'delete',
+        'endsWith',
+        'erase',
+        'filter',
+        'floor',
+        'help',
+        'isiterable',
+        'join',
+        'link',
+        'log',
+        'max',
+        'min',
+        'move',
+        'open',
+        'prompt',
+        'read',
+        'readAll',
+        'readLine',
+        'remove',
+        'replace',
+        'resize',
+        'reverse',
+        'round',
+        'sequence',
+        'sin',
+        'sizeof',
+        'slice',
+        'sort',
+        'split',
+        'startsWith',
+        'tan',
+        'typeof',
+        'write',
+        'writeLines',
     ],
     typeKeywords: [
-        'use',
-        'del',
-        'mod',
-        'aop',
-        'new',
-        'int',
-        'str',
-        'float',
+        'Array',
+        'Bitarray',
+        'digits',
+        'e',
+        'File',
+        'Function',
+        'length',
+        'Math',
+        'null',
+        'Number',
+        'Object',
+        'pi',
+        'prime',
+        'Set',
+        'stderr',
+        'stdin',
+        'stdout',
+        'Stream',
+        'String',
+        'tau',
+        'Tuple',
+        'Type',
     ],
     brackets: [
         { open: '{', close: '}', token: 'delimiter.curly' },
@@ -81,7 +154,7 @@ export var language = {
             [/[{}\[\]()]/, '@brackets'],
             [/@[a-zA-Z_]\w*/, 'tag'],
             [
-                /[a-zA-Z_]\w*/,
+                /[a-zA-Z_][\w-]*/,
                 {
                     cases: {
                         '@keywords': 'keyword',
@@ -95,13 +168,13 @@ export var language = {
         // Deal with white space, including single and multi-line comments
         whitespace: [
             [/\s+/, 'white'],
-            [/(\/\/.*$)/, 'comment'],
-            [/\/\*/, 'comment', '@comment'],
+            [/#\*/, 'comment', '@comment'],
+            [/(#.*$)/, 'comment'],
         ],
         comment: [
-            [/[^\/*]+/, 'comment'],
-            [/\*\//, 'comment', '@pop'],
-            [/[\/*]/, 'comment']
+            [/[^#*]+/, 'comment'],
+            [/\*#/, 'comment', '@pop'],
+            [/[#*]/, 'comment']
         ],
         // Recognize hex, negatives, decimals, imaginaries, longs, and scientific notation
         numbers: [
@@ -112,7 +185,6 @@ export var language = {
         strings: [
             [/'$/, 'string.escape', '@popall'],
             [/'/, 'string.escape', '@stringBody'],
-            [/"$/, 'string.escape', '@popall'],
             [/"/, 'string.escape', '@dblStringBody']
         ],
         stringBody: [
@@ -123,7 +195,6 @@ export var language = {
             [/\\$/, 'string']
         ],
         dblStringBody: [
-            [/[^\\"]+$/, 'string', '@popall'],
             [/[^\\"]+/, 'string'],
             [/\\./, 'string'],
             [/"/, 'string.escape', '@popall'],

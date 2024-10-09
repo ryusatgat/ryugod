@@ -2,10 +2,11 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
+import { languages } from '../fillers/monaco-editor-core.js';
 export var conf = {
     comments: {
         lineComment: '//',
-        blockComment: ["/*", "*/"]
+        blockComment: ["\"\"\"", "\"\"\""]
     },
     brackets: [
         ['{', '}'],
@@ -26,6 +27,12 @@ export var conf = {
         { open: '"', close: '"' },
         { open: "'", close: "'" }
     ],
+    onEnterRules: [
+        {
+            beforeText: new RegExp('^\\s*(?:fn|for|if|else).*?\\s*$'),
+            action: { indentAction: languages.IndentAction.Indent }
+        }
+    ],
     folding: {
         offSide: true,
         markers: {
@@ -36,36 +43,70 @@ export var conf = {
 };
 export var language = {
     defaultToken: 'invalid',
-    tokenPostfix: '.ft',
+    tokenPostfix: '.bb',
     keywords: [
+        'return',
+        'final',
+        'call',
+        'as',
+        'while',
         'if',
-        'ef',
-        'nf',
-        'for',
-        'ret',
-        'end',
-        'out',
-        'go',
-        'def',
+        'else',
+        'new',
+        'inline',
+        'get',
+        'set',
+        'setfinal',
+        'default',
+        'time',
+        'iter',
+        'try',
+        'catch',
+        'fail',
+        'exists',
+        'server',
     ],
     builtins: [
-        'puts',
-        'put',
-        'putl',
+        'add',
+        'sub',
+        'mul',
+        'mmul',
+        'div',
+        'mod',
         'len',
-        'sleep',
-        'type',
-        'randomStr',
+        'pow',
+        'log',
+        'push',
+        'pop',
+        'next',
+        'put',
+        'at',
+        'shape',
+        'vector',
+        'list',
+        'map',
+        'copy',
+        'file',
+        'sum',
+        'max',
+        'min',
+        'print',
+        'read',
     ],
     typeKeywords: [
-        'use',
-        'del',
-        'mod',
-        'aop',
-        'new',
+        'not',
+        'and',
+        'or',
+        'eq',
+        'neq',
+        'le',
+        'ge',
+        'lt',
+        'gt',
         'int',
-        'str',
         'float',
+        'str',
+        'bool',
     ],
     brackets: [
         { open: '{', close: '}', token: 'delimiter.curly' },
@@ -79,6 +120,7 @@ export var language = {
             { include: '@strings' },
             [/[,:;]/, 'delimiter'],
             [/[{}\[\]()]/, '@brackets'],
+            [/#[a-zA-Z_]\w*/, 'metatag'],
             [/@[a-zA-Z_]\w*/, 'tag'],
             [
                 /[a-zA-Z_]\w*/,
@@ -112,7 +154,6 @@ export var language = {
         strings: [
             [/'$/, 'string.escape', '@popall'],
             [/'/, 'string.escape', '@stringBody'],
-            [/"$/, 'string.escape', '@popall'],
             [/"/, 'string.escape', '@dblStringBody']
         ],
         stringBody: [
@@ -123,7 +164,6 @@ export var language = {
             [/\\$/, 'string']
         ],
         dblStringBody: [
-            [/[^\\"]+$/, 'string', '@popall'],
             [/[^\\"]+/, 'string'],
             [/\\./, 'string'],
             [/"/, 'string.escape', '@popall'],

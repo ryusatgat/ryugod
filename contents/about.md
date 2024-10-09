@@ -895,8 +895,16 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - MeowScript
 - PSL
 ## 2024-10-08
+- Cript
 - Drift
 - MiniLang
+## 2024-10-09
+- Aardvark
+- Amp
+- Blombly
+- Language84
+## 2024-10-10
+- Ante
 
 ## To be continued
 - 42

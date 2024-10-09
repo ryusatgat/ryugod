@@ -1,0 +1,24 @@
+final hello = {
+    #spec version = 1.0;
+    #spec license = "CC0";
+    print("Hello world!"); 
+} 
+
+print("Running test version "+str(hello.version) +" under "+hello.license+" license...");
+hello: // block code directly runs here
+
+final add = { 
+    x = next(args); 
+    y = next(args); 
+    return x + y; 
+}
+result = add(1, 2); 
+print(result);
+
+final add2(x, y) = { 
+    default wx = 1; 
+    default wy = 1; 
+    return x*wx + y*wy;
+}
+result = add2(1,2 | wx=1;wy=2); 
+print(result);

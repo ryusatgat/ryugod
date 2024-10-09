@@ -1,0 +1,15 @@
+A = 1,2,3;
+A[0] = 4;
+print(A);
+print(len(A));
+
+A = list(5); // list of 5 elements
+A[0] = 0;
+A[3] = 0;
+A[4] = 0;
+if(x as A[1]) print(x) else print("Element at position 1 not set");
+print(A);
+
+A = 1,2,3;
+while(a as next(A)) 
+    print(a);

@@ -1,0 +1,8 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt install -y python3
+
+USER $USERNAME
+
+RUN bash -c 'echo release | bash <(curl -ksL https://raw.githubusercontent.com/Aardvark-team/Aardvark/main/install.sh)'

@@ -1,0 +1,10 @@
+;
+;   Language 84: Hello, World!
+;   http://norstrulde.org/language84
+;
+
+(STDIO.print_line "Hello, World!")
+
+Where
+
+Let STDIO Package "stdio"

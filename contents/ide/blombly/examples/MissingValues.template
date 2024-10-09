@@ -1,0 +1,3 @@
+// the compiler understands `not` before `as` assignments to work on their output
+while(not number as float(read("Give a number:"))) {}
+print(number);
