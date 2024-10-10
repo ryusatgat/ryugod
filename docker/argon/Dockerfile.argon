@@ -1,0 +1,9 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN curl -Lks https://github.com/ArgonLang/Argon/releases/download/v0.5.2-alpha/Argon_v0.5.2-alpha_Linux_x64.zip > /opt/argon.zip
+RUN cd /opt && unzip *.zip && rm -f *.zip && mv  ./Argon* argon && ln -s /opt/argon/Argon /usr/local/bin
+
+USER $USERNAME
+
+RUN echo 'export LD_LIBRARY_PATH=/opt/argon' >> ~/.bashrc

@@ -13,7 +13,9 @@ export const languages =
       cli: null,
       errorRegEx: ".*\\.sh: .+? (\\d+): (.*)",
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_L),
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://www.gnu.org/software/bash',
+      repo: 'https://git.savannah.gnu.org/cgit/bash.git',
     },
     'Python3':{
       desc: "Easy, versatile, general-purpose interpreter",
@@ -26,7 +28,9 @@ export const languages =
       cli: 'python3 {ARGS}',
       errorRegEx: ".+?\\.py\", line (\\d+)(?:.*?\r\n)+?(.*?Error: .*)",
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_P),
-      dockerImage: "ryusatgat/python"
+      dockerImage: "ryusatgat/python",
+      homepage: 'https://www.python.org',
+      repo: 'https://github.com/python',
     },
     'Python2.7':{
       desc: "Easy, versatile, general-purpose interpreter",
@@ -39,7 +43,9 @@ export const languages =
       cli: 'python2.7 {ARGS}',
       errorRegEx: ".+?: Error #\\d+: .*\r\n.*:(\\d+)\\]",
       keyBindings: null,
-      dockerImage: "ryusatgat/ubuntu2004"
+      dockerImage: "ryusatgat/ubuntu2004",
+      homepage: 'https://www.python.org',
+      repo: 'https://github.com/python',
     },
     'Python1.6':{
       desc: "Easy, versatile, general-purpose interpreter",
@@ -52,7 +58,9 @@ export const languages =
       cli: 'python1.6 {ARGS}',
       errorRegEx: ".+?: Error #\\d+: .*\r\n.*:(\\d+)\\]",
       keyBindings: null,
-      dockerImage: "ryusatgat/python"
+      dockerImage: "ryusatgat/python",
+      homepage: 'https://www.python.org',
+      repo: 'https://github.com/python',
     },
     'Snek':{
       desc: "Lightweight, embeddable, Python-inspired interpreter",
@@ -65,7 +73,9 @@ export const languages =
       cli: 'snek {ARGS}',
       errorRegEx: ".+\\.py:(\\d+) (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: 'https://sneklang.org',
+      repo: 'https://github.com/keith-packard/snek',
     },
     'C (gcc)':{
       desc: "Low-level, efficient, and fast compiler",
@@ -79,7 +89,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_C),
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: null,
+      repo: null,
     },
     'C 89 (gcc)':{
       desc: "Low-level, efficient, and fast compiler",
@@ -93,7 +105,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C 11 (gcc)':{
       desc: "Low-level, efficient, and fast compiler",
@@ -107,7 +121,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C 17 (gcc)':{
       desc: "Low-level, efficient, and fast compiler",
@@ -121,7 +137,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C 18 (gcc)':{
       desc: "Low-level, efficient, and fast compiler",
@@ -135,7 +153,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C 2x (gcc)':{
       desc: "Low-level, efficient, and fast compiler",
@@ -149,7 +169,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'CLang':{
       desc: "Low-level, efficient, and fast compiler",
@@ -163,7 +185,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.c:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/clang"
+      dockerImage: "ryusatgat/clang",
+      homepage: 'https://clang.llvm.org',
+      repo: 'https://github.com/llvm/llvm-project',
     },
     'SubC':{
       desc: "Legacy, Scripting, Subset, C-based, Niche",
@@ -175,7 +199,10 @@ export const languages =
       command:"scc -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
       errorRegEx: "error: .+?: (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PortableC':{
       desc: "Cross-platform, C-syntax, Portability, Embedded, Efficiency",
@@ -187,7 +214,10 @@ export const languages =
       command:"pcc -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.c, line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'TinyC':{
       desc: "Minimal, Lightweight, C-like, Embedded, Simplistic",
@@ -201,7 +231,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.c:(\\d+): error: (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'CLang++':{
       desc: "C++ compiler with Clang infrastructure",
@@ -215,7 +247,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/clang"
+      dockerImage: "ryusatgat/clang",
+      homepage: 'https://clang.llvm.org',
+      repo: 'https://github.com/llvm/llvm-project',
     },
     'C++ (g++)':{
       desc: "Object-oriented, high-performance, versatile, compiled, complex",
@@ -229,7 +263,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C++ 98 (g++)':{
       desc: "Object-oriented, high-performance, versatile, compiled, complex",
@@ -243,7 +279,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C++ 11 (g++)':{
       desc: "Object-oriented, high-performance, versatile, compiled, complex",
@@ -257,7 +295,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C++ 14 (g++)':{
       desc: "Object-oriented, high-performance, versatile, compiled, complex",
@@ -271,7 +311,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C++ 17 (g++)':{
       desc: "Object-oriented, high-performance, versatile, compiled, complex",
@@ -285,7 +327,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C++ 20 (g++)':{
       desc: "Object-oriented, high-performance, versatile, compiled, complex",
@@ -299,7 +343,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C++ 23 (g++)':{
       desc: "Object-oriented, high-performance, versatile, compiled, complex",
@@ -313,7 +359,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.cc:(\\d+):\\d+: error: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://gcc.gnu.org',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'C# - .NET Core':{
       desc: "Cross-platform .NET runtime environment",
@@ -327,7 +375,9 @@ export const languages =
       defaultFilename: 'Main',
       errorRegEx: ".+?\\((\\d+),\\d+\\): error .+?: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/ms"
+      dockerImage: "ryusatgat/ms",
+      homepage: 'https://dotnet.microsoft.com/en-us/languages/csharp',
+      repo: 'https://github.com/dotnet/csharplang',
     },
     'C# - Mono':{
       desc: "Cross-platform .NET runtime environment",
@@ -340,7 +390,10 @@ export const languages =
       cli: null,
       defaultFilename: 'Main',
       errorRegEx: ".*\\((\\d+),\\d+\\): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: "ryusatgat/mono",
+      homepage: 'https://www.mono-project.com',
+      repo: 'https://github.com/mono/mono',
     },
     'Java (OpenJDK)':{
       desc: "Object-oriented, high-performance, and cross-platform",
@@ -354,7 +407,9 @@ export const languages =
       defaultFilename: 'Main',
       errorRegEx: ".+?:(\\d+): (\\w+: .+)",
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_V),
-      dockerImage: "ryusatgat/jvm"
+      dockerImage: "ryusatgat/jvm",
+      homepage: 'https://openjdk.org',
+      repo: 'https://github.com/openjdk',
     },
     'Javascript (Node.js)':{
       desc: "JavaScript runtime, event-driven, and non-blocking",
@@ -367,7 +422,9 @@ export const languages =
       cli: 'node {ARGS}',
       errorRegEx: ".+:(\\d+)\r\n.+\r\n.+\r\n\r\n(.+)\r\n",
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_J),
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: 'https://nodejs.org',
+      repo: 'https://github.com/nodejs',
     },
     'Javascript (FireMonkey)':{
       desc: "JavaScript-based, GUI framework, and cross-platform",
@@ -380,7 +437,9 @@ export const languages =
       cli: 'js115 {ARGS}',
       errorRegEx: ".+?\\.js:(\\d+):\\d+ (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Javascript (JerryScript)':{
       desc: "Embedded, lightweight, and JavaScript engine",
@@ -392,7 +451,9 @@ export const languages =
       command:"jerry {ARGS} {FILENAME}.{EXT}",
       cli: 'jerry {ARGS}',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      homepage: '',
+      repo: '',
     },
     'Javascript (Rhino)':{
       desc: "JavaScript engine, Java-integrated, and embeddable",
@@ -404,7 +465,9 @@ export const languages =
       command:"rhino {ARGS} {FILENAME}.{EXT}",
       cli: 'rhino {ARGS}',
       errorRegEx: ".+?: .+?, line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      homepage: '',
+      repo: '',
     },
     'Javascript (Duktape)':{
       desc: "Embeddable Javascript engine",
@@ -417,7 +480,9 @@ export const languages =
       cli: 'duk',
       errorRegEx: '.+?: .+? \\(line (\\d+)[\\),]',
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Javascript (Espruino)':{
       desc: "Javascript interpreter for microcontrollers",
@@ -430,7 +495,9 @@ export const languages =
       cli: 'espruino',
       errorRegEx: null, // not supported
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Javascript (goja)':{
       desc: "Implementation of ECMAScript 5.1 in pure Go with emphasis on standard compliance and performance",
@@ -443,7 +510,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?: Line (\\d+):\\d+ (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Javascript (Microvium)':{
       desc: "Tiny JavaScript engine for microcontrollers for running a small",
@@ -470,7 +539,9 @@ export const languages =
       cli: 'mujs',
       errorRegEx: ".+?\\.js:(\\d+): (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Javascript (njs)':{
       desc: "Nginx module that extends the server's functionality through JavaScript scripting",
@@ -483,7 +554,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?Error: .+?\r?\n?.+?\\.js:(\\d+)\\)?",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'TypeScript':{
       desc: "JavaScript with static types and tooling",
@@ -497,7 +570,9 @@ export const languages =
       cli: 'ts-node',
       errorRegEx: ".+?\\((\\d+),\\d+\\): (.+)",
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_T),
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'TypeScript (Deno)':{
       desc: "Secure, modern, and TypeScript runtime",
@@ -510,7 +585,9 @@ export const languages =
       cli: 'deno repl {ARGS}',
       errorRegEx: ".+?: .+?:(\\d+):(\\d+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/deno"
+      dockerImage: "ryusatgat/deno",
+      homepage: '',
+      repo: '',
     },
     'HTML5':{
       desc: "Markup language, multimedia, and web standard",
@@ -522,7 +599,9 @@ export const languages =
       command:null,
       isCompiler:false,
       cli: null,
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_H)
+      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_H),
+      homepage: '',
+      repo: '',
     },
     'AngularJS':{
       desc: "JavaScript framework, MVC-based, and dynamic web applications",
@@ -534,7 +613,10 @@ export const languages =
       command:null,
       isCompiler:false,
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'JQuery':{
       desc: "JavaScript library, DOM manipulation, and cross-browser",
@@ -546,7 +628,10 @@ export const languages =
       command:null,
       isCompiler:false,
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'React.js':{
       desc: "Component-based, declarative, and UI library",
@@ -558,7 +643,10 @@ export const languages =
       command:null,
       isCompiler:false,
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Vue.js':{
       desc: "Reactive, Component-based, Lightweight, Flexible, Progressive",
@@ -570,7 +658,10 @@ export const languages =
       command:null,
       isCompiler:false,
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Markdown':{
       desc: "Plain text formatting syntax",
@@ -582,7 +673,10 @@ export const languages =
       command:null,
       isCompiler:false,
       cli: null,
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M)
+      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M),
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'PHP':{
       desc: "Server-side web scripting tool",
@@ -595,7 +689,10 @@ export const languages =
       command:'php-cgi {ARGS} {FILENAME}.{EXT} > {FILENAME}.html && imshow {FILENAME}.html',
       cli: null,
       errorRegEx: "PHP \\w+ error:  .*?(\\d+)(\r\n)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'VB.NET mono':{
       desc: "Cross-platform .NET framework runtime",
@@ -608,7 +705,10 @@ export const languages =
       command:'vbnc {ARGS} {FILENAME}.{EXT} /out:{FILENAME}.exe && mono {FILENAME}.exe',
       cli: null,
       errorRegEx: ".+? \\((\\d+),(\\d+)\\) : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'VB.NET Core':{
       desc: "Cross-platform object-oriented programming language",
@@ -622,7 +722,9 @@ export const languages =
       defaultFilename: 'Main',
       errorRegEx: ".+?\\((\\d+),\\d+\\): error .+?: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/ms"
+      dockerImage: "ryusatgat/ms",
+      homepage: '',
+      repo: '',
     },
     'VBScript':{
       desc: "Windows scripting for automation tasks",
@@ -636,7 +738,9 @@ export const languages =
       cli: null,
       errorRegEx: ".*?\\((\\d+), \\d+\\) (.*)",
       keyBindings: null,
-//      dockerImage: "ryusatgat/wine"
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Windows Batch':{
       desc: "Windows command automation script",
@@ -648,7 +752,9 @@ export const languages =
       command:'wine cmd {ARGS} /c {FILENAME}.{EXT}',
       cli: "wine cmd {ARGS} /k c:",
       keyBindings: null,
-      dockerImage: "ryusatgat/wine"
+      dockerImage: "ryusatgat/wine",
+      homepage: '',
+      repo: '',
     },
     'Aardvark':{
       desc: "Designed to be easy, yet powerful, compiling to LLVM and self-hosting",
@@ -661,7 +767,9 @@ export const languages =
       cli: "adk",
       errorRegEx: ".+?\\.adk:(\\d+):\\d+",
       keyBindings: null,
-      dockerImage: 'ryusatgat/aardvark'
+      dockerImage: 'ryusatgat/aardvark',
+      homepage: '',
+      repo: '',
     },
     'ABC':{
       desc: "Educational, procedural, simple, high-level, interactive",
@@ -672,7 +780,10 @@ export const languages =
       icon:'mdi-ab-testing',
       command:"abc {ARGS} < {FILENAME}.{EXT}",
       cli: "abc {ARGS}",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ABS':{
       desc: "Procedural, simple, educational, legacy, intuitive",
@@ -684,7 +795,10 @@ export const languages =
       command:"abs {ARGS} {FILENAME}.{EXT}",
       cli: "abs",
       errorRegEx: "Error: .+\\.ds Line: (\\d+)(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ActionScript3':{
       desc: "Event-driven, object-oriented, dynamic, web-focused, versatile",
@@ -695,19 +809,25 @@ export const languages =
       icon:'mdi-flash',
       command:"as3shebang {ARGS} {FILENAME}.{EXT}",
       errorRegEx: ".+?: Error #\\d+: .*\r\n.*:(\\d+)\\]",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: 'https://github.com/Corsaair/as3shebang',
     },
     'Ada':{
       desc: "Strongly-typed, reliable, and concurrent compiler",
       highlighting:"ada",
       ext: 'adb',
-      kor: '에이다 - gnatmake',
+      kor: '에이다 (gnatmake)',
       template:"ada",
       icon:'mdi-alpha-a-circle-outline',
       command:'gnatmake {ARGS} -q {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+:(\\d+):\\d+: (.*)",
-      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_A)
+      keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_A),
+      dockerImage: '',
+      homepage: 'https://ada-lang.io',
+      repo: 'https://github.com/adacore',
     },
     'Adept':{
       desc: "Concise, statically-typed, functional compiler",
@@ -720,7 +840,10 @@ export const languages =
       command:'/opt/adept/adept {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+?\\.adept:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: 'https://github.com/AdeptLanguage/Adept/wiki',
+      repo: 'https://github.com/AdeptLanguage/Adept',
     },
     'AdvSys':{
       desc: "Writing text adventure games",
@@ -735,7 +858,9 @@ export const languages =
       cli: null,
       errorRegEx: ">>> in line (\\d+) <<<\r\n(.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: 'https://github.com/dbetz/advsys',
     },
     'Agena':{
       desc: "Declarative, rule-based, and relational interpreter",
@@ -747,7 +872,10 @@ export const languages =
       command:'AGENAPATH=/opt/agena/lib /opt/agena/bin/agena {ARGS} {FILENAME}.{EXT}',
       cli: 'export AGENAPATH=/opt/agena/lib\n/opt/agena/bin/agena {ARGS}',
       errorRegEx: ".+?: Error in .+?\\.agn at line (\\d+):\r\n(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: 'https://agena.sourceforge.net',
+      repo: 'https://agena.sourceforge.net/download.html',
     },
     'AFNIX':{
       desc: "Concurrent, modular, dynamic, extensible, high-level",
@@ -759,7 +887,10 @@ export const languages =
       command:'axi {ARGS} {FILENAME}.{EXT}',
       cli: 'axi {ARGS}',
       errorRegEx: ".+?\\.als .+? line (\\d+).*\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Agda':{
       desc: "Proof-assistant, dependently-typed, functional",
@@ -772,7 +903,10 @@ export const languages =
       cli: "agda -I {ARGS}",
       defaultFilename: 'ryugod',
       errorRegEx: ".+?\\.agda:(\\d+),(.+\r\n.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Agora':{
       desc: "Interactive, declarative, and rule-based interpreter",
@@ -784,7 +918,10 @@ export const languages =
       command:'/opt/agora/agora run {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+\\.agora:(\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: 'https://github.com/mna/agora/wiki',
+      repo: 'https://github.com/mna/agora',
     },
     'Aime':{
       desc: "AI-focused, dynamic, and interactive interpreter",
@@ -796,7 +933,10 @@ export const languages =
       command:'aime {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+?: .+?: (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: 'https://sourceforge.net/projects/aime-embedded',
+      repo: 'https://sourceforge.net/projects/aime-embedded/files',
     },
 /*
     'Aith':{
@@ -809,7 +949,10 @@ export const languages =
       command:'aith {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+?\\.ath:(\\d+):\\d+:",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
 */
     'Aku':{
@@ -822,7 +965,10 @@ export const languages =
       command:'akucc {ARGS} {FILENAME}.{EXT} && gcc -o {FILENAME} -I/opt/aku/include -L/opt/aku/lib out{FILENAME}.{EXT}.c -laku && ./{FILENAME}',
       cli: null,
       errorRegEx: "akucc: .+?:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Alan':{
       desc: "Interactive, dynamically-typed, and extensible interpreter",
@@ -834,7 +980,10 @@ export const languages =
       command:'alan compile {ARGS} {FILENAME}.{EXT} {FILENAME}.agc && alan run {FILENAME}.agc',
       cli: null,
       errorRegEx: ".+? line (\\d+):\\d+(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Aldor':{
       desc: "High-level, algebraic, and extensible compiler",
@@ -847,7 +996,10 @@ export const languages =
       command:'/opt/aldor/bin/aldor {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+\\.as\", line (\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Aleph':{
       desc: "Mathematical, high-level, and symbolic interpreter",
@@ -860,7 +1012,10 @@ export const languages =
       command:'rm -f {FILENAME}; /opt/aleph/bin/alephbuild {FILENAME}.{EXT} {ARGS} && ./{FILENAME}',
       cli: null,
       errorRegEx: "E  (\\d+)/(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Algae':{
       desc: "Functional, type-safe, concise, modern, expressive",
@@ -872,7 +1027,10 @@ export const languages =
       command:'/opt/algae/bin/algae {ARGS} {FILENAME}.{EXT}',
       cli: '/opt/algae/bin/algae',
       errorRegEx: "algae: .+?\\.A: line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Algol60':{
       desc: "Structured, procedural, and foundational compiler",
@@ -884,7 +1042,10 @@ export const languages =
       command:'/opt/algol60/bin/jff-algol {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+?, line (\\d+) \\(file .+?\\.alg\\):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Algol68':{
       desc: "Structured, versatile, and extensible compiler",
@@ -896,7 +1057,10 @@ export const languages =
       command:'a68g {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: "(\\d+) +?.*\r\n.*?\r\na68g: .*?: \\d+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Algol W':{
       desc: "Compact, structured, and procedural compiler",
@@ -909,7 +1073,10 @@ export const languages =
       command:'/opt/algolw/bin/awe {ARGS} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+?\\.alw:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Alice':{
       desc: "Educational, functional, and visual compiler",
@@ -921,7 +1088,10 @@ export const languages =
       command:'/opt/alice/bin/alicec {ARGS} {FILENAME}.{EXT} && /opt/alice/bin/alicerun {FILENAME}.alc',
       cli: null,
       errorRegEx: ".+?\\.aml:(\\d+)(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Alma':{
       desc: "Declarative, functional, and modular interpreter",
@@ -933,7 +1103,10 @@ export const languages =
       command:'export ALMA_PATH=/opt/alma/lib\nalma {ARGS} {FILENAME}.{EXT}',
       cli: 'export ALMA_PATH=/opt/alma/lib\nalma',
       errorRegEx: ".+? at line (\\d+)[:.](.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Alore':{
       desc: "Object-oriented, dynamic, and extensible interpreter",
@@ -945,7 +1118,10 @@ export const languages =
       command:'/opt/alore/bin/alorec {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+?\\.alo, line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Alta':{
       desc: "Systems-oriented, statically-typed, and efficient compiler",
@@ -958,7 +1134,10 @@ export const languages =
       command:'genalta {FILENAME} && altac {ARGS} && alta-build/_build/bin/{FILENAME}',
       cli: null,
       errorRegEx: ".+?\\.alta:(\\d+):\\d+(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Alumina':{
       desc: "Type-safe, concurrent, high-performance, lightweight",
@@ -972,7 +1151,9 @@ export const languages =
       cli: null,
       errorRegEx: "error: .+?\r\n  --> .+?\\.alu:(\\d+):\\d+",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Amber':{
       desc: "Object-oriented, dynamic, modular, flexible, modern",
@@ -984,7 +1165,10 @@ export const languages =
       command:'amber {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+?\\.alta:(\\d+):\\d+(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Amiga E':{
       desc: "Procedural, modular, system-oriented, efficient, extensible",
@@ -996,7 +1180,10 @@ export const languages =
       command:'vamos /opt/amiga/EC {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: "ERROR: .+\r\nLINE (\\d+):.+",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Amp':{
       desc: "General-purpose systems language built on modern standards",
@@ -1022,7 +1209,9 @@ export const languages =
       command:'amrit {ARGS} {FILENAME}.{EXT}',
       cli: null,
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Amun':{
       desc: "Statically typed, low level, LLVM, simple, productive",
@@ -1036,7 +1225,9 @@ export const languages =
       cli: null,
       errorRegEx: "ERROR in .+?\\.amun:(\\d+):\\d+",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'AngelScript':{
       desc: "Scripting, C++-integrated, dynamic, flexible, lightweight",
@@ -1048,7 +1239,10 @@ export const languages =
       command:'asrun {ARGS} {FILENAME}.{EXT}',
       cli: '/opt/angelscript/bin/console',
       errorRegEx: ".+?\\.as \\((\\d+), \\d+\\) : ERR  : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Anko':{
       desc: "Scriptable interpreter with syntax similar to Go, Scripting",
@@ -1089,7 +1283,9 @@ export const languages =
       cli: null,
       errorRegEx: "Error: (\\d+):\\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Ape':{
       desc: "Simple, Minimalist, Functional, Educational, Lightweight",
@@ -1102,7 +1298,10 @@ export const languages =
       command:'/opt/ape/bin/ape {FILENAME}.{EXT} {ARGS}',
       cli: '/opt/ape/bin/repl',
       errorRegEx: ".+\\.ape\" on (\\d+):\\d+: .+",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'APL':{
       desc: "Array-oriented, concise, and symbolic interpreter",
@@ -1115,7 +1314,10 @@ export const languages =
       command:'apl {ARGS} -f {FILENAME}.{EXT}',
       cli: 'apl',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'APlus':{
       desc: "Educational, procedural, and interactive interpreter",
@@ -1128,7 +1330,10 @@ export const languages =
       command:'iconv -f utf-8 -t iso-8859-1 {FILENAME}.{EXT} -o {FILENAME}.{EXT} 2> /dev/null\n/opt/aplus/bin/a+ {ARGS} {FILENAME}.{EXT}',
       cli: '/opt/aplus/bin/a+',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Arc':{
       desc: "Minimalist, functional, and expressive interpreter",
@@ -1140,7 +1345,10 @@ export const languages =
       command:'arcadia {ARGS} {FILENAME}.{EXT}',
       cli: 'arcadia {ARGS}',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Arduino':{
       desc: "Italian open-source hardware and software",
@@ -1156,6 +1364,21 @@ export const languages =
       keyBindings: null,
       dockerImage: 'ryusatgat/arduino'
     },
+    'Argon':{
+      desc: "",
+      highlighting:"argon",
+      ext: 'ar',
+      kor: '아르곤',
+      template:"argon",
+      icon:'mdi-gas-cylinder',
+      command:"Argon {ARGS} {FILENAME}.{EXT}",
+      cli: 'Argon',
+      errorRegEx: ".+?column: \\d+, line: (\\d+): (.+)",
+      keyBindings: null,
+      dockerImage: "ryusatgat/argon",
+      homepage: 'https://www.arlang.io',
+      repo: 'https://github.com/ArgonLang/Argon',
+    },
     'Argile':{
       desc: "Declarative, pattern-matching, and modular interpreter",
       highlighting:"argile",
@@ -1166,7 +1389,10 @@ export const languages =
       command:'arc {ARGS} {FILENAME}.{EXT} > {FILENAME}.c && gcc -I/opt/argile/include -L/opt/argile/lib -o {FILENAME} {FILENAME}.c -l:libargrt.a && ./{FILENAME}',
       cli: null,
       errorRegEx: "arc: .+? error: .+?\r\n.*?\r\n.+? at .+? line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Aribas':{
       desc: "Mathematical, Symbolic, Computational, Algebraic, Specialized",
@@ -1179,7 +1405,10 @@ export const languages =
       command:'aribas {ARGS} -b {FILENAME}.{EXT}',
       cli: 'aribas {ARGS}',
       errorRegEx: "error in line <= (\\d+) (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ArkScript':{
       desc: "Scripting, high-level, and flexible interpreter",
@@ -1204,7 +1433,10 @@ export const languages =
       command:'arnoldc {ARGS} {FILENAME}.{EXT} && java {FILENAME}',
       cli: null,
       errorRegEx: ".+\\(line (\\d+), pos \\d+\\)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Arrow':{
       desc: "Dataflow, high-level, and declarative interpreter",
@@ -1216,7 +1448,10 @@ export const languages =
       command:'arrow {ARGS} {FILENAME}.{EXT}',
       cli: 'arrow {ARGS}',
       errorRegEx: "Error: .+?on line number (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Arturo':{
       desc: "Meta-programming, high-level, and extensible compiler",
@@ -1229,7 +1464,10 @@ export const languages =
       command:'arturo {ARGS} {FILENAME}.{EXT}',
       cli: 'arturo {ARGS}',
       errorRegEx: " +error \\| Line: (\\d+)\r\n( +\\| (.*)\r\n)+",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ASP.NET mono':{
       desc: "Cross-platform, web framework, and runtime",
@@ -1243,7 +1481,10 @@ export const languages =
       cli: null,
       defaultFilename: 'index',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'AspectC++':{
       desc: "Aspect-oriented, C++-based, and modular compiler",
@@ -1256,7 +1497,10 @@ export const languages =
       command:"ag++ -o {FILENAME} {FILENAME}.{EXT} {ARGS} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.cc:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'AspectJ':{
       desc: "Aspect-oriented, Java-based, and modular compiler",
@@ -1269,7 +1513,10 @@ export const languages =
       cli: null,
       defaultFilename: 'Main',
       errorRegEx: ".+?\\.aj:(\\d+) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ASPL':{
       desc: "Simple, safe, cross platform, modular",
@@ -1283,7 +1530,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.aspl:(\\d+):\\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Assembly(MC68K)':{
       desc: "Low-level, Motorola 68k-specific, and efficient",
@@ -1295,7 +1544,10 @@ export const languages =
       command:'vamos /opt/amiga/a68k {ARGS} {FILENAME}.{EXT} && vamos /opt/amiga/blink {FILENAME}.o && vamos {FILENAME}',
       cli: null,
       errorRegEx: ".+?\\.s line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Assembly(x86)':{
       desc: "Low-level, x86-specific, and efficient",
@@ -1308,7 +1560,10 @@ export const languages =
       command:'nasm {ARGS} {FILENAME}.{EXT} && ld -s -o {FILENAME} {FILENAME}.o && ./{FILENAME}',
       cli: null,
       errorRegEx: ".*?:(\\d+): \\w+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'Asymptote':{
       desc: "Graphical, Scripting, Vector-based, Mathematical, Document-oriented",
@@ -1321,7 +1576,10 @@ export const languages =
       command:'/opt/asy/bin/asy {ARGS} {FILENAME}.{EXT} && ( [ -f {FILENAME}.svg ] && imshow {FILENAME}.svg && rm -f {FILENAME}.svg )',
       cli: '/opt/asy/bin/asy {ARGS}',
       errorRegEx: ".+?\\.asy: (\\d+)\\.\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ATS':{
       desc: "Statically-typed, Functional, Imperative, High-performance, Type-safe",
@@ -1333,7 +1591,10 @@ export const languages =
       command:'patscc {ARGS} -o {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+?\\.dats: \\d+\\(line=(\\d+), offs=\\d+\\) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Avalon':{
       desc: "Declarative, UI-focused, XAML-based, Component-oriented, Microsoft",
@@ -1345,7 +1606,10 @@ export const languages =
       command:'AVALON_HOME=/opt/avalon/sdk /opt/avalon/bin/avaloni {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+?\\.avl:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'AviatorScript':{
       desc: "Lightweight, high performance scripting language hosted on the JVM",
@@ -1371,7 +1635,10 @@ export const languages =
       command:'awk {ARGS}',
       cli: null,
       errorRegEx: "\\w+?: .+?: line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Aument':{
       desc: "Dynamically-typed, scripting, simple, easy to use",
@@ -1385,7 +1652,9 @@ export const languages =
       cli: null,
       errorRegEx: '(\\d+) \\| (.+)',
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'AutoHotKey':{
       desc: "Pattern-matching, text-processing, and scripting",
@@ -1397,7 +1666,10 @@ export const languages =
       command:'([ -f /tmp/xvfb.pid ] || (/etc/init.d/xvfb start && sleep 2)) && DISPLAY=:0 WINEPATH=C:\\\\AutoHotKey wine Ahk2Exe.exe /in {FILENAME}.{EXT} /out {FILENAME}.exe {ARGS} && imshow ./{FILENAME}.exe',
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'AutoIt':{
       desc: "Scripting, automation, and Windows-focused",
@@ -1410,7 +1682,10 @@ export const languages =
       command:'WINEPATH=C:\\\\Autoit wine Au3Check.exe {FILENAME}.{EXT} && WINEPATH=C:\\\\Autoit\\\\Aut2Exe wine Aut2exe.exe /in {FILENAME}.{EXT} /out {FILENAME}.exe {ARGS} && imshow ./{FILENAME}.exe',
       cli: null,
       errorRegEx: ".*?\\((\\d+),\\d+\\) : (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'B':{
       desc: "Simple, procedural, and early programming language",
@@ -1422,7 +1697,10 @@ export const languages =
       command:'rm -f {FILENAME} && ybc {ARGS} -o `pwd`/{FILENAME} `pwd`/{FILENAME}.{EXT} && [ -f {FILENAME} ] && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+?\\.b\\] at line (\\d+), (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Bacon':{
       desc: "Simple, data-driven, and extensible scripting",
@@ -1435,7 +1713,10 @@ export const languages =
       command:'bacon {ARGS} {FILENAME} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+?: .+? line (\\d+) in file .+?\\.bac: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Baik':{
       desc: "Concise, modern, statically-typed, expressive, efficient",
@@ -1447,7 +1728,10 @@ export const languages =
       command:'baik {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: "Program Utama : .+? (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Barn':{
       desc: "Simple, efficient",
@@ -1460,7 +1744,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+\\.ba:(\\d+):\\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Ballerina':{
       desc: "Concurrent, integration-focused, expressive, type-safe, declarative",
@@ -1473,7 +1759,10 @@ export const languages =
       command:'/opt/ballerina/bin/bal {ARGS}',
       cli: '/opt/ballerina/bin/bal shell',
       errorRegEx: ".+\\.bal:\\((\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Bas':{
       desc: "Procedural, simple, educational, legacy, intuitive",
@@ -1486,7 +1775,10 @@ export const languages =
       command:'/opt/bas/bin/bas {ARGS} {FILENAME}.{EXT}',
       cli: '/opt/bas/bin/bas {ARGS}',
       errorRegEx: "Error: .+? in line (\\d+) at:\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'BASIC':{
       desc: "Simple, procedural, and beginner-friendly interpreter",
@@ -1499,7 +1791,10 @@ export const languages =
       command:'fbc {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".*?\\((\\d+)\\) (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },   
     'Battlestar':{
       desc: "Game-oriented, scripting, dynamic, flexible, interactive",
@@ -1512,7 +1807,10 @@ export const languages =
       command:'bts {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Bau':{
       desc: "simple, concise, safe, powerful and fast, memory-safe, statically typed",
@@ -1552,7 +1850,10 @@ export const languages =
       command:'bc {ARGS} < {FILENAME}.{EXT}',
       cli: "bc {ARGS}",
       errorRegEx: "\\(.+?\\) (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'BCPL':{
       desc: "Simple, procedural, and system-oriented compiler",
@@ -1564,7 +1865,10 @@ export const languages =
       command:'source /opt/BCPL/setbcplenv && echo -e "c b64 {FILENAME}\n{FILENAME}\n" > {FILENAME}.in && cintsys64  {ARGS} < {FILENAME}.in',
       cli: "bcpl {ARGS}",
       errorRegEx: "Error .+?\\[(\\d+)\\]: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Bean':{
       desc: "Lightweight, Java-based, and modular compiler",
@@ -1576,7 +1880,10 @@ export const languages =
       command:'/opt/bean/bean {ARGS} {FILENAME}.{EXT}',
       cli: "/opt/bean/bean",
       errorRegEx: ".+?\\.bn:(\\d+) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'BeanShell':{
       desc: "Scripting, lightweight, and Java-compatible interpreter",
@@ -1588,7 +1895,10 @@ export const languages =
       command:'/opt/beanshell/bsh {ARGS} {FILENAME}.{EXT}',
       cli: "/opt/beanshell/bsh",
       errorRegEx: ".+?Error: .+? at [lL]ine:? (\\d+)[, ](.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Befunge':{
       desc: "Esoteric, two-dimensional, stack-based, minimalistic, unconventional",
@@ -1601,7 +1911,10 @@ export const languages =
       command:'bef {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Bend':{
       desc: "High-level, massively parallel, HVM, CUDA",
@@ -1628,7 +1941,10 @@ export const languages =
       command:'berry {ARGS} {FILENAME}.{EXT}',
       cli: 'berry',
       errorRegEx: ".+?\\.be:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Beryl':{
       desc: "Small, embeddable scripting, executes directly",
@@ -1641,7 +1957,9 @@ export const languages =
       cli: null,
       errorRegEx: null, // not supported
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Bhuna':{
       desc: "Functional, high-level, and concurrent interpreter",
@@ -1653,7 +1971,10 @@ export const languages =
       command:'bhuna {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+ \\(line (\\d+), (column \\d+.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Bimble':{
       desc: "Procedural, simplicity, modern, enjoyable, user-friendly",
@@ -1666,7 +1987,9 @@ export const languages =
       cli: null,
       errorRegEx: "",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Bite':{
       desc: "Dynamically typed, object oriented, written in C#.",
@@ -1693,7 +2016,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+\\.bl BL_LINE#(\\d+) BL_LINE_COL#\\d+ (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Blade':{
       desc: "Staged, Compiled, Embedded, Efficient, DSL",
@@ -1731,7 +2056,10 @@ export const languages =
       command:'blossom {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+?\\.bls:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Blue':{
       desc: "Concise, modern, high-level, expressive, flexible",
@@ -1743,7 +2071,10 @@ export const languages =
       command:'blue {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+?\r\n(?:.+?\\.bl +?)?line: ?(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Bluespec':{
       desc: "Hardware-oriented, high-level, declarative, concurrent, expressive",
@@ -1755,7 +2086,10 @@ export const languages =
       command:'/opt/bluespec/bin/bsc {ARGS} -verilog {FILENAME}.{EXT} && /opt/bluespec/bin/bsc -o {FILENAME} -e {FILENAME}_module {FILENAME}_module.v && ./{FILENAME}',
       cli: null,
       errorRegEx: "Error: .+?, line (\\d+), .*?\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Bob':{
       desc: "Declarative, rule-based, and interactive interpreter",
@@ -1767,7 +2101,10 @@ export const languages =
       command:'bob {ARGS} {FILENAME}.{EXT}',
       cli: 'bob',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Bone Lisp':{
       desc: "Minimalistic, Lisp-based, dynamic, extensible, simple",
@@ -1779,7 +2116,10 @@ export const languages =
       command:'cd /opt/bone\n/opt/bone/bone {ARGS} ${OLDPWD}/{FILENAME}.{EXT} ; cd - > /dev/null',
       cli: 'cd /opt/bone\n/opt/bone/bone ; cd - > /dev/null',
       errorRegEx: ".+?\\.bn\":(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Boo':{
       desc: "Object-oriented, dynamic, statically-typed, concise, flexible",
@@ -1791,7 +2131,10 @@ export const languages =
       command:'booi {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+\\((\\d+),\\d+\\): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'Borland C++':{
       desc: "Integrated, efficient, object-oriented, legacy, compiled",
@@ -1804,7 +2147,10 @@ export const languages =
       command:'WINEPATH=C:\\\\bcc55\\\\Bin wine bcc32 {ARGS} {FILENAME}.{EXT} && wine ./{FILENAME}.exe',
       cli: null,
       errorRegEx: ".*? (\\d+): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Borealis':{
       desc: "High-level, concurrent, modular, extensible",
@@ -1817,7 +2163,10 @@ export const languages =
       command:'borealis {ARGS}',
       cli: null,
       errorRegEx: ".+?: .+\r\nLine: (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Boron':{
       desc: "Lightweight, scripting, dynamic, flexible, modern",
@@ -1829,7 +2178,10 @@ export const languages =
       command:'boron {ARGS} {FILENAME}.{EXT}',
       cli: 'boron',
       errorRegEx: ".+?: .+? \\(line (\\d+)\\)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Boson':{
       desc: "Functional, concurrent, type-safe, modern, expressive",
@@ -1841,7 +2193,10 @@ export const languages =
       command:'/opt/boson/boson {FILENAME}.{EXT} && gcc -o {FILENAME} {FILENAME}.o /opt/boson/startupscript.o && ./{FILENAME}',
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'BrainFuck':{
       desc: "Esoteric, minimalist, Turing-complete, challenging, low-level",
@@ -1853,7 +2208,10 @@ export const languages =
       command:'bf {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Brandy':{
       desc: "Interpreter for BBC Basic",
@@ -1867,7 +2225,9 @@ export const languages =
       cli: 'brandy',
       errorRegEx: '[lL]ine (\\d+)',
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Brat':{
       desc: "Dynamic, prototype-based, minimalistic, scripting, flexible",
@@ -1879,7 +2239,10 @@ export const languages =
       command:'brat {ARGS} {FILENAME}.{EXT}',
       cli: "brat {ARGS}",
       errorRegEx: ".+? on line (\\d+)(:)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Buzz':{
       desc: "Esoteric, minimalist, stack-based, experimental, unconventional",
@@ -1891,7 +2254,10 @@ export const languages =
       command:'bzzc {ARGS} {FILENAME}.{EXT} && bzzrun {FILENAME}.bo {FILENAME}.bdb',
       cli: null,
       errorRegEx: ".+?\\.bzz:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Bywater BASIC':{
       desc: "Simple, educational, procedural, interpreted, interactive",
@@ -1903,7 +2269,10 @@ export const languages =
       command:'bwbasic {ARGS} {FILENAME}.{EXT}',
       cli: 'bwbasic {ARGS}',
       errorRegEx: "Program Utama : .+? (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'C2':{
       desc: "Minimalistic, procedural, concise, lightweight, efficient",
@@ -1915,7 +2284,10 @@ export const languages =
       command:'/opt/c2/bin/gen_recipe {FILENAME} && C2_LIBDIR=/opt/c2/lib /opt/c2/bin/c2c {ARGS} && output/{FILENAME}/{FILENAME}',
       cli: null,
       errorRegEx: ".+?\\.c2:(\\d+):\\d+: error: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'C3':{
       desc: "Concise, functional, modern, expressive, dynamic, C-like",
@@ -1929,7 +2301,9 @@ export const languages =
       cli: null,
       errorRegEx: "\\(.+?\\.c3:(\\d+)\\) Error: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Caboose':{
       desc: "Concise, expressive, functional, modular, high-level",
@@ -1941,7 +2315,10 @@ export const languages =
       command:'cb {ARGS} {FILENAME}.{EXT}',
       cli: 'cb {ARGS}',
       errorRegEx: "\\[line (\\d+)\\] Error(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'CakeLisp':{
       desc: "High performance, iteratively-developed, inspiration from Lisp",
@@ -1955,7 +2332,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.cake:(\\d+):\\d+: error: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Calc4':{
       desc: "Everything in its code is an operator",
@@ -1969,7 +2348,9 @@ export const languages =
       cli: 'calc4',
       errorRegEx: ".+?\\.calc4:(\\d+):\\d+: Error: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'CAML':{
       desc: "Functional, type-safe, expressive, concise, powerful",
@@ -2020,7 +2401,10 @@ export const languages =
       command:'CARP_DIR=/opt/carp /opt/carp/bin/carp {ARGS} -x {FILENAME}.{EXT}',
       cli: "CARP_DIR=/opt/carp /opt/carp/bin/carp {ARGS}",
       errorRegEx: ".+? at .+?\\.carp:(\\d+):(\\d+.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'Castile':{
       desc: "Object-oriented, type-safe, modular, expressive, modern",
@@ -2031,7 +2415,10 @@ export const languages =
       icon:'mdi-map-legend',
       command:'castile {ARGS} {FILENAME}.{EXT}',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ceu':{
       desc: "Concurrent, reactive, event-driven, deterministic, high-level",
@@ -2044,7 +2431,10 @@ export const languages =
       command:'/opt/ceu/bin/ceuc {FILENAME}.{EXT} {ARGS} && ./{FILENAME}',
       cli: null,
       errorRegEx: "ERR : .+? : line (\\d+) : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     }, 
     'Ceylon':{
       desc: "Modular, type-safe, expressive, JVM-compatible, concise",
@@ -2058,7 +2448,10 @@ export const languages =
       cli: null,
       defaultFilename: 'Main',
       errorRegEx: ".+?:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'ChaiScript':{
       desc: "Embedded, scripting, C++-integrated, dynamic, expressive",
@@ -2070,7 +2463,10 @@ export const languages =
       command:'chai {ARGS} {FILENAME}.{EXT}',
       cli: "chai {ARGS}",
       errorRegEx: "Error: .+? \\(.*?(\\d+), \\d+\\)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Chaos':{
       desc: "Esoteric, Minimalistic, Unconventional, Turing-complete, Obfuscated",
@@ -2082,7 +2478,10 @@ export const languages =
       command:'chaos {ARGS} {FILENAME}.{EXT}',
       cli: "chaos",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Chapel':{
       desc: "Concurrent, parallel, high-level, scalable, expressive",
@@ -2095,7 +2494,10 @@ export const languages =
       command:'/opt/chapel/bin/chpl {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+\\.chpl:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Chipmunk Basic':{
       desc: "Simple, educational, procedural, interpreted, interactive",
@@ -2107,7 +2509,10 @@ export const languages =
       command:'basic {ARGS} {FILENAME}.{EXT}',
       cli: "basic {ARGS}",
       errorRegEx: ".+ line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Cheddar':{
       desc: "Type-safe, functional, statically-typed, expressive, concise",
@@ -2119,7 +2524,10 @@ export const languages =
       command:'cheddar {ARGS} {FILENAME}.{EXT}',
       cli: "cheddar",
       errorRegEx: ".+? at (\\d+):(\\d+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Chef':{
       desc: "Esoteric, playful, code-as-recipe, minimalistic, unconventional",
@@ -2130,7 +2538,10 @@ export const languages =
       icon:'mdi-chef-hat',
       command:'rchef {ARGS} {FILENAME}.{EXT}',
       errorRegEx: "\\[line (\\d+)\\] runtime error: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ChibiScheme':{
       desc: "Small library intended for use as an extension and scripting language",
@@ -2184,7 +2595,10 @@ export const languages =
       command:'/opt/chuck/chuck {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: "\\[.+?\\.ck\\]:line\\((\\d+)\\)(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ciao':{
       desc: "Logic-based, declarative, multi-paradigm, flexible, extensible",
@@ -2210,7 +2624,10 @@ export const languages =
       command:"ilasm {FILENAME}.{EXT} -out:{FILENAME}.exe && mono {FILENAME}.exe",
       cli: null,
       errorRegEx: ".+?\\((\\d+), \\d+\\) : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Circle':{
       desc: "Functional, statically-typed, concise, expressive, modern",
@@ -2222,7 +2639,10 @@ export const languages =
       command:"circle {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+\\.cxx:(\\d+):(\\d+).*\r\n.+",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Cish':{
       desc: "Minimal, performant, strongly-typed, multi-paradigmn",
@@ -2236,7 +2656,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.cish: row (\\d+), col \\d+",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Citrine':{
       desc: "Concise, dynamic, object-oriented, expressive, modern",
@@ -2249,7 +2671,10 @@ export const languages =
       command:"/opt/citrine/bin/ctren {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? \\( ?.+\\.ctr: (\\d+) ?\\)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Citron':{
       desc: "Statically-typed, object-oriented, expressive, concise, modern",
@@ -2262,7 +2687,10 @@ export const languages =
       command:"/opt/citron/bin/ctr {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? \\(.+\\.ctr: (\\d+)\\)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Clean':{
       desc: "Functional, lazy, pure, statically-typed, concise",
@@ -2275,7 +2703,10 @@ export const languages =
       command:'ln -sfT /opt/clean clean\nclean/bin/clm {ARGS} {FILENAME} -o {FILENAME} && ./{FILENAME}',
       cli: null,
       errorRegEx: "(?:Parse )?[Ee]rror \\[.+?\\.icl,(\\d+).*?\\]: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Clipper(harbour)':{
       desc: "Procedural, database-oriented, compiled, legacy, efficient",
@@ -2289,7 +2720,10 @@ export const languages =
       cli: null,
       defaultFilename: 'program',
       errorRegEx: ".+?\\.prg\\((\\d+)\\) Error (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'CLIPS':{
       desc: "Rule-based, expert-system, declarative, logical, extensible",
@@ -2302,7 +2736,10 @@ export const languages =
       command:'/opt/clips/clips {ARGS} {FILENAME}.{EXT}',
       cli: '/opt/clips/clips',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Clojure':{
       desc: "Functional, immutable, Lisp-based, concurrent, expressive",
@@ -2314,7 +2751,10 @@ export const languages =
       command:'clojure {ARGS} {FILENAME}.{EXT}',
       cli: "clojure {ARGS}",
       errorRegEx: ".*?\\(.*?:(\\d+)\\:(\\d+)\\).",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'CLox':{
       desc: "ByteCode VM, lox implementation, stacked based, on-demand scanner",
@@ -2327,7 +2767,9 @@ export const languages =
       cli: "CLox",
       errorRegEx: "\\[line (\\d+)\\] Error at (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Clover':{
       desc: "Type-safe, functional, modular, concise, expressive",
@@ -2339,7 +2781,10 @@ export const languages =
       command:'/opt/clover/bin/cclover {ARGS} {FILENAME}.{EXT} && /opt/clover/bin/clover {ARGS} {FILENAME}.{EXT}',
       cli: "/opt/clover/bin/iclover",
       errorRegEx: ".+?\\.cl (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Clue':{
       desc: "Fast, simple, Lua",
@@ -2353,7 +2798,9 @@ export const languages =
       cli: null,
       errorRegEx: "Error in .+?\\.clue:(\\d+):\\d+!\r\n(.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Cobol':{
       desc: "Business-oriented, procedural, verbose, legacy, structured",
@@ -2365,7 +2812,10 @@ export const languages =
       command:'cobc {ARGS} -x {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".*?: (\\d+): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'CobolScript':{
       desc: "Business-oriented, procedural, scripting, legacy, verbose",
@@ -2377,7 +2827,10 @@ export const languages =
       command:'node /opt/cobolscript/run {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".*?: (\\d+): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Cobra':{
       desc: "Object-oriented, statically-typed, expressive, concurrent, dynamic",
@@ -2390,7 +2843,10 @@ export const languages =
       command:'export MONO_PATH=/opt/cobra && cobra {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+?\\((\\d+)(?:,\\d+)?\\): error: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Coco':{
       desc: "Object-oriented, modular, statically-typed, concise, structured",
@@ -2402,7 +2858,10 @@ export const languages =
       command:'coco {ARGS} {FILENAME}.{EXT}',
       cli: "coco {ARGS}",
       errorRegEx: ".*?:(\\d+):\\d+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Coconut':{
       desc: "Functional, Python-based, expressive, concise, pattern-matching",
@@ -2414,7 +2873,10 @@ export const languages =
       command:"coconut {ARGS} {FILENAME}.{EXT} && python3 {FILENAME}.py",
       cli: 'coconut {ARGS}',
       errorRegEx: ".+?: .+? \\(line (\\d+)\\)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Cod':{
       desc: "concatenative, stack-based, written in python",
@@ -2428,7 +2890,9 @@ export const languages =
       cli: null,
       errorRegEx: null, // not supported
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'CoffeeScript':{
       desc: "Concise, expressive, JavaScript-compiled, readable, syntactic",
@@ -2455,7 +2919,9 @@ export const languages =
       cli: null,
       errorRegEx: null,
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Colm':{
       desc: "Pattern-based, declarative, efficient, versatile, extensible",
@@ -2480,7 +2946,10 @@ export const languages =
       command:'echo -e "save \\"{FILENAME}.cml\\"\nbye" >> {FILENAME}.{EXT} && /opt/opencomal/bin/opencomal {ARGS} < {FILENAME}.{EXT} | head -n -1 && /opt/opencomal/bin/opencomalrun {FILENAME}.cml | head -n -1',
       cli: "/opt/opencomal/bin/opencomal {ARGS}",
       errorRegEx: ".*?:(\\d+):\\d+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Commodore BASIC':{
       desc: "Simple, interactive, procedural, educational, vintage",
@@ -2492,7 +2961,10 @@ export const languages =
       command:'/opt/cbmbasic/cbmbasic {ARGS} {FILENAME}.{EXT}',
       cli: "/opt/cbmbasic/cbmbasic",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'CommonLisp':{
       desc: "Powerful, dynamic, functional, extensible, multi-paradigm",
@@ -2503,7 +2975,10 @@ export const languages =
       icon:'mdi-code-parentheses',
       command:"clisp {ARGS} {FILENAME}.{EXT}",
       cli: "clisp {ARGS}",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Cone':{
       desc: "Concise, functional, statically-typed, modern, expressive",
@@ -2515,7 +2990,10 @@ export const languages =
       command:'conec {ARGS} {FILENAME}.{EXT} && gcc -static -o {FILENAME} {FILENAME}.o /opt/local/lib/libconestd.a && ./{FILENAME}',
       cli: null,
       errorRegEx: "Error .+\r\n.+\r\n.+?\\.cone:(\\d+):(\\d+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Conure':{
       desc: "Dynamic, object-oriented, concise, modern, expressive",
@@ -2527,7 +3005,10 @@ export const languages =
       command:'conure {ARGS} {FILENAME}.{EXT}',
       cli: 'conure',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Cor':{
       desc: "Concise, expressive, functional, dynamic, modern",
@@ -2540,7 +3021,10 @@ export const languages =
       command:'cor {ARGS} {FILENAME}.{EXT}',
       cli: 'cor',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Core':{
       desc: "Modern, minimal, simplicity, readability, modifiability, stability",
@@ -2553,7 +3037,9 @@ export const languages =
       cli: null,
       errorRegEx: "error in .+?\\.dora\" at (\\d+):\\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'CoreScript':{
       desc: "Versatile, scripting, dynamic, extensible, high-level",
@@ -2565,7 +3051,10 @@ export const languages =
       command:"/opt/corescript/corescript {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/corescript/corescript {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Cotowali':{
       desc: "Static, scripting, transpiled into shell script",
@@ -2592,7 +3081,9 @@ export const languages =
       cli: 'cs {ARGS}',
       errorRegEx: "File .+?, line (\\d+): (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'CppScript':{
       desc: "Embedded, C++-based, scripting, flexible, dynamic",
@@ -2604,7 +3095,10 @@ export const languages =
       command:"cpps {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? line: ?(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Crafting':{
       desc: "Dynamic-typing, general-purpose, interpreter",
@@ -2617,7 +3111,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+? at 'Line (\\d+) (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Creed':{
       desc: "Text processing script, inspired by ed and sam",
@@ -2630,7 +3126,9 @@ export const languages =
       cli: 'creed {ARGS}',
       errorRegEx: ",token\\((\\d+):\\d+: (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Cricket':{
       desc: "Functional, object-oriented",
@@ -2644,7 +3142,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?:(\\d+):\\d+`.",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Cript':{
       desc: "simple and lightweight script language",
@@ -2671,7 +3171,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+? @ Line (\\d+): (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Crystal':{
       desc: "Fast, statically-typed, compiled, expressive, modern",
@@ -2683,7 +3185,10 @@ export const languages =
       command:'crystal {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".*?:(\\d+):\\d+.*?\r\n\r\n.+\\d+ .+?\r\n.+?\r\n(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'CUPL/CORC':{
       desc: "Hardware-oriented, minimalistic, assembly-like, concise, low-level",
@@ -2695,7 +3200,10 @@ export const languages =
       args: "{FILENAME}.{EXT}",
       command:'/opt/cupl/cupl {ARGS}',
       errorRegEx: ".+?: line (\\d+), (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'CupScript':{
       desc: "Simple scripting, for fun",
@@ -2719,7 +3227,10 @@ export const languages =
       command:'curry {ARGS} :compile {FILENAME} :eval {FILENAME} :quit',
       cli: 'curry {ARGS}',
       errorRegEx: ".+\\.curry:(\\d+):\\d+(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Curry(Sloth)':{
       desc: "Functional, declarative, logic-based, higher-order, expressive",
@@ -2732,7 +3243,10 @@ export const languages =
       cli: "sloth -i {ARGS}",
       defaultFilename: 'Main',
       errorRegEx: "Parser error in: line\\((\\d+)\\)(.+\r\n.+\r\n.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Curv':{
       desc: "3D, graphics, simple, powerful, dynamically typed, pure functional",
@@ -2758,7 +3272,9 @@ export const languages =
       cli: 'cyber {ARGS}',
       errorRegEx: ".+?\\.cy:(\\d+):\\d+:\r\n(.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'D(Digital Mars)':{
       desc: "Minimalistic, expressive, dynamic, concise, modern",
@@ -2771,7 +3287,10 @@ export const languages =
       command:"/opt/dmd/linux/bin64/dmd {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.d\\((\\d+)\\): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'D(GNU)':{
       desc: "Minimalistic, expressive, dynamic, concise, modern",
@@ -2784,7 +3303,10 @@ export const languages =
       command:"gdc {ARGS} -o {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.d:(\\d+):\\d+: error: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'D(LLVM)':{
       desc: "Minimalistic, expressive, dynamic, concise, modern",
@@ -2797,7 +3319,10 @@ export const languages =
       command:"ldc2 {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.d\\((\\d+)\\): (Error: .+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'D2':{
       desc: "Diagrammatic, declarative, visual, concise, flexible",
@@ -2809,7 +3334,10 @@ export const languages =
       command:"d2 {FILENAME}.{EXT} && imshow {FILENAME}.svg",
       cli: null,
       errorRegEx: ".*?err.*?: .+?: (\\d+):\\d+:(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Dassie':{
       desc: "Concise, simple, object-oriented, functional, .NET CRL",
@@ -2835,7 +3363,10 @@ export const languages =
       command:"dafny {ARGS} {FILENAME}.{EXT} && mono ./{FILENAME}.exe",
       cli: null,
       errorRegEx: ".+?\\((\\d+),\\d+\\): Error: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Dale':{
       desc: "S-expressions, no GC, local type deduction, compiler ",
@@ -2861,7 +3392,10 @@ export const languages =
       command:'dart {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+?:(\\d+):\\d+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Dao':{
       desc: "Dao",
@@ -2873,7 +3407,10 @@ export const languages =
       command:"/opt/dao/bin/dao {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "  At line (\\d+) : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'daScript':{
       desc: "Dynamic, versatile, concise, scripting, high-level",
@@ -2885,7 +3422,10 @@ export const languages =
       command:"daScript {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "\\d+:(\\d+) - \\d+:\\d+\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'DayBreak':{
       desc: "Compiles to C",
@@ -2899,7 +3439,9 @@ export const languages =
       cli: null,
       errorRegEx: null,
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'DDP':{
       desc: "Structured, German-based, procedural, educational, simple",
@@ -2913,7 +3455,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.ddp \\(Z: (\\d+), S: \\d+\\)\r\n\r\n.*?\r\n.*\r\n\r\n.*",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },    
     'DoKev':{
       desc: "Concise, expressive, functional, modern, lightweight",
@@ -2924,7 +3468,10 @@ export const languages =
       icon:'mdi-sword',
       command:"/opt/DoKev/build.sh {FILENAME}",
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Dictu':{
       desc: "Scripting, dynamic, simple, extensible, modern",
@@ -2936,7 +3483,10 @@ export const languages =
       command:"/opt/dictu/bin/dictu {ARGS} {FILENAME}.{EXT}",
       cli: '/opt/dictu/bin/dictu {ARGS}',
       errorRegEx: ".+\\.du',.*?line (\\d+).*\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Dino':{
       desc: "Simple, minimalistic, statically-typed, efficient, functional",
@@ -2948,7 +3498,10 @@ export const languages =
       command:"/opt/dino/bin/dino {ARGS} {FILENAME}.{EXT}",
       cli: '/opt/dino/bin/dino {ARGS}',
       errorRegEx: ".+?.d:(\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'DogeScript':{
       desc: "Fun, minimalistic, quirky, scripting, playful",
@@ -2960,7 +3513,10 @@ export const languages =
       command:"dogescript {ARGS} {FILENAME}.{EXT} | node",
       cli: "dogescript {ARGS}",
       errorRegEx: ".+:(\\d+)\r\n.+\r\n.+\r\n\r\n(.+)\r\n",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Dragon':{
       desc: "Extensible, modular, high-level, dynamic, expressive",
@@ -2972,7 +3528,10 @@ export const languages =
       command:"dragon {ARGS} {FILENAME}.{EXT}",
       cli: "dragon {ARGS}",
       errorRegEx: "\\[.+?\\.drg\\] \\[Line: (\\d+)\\] (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Drift':{
       desc: "Minimalist grammar, frame and stack structure interpreter",
@@ -2985,7 +3544,9 @@ export const languages =
       cli: "drift {ARGS}",
       errorRegEx: ".+?\\.ft:(\\d+)(.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Duck':{
       desc: "Dynamic, lightweight, flexible, scripting, easy",
@@ -2997,7 +3558,10 @@ export const languages =
       command:"/opt/duck/bin/duck {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/duck/bin/duck {ARGS}",
       errorRegEx: ".+?on line (\\d+)(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'DuckScript':{
       desc: "Scripting, dynamic, lightweight, flexible, simple",
@@ -3009,7 +3573,10 @@ export const languages =
       command:"duck {ARGS} {FILENAME}.{EXT}",
       cli: "duck",
       errorRegEx: "Error: .+\\.ds Line: (\\d+)(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'Dylan':{
       desc: "Dynamic, multi-paradigm, expressive, object-oriented, functional",
@@ -3022,7 +3589,10 @@ export const languages =
       cli: "dylan-compiler {ARGS}",
       defaultFilename: 'ryugod',
       errorRegEx: ".+:(\\d+)\\.\\d+-\\d+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Dyon':{
       desc: "Dynamically typed, scripting",
@@ -3036,7 +3606,9 @@ export const languages =
       defaultFilename: 'ryugod',
       errorRegEx: "(\\d+),\\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'E':{
       desc: "Concise, functional, expressive, efficient, modern",
@@ -3048,7 +3620,10 @@ export const languages =
       command:'rune {ARGS} {FILENAME}.{EXT}',
       cli: "rune {ARGS}",
       errorRegEx: "# +@ <.+?\\w+::(\\d+):(\\d+)::\\d+:\\d+>",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'EasyLang':{
       desc: "Simple, readable, intuitive, beginner-friendly, high-level",
@@ -3060,7 +3635,10 @@ export const languages =
       command:'EasyLang {ARGS} {FILENAME}.{EXT}',
       cli: "EasyLang {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'eC':{
       desc: "C-like, embedded, object-oriented, efficient, compact",
@@ -3072,7 +3650,10 @@ export const languages =
       command:'mk_epj {FILENAME}\nepj2make {FILENAME}.epj && make -f {FILENAME}-Release.Makefile > /dev/null && obj/release.linux/{FILENAME}',
       cli: null,
       errorRegEx: ".+?\\.ec:(\\d+):\\d+: error: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ecla':{
       desc: "Simple, effortless, interpreted",
@@ -3085,7 +3666,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.ec:(\\d+):\\d+: error: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'EGA':{
       desc: "Declarative, logic-based, constraint-oriented, flexible, modular",
@@ -3097,7 +3680,10 @@ export const languages =
       command:'ega {ARGS} {FILENAME}.{EXT}',
       cli: "ega",
       errorRegEx: ".+? at Line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Egel':{
       desc: "untyped, concurrent, functional, scripting",
@@ -3122,7 +3708,10 @@ export const languages =
       command:'egison {ARGS} {FILENAME}.{EXT}',
       cli: "egison {ARGS}",
       errorRegEx: "./*?: egison:(\\d+):(\\d+):\r\n(.+\r\n)+",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Elan':{
       desc: "Functional, concise, type-safe, expressive, efficient",
@@ -3135,7 +3724,10 @@ export const languages =
       command:'/opt/elan/bin/elancc {ARGS}',
       cli: null,
       errorRegEx: ".+? in file .+?\\.e, line (\\d+), (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'elastiC':{
       desc: "Flexible, dynamic, extensible, modular, expressive",
@@ -3147,7 +3739,10 @@ export const languages =
       command:'/opt/elastic/bin/ec {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: "ERROR: \\(LINE: (\\d+), COLUMN: \\d+\\): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Electra':{
       desc: "Esolang, like an electrician, inspired by AsciiDots",
@@ -3172,7 +3767,10 @@ export const languages =
       command:'mkelena {FILENAME} && elena-lc {ARGS} {FILENAME}.project && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+?\\((\\d+):\\d+\\): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Element':{
       desc: "Prototype-based, object-oriented, scripting, VM",
@@ -3185,7 +3783,9 @@ export const languages =
       cli: "element",
       errorRegEx: ".+?\\((\\d+):\\d+\\): (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Elm':{
       desc: "Functional, Immutable, Reactive, Strongly-typed, Safe",
@@ -3198,7 +3798,10 @@ export const languages =
       command:'echo Y|elm init 2> /dev/null; elm make {ARGS} {FILENAME}.{EXT} && imshow index.html',
       cli: "elm repl",
       errorRegEx: "(\\d+)\\| .+?\r\n  .+?\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Elixir':{
       desc: "Concurrent, functional, scalable, fault-tolerant, modern",
@@ -3210,7 +3813,10 @@ export const languages =
       command:'elixir {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: "\\*\\* \\(\\w+\\) .+?:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'EMacs Lisp':{
       desc: "Extensible, programmable, dynamic, flexible, Lisp-based",
@@ -3222,7 +3828,10 @@ export const languages =
       args: "--no-site-file",
       command:'emacs {ARGS} --script {FILENAME}.{EXT}',
       cli: "emacs {ARGS} --execute '(ielm)'",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Emerald':{
       desc: "Object-oriented, concurrent, modular, reflective, type-safe",
@@ -3234,7 +3843,10 @@ export const languages =
       command:'export EMERALDROOT=/opt/emerald\nec {FILENAME}.{EXT} && emx {ARGS} {FILENAME}.x',
       cli: null,
       errorRegEx: '".+?\\.m", line (\\d+): (.+)',
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Emo':{
       desc: "Concise, expressive, visual, dynamic, playful",
@@ -3246,7 +3858,10 @@ export const languages =
       command:"emo {ARGS} {FILENAME}.{EXT}",
       cli: 'emo',
       errorRegEx: "\\[line (\\d+)\\] (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'EmojiCode':{
       desc: "Visual, expressive, playful, emoji-based, simple",      
@@ -3258,7 +3873,10 @@ export const languages =
       command:"/opt/emojicode/emojicodec {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: 'emo',
       errorRegEx: ".+?:(\\d+):\\d+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Emscripten':{
       desc: "Compiler, WebAssembly, C/C++, portable, efficient",
@@ -3270,7 +3888,10 @@ export const languages =
       command:"source /opt/emsdk/emsdk_env.sh 2> /dev/null\nemcc {ARGS} {FILENAME}.{EXT} -o {FILENAME}.html -s WASM=0 -s SINGLE_FILE=1 && imshow {FILENAME}.html",
       cli: null,
       errorRegEx: ".+?:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Emu':{
       desc: "The EMbeddable Utility Language, Clean, fast, flexible",
@@ -3283,8 +3904,8 @@ export const languages =
       cli: null,
       errorRegEx: null,  // not supported
       keyBindings: null,
-      dockerImage: "ryusatgat/etc",
-      url: 'https://sourceforge.net/projects/emulang'
+      homepage: 'https://sourceforge.net/projects/emulang',
+      repo: '',
     },
     'Erlang':{
       desc: "Concurrent, fault-tolerant, functional, distributed, scalable",
@@ -3310,7 +3931,10 @@ export const languages =
       command:'/opt/esterel/bin/cec {ARGS}',
       cli: null,
       errorRegEx: "line (\\d+):(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Etalk':{
       desc: "A simple object-oriented language",
@@ -3337,7 +3961,10 @@ export const languages =
       command:'eui {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: "\\w+?\\.ex:(\\d+)\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Execline':{
       desc: "scripting, shell, interpreter",
@@ -3364,7 +3991,10 @@ export const languages =
       command:'expect {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: 'file ".+?\\.exp" line (\\d+)(.*)',
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Factor':{
       desc: "Stack-based, concatenative, functional, extensible, expressive",
@@ -3377,7 +4007,10 @@ export const languages =
       cli: "factor {ARGS}",
       defaultFilename: 'Main',
       errorRegEx: "(\\d+): \\w+: .+?\r\n.+?\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Faeyne':{
       desc: "Functions are everything you need EXCEPTION",
@@ -3390,7 +4023,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\r\n.+?:(\\d+):\\d+",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Fake':{
       desc: "Lightweight embedded scripting language",
@@ -3416,7 +4051,10 @@ export const languages =
       cli: "falcon -i {ARGS}",
       defaultFilename: 'Main',
       errorRegEx: ".+?:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'False':{
       desc: "Esoteric, obfuscated, tiny implementation",
@@ -3442,7 +4080,10 @@ export const languages =
       cli: "fansh {ARGS}",
       defaultFilename: 'Main',
       errorRegEx: ".+?\\((\\d+),\\d+\\): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Fanx':{
       desc: "Full-stack, object oriented, static typed, JVM",
@@ -3480,7 +4121,10 @@ export const languages =
       command:"fe {ARGS} {FILENAME}.{EXT}",
       cli: 'fe',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Felix':{
       desc: "Concurrent, modular, type-safe, efficient, flexible",
@@ -3492,7 +4136,10 @@ export const languages =
       command:"/opt/felix/bin/flx {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.flx: line (\\d+), (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Fennel':{
       desc: "Lisp-like, functional, macro-based, lightweight, embedded",
@@ -3504,7 +4151,10 @@ export const languages =
       command:"fennel {ARGS} {FILENAME}.{EXT}",
       cli: "fennel {ARGS}",
       errorRegEx: ".+?\\.fnl:(\\d+)\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Feral':{
       desc: "Lightweight, dynamic, flexible, minimalistic, scripting",
@@ -3516,7 +4166,10 @@ export const languages =
       command:"/opt/feral/bin/feral {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+\\.fer (\\d+)\\[\\d+\\]: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ferite':{
       desc: "Dynamic, flexible, reflective, object-oriented, extensible",
@@ -3528,7 +4181,10 @@ export const languages =
       command:"ferite {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "Error: .+?:(\\d+) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Fexl':{
       desc: "Functional, expressive, type-safe, concise, modular",
@@ -3540,7 +4196,10 @@ export const languages =
       command:"fexl {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+ on line (\\d+) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ficus':{
       desc: "Functional, extensible, type-safe, expressive, concurrent",
@@ -3553,7 +4212,10 @@ export const languages =
       command:"FICUS_PATH=/opt/ficus /opt/ficus/bin/ficus {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.fx:(\\d+):\\d+: error: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Filagree':{
       desc: "Declarative, concise, expressive, typed, modular",
@@ -3565,7 +4227,10 @@ export const languages =
       command:"filagree {ARGS} {FILENAME}.{EXT}",
       cli: "filagree",
       errorRegEx: "\\d+ - (?:.+\r\n)?.+?\\.fg,? line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
 /*
     'Filament':{
@@ -3578,7 +4243,10 @@ export const languages =
       command:"filament {ARGS} {FILENAME}.{EXT}",
       cli: "filament",
       errorRegEx: "",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
 */
     'Finch':{
@@ -3604,7 +4272,10 @@ export const languages =
       command:"fish {ARGS} {FILENAME}.{EXT}",
       cli: "fish",
       errorRegEx: ".+\r\n.+?\\.fish \\(line (\\d+)\\)(:)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Flax':{
       desc: "Functional, type-safe, concise, modular, efficient",
@@ -3616,7 +4287,10 @@ export const languages =
       command:"/opt/flax/bin/flaxc {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: "/opt/flax/bin/flaxc -repl {ARGS}",
       errorRegEx: ".+?: .+?\r\nat: .+?\\.flx:(\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Fleng':{
       desc: "descended from Prolog, minimal, low-level",
@@ -3640,7 +4314,10 @@ export const languages =
       command:"java -jar /opt/flix/flix.jar {ARGS} {FILENAME}.{EXT}",
       cli: "java -jar /opt/flix/flix.jar",
       errorRegEx: ".+\\(line (\\d+), column \\d+\\):(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Focal':{
       desc: "Educational, interactive, simple, procedural, teaching",
@@ -3652,7 +4329,10 @@ export const languages =
       command:"focal {ARGS} {FILENAME}.{EXT}",
       cli: "focal {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Foma':{
       desc: "Compiler, similar to the Xerox xfst interface",
@@ -3691,7 +4371,10 @@ export const languages =
       command:"gforth {ARGS} {FILENAME}.{EXT} -e bye",
       cli: "gforth {ARGS}",
       errorRegEx: ".+?:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Fortran':{
       desc: "Numerical, efficient, legacy, array-based, procedural",
@@ -3703,7 +4386,10 @@ export const languages =
       command:"gfortran {ARGS} -o {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?:(\\d+):\\d+:.+?\r\n\r\n +\\d+ .+?\r\n.+?\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'fox-lang':{
       desc: "Functional, Concise, Multiparadigm, Type-safe, Concurrent",
@@ -3715,7 +4401,10 @@ export const languages =
       command:"fox {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+\r\n.+?\\.fox\\((\\d+)\\)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Foxely':{
       desc: "Syntax, paradigm, efficiency, flexibility, use-case",
@@ -3727,7 +4416,10 @@ export const languages =
       command:"foxely {ARGS} {FILENAME}.{EXT}",
       cli: 'foxely',
       errorRegEx: "\\[line (\\d+)\\] (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Free':{
       desc: "No memory constraints, SMPL",
@@ -3754,7 +4446,10 @@ export const languages =
       cli: "frege {ARGS}",
       defaultFilename: 'Main',
       errorRegEx: "E .+?\\.fr:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Frink':{
       desc: "Mathematical, Unit-aware, Scripting, Precise, Conversion",
@@ -3766,7 +4461,10 @@ export const languages =
       command:"frink {ARGS} {FILENAME}.{EXT}",
       cli: "frink {ARGS}",
       errorRegEx: ".+?: file:.+?, line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'F# - mono':{
       desc: "Functional, statically-typed, .NET language",
@@ -3822,7 +4520,10 @@ export const languages =
       command:"funla {ARGS} {FILENAME}.{EXT}",
       cli: "funla -repl {ARGS}",
       errorRegEx: ".*?rror: .+?ine[: ](\\d+)[: ](.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Futhark':{
       desc: "Functional, Array-based, High-performance, Parallel, Data-centric",
@@ -3835,7 +4536,10 @@ export const languages =
       command:"futhark {ARGS} {FILENAME}.{EXT} && read -p '입력값: ' i && (echo $i | ./{FILENAME})",
       cli: "futhark repl",
       errorRegEx: "Error at .+?\\.fut:(\\d+):(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Fuzuli':{
       desc: "JVM implementation, based on LISP, Algol family, ",
@@ -3860,7 +4564,10 @@ export const languages =
       icon:'mdi-arm-flex-outline',
       command:'gbs3 {ARGS} {FILENAME}.{EXT}',
       errorRegEx: ".+?:(\\d+):\\d+: \\w+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'GAP':{
       desc: "Algebraic, Symbolic, Mathematical, Computational, Group-theory",
@@ -3873,7 +4580,10 @@ export const languages =
       command:"gap {ARGS} {FILENAME}.{EXT}",
       cli: "gap",
       errorRegEx: ".+? error: .+?\\.g:(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Gecho':{
       desc: "Stack-based, simple",
@@ -3899,7 +4609,10 @@ export const languages =
       command:"genius {ARGS} {FILENAME}.{EXT}",
       cli: "genius",
       errorRegEx: ".+?\\.gel:(\\d+): (ERROR:.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'GeneralScript':{
       desc: "Lightweight general purpose scripting, scheme like syntax",
@@ -3924,7 +4637,10 @@ export const languages =
       command:"valac {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?:(\\d+).\\d+-\\d+\\.\\d+:(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Gentee':{
       desc: "Scripting, object-oriented, data processing language",
@@ -3936,7 +4652,10 @@ export const languages =
       command:"gentee {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "ERROR: .+? \\[(\\d+):\\d+\\] (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Genyris':{
       desc: "Declarative, Database-focused, Data-centric, Query-based, High-level",
@@ -3948,7 +4667,10 @@ export const languages =
       command:"genyris {ARGS} {FILENAME}.{EXT}",
       cli: "genyris {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Gwion':{
       desc: "Declarative, Data-centric, Rule-based, Pattern-matching, Expressive",
@@ -3961,7 +4683,10 @@ export const languages =
       command:"/opt/gwion/bin/gwion {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.gw.*?:(\\d+):\\d+:(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Gleam':{
       desc: "Type-safe, highly concurrent, fault tolerant Erlang runtime, modern",
@@ -3988,7 +4713,10 @@ export const languages =
       command:"gluon {ARGS} {FILENAME}.{EXT}",
       cli: "gluon -i {ARGS}",
       errorRegEx: "error: .+\r\n(?:.+\r\n)+?  ┌─ .+?:(\\d+):(\\d)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Gnuplot':{
       desc: "Graphing, plotting, data visualization tool",
@@ -4001,7 +4729,10 @@ export const languages =
       command:"gnuplot {ARGS} {FILENAME}.{EXT} && ([[ ! -s {FILENAME}.svg ]] || imshow {FILENAME}.svg)",
       cli: "gnuplot {ARGS}",
       errorRegEx: ".+? line (\\d+): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Go':{
       desc: "Concurrent, statically-typed, systems language",
@@ -4051,7 +4782,10 @@ export const languages =
       command:"export GOBY_ROOT=/opt/goby\n/opt/goby/goby {ARGS} {FILENAME}.{EXT}",
       cli: "GOBY_ROOT=/opt/goby /opt/goby/goby -i",
       errorRegEx: "(?:.+\r\nfrom .+?\\.gb:|.+? Line: )(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'GolfScript':{
       desc: "Concise, stack-based, scripting language",
@@ -4063,7 +4797,10 @@ export const languages =
       command: 'golfscript {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Golo':{
       desc: "Dynamic, modular, JVM-based language",
@@ -4076,7 +4813,10 @@ export const languages =
       command:"golo {ARGS}",
       cli: null,
       errorRegEx: "\\[.*?error.*?\\] .+? at {line=(\\d+), column=\\d+}(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Gosu':{
       desc: "Object-oriented, Java-compatible, Static-typed, JVM-based, Flexible",
@@ -4088,7 +4828,10 @@ export const languages =
       command: 'gosu {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+? \\[line:(\\d+) col:(\\d+)\\] in",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'GPP':{
       desc: "General-purpose preprocessor, customizable, suitable, lighter, flexible",
@@ -4102,7 +4845,9 @@ export const languages =
       cli: null,
       errorRegEx: "",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'GPython':{
       desc: "Re-implementation, part port of the Python 3.4 interpreter in Go",
@@ -4127,7 +4872,10 @@ export const languages =
       command:"GRACE_MODULE_PATH=/opt/grace/modules /opt/grace/mgc {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.grace\\[(\\d+):\\d+\\]: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Graphviz':{
       desc: "Graph visualization, diagram generation tool",
@@ -4140,7 +4888,10 @@ export const languages =
       command:"dot {ARGS} -o {FILENAME}.svg {FILENAME}.{EXT} && imshow {FILENAME}.svg",
       cli: null,
       errorRegEx: "Error: .+?: .+ in line (\\d+) near .*",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Gravity':{
       desc: "Scripting, Dynamic, User-friendly, Game-oriented, Lightweight",
@@ -4153,7 +4904,10 @@ export const languages =
       command:"gravity {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? ERROR .+? \\((\\d+),\\d+\\): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Gren':{
       desc: "Functional, managed side-effects, strong static typed, simple",
@@ -4181,7 +4935,10 @@ export const languages =
       command:"/opt/gri/bin/gri {ARGS}",
       cli: "/opt/gri/bin/gri",
       errorRegEx: ".+\r\n.+\\.gri:(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Groovy':{
       desc: "Dynamic, JVM-based, Scripting, Concise, Agile",
@@ -4208,7 +4965,9 @@ export const languages =
       cli: null,
       errorRegEx: null, // not supported
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'GSL':{
       desc: "Mathematical, C-based, Numerical, High-performance, Library",
@@ -4221,7 +4980,10 @@ export const languages =
       command:"gsl -q {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "\\(.+?\\.gsl (\\d+)\\)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Guile':{
       desc: "Extensible, Scheme-based, Embeddable, Scripting, Flexible",
@@ -4234,7 +4996,10 @@ export const languages =
       command:"guile {ARGS} {FILENAME}.{EXT}",
       cli: "guile {ARGS}",
       errorRegEx: "(?:.+?: )?.+?:(\\d+):\\d: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Gura':{
       desc: "Iterator-oriented, implicit mapping, object oriented",
@@ -4261,7 +5026,10 @@ export const languages =
       command:"unix2dos -q {FILENAME}.{EXT} && emu2 /opt/dos/gwbasic.exe < {FILENAME}.{EXT}",
       cli: "emu2 /opt/dos/gwbasic.exe",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'H2':{
       desc: "Java-based, Lightweight, Embedded, SQL-compatible, Fast",
@@ -4273,7 +5041,10 @@ export const languages =
       command:"/opt/h2/bin/h2exec.sh {FILENAME}.{EXT} {ARGS}",
       cli: "/opt/h2/bin/h2exec.sh",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Hare':{
       desc: "Fast, safe, concurrent, systems, minimal, qbe",
@@ -4313,7 +5084,10 @@ export const languages =
       command:"runhugs {ARGS} {FILENAME}.{EXT}",
       cli: "hugs",
       errorRegEx: ".+:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Hack':{
       desc: "PHP-based, Static-typed, Performance-oriented, Type-safe, Scalable",
@@ -4339,7 +5113,10 @@ export const languages =
       command:"GOPATH=~ have {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "ERROR: .+?:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Haxe':{
       desc: "Cross-platform, Statically-typed, High-level, Versatile, Flexible",
@@ -4366,7 +5143,10 @@ export const languages =
       command:"hg {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.hg:(\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Hell':{
       desc: "Shell scripting language that is a tiny dialect of Haskell",
@@ -4379,7 +5159,9 @@ export const languages =
       cli: null,
       errorRegEx: null,  // not supported
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Hermes':{
       desc: "JavaScript engine, Lightweight, Fast, React Native, Optimized",
@@ -4391,7 +5173,10 @@ export const languages =
       command:"hermes {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "\\[Line (\\d+)\\] (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Hexiscript':{
       desc: "Scripting, Lightweight, Functional, Minimalistic, Flexible",
@@ -4402,7 +5187,10 @@ export const languages =
       icon:'mdi-script-text-outline',
       command:"hexi {ARGS} {FILENAME}.{EXT}",
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'HLA':{
       desc: "High-level assembly, portable, and systems programming",
@@ -4415,7 +5203,10 @@ export const languages =
       command:"hla {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: "Error in .+?\\.hla\" at line (\\d+) .+\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Hook':{
       desc: "Imperative, cross-platform, dynamically typed, scripting",
@@ -4440,7 +5231,10 @@ export const languages =
       command:"/opt/hope/bin/hope {ARGS} -f {FILENAME}.{EXT}",
       cli: "/opt/hope/bin/hope {ARGS}",
       errorRegEx: "line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Horse64':{
       desc: "64-bit, low-level, and systems-oriented language",
@@ -4453,7 +5247,10 @@ export const languages =
       command:"horsec {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.h64:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'HQ9+':{
       desc: "Esoteric, Turing-complete, Minimalistic, Concise, Humor-oriented",
@@ -4465,7 +5262,10 @@ export const languages =
       command:"hq9+c {FILENAME}.{EXT} {FILENAME} && ./{FILENAME}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Huginn':{
       desc: "Automation, Ruby-based, Flexible, Event-driven, Web-focused",
@@ -4478,7 +5278,10 @@ export const languages =
       command:"LD_LIBRARY_PATH=/opt/huginn/lib huginn {ARGS} {FILENAME}.{EXT}",
       cli: "LD_LIBRARY_PATH=/opt/huginn/lib huginn {ARGS}",
       errorRegEx: ".+\\.hgn:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Huo':{
       desc: "Minimalistic, Functional, Educational, Concise, Simple",
@@ -4490,7 +5293,10 @@ export const languages =
       command:"/opt/huo/bin/huo {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/huo/bin/huo",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Hush':{
       desc: "Shell, based on Lua, written by Rust",
@@ -4515,7 +5321,10 @@ export const languages =
       command:"hy {ARGS} {FILENAME}.{EXT}",
       cli: "hy",
       errorRegEx: ".+?\\.hy\", line (\\d+), .+\r\n(.+\r\n.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Hylo':{
       desc: "mutable value semantics, generic, high-level, swift-based",
@@ -4539,7 +5348,10 @@ export const languages =
       command:"/opt/i/I < {ARGS} {FILENAME}.{EXT}",
       cli: '/opt/i/I',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ICI':{
       desc: "Interactive, dynamic, and extensible interpreter",
@@ -4551,7 +5363,10 @@ export const languages =
       command:"ici {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.ici, (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Idris':{
       desc: "Dependently-typed, functional, and proof-assistant",
@@ -4563,7 +5378,10 @@ export const languages =
       command:'/opt/idris/bin/idris {ARGS} -o {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: "/opt/idris/bin/idris",
       errorRegEx: ".+\\.idr:(\\d+):\\d+(-\\d+)?:\r\n(  \\|.*\r\n)+.*?$",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Idris2':{
       desc: "Dependent types, Functional, Strongly-typed, Proofs, Expressive",
@@ -4576,7 +5394,10 @@ export const languages =
       command:'/opt/idris2/bin/idris2 {ARGS} {FILENAME}.{EXT}',
       cli: '/opt/idris2/bin/idris2',
       errorRegEx: "Error: .+\r\n\r\n.+?:(\\d+):\\d+(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Icon':{
       desc: "Concise, Pattern-matching, High-level, Declarative, Symbolic",
@@ -4588,7 +5409,10 @@ export const languages =
       command:'icont {ARGS} -o {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+?; Line (\\d+) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'IDL':{
       desc: "Interface definition, Language-neutral, Serialization, Specification, RPC",
@@ -4602,7 +5426,10 @@ export const languages =
       command: 'echo -e "\\$rm -f main.png\\n.COMPILE {FILENAME}.{EXT}\\n{FILENAME}\\n\\$[ -f main.png ] && imshow main.png" | gdl {ARGS}',
       cli: "gdl {ARGS}",
       errorRegEx: "% .+?: .+?\r\n.+?: .+?, Line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Inform':{
       desc: "Interactive fiction, Natural language, Narrative, Authoring, Game-oriented",
@@ -4614,7 +5441,10 @@ export const languages =
       command: 'inform {ARGS} {FILENAME}.{EXT} && frotz {FILENAME}.z5',
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ink':{
       desc: "Interactive fiction, Scripting, Narrative-focused, Lightweight, Flexible",
@@ -4626,7 +5456,10 @@ export const languages =
       command: 'ink {ARGS} {FILENAME}.{EXT}',
       cli: 'ink -repl',
       errorRegEx: ".+? \\[(\\d+):\\d+\\]( in .+?\\.ink)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Inko':{
       desc: "Move semantics, static typing, type-safe concurrency, efficient error handling",
@@ -4651,7 +5484,10 @@ export const languages =
       command: 'ick {ARGS} {FILENAME}.{EXT} && ./{FILENAME}',
       cli: null,
       errorRegEx: "ON THE WAY TO (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Interfuse':{
       desc: "inspired on C, modern, LLVM",
@@ -4676,7 +5512,10 @@ export const languages =
       command: 'io {ARGS} {FILENAME}.{EXT}',
       cli: "io {ARGS}",
       errorRegEx: "  Exception: .+?\r\n  -+?\r\n.+(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ioke':{
       desc: "Object-oriented, Prototype-based, Minimalistic, Dynamic, Reflective",
@@ -4688,7 +5527,10 @@ export const languages =
       command: 'ioke {ARGS} {FILENAME}.{EXT}',
       cli: "ioke {ARGS}",
       errorRegEx: ".+?\\.ik:(\\d+):\\d+(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Iphigeneia':{
       desc: "Declarative, Rule-based, Data-centric, Scripting, Flexible",
@@ -4699,7 +5541,10 @@ export const languages =
       icon:'mdi-flower',
       command: 'iphi {ARGS} {FILENAME}.{EXT}',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ivy':{
       desc: "Extensible, dynamically typed, late binding, stand-alone, scripting",
@@ -4722,7 +5567,10 @@ export const languages =
       icon:'mdi-alpha-j-box',
       command:"jconsole {ARGS} < {FILENAME}.{EXT}",
       cli: "jconsole",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'J*':{
       desc: "Array-oriented, Concise, Functional, High-performance, Mathematical",
@@ -4734,7 +5582,10 @@ export const languages =
       command:"/opt/jstar/bin/jstar {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/jstar/bin/jstar",
       errorRegEx: ".+?\\[line[: ](\\d+)\\].+\r\n(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Jaksel':{
       desc: "Modern, easy to learn, using Indonesia-slang",
@@ -4748,7 +5599,9 @@ export const languages =
       cli: null,
       errorRegEx: null,  // not supported
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Jakt':{
       desc: "Memory-safe, transpiles to C++",
@@ -4774,7 +5627,10 @@ export const languages =
       command:"jancy {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.jnc\\((\\d+),\\d+\\): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Janet':{
       desc: "Lispy, Functional, Lightweight, Embeddable, Concise",
@@ -4786,7 +5642,10 @@ export const languages =
       command:"janet {ARGS} {FILENAME}.{EXT}",
       cli: "janet {ARGS}",
       errorRegEx: ".+?\\.janet:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Jasmin':{
       desc: "Assembly-like, Bytecode, Low-level, Java-focused, Compact",
@@ -4799,7 +5658,10 @@ export const languages =
       cli: null,
       defaultFilename: 'Main',
       errorRegEx: ".+?\\.j:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Jinx':{
       desc: "Lightweight embeddable scripting language, written in modern C++",
@@ -4812,7 +5674,9 @@ export const languages =
       cli: null,
       errorRegEx: "Error at line (\\d+), column \\d+: (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Joao':{
       desc: "Minimalistic, Educational, Functional, Simple, Lightweight",
@@ -4824,7 +5688,10 @@ export const languages =
       command:"joao {ARGS} {FILENAME}.{EXT}",
       cli: "joao",
       errorRegEx: "LINE: (\\d+),\\d+ (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'JohnsonScript':{
       desc: "Dynamic, Scripting, Lightweight, Interpreted, Flexible",
@@ -4836,7 +5703,10 @@ export const languages =
       command:"johnsonscript {FILENAME}.{EXT} {ARGS}",
       cli: null,
       errorRegEx: ".+? on line (\\d+)\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Jolie':{
       desc: "Service-oriented, Concurrent, Declarative, Integration-focused, Messaging",
@@ -4848,7 +5718,10 @@ export const languages =
       command:"export JOLIE_HOME=/opt/jolie\n/opt/jolie/bin/jolie {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Joy':{
       desc: "Concise, Functional, Stack-based, Turing-complete, Symbolic",
@@ -4860,7 +5733,10 @@ export const languages =
       command:"/opt/joy/joy {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Jsish':{
       desc: "JavaScript-based, Lightweight, Embedded, Scripting, Flexible",
@@ -4873,7 +5749,9 @@ export const languages =
       cli: "jsish {ARGS}",
       errorRegEx: ".+?:(\\d+): \\w+: (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'JsonNet':{
       desc: "Data-centric, Configuration, JSON-based, Lightweight, Integration",
@@ -4885,7 +5763,10 @@ export const languages =
       command:"jsonnet {ARGS} {FILENAME}.{EXT}",
       cli: "jsonnet {ARGS}",
       errorRegEx: ".+?\\.jsonnet:(\\d+):\\d+(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'JSP':{
       desc: "Web-based, Java-driven, Server-side, Dynamic, Template",
@@ -4896,7 +5777,10 @@ export const languages =
       icon:'mdi-alpha-j-box-outline',
       command:"mv -f {FILENAME}.{EXT} $JETTY_BASE/webapps/ROOT\nps -ef | grep start.jar | grep -v grep > /dev/null || (echo 'Starting JSP Server...' && (java -jar $JETTY_HOME/start.jar jetty.base=$JETTY_BASE 2> /dev/null &))\ncurl -4 -s --retry-connrefused --retry 10 --retry-delay 1 http://localhost:8080/{FILENAME}.{EXT} > {FILENAME}.html && imshow {FILENAME}.html",
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Jq':{
       desc: "Command-line, JSON-processing, Lightweight, Functional, Filter",
@@ -4909,7 +5793,10 @@ export const languages =
       command:"jq {ARGS}",
       cli: null,
       errorRegEx: "jq: error: .+, line (\\d+):(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Julia':{
       desc: "High-performance, Dynamic, Numerical, Functional, Multiple dispatch",
@@ -4921,7 +5808,10 @@ export const languages =
       command:"julia {ARGS} {FILENAME}.{EXT}",
       cli: "julia",
       errorRegEx: "in expression .+?:(\\d+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Juvix':{
       desc: "Static typing, strict semantics, designed for blockchain Anoma",
@@ -5010,7 +5900,10 @@ export const languages =
       command:"kenaf {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ketos':{
       desc: "Lisp dialect, scripting and extension, written in the Rust",
@@ -5035,7 +5928,10 @@ export const languages =
       command:"killa {ARGS} {FILENAME}.{EXT}",
       cli: "killa",
       errorRegEx: ".+?\\.kia:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Kind':{
       desc: "Minimal, efficient, practical, rethink functional, modern",
@@ -5050,7 +5946,9 @@ export const languages =
       defaultFilename: 'Main',
       errorRegEx: ".+?\\.kind:(\\d+):\\d+':\r\n(.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Kitten':{
       desc: "Statically typed, stack-based, functional, simplicity, speed, safety",
@@ -5114,7 +6012,10 @@ export const languages =
       command:"/opt/koka/bin/koka {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/koka/bin/koka {ARGS}",
       errorRegEx: ".+?\\.kk\\((\\d+), \\d+\\): (error.+)(\r\n .+)*",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Kos':{
       desc: "Concise, Scripting, Command-line, Automation, Linux-focused",
@@ -5126,7 +6027,10 @@ export const languages =
       command:"/opt/kos/bin/kos {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/kos/bin/kos {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Knight':{
       desc: "Minimalistic, Esoteric, Turing-complete, Obfuscated, Experimental",
@@ -5139,7 +6043,10 @@ export const languages =
       command:"python3 /opt/knight/main.py {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Kotlin':{
       desc: "Modern, Statically-typed, JVM-compatible, Concise, Interoperable",
@@ -5165,7 +6072,10 @@ export const languages =
       command:"kotlinc -script {FILENAME}.{EXT} {ARGS}",
       cli: "kotlin",
       errorRegEx: ".+?:(\\d+):\\d+: .+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'kscript':{
       desc: "Kotlin-based, Scripting, Lightweight, Interpreted, Simple",
@@ -5177,7 +6087,10 @@ export const languages =
       command:"/opt/kscript/bin/ks {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/kscript/bin/ks {ARGS}",
       errorRegEx: ".+\r\n.+\r\n.+\\.ks\\' \\(line (\\d+), (.+?\\):)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Lake':{
       desc: "Replace C but sweeter, simple and small, fast compilation",
@@ -5228,7 +6141,10 @@ export const languages =
       args: "-output-format=pdf",
       command:"latex {ARGS} {FILENAME}.{EXT} && imshow {FILENAME}.pdf",
       cli: "latex {ARGS}",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'Latro':{
       desc: "Statically-typed, Functional, Concurrent, High-performance, Modern",
@@ -5241,7 +6157,10 @@ export const languages =
       command:"latroi {ARGS} {FILENAME}.{EXT}",
       cli: "latroi -i",
       errorRegEx: ".+?\\.l:(\\d+):\\d+:? (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'LAuREL':{
       desc: "Real, functional",
@@ -5281,7 +6200,10 @@ export const languages =
       command:"lean {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.lean:(\\d+):\\d+: error: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'LeekScript':{
       desc: "Minimalistic, Scripting, Lightweight, Simple, Educational",
@@ -5293,7 +6215,10 @@ export const languages =
       command:"leekscript {ARGS} {FILENAME}.{EXT}",
       cli: "leekscript",
       errorRegEx: ".*\r\n.+?\\.leek:(\\d+):(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Lemon':{
       desc: "Parser generator with flexible syntax",
@@ -5305,7 +6230,10 @@ export const languages =
       command:"lemon {ARGS} {FILENAME}.{EXT}",
       cli: "lemon",
       errorRegEx: ".+?\\.lm:(\\d+):\\d+: error: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Levi':{
       desc: "Dynamic, Functional, Scripting, Lightweight, Concise",
@@ -5317,7 +6245,10 @@ export const languages =
       command:"levi {ARGS} {FILENAME}.{EXT}",
       cli: "levi",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'LDPL':{
       desc: "Natural-language, High-level, Readable, Simple, Procedural",
@@ -5330,7 +6261,10 @@ export const languages =
       command:"ldpl {ARGS} {FILENAME}.{EXT} -o={FILENAME} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?: .+? \\(.+?:(\\d+)(.*)?\\).*",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Libra':{
       desc: "Lazy Interpreter of Binary Relational Algebra",
@@ -5381,7 +6315,10 @@ export const languages =
       command:"lily {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "\\w+?: .+\r\n.+?:(\\d+):(.*)?",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Limbo':{
       desc: "Concurrent, type-safe, systems programming language",
@@ -5394,7 +6331,10 @@ export const languages =
       command:"/opt/inferno/bin/limbo {ARGS}",
       cli: null,
       errorRegEx: ".+?\\.b:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'LiquidSoap':{
       desc: "Audio and video stream generators, flexible, extensible",
@@ -5407,7 +6347,9 @@ export const languages =
       cli: 'liquidsoap --interactive',
       errorRegEx: ".+?\\.b:(\\d+): (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Lisaac':{
       desc: "Object-oriented, Functional, High-level, Dynamic, Extensible",
@@ -5420,7 +6362,10 @@ export const languages =
       command:"lisaac {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Lit':{
       desc: "dynamicaly-typed, inspired by highly-hackable Lua and familiar C-styled JavaScipt",
@@ -5433,7 +6378,9 @@ export const languages =
       cli: "lit {ARGS}",
       errorRegEx: "",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Little':{
       desc: "Minimalist, educational, small-scale language",
@@ -5445,7 +6392,10 @@ export const languages =
       command:"L {ARGS} {FILENAME}.{EXT}",
       cli: "L {ARGS}",
       errorRegEx: ".+\\.l:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'LittleLang':{
       desc: "Educational, Minimalistic, Interpreted, Scripting, Simple",
@@ -5457,7 +6407,10 @@ export const languages =
       command:"littlelang {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+ (\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'LiveScript':{
       desc: "JavaScript-like, functional, transpiled language",
@@ -5469,7 +6422,10 @@ export const languages =
       command:"lsc {ARGS} {FILENAME}.{EXT}",
       cli: "lsc {ARGS}",
       errorRegEx: "\\w+: .+? line (\\d+)(: .+)?",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'LK':{
       desc: "Concise, Functional, Minimalistic, Lightweight, Research-oriented",
@@ -5482,7 +6438,9 @@ export const languages =
       cli: null,
       errorRegEx: "^(\\d+): (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'LLVM-IR':{
       desc: "Intermediate representation for compiler design",
@@ -5495,7 +6453,10 @@ export const languages =
       command:"clang -o {FILENAME} {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: "null",
       errorRegEx: ".+?\\.ll:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Lobster':{
       desc: "Static-typed, Functional, Lightweight, Concurrent, High-performance",
@@ -5508,7 +6469,10 @@ export const languages =
       command:"/opt/lobster/bin/lobster {FILENAME}.{EXT} {ARGS}",
       cli: null,
       errorRegEx: ".+?\\.lobster\\((\\d+)\\): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Logo':{
       desc: "Educational, procedural, turtle graphics language",
@@ -5520,7 +6484,10 @@ export const languages =
       command:"ucblogo < {ARGS} {FILENAME}.{EXT}",
       cli: "ucblogo {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'LOLCODE':{
       desc: "Esoteric, Minimalistic, Humor-oriented, English-like, Turing-complete",
@@ -5532,7 +6499,10 @@ export const languages =
       command:"lci {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+\\.lol:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Loli':{
       desc: "Minimalistic, Concise, Educational, Experimental, Functional",
@@ -5544,7 +6514,10 @@ export const languages =
       command:"/opt/loli/loli {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/loli/loli",
       errorRegEx: ".+\r\n    from .+?\\.li:(\\d+)(:.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Lox':{
       desc: "Simple, interpreted, dynamically-typed language",
@@ -5556,7 +6529,10 @@ export const languages =
       command:"loxi {ARGS} {FILENAME}.{EXT}",
       cli: "loxi {ARGS}",
       errorRegEx: "\\[line (\\d+)\\] (Error.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Loxido':{
       desc: "Based on the clox reference, Rust implementation",
@@ -5595,7 +6571,9 @@ export const languages =
       cli: "luajit {ARGS}",
       errorRegEx: "lua.+?\\.lua:(\\d+): (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/lua"
+      dockerImage: "ryusatgat/lua",
+      homepage: '',
+      repo: '',
     },
     'Luau':{
       desc: "Fast, small, safe, gradually typed, embeddable, scripting, derived from Lua",
@@ -5608,7 +6586,9 @@ export const languages =
       cli: "luau {ARGS}",
       errorRegEx: ".+?\\.lua:(\\d+): (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/lua"
+      dockerImage: "ryusatgat/lua",
+      homepage: '',
+      repo: '',
     },
     'Luci':{
       desc: "Declarative, Data-centric, Scripting, Lightweight, Simple",
@@ -5620,7 +6600,10 @@ export const languages =
       command:"luci {ARGS} {FILENAME}.{EXT}",
       cli: "luci",
       errorRegEx: ".+? line #(\\d+), (col #\\d+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Lumi':{
       desc: "Functional, High-level, Concise, Type-safe, Educational",
@@ -5632,7 +6615,10 @@ export const languages =
       command:"lumi {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+\\.lm\\[(\\d+)\\](.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Luminique':{
       desc: "High-level, Bytecode, garbage collection, dynamic typing",
@@ -5645,7 +6631,9 @@ export const languages =
       cli: "luminique",
       errorRegEx: ".+?\\.lmq:(\\d+) in script:(.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Lush':{
       desc: "Lisp-like syntax, object-oriented, weakly-typed, interpreted",
@@ -5670,7 +6658,10 @@ export const languages =
       command:"luxury {ARGS} {FILENAME}.{EXT} {FILENAME}.s && gcc -static -o {FILENAME} {FILENAME}.s && ./{FILENAME}",
       cli: null,
       errorRegEx: " +(\\d+) \\| (.+\r\n.*\r\n.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'M4':{
       desc: "Macro processor, text processing tool",
@@ -5682,7 +6673,10 @@ export const languages =
       command:"m4 {ARGS} {FILENAME}.{EXT}",
       cli: "m4 {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Magpie':{
       desc: "Small, dynamically-typed, runs on the JVM",
@@ -5707,7 +6701,10 @@ export const languages =
       command:"make {ARGS} -f {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.makefile:(\\d+): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Malbolge':{
       desc: "Esoteric, Obfuscated, Turing-complete, Complex, Minimalistic",
@@ -5719,7 +6716,10 @@ export const languages =
       command:"malbolge {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Maml':{
       desc: "Interpreter and a compiler for the Monkey Programming Language",
@@ -5734,7 +6734,9 @@ export const languages =
       cli: 'maml -r',
       errorRegEx: null, // not supported
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Mari':{
       desc: "Declarative, Data-centric, High-level, Flexible, Configurable",
@@ -5747,7 +6749,10 @@ export const languages =
       command:"mari {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.mr:(\\d+):\\d+ (.+)\r\n(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Maroon':{
       desc: "Functional, simple",
@@ -5761,7 +6766,9 @@ export const languages =
       cli: null,
       errorRegEx: null, // not supported
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'MASM 4.0':{
       desc: "Assembly language for x86 processors",
@@ -5773,7 +6780,10 @@ export const languages =
       command:"unix2dos -q {FILENAME}.{EXT} && emu2 /opt/dos/masm40/MASM.EXE {ARGS} {FILENAME}.{EXT} {FILENAME}.obj NUL NUL && (echo | emu2 /opt/dos/masm40/LINK.EXE {ARGS} {FILENAME}.obj) > /dev/null && emu2 {FILENAME}.exe",
       cli: null,
       errorRegEx: ".+\\.asm\\((\\d+)\\) : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
 /*  'MAsm 5.10':{
       desc: "Assembly language for x86 processors",
@@ -5785,7 +6795,10 @@ export const languages =
       command:"emu2 /opt/dos/masm51/MASM.EXE {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+\\.asm\\((\\d+)\\) : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
 */
     'Maude':{
@@ -5799,7 +6812,10 @@ export const languages =
       command:"/opt/maude/maude {ARGS} < {FILENAME}.{EXT}",
       cli: "/opt/maude/maude",
       errorRegEx: ".+?, line (\\d+)(.*?): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Maxc':{
       desc: "Concise, C-like, Lightweight, High-level, Embeddable",
@@ -5810,7 +6826,10 @@ export const languages =
       icon:'mdi-code-less-than-or-equal',
       command:'maxc {ARGS} {FILENAME}.{EXT}',
       cli: 'maxc',
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Maxima':{
       desc: "Symbolic computation, mathematical analysis system",
@@ -5822,7 +6841,10 @@ export const languages =
       args: "--very-quiet",
       command:"maxima {ARGS} < {FILENAME}.{EXT}",
       cli: "maxima {ARGS}",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Melon':{
       desc: "Functional, Lightweight, Scripting, Concise, Educational",
@@ -5834,7 +6856,10 @@ export const languages =
       command:"/opt/melon/bin/melon {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\(at line (\\d+):(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'MeowScript':{
       desc: "Small interpreted, easy extendable",
@@ -5847,7 +6872,9 @@ export const languages =
       cli: 'meow-script -s',
       errorRegEx: "Error in line (\\d+):\r\n(.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Mercury':{
       desc: "Logic programming, strong typing, declarative",
@@ -5859,7 +6886,10 @@ export const languages =
       command:"mmc {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.m:(\\d+): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Min':{
       desc: "Small, practical, concatenative",
@@ -5910,7 +6940,10 @@ export const languages =
       command:"miniscript {ARGS} {FILENAME}.{EXT}",
       cli: "miniscript {ARGS}",
       errorRegEx: ".+?: .+?\\[line (\\d+)\\](.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'MiniZinc':{
       desc: "Constraint-solving, High-level, Declarative, Optimization, Expressive",
@@ -5922,7 +6955,10 @@ export const languages =
       command:"/opt/minizinc/bin/minizinc {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.mzn:(\\d+)\\..+\r\n(.+)?",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Minus':{
       desc: "Concise, functional, logic programming language",
@@ -5934,7 +6970,10 @@ export const languages =
       command:"iminus {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Mirah':{
       desc: "Ruby-like, JVM-compatible, Statically-typed, High-performance, Concise",
@@ -5946,7 +6985,10 @@ export const languages =
       command:"/opt/mirah/bin/mirah {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Miranda':{
       desc: "Purely-functional, Lazy, Statically-typed, Declarative, Mathematical",
@@ -5959,7 +7001,10 @@ export const languages =
       command:"/opt/miranda/bin/mira {ARGS} -exec {FILENAME}.{EXT}",
       cli: "/opt/miranda/bin/mira {ARGS}",
       errorRegEx: ".+ error.+?\r\nerror.+?line (\\d+)( of file \".+?\\.m\")",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Mirth':{
       desc: "Integration-focused, Java-based, Lightweight, Messaging, Server-side",
@@ -5971,7 +7016,10 @@ export const languages =
       command:"mkdir -p bin src\nln -sf /opt/mirth/src/* src\nmv {FILENAME}.{EXT} src && mirth {ARGS} {FILENAME}.{EXT} && make bin/{FILENAME} && bin/{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.mth:(\\d+):\\d+: error:(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Modula-2':{
       desc: "Structured, Modular, Strongly-typed, Procedural, Pascal-like",
@@ -5983,7 +7031,10 @@ export const languages =
       command:'gm2 {ARGS} -o {FILENAME} {FILENAME}.{EXT} /usr/lib/x86_64-linux-gnu/libm2iso.so.15 && ./{FILENAME}',
       cli: null,
       errorRegEx: ".+\\.mod:(\\d+):\\d+:(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Modula-3':{
       desc: "Object-oriented, Modular, Type-safe, Concurrent, High-level",
@@ -5997,7 +7048,10 @@ export const languages =
       cli: null,
       defaultFilename: 'Main',
       errorRegEx: ".+?, line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Mojo':{
       desc: "High-performance, Python-like, Statically-typed, Systems-focused, Modern",
@@ -6010,7 +7064,10 @@ export const languages =
       cli: 'mojo',
       defaultFilename: 'main',
       errorRegEx: ".*?\\.mojo:(\\d+):\\d+: error: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'MongoDB':{
       desc: "NoSQL, Document-oriented, Scalable, Flexible, High-performance",
@@ -6021,7 +7078,10 @@ export const languages =
       icon:'mdi-leaf',
       command:"ps -ef | grep mongod | grep -v grep > /dev/null || (echo 'Starting MongoDB...' && (sudo mongod {ARGS} -f /etc/mongodb.conf --fork > /dev/null))\nmongo --quiet < {FILENAME}.{EXT}",
       cli: "ps -ef | grep mongod | grep -v grep > /dev/null || (echo 'Starting MongoDB...' && (sudo mongod {ARGS} -f /etc/mongodb.conf --fork > /dev/null))\nmongo --quiet",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Monkey':{
       desc: "Dynamic, Scripting, Lightweight, Minimalistic, Interpreted",
@@ -6033,7 +7093,10 @@ export const languages =
       command:"/opt/cmonkey/bin/monkey {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/cmonkey/bin/monkey",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Moo':{
       desc: "Esoteric, stack-based, golf-like",
@@ -6058,7 +7121,10 @@ export const languages =
       command: "moon {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?: .+?:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Motion':{
       desc: "Clean, dynamically typed",
@@ -6072,7 +7138,9 @@ export const languages =
       cli: 'motion',
       errorRegEx: ".+?line (\\d+)\\] \\[.+",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Mouse':{
       desc: "interpreter, described by Peter Grogono in 1979",
@@ -6110,7 +7178,10 @@ export const languages =
       command: "mux {ARGS} {FILENAME}.{EXT}",
       cli: "mux",
       errorRegEx: "error: .+?on line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'MUMPS':{
       desc: "Database-focused, procedural, hierarchical language",
@@ -6122,7 +7193,10 @@ export const languages =
       command: "mumps {ARGS} {FILENAME}.{EXT}",
       cli: "mumps {ARGS}",
       errorRegEx: "\\*\\*\\* .+ line (\\d+):(\r\n.*\r\n\\*\\*\\* .+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Mun':{
       desc: "Embeddable, scripting, statically typed, cross compilation",
@@ -6147,7 +7221,10 @@ export const languages =
       command: "/opt/muon/bin/mu {ARGS} {FILENAME}.{EXT} --output-file {FILENAME}.c && make {FILENAME} && ./{FILENAME}",
       cli: "/opt/muon/bin/mu {ARGS}",
       errorRegEx: ".+\r\n-> .+?\\.mu:(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Myrddin':{
       desc: "Minimalist, functional, systems programming language",
@@ -6159,7 +7236,10 @@ export const languages =
       command:"PATH=$PATH:/opt/myrddin/bin mbld {ARGS} -b {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+\\.myr:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'MY-BASIC':{
       desc: "Simple, procedural, lightweight scripting language",
@@ -6171,7 +7251,10 @@ export const languages =
       command:"mybasic {ARGS} {FILENAME}.{EXT}",
       cli: "mybasic {ARGS}",
       errorRegEx: "Error:\r\n.+?Ln (\\d+), Col \\d+\r\n.+?\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'MySQL(mariadb)':{
       desc: "Relational database management system",
@@ -6184,7 +7267,10 @@ export const languages =
       command:"ps -ef | grep mysqld | grep -v grep > /dev/null || sudo service mysql start\nmysql {ARGS} -H < {FILENAME}.{EXT} > {FILENAME}.html && imshow {FILENAME}.html",
       cli: "ps -ef | grep mysqld | grep -v grep > /dev/null || sudo service mysql start\nmysql {ARGS}",
       errorRegEx: ".+? at line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Mythryl':{
       desc: "Functional, strongly-typed, high-performance language",
@@ -6196,7 +7282,10 @@ export const languages =
       command:"chmod a+x {FILENAME}.{EXT} && ./{FILENAME}.{EXT}",
       cli: "/opt/mythryl/bin/mythryld",
       errorRegEx: ".+?:(\\d+).*? Error:(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nanoquery':{
       desc: "Query language, concise, expressive syntax",
@@ -6207,7 +7296,10 @@ export const languages =
       icon:'mdi-gesture',
       command:"nq {ARGS} {FILENAME}.{EXT}",
       cli: "nq {ARGS}",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nasal':{
       desc: "Not another scripting language, small, functional",
@@ -6244,7 +7336,10 @@ export const languages =
       defaultFilename: 'main_proj',
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nelua':{
       desc: "Efficient, statically-typed, lightweight language",
@@ -6257,7 +7352,10 @@ export const languages =
       command:"nelua {ARGS} {FILENAME}.{EXT}",
       cli: "nelua-lua {ARGS}",
       errorRegEx: ".+?\\.nelua:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Neko':{
       desc: "Lightweight, interpreted, dynamic language",
@@ -6269,7 +7367,10 @@ export const languages =
       command:"nekoc {ARGS} {FILENAME}.{EXT} && neko {FILENAME}.n",
       cli: null,
       errorRegEx: ".+?\\.neko\\((\\d+)\\): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'NetRexx':{
       desc: "Scripting language, easy integration, IBM",
@@ -6283,7 +7384,10 @@ export const languages =
       defaultFilename: 'Main',
       cli: null,
       errorRegEx: " (\\d+) \\+\\+\\+ .+\r\n( +?\\+\\+\\+ .+\r\n)+",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nemerle':{
       desc: "Statically-typed, hybrid, multi-paradigm language",
@@ -6308,7 +7412,10 @@ export const languages =
       command:"/opt/never/bin/never {ARGS} -f {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.nev:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'NewLisp':{
       desc: "Minimalist, functional, Lisp-like language",
@@ -6320,7 +7427,10 @@ export const languages =
       command:"newlisp {ARGS} {FILENAME}.{EXT}",
       cli: "newlisp {ARGS}",
       errorRegEx: ".+?\\((\\d), \\d\\) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'NewtonScript':{
       desc: "Object-oriented, dynamic, scripting language",
@@ -6332,7 +7442,10 @@ export const languages =
       command:"/opt/newt0/bin/newt {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\((\\d), \\d\\) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Next':{
       desc: "Concurrent, object-oriented, functional language",
@@ -6344,7 +7457,10 @@ export const languages =
       command:"next {ARGS} {FILENAME}.{EXT}",
       cli: "next",
       errorRegEx: ".+?\\.n:(\\d+)> (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'NGS':{
       desc: "Next Generation Shell",
@@ -6369,7 +7485,10 @@ export const languages =
       command:"nial64 {ARGS} -defs {FILENAME}.{EXT}",
       cli: "echo 'type \"bye\" to quit' && nial64 -i {ARGS}",
       errorRegEx: ".+?\\((\\d), \\d\\) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nibbles':{
       desc: "Educational, functional, minimalistic language",
@@ -6381,7 +7500,10 @@ export const languages =
       command:"nibbles -hs {ARGS} {FILENAME}.{EXT} && ghc -i/opt/nibbles out.hs -o {FILENAME} && ./{FILENAME}",
       cli: "nibbles {ARGS}",
       errorRegEx: "nibbles: .+?: .*\r\nat line: (\\d+), char: (\\d+):",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nice':{
       desc: "Object-oriented, statically-typed, extensible language",
@@ -6394,7 +7516,10 @@ export const languages =
       command:"alias java=/usr/lib/jvm/java-8-openjdk-amd64/bin/java\nmkdir -p {FILENAME}_nice && mv -f {FILENAME}.{EXT} {FILENAME}_nice && /opt/nice/bin/nicec {ARGS} {FILENAME}_nice && java -jar {FILENAME}.jar",
       cli: null,
       errorRegEx: ".+?\\.nice: line (\\d+),.+?\\d+:\r\n(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nickle':{
       desc: "High-level, numerical, scripting language",
@@ -6406,7 +7531,10 @@ export const languages =
       command:"nickle {ARGS} {FILENAME}.{EXT}",
       cli: "echo 'type \"bye\" to quit' && nial64 -i {ARGS}",
       errorRegEx: ".+?\\.n5:(\\d+): .+",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nim':{
       desc: "Statically-typed, compiled, high-performance language",
@@ -6419,7 +7547,10 @@ export const languages =
       command:"nim c -r {ARGS} {FILENAME}.{EXT}",
       cli: "lua",
       errorRegEx: ".+?\\((\\d), \\d\\) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nit':{
       desc: "Object-oriented, statically-typed, safe language",
@@ -6431,7 +7562,10 @@ export const languages =
       command:"nit {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.nit:(\\d+),\\d+.+?: Error:(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nmet':{
       desc: "General purpose, statically-typed, compiledObject-oriented",
@@ -6444,7 +7578,9 @@ export const languages =
       cli: null,
       errorRegEx: ".*?\\[.+?\\.nmt:(\\d+):\\d+\\].*? (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Noja':{
       desc: "Very high level language, main inspirations was CPython",
@@ -6469,7 +7605,10 @@ export const languages =
       command:"noumenon {ARGS} {FILENAME}.{EXT}",
       cli: "noumenon",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Novus':{
       desc: "High-level, concurrent, statically-typed language",
@@ -6482,7 +7621,10 @@ export const languages =
       command:"/opt/novus/bin/novc {ARGS} {FILENAME}.{EXT} && /opt/novus/bin/novrt {FILENAME}.nx",
       cli: null,
       errorRegEx: ".+?\\.ns:(\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nuua':{
       desc: "Concurrent, functional, statically-typed language",
@@ -6494,7 +7636,10 @@ export const languages =
       command:"nuua {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Nyx':{
       desc: "Statically-typed, functional, strong type inference",
@@ -6507,7 +7652,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?Error: .+? at line (\\d+), (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Oak':{
       desc: "Precursor to Java, object-oriented",
@@ -6520,7 +7667,10 @@ export const languages =
       command:"oak {ARGS} {FILENAME}.{EXT} && ./main",
       cli: null,
       errorRegEx: "(\\d+) \\| (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Oberon':{
       desc: "Modular, procedural, lightweight, strongly-typed",
@@ -6532,7 +7682,10 @@ export const languages =
       command:"/opt/oberon/bin/obc {ARGS} -o {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.m\\\", line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Objeck':{
       desc: "Object-oriented, virtual machine, garbage collection",
@@ -6544,7 +7697,10 @@ export const languages =
       command:"OBJECK_LIB_PATH=/opt/objeck-lang/lib obc {ARGS} -src {FILENAME}.{EXT} && obr ./{FILENAME}.obe",
       cli: null,
       errorRegEx: ".+?:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Objective-C':{
       desc: "Object-oriented, C-based, dynamic typing",
@@ -6556,7 +7712,10 @@ export const languages =
       command:"gcc {ARGS} -fdiagnostics-color=never `gnustep-config --objc-flags` -o {FILENAME} {FILENAME}.{EXT} `gnustep-config --base-libs` && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.m:(\\d+):\\d+: error: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'OCaml':{
       desc: "Functional, statically-typed, type inference",
@@ -6581,7 +7740,10 @@ export const languages =
       command:"octave {ARGS} -q {FILENAME}.{EXT}",
       cli: "octave {ARGS}",
       errorRegEx: ".+? near line (\\d+) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Odin':{
       desc: "Static typing, manual memory management",
@@ -6593,7 +7755,10 @@ export const languages =
       command:"odin build {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.odin\\((\\d+):\\d+\\) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Oforth':{
       desc: "Kid-friendly coding tool",
@@ -6605,7 +7770,10 @@ export const languages =
       command:"OFORTH_PATH=/opt/oforth oforth {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ooc':{
       desc: "Object-oriented, C-like, Lightweight, High-performance, Minimalistic",
@@ -6618,7 +7786,10 @@ export const languages =
       command:"rock {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.ooc:(\\d+):\\d+ (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Opal':{
       desc: "Strongly-typed programming language",
@@ -6631,7 +7802,10 @@ export const languages =
       command:"opal {ARGS} {FILENAME}.{EXT}",
       cli: "opal --repl {ARGS}",
       errorRegEx: ".+?\\.opal:(\\d+):\\d+:\r\n.+\r\n.+\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'OpenSCAD':{
       desc: "3D modeling and design software",
@@ -6643,7 +7817,10 @@ export const languages =
       args: "--autocenter --viewall",
       command:"xvfb-run openscad {ARGS} -o {FILENAME}.png {FILENAME}.{EXT} && imshow {FILENAME}.png",
       errorRegEx: "ERROR: .+?\\.scad\\\", line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'OpenSpin':{
       desc: "Spin language compiler and tool",
@@ -6655,7 +7832,10 @@ export const languages =
       args: '-L /opt/openspin/lib',
       command:"openspin {ARGS} {FILENAME}.{EXT}",
       errorRegEx: ".+?\\.spin\\((\\d+):\\d+\\) : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Oracle':{
       desc: "Relational database management system",
@@ -6668,7 +7848,10 @@ export const languages =
       command:'echo -e "SET PAGESIZE 50000;\n`cat {FILENAME}.{EXT}`" | sqlplus -S -M "HTML ON TABLE \'BORDER="1"\'" {ARGS} > {FILENAME}.html && imshow {FILENAME}.html',
       cli: "sqlplus {ARGS}",
       errorRegEx: ".+? at line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Orc':{
       desc: "Parallel execution and dataflow",
@@ -6680,7 +7863,10 @@ export const languages =
       command:"orc {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.orc:(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Orion':{
       desc: "High level, purely functional, lightness, portable, LISP based",
@@ -6706,7 +7892,9 @@ export const languages =
       cli: "otto {ARGS}",
       errorRegEx: ".+?: Line (\\d+):\\d+ (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Otus Lisp':{
       desc: "Symbolic computation and AI tool",
@@ -6717,7 +7905,10 @@ export const languages =
       icon:'mdi-code-parentheses',
       command:"ol {ARGS} {FILENAME}.{EXT}",
       cli: "ol {ARGS}",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ObjectScript':{
       desc: "Multi-paradigm Script",
@@ -6729,7 +7920,10 @@ export const languages =
       command:"/opt/oscript/bin/oscript {ARGS} {FILENAME}.os",
       cli: null,
       errorRegEx: "(?:.*?: .+\r\n  at .+?\\.os:|Error parsing .+?\\.os, .+? at line )(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Oz':{
       desc: "Multiparadigm programming and constraint solving",
@@ -6742,7 +7936,10 @@ export const languages =
       command:"ozc {ARGS} -o {FILENAME}.ozf {FILENAME}.{EXT} && ozengine ./{FILENAME}.ozf",
       cli: null,
       errorRegEx: "(?:%\\*.+\r\n)+?%\\*\\* .+? \\\".+?\\\", line (\\d+), column \\d+(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'P':{
       desc: "Concise, Experimental, Turing-complete, Minimalistic, Functional",
@@ -6768,7 +7965,10 @@ export const languages =
       command:"P_SOURCE_PATH=/opt/ppp/lib /opt/ppp/p++ {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.p\\+\\+\\], line ~(\\d+)>\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Pagan':{
       desc: "Programming language for automated reasoning",
@@ -6780,7 +7980,10 @@ export const languages =
       command:"pagan {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Par':{
       desc: "Parallel computing and programming system",
@@ -6792,7 +7995,10 @@ export const languages =
       command:"par {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+:\r\n\r\n(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PARI/GP':{
       desc: "Mathematical computation and algebra system",
@@ -6805,7 +8011,10 @@ export const languages =
       command:"gp {ARGS} < {FILENAME}.{EXT}",
       cli: "gp {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ParaSail':{
       desc: "Concurrent programming language for safety",
@@ -6818,7 +8027,10 @@ export const languages =
       command:"/opt/parasail/bin/interp.csh {FILENAME}.{EXT} {ARGS}",
       cli: "/opt/parasail/bin/interp.csh {FILENAME}.{EXT}",
       errorRegEx: ".+?\\.psl:(\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Parser3':{
       desc: "Data parsing and manipulation tool",
@@ -6831,7 +8043,10 @@ export const languages =
       command:"/opt/parser3/parser3.cgi {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Pascal':{
       desc: "Structured procedural programming language",
@@ -6844,7 +8059,10 @@ export const languages =
       command:"fpc {ARGS} {FILENAME}.{EXT} 2> /dev/null && ./{FILENAME}",
       cli: null,
       errorRegEx: ".*?\\.pas\\((\\d+)(?:,\\d+)?\\) (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Passerine':{
       desc: "Small, extensible, embeddable, highly expressive, light and fast",
@@ -6869,7 +8087,10 @@ export const languages =
       command:"pawncc {FILENAME}.{EXT} && pawnrun ./{FILENAME};tput init",
       cli: null,
       errorRegEx: ".+?\\((\\d+)\\) : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Pepper':{
       desc: "Visual programming environment for robots",
@@ -6881,7 +8102,10 @@ export const languages =
       command:"pepper {ARGS} {FILENAME}.{EXT}",
       cli: "pepper {ARGS}",
       errorRegEx: "(\\d+):\\d+: .+",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
 /* still, 32bit environment does not supported
     'Peridot':{
@@ -6908,7 +8132,10 @@ export const languages =
       command:"perl {ARGS} {FILENAME}.{EXT}",
       cli: "perl {ARGS} -de1",
       errorRegEx: ".* line (\\d+)([,\\.].*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PForth':{
       desc: "Portable ANS-like Forth written in ANSI 'C'",
@@ -6922,7 +8149,9 @@ export const languages =
       cli: "pforth {ARGS}",
       errorRegEx: ".+?:(\\d+): (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Pharo':{
       desc: "Object-oriented programming environment",
@@ -6935,7 +8164,10 @@ export const languages =
       command:"/opt/pharo/pharo {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? line (\\d+):(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Phix':{
       desc: "Extended BASIC programming dialect",
@@ -6961,7 +8193,10 @@ export const languages =
       command:"pic2plot {FILENAME}.{EXT} {ARGS}",
       cli: null,
       errorRegEx: ".+?\\.pic:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Picat':{
       desc: "Declarative, Logic programming, Constraint-solving, High-level, Flexible",
@@ -6973,7 +8208,10 @@ export const languages =
       command:"picat {ARGS} {FILENAME}.{EXT}",
       cli: "picat {ARGS}",
       errorRegEx: ".+? ERROR .+? \\((\\d+)\\-\\d+\\) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PicoC':{
       desc: "Embedded, C-like, Lightweight, Interpreted, Simple",
@@ -6985,7 +8223,10 @@ export const languages =
       command:"picoc {ARGS} {FILENAME}.{EXT}",
       cli: "picoc -i {ARGS}",
       errorRegEx: ".+?\\.c:(\\d+):\\d+ (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PicoLisp':{
       desc: "Minimalistic, Lisp-like, Dynamic, High-level, Symbolic",
@@ -6997,7 +8238,10 @@ export const languages =
         command:"picolisp {ARGS} {FILENAME}.{EXT}",
         cli: "picolisp {ARGS}",
         errorRegEx: "\\[.+?:(\\d+)\\] (.+)",
-        keyBindings: null
+        keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
       },
     'Pike':{
       desc: "Dynamic, Object-oriented, High-performance, C-like, Scripting",
@@ -7009,7 +8253,10 @@ export const languages =
       command:"pike {ARGS} {FILENAME}.{EXT}",
       cli: "pike {ARGS}",
       errorRegEx: ".+?:(\\d+):(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PILOT':{
       desc: "Educational, Procedural, Simple, Interactive, Lightweight",
@@ -7021,7 +8268,10 @@ export const languages =
         command:"pwsh /opt/psPILOT/psPILOT.ps1 {ARGS} {FILENAME}.{EXT}",
         cli: null,
         errorRegEx: null,
-        keyBindings: null
+        keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Pinecone':{
       desc: "Fast, concise, intuitive, general purpose, multi-paradigm, high performance",
@@ -7075,7 +8325,9 @@ export const languages =
       cli: null,
       errorRegEx: ".*?error\\[E\\d+].*?: .*\r\n.*\\.st:(\\d+):\\d+",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Pluto':{
       desc: "Functional, Reactive, Julia-based, Interactive, Notebook",
@@ -7101,7 +8353,10 @@ export const languages =
       command:"/opt/pocketlang/bin/pocket {ARGS} {FILENAME}.{EXT}",
       cli: '/opt/pocketlang/bin/pocket',
       errorRegEx: ".+\r\n.+?\\.pk\":(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Pocketpy':{
       desc: "Lightweight Python 3.x interpreter for game scripting",
@@ -7127,7 +8382,10 @@ export const languages =
       command:"ponyc {ARGS} < {FILENAME}.{EXT} && ./{FILENAME} 2>&1 | grep -v set_mempolicy",
       cli: null,
       errorRegEx: ".+?:(\\d+):(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Poly/ML':{
       desc: "Functional, Statically-typed, ML-based, Strongly-typed, High-level",
@@ -7140,7 +8398,10 @@ export const languages =
       command:"polyc {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.sml:(\\d+): error: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Poplog':{
       desc: "Multi-paradigm, AI-focused, Prolog-based, Lisp-based, Interactive",
@@ -7152,7 +8413,10 @@ export const languages =
       command:"popc {ARGS} {FILENAME}.{EXT}",
       cli: "popc {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PostScript':{
       desc: "Page description, Graphics-oriented, Procedural, Stack-based, Printable",
@@ -7164,7 +8428,10 @@ export const languages =
       args: '-dBATCH -dNOPAUSE -sDEVICE=png16m',
       command:"gs {ARGS} -sOutputFile={FILENAME}.png {FILENAME}.{EXT} && imshow {FILENAME}.png",
       cli: "gs",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PostgreSQL':{
       desc: "Relational, SQL-based, Open-source, Extensible, High-performance",
@@ -7176,7 +8443,10 @@ export const languages =
       args: '-H',
       command:"ps -ef | grep postgresql | grep -v grep > /dev/null || (echo 'Starting postgresql...' && (sudo service postgresql start > /dev/null))\npsql {ARGS} -f {FILENAME}.{EXT} > {FILENAME}.html && imshow {FILENAME}.html",
       cli: "ps -ef | grep postgresql | grep -v grep > /dev/null || (echo 'Starting postgresql...' && (sudo service postgresql start > /dev/null))\npsql",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Potion':{
       desc: "Object-oriented, Functional, Lightweight, Minimalistic, Dynamic",
@@ -7188,7 +8458,10 @@ export const languages =
       command:"potion {ARGS} {FILENAME}.{EXT}",
       cli: "potion {ARGS}",
       errorRegEx: ".+?:(\\d+):(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PowerShell':{
       desc: "Task automation, scripting, configuration management",
@@ -7213,7 +8486,10 @@ export const languages =
       command:"praat {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "Error: .+\r\nScript line (\\d+) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Pro*C':{
       desc: "Embedded SQL, C integration language",
@@ -7226,7 +8502,10 @@ export const languages =
       command:"proc {ARGS} {FILENAME}.{EXT} && gcc -I$ORACLE_HOME/sdk/include -L$ORACLE_HOME -lclntsh -o {FILENAME} {FILENAME}.c -lm -lclntsh && ./{FILENAME}",
       cli: null,
       errorRegEx: "Error at line (\\d+), .*",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Processing':{
       desc: "Visual, interactive, artistic programming language",
@@ -7240,7 +8519,10 @@ export const languages =
       cli: null,
       defaultFilename: 'MainProc',
       errorRegEx: ".+:(\\d+):\\d+:\\d+:\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Prolog GNU':{
       desc: "Logic programming, declarative, rule-based language",
@@ -7253,7 +8535,10 @@ export const languages =
       cli: "gprolog",
       //errorRegEx: ".+:\r\n    .+ line (\\d+)(.*)",
       errorRegEx: ".+?\\.pl:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Prolog SWI':{
       desc: "Logic programming, declarative, rule-based language",
@@ -7266,7 +8551,10 @@ export const languages =
       cli: "swipl {ARGS}",
       //errorRegEx: ".+:\r\n    .+ line (\\d+)(.*)",
       errorRegEx: ".+?\\.pl:(\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PROMELA - Spin':{
       desc: "Model-checking, Concurrent, Formal, Declarative, Verification",
@@ -7278,7 +8566,10 @@ export const languages =
       command:"spin {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".*?: .*\r\n.+?-->.+?:(\\d+):(\\d+):",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PROSE':{
       desc: "Pattern-based, Programming, Transformation, High-level, Tool-oriented",
@@ -7290,7 +8581,10 @@ export const languages =
       command:"/opt/prose/bin/prism {ARGS} {FILENAME}.{EXT} && /opt/prose/bin/prose {FILENAME}.pro",
       cli: null,
       errorRegEx: ".+?: .+?\\.pal line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'PSL':{
       desc: "Embeddable, scripting",
@@ -7303,7 +8597,9 @@ export const languages =
       cli: null,
       errorRegEx: "error .+?\\.psl (\\d+),\\d+: (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Pug':{
       desc: "HTML templating, Concise, Dynamic, Lightweight, Easy-to-read",
@@ -7315,7 +8611,10 @@ export const languages =
       command:"pug {ARGS} {FILENAME}.{EXT} && imshow {FILENAME}.html",
       cli: null,
       errorRegEx: ".+?: .+?:(\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Pure':{
       desc: "Functional, Lazy, Statically-typed, Mathematical, High-level",
@@ -7327,7 +8626,10 @@ export const languages =
       command:"pure {ARGS} {FILENAME}.{EXT}",
       cli: "pure {ARGS}",
       errorRegEx: ".+?. line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Pupp':{
       desc: "Scripting, Lightweight, Concise, Minimalistic, Dynamic",
@@ -7339,7 +8641,10 @@ export const languages =
       command:"pupp {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? at line: (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Puppet':{
       desc: "Configuration management, Declarative, Automation, Infrastructure, Scalable",
@@ -7352,7 +8657,10 @@ export const languages =
       command:"puppet {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\(file: .+?\\.puppet, line: (\\d+), (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Pyret':{
       desc: "Educational, Functional, Declarative, High-level, Student-friendly",
@@ -7365,7 +8673,10 @@ export const languages =
       command:"pyret {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?. line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Q':{
       desc: "Concise, array-oriented, query language",
@@ -7377,7 +8688,10 @@ export const languages =
       command:"q {ARGS} -s {FILENAME}.{EXT}",
       cli: "q {ARGS}",
       errorRegEx: "! File .+?\\.q, line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Qi':{
       desc: "Lightweight, fast, Chinese",
@@ -7415,7 +8729,10 @@ export const languages =
       command:"/opt/qore/bin/qore {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? at .+?\\.q:(\\d+)(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'QuickBASIC':{
       desc: "Simple, procedural, beginner-friendly language",
@@ -7427,7 +8744,10 @@ export const languages =
       command: "unix2dos -q {FILENAME}.{EXT} && ln -sfT /opt/dos/qb45 qb45 && emu2 qb45/bc.exe {ARGS} {FILENAME}.{EXT} {FILENAME}.obj NUL -- 'PATH=C:\\qb45' && emu2 qb45/link.exe {ARGS} {FILENAME}.obj,{FILENAME}.exe,NUL,qb45\\\\brun45.lib,NUL && emu2 {FILENAME}.exe -- 'PATH=C:\\qb45'",
       cli: "ln -sfT /opt/dos/qb45 qb45 && emu2 qb45/qb.exe -- 'PATH=C:\\qb45'",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'QuickJS':{
       desc: "Small and embeddable Javascript engine, fast interpreter",
@@ -7440,7 +8760,9 @@ export const languages =
       cli: "qjs {ARGS}",
       errorRegEx: ".+?\r\n +? at .+?\\.js:(\\d+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Quirrel':{
       desc: "Based on Squirrel, inspired by Python, Lexical scoping",
@@ -7476,7 +8798,10 @@ export const languages =
       command:"racket {ARGS} {FILENAME}.{EXT}",
       cli: "racket {ARGS}",
       errorRegEx: ".*:(\\d+):\\d+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Raku':{
       desc: "Expressive, multi-paradigm, dynamic language",
@@ -7488,7 +8813,10 @@ export const languages =
       command:"rakudo {ARGS} {FILENAME}.{EXT}",
       cli: "rakudo {ARGS}",
       errorRegEx: ".*?at (?:line )?(?:.+?:)?(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Rapira':{
       desc: "Educational, Russian, Procedural, Simple, Interactive",
@@ -7500,7 +8828,10 @@ export const languages =
       command:"/opt/rapira/rapira {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "\\*\\*\\*Error .+\r\n.+?Line number: (\\d+)\r\n.+\r\n( +.+\r\n)*",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Rapture':{
       desc: "Concise, High-level, Functional, Lightweight, Turing-complete",
@@ -7512,7 +8843,10 @@ export const languages =
       command:"/opt/rapture/bin/rapture {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/rapture/bin/rapture",
       errorRegEx: "Error @ line (\\d+):\\d+\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ratfor':{
       desc: "Preprocessor, C-like, Macro-based, Structured, Legacy",
@@ -7524,7 +8858,10 @@ export const languages =
       command:"ratfor {ARGS} {FILENAME}.{EXT} | tail +2 > {FILENAME}.f90 && gfortran -o {FILENAME} {FILENAME}.f90 && ./{FILENAME}",
       cli: "ratfor {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ravi':{
       desc: "Dialect of Lua with limited optional static typing and features",
@@ -7537,7 +8874,9 @@ export const languages =
       cli: "ravi {ARGS}",
       errorRegEx: 'ravi: .+?\\.ravi:(\\d+): (.+)',
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Rebol':{
       desc: "Concise, Lightweight, Data-centric, Dynamic, Scripting",
@@ -7550,7 +8889,10 @@ export const languages =
       command:"rebol {ARGS} -s {FILENAME}.{EXT}",
       cli: "rebol {ARGS}",
       errorRegEx: "\\*\\* .+?: .+\r\n\\*\\* .+?\\(line (\\d+)\\) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Red':{
       desc: "Cross-platform, High-level, Lightweight, Declarative, Functional",
@@ -7562,7 +8904,10 @@ export const languages =
       command:"xvfb-run red {ARGS} {FILENAME}.{EXT}",
       cli: "xvfb-run red {ARGS}",
       errorRegEx: ".+?: \\(line (\\d+)\\)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Redis':{
       desc: "In-memory, key-value store, database",
@@ -7573,7 +8918,10 @@ export const languages =
       icon:'mdi-cube-outline',
       command:"ps -ef | grep redis-server | grep -v grep > /dev/null || (echo 'Starting redis...' && (sudo -u redis redis-server /etc/redis/redis.conf > /dev/null))\ncat {FILENAME}.{EXT} | redis-cli {ARGS}",
       cli: "ps -ef | grep redis-server | grep -v grep > /dev/null || (echo 'Starting redis...' && (sudo -u redis redis-server /etc/redis/redis.conf > /dev/null))\nredis-cli {ARGS}",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'REXX':{
       desc: "Scripting, Procedural, Easy-to-learn, IBM, Text-processing",
@@ -7585,7 +8933,10 @@ export const languages =
       command:"rexx {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? \\\".+?\\\", line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'RhaiScript':{
       desc: "Embedded scripting, evaluation engine",
@@ -7610,7 +8961,10 @@ export const languages =
       command:"rm -f {FILENAME}.rsc && /opt/rigal/bin/rc {ARGS} {FILENAME} && [ -f {FILENAME}.rsc ] && /opt/rigal/bin/ic {FILENAME}",
       cli: null,
       errorRegEx: " Error in file .+?\\.rig\r\n Line= +?(\\d+)\r\n (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ring':{
       desc: "High-level, general-purpose, scripting language",
@@ -7622,7 +8976,10 @@ export const languages =
       command:"ring {ARGS} {FILENAME}.{EXT}",
       cli: "ringrepl",
       errorRegEx: "(?:In )?Line \\(?(\\d+)\\)? (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Rix':{
       desc: "Concise, Functional, Minimalistic, High-level, Experimental",
@@ -7635,7 +8992,10 @@ export const languages =
       command:"export RIX_HOME=/opt/rix\nrixc {ARGS} {FILENAME}.{EXT} && sh {FILENAME}.sh 2> /dev/null && ./{FILENAME}.out",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Rk':{
       desc: "Concise, Functional, Minimalistic, Turing-complete, Experimental",
@@ -7647,7 +9007,10 @@ export const languages =
       command:"rk {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Roc':{
       desc: "Fast, friendly, functional",
@@ -7673,7 +9036,10 @@ export const languages =
       command:"rockstar {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Roff':{
       desc: "Text-formatting, procedural, simple, macro-based, legacy",
@@ -7686,7 +9052,10 @@ export const languages =
       command:"groff {ARGS}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'RPL/2':{
       desc: "Stack-based, procedural, numeric, high-level, concise",
@@ -7698,7 +9067,10 @@ export const languages =
       command:"rpl {ARGS} {FILENAME}.{EXT}",
       cli: "rpl -i",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Rubi':{
       desc: "Concise, dynamic, object-oriented, modern, high-level",
@@ -7710,7 +9082,10 @@ export const languages =
       command:"rubi {ARGS} {FILENAME}.{EXT}",
       cli: "rubi",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ruby':{
       desc: "Dynamic, object-oriented, expressive language",
@@ -7735,7 +9110,10 @@ export const languages =
       command:"/opt/rutger/rutger {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Rust':{
       desc: "Systems, safe, concurrent, performant, modern",
@@ -7799,7 +9177,10 @@ export const languages =
       command:"slsh {ARGS} {FILENAME}.{EXT}",
       cli: "slsh {ARGS}",
       errorRegEx: ".+?\\.slang:(\\d+):(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Sac':{
       desc: "Single-Assignment C, array programming language, high performance",
@@ -7826,7 +9207,9 @@ export const languages =
       cli: null,
       errorRegEx: ".*?Error.*? : .+?:(\\d+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Sage':{
       desc: "Portable, expressive, intuitive",
@@ -7852,7 +9235,10 @@ export const languages =
       command:"sass {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.sass (\\d+):\\d+(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Saturnus':{
       desc: "Lua targeted, easy-to-learn, fast compilation times, scripting",
@@ -7877,7 +9263,10 @@ export const languages =
       command:"/opt/saffire/bin/saffire {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/saffire/bin/saffire repl",
       errorRegEx: ".+\\.sf on line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Sather':{
       desc: "Object-oriented, statically-typed, modular, efficient, concise",
@@ -7889,7 +9278,10 @@ export const languages =
       command:"SATHER_HOME=/opt/sather sacomp -o {FILENAME} {FILENAME}.{EXT} 2> build.log && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.sa:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Saurus':{
       desc: "Concise, high-level, expressive, modern, flexible",
@@ -7901,7 +9293,10 @@ export const languages =
       command:"saurus {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.su ?: ?(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SBCL':{
       desc: "High-performance, dynamic, Lisp-based, compiled, extensible",
@@ -7912,7 +9307,10 @@ export const languages =
       icon:'mdi-wheel-barrow',
       command:"sbcl {ARGS} --script {FILENAME}.{EXT}",
       cli: "sbcl {ARGS}",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Scala2':{
       desc: "Type-safe, functional, object-oriented, expressive, concise",
@@ -7924,7 +9322,10 @@ export const languages =
       command:"scala {ARGS} {FILENAME}.{EXT}",
       cli: "scala {ARGS}",
       errorRegEx: ".+?:(\\d+): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Scala3':{
       desc: "Modern, type-safe, functional, object-oriented, expressive",
@@ -7936,7 +9337,10 @@ export const languages =
       command:"/opt/scala3/bin/scala {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/scala3/bin/scala {ARGS}",
       errorRegEx: ".+?: .+?:(\\d+):(\\d+) -+",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Scheme(Chez)':{
       desc: "Functional, minimalist, dialect, recursive, expressive",
@@ -7986,7 +9390,10 @@ export const languages =
       command:"scilab-cli {ARGS} -quit",
       cli: "scilab-cli",
       errorRegEx: "at line .+? (\\d+) of .+\r\n(?:.*\r\n)+?(Error:.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Scopes':{
       desc: "Expression-based, statically typed, general purpose",
@@ -8012,7 +9419,10 @@ export const languages =
       command:"/opt/scriptol/solp {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.sol.L?(\\d+)(:\\d+)?: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SCSS':{
       desc: "CSS-based, preprocessor, modular, dynamic, flexible",
@@ -8024,7 +9434,10 @@ export const languages =
       command:"sass {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.scss (\\d+):\\d+(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Seed7':{
       desc: "High-level, multi-paradigm, extensible, statically-typed, modular",
@@ -8038,7 +9451,9 @@ export const languages =
       cli: null,
       errorRegEx: "\\*\\*\\* .+?\\.sd7\\((\\d+)\\):\\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Self':{
       desc: "Prototype-based, object-oriented, dynamic, expressive, flexible",
@@ -8051,7 +9466,10 @@ export const languages =
       command:"Self {ARGS} < {FILENAME}.{EXT} 2> /dev/null",
       cli: "Self {ARGS}",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Senegal':{
       desc: "Declarative, high-level, concise, modular, functional",
@@ -8064,7 +9482,10 @@ export const languages =
       command:"senegal {ARGS} {FILENAME}.{EXT}",
       cli: "senegal",
       errorRegEx: "< Error on line (\\d+) > (.+\r\n.+?in: .+\\.sgl)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Seq':{
       desc: "Functional, concise, high-level, modular, expressive",
@@ -8077,7 +9498,10 @@ export const languages =
       command:"seqc {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SETL':{
       desc: "Set-oriented, high-level, declarative, mathematical, expressive",
@@ -8090,7 +9514,10 @@ export const languages =
       command:"/opt/setl/setl {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "\\*\\*\\*  Error.+? line (\\d+) .+?\\.setl(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SGScript':{
       desc: "C-like syntax, highly optimized, register-based VM",
@@ -8104,7 +9531,9 @@ export const languages =
       cli: null,
       errorRegEx: "Error: \\[line (\\d+)\\] (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Shen':{
       desc: "Functional, logic-based, dynamic, expressive, concise",
@@ -8116,7 +9545,10 @@ export const languages =
       command:"/opt/shen/bin/shen script {FILENAME}.{EXT} {ARGS}",
       cli: '/opt/shen/bin/shen repl',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Shiika':{
       desc: "Statically-typed, object-oriented, written in Rust",
@@ -8157,7 +9589,10 @@ export const languages =
       command:"cim {ARGS} -o {FILENAME} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: '.+?\\.sim\\", line (\\d+): (.+)',
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Sink':{
       desc: "Stream-based, minimalistic, functional, efficient, concise",
@@ -8169,7 +9604,10 @@ export const languages =
       command:"sink {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+\\.sink:(\\d+):\\d+:(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Sisal':{
       desc: "Functional, dataflow-oriented, high-performance, declarative, concise",
@@ -8181,7 +9619,10 @@ export const languages =
       command:"sisalc {ARGS} -o {FILENAME} {FILENAME}.{EXT} 2> /dev/null && echo \"NIL\" | ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.sis:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Skew':{
       desc: "Web-first, cross-platform, readable, easy to integrate",
@@ -8194,7 +9635,9 @@ export const languages =
       command:"skewc {FILENAME}.{EXT} --output-file={FILENAME}.js {ARGS} && node {FILENAME}.js",
       errorRegEx: ".+?\\.sk:(\\d+):\\d:(.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'SkyLark':{
       desc: "Scripting, dynamic, high-level, extensible, modern",
@@ -8206,7 +9649,10 @@ export const languages =
       command:"skylark {ARGS} {FILENAME}.{EXT}",
       cli: 'skylark {ARGS}',
       errorRegEx: ".+?\\.sky:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Slash':{
       desc: "Scripting, dynamic, flexible, high-level, modular",
@@ -8218,7 +9664,10 @@ export const languages =
       command:"/opt/slash/bin/slash-cli {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/slash/bin/slash-cli",
       errorRegEx: ".+?: .+\r\n  at .+? in .+?\\.sl, line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Sleep':{
       desc: "Minimalistic, esoteric, stack-based, concise, experimental",
@@ -8230,7 +9679,10 @@ export const languages =
       command:"sleep.sh {ARGS} {FILENAME}.{EXT}",
       cli: "sleep.sh {ARGS}",
       errorRegEx: "(?:Warning|Error): .+? at (?:line|.+\\.sl)[\\ :](\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Slogan':{
       desc: "Declarative, high-level, concise, modular, functional",
@@ -8243,7 +9695,10 @@ export const languages =
       command:"/opt/slogan/slogan {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/slogan/slogan",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SmallBasic':{
       desc: "Fast and easy to learn",
@@ -8268,7 +9723,10 @@ export const languages =
       command:"gst {ARGS} {FILENAME}.{EXT}",
       cli: "gst {ARGS}",
       errorRegEx: ".+?:(\\d+): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Smile':{
       desc: "Concise, functional, educational language",
@@ -8280,7 +9738,10 @@ export const languages =
       command:"/opt/smile/bin/smile {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/smile/bin/smile {ARGS}",
       errorRegEx: ".+?\\.sm:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SML/NJ':{
       desc: "Functional, statically-typed, modular language",
@@ -8292,7 +9753,10 @@ export const languages =
       command:"sml {ARGS} < {FILENAME}.{EXT}",
       cli: "sml {ARGS}",
       errorRegEx: ".+?:(\\d+)\\.\\d+(\\ Error|-\\d+\\.\\d+ \\w+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Snobol4':{
       desc: "Pattern-oriented, text-processing, procedural, dynamic, legacy",
@@ -8304,7 +9768,10 @@ export const languages =
       command:"/opt/snobol4/bin/snobol4 {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/snobol4/bin/snobol4",
       errorRegEx: ".+\\.sno:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Snobol4(spitbol)':{
       desc: "Pattern-oriented, text-processing, procedural, dynamic, legacy",
@@ -8316,7 +9783,10 @@ export const languages =
       command:"spitbol {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\((\\d+(?:,\\d+)?)\\) : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SoftScript':{
       desc: "Scripting, flexible, dynamic, high-level, extensible",
@@ -8328,7 +9798,10 @@ export const languages =
       command:"softscript  {ARGS} {FILENAME}.{EXT}",
       cli: "softscript",
       errorRegEx: "Line (\\d+) in .+?\\.ss\r\nError: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Sol':{
       desc: "Scripting, lightweight, re-entrant, multi-user runtime",
@@ -8342,7 +9815,9 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\r\n\\(at lines (\\d+)-\\d+, cols \\d+-\\d+\\)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Solidity':{
       desc: "Smart contract, blockchain, Ethereum-based language",
@@ -8355,7 +9830,10 @@ export const languages =
       command:"solc -o . {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".*?: .*\r\n.+?-->.+?:(\\d+):(\\d+):",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SOM':{
       desc: "Object-oriented, prototype-based, dynamic, modular, expressive",
@@ -8368,7 +9846,10 @@ export const languages =
       command: "SOM++ {ARGS} {FILENAME}",
       cli: "SOM++ {ARGS}",
       errorRegEx: "Error: .+? in line (\\d+)\\. .+:(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Sophia':{
       desc: "Smart contract, blockchain, functional language",
@@ -8379,7 +9860,10 @@ export const languages =
       icon:'mdi-all-inclusive',
       command: "aesophia_cli {ARGS} {FILENAME}.{EXT}",
       errorRegEx: ".*? at line (\\d+), col \\d+:\r\n(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SourcePawn':{
       desc: "Smart contract, blockchain, functional language",
@@ -8404,7 +9888,10 @@ export const languages =
       command: "spn {ARGS} {FILENAME}.{EXT}",
       cli: "spn",
       errorRegEx: ".+? line (?:\x1B\\[\\d+m)?(\\d+).*? char .*?\\d+.*?:? (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SPL':{
       desc: "Procedural, database query, scripting language",
@@ -8416,7 +9903,10 @@ export const languages =
       command:"spl {ARGS} {FILENAME}.{EXT} > {FILENAME}.c && gcc -o {FILENAME} {FILENAME}.c -lm && ./{FILENAME}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Spow':{
       desc: "Scripting, parallel, object-oriented language",
@@ -8428,7 +9918,10 @@ export const languages =
       command:"spow {ARGS} {FILENAME}.{EXT}",
       cli: 'spow',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Squirrel':{
       desc: "Lightweight, embeddable, scripting language",
@@ -8440,7 +9933,10 @@ export const languages =
       command:"sq {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? line = \\((\\d+)\\) column = \\(\\d+\\) : (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SQLite':{
       desc: "Embedded, lightweight, self-contained database",
@@ -8477,7 +9973,10 @@ export const languages =
       command:"ln -sfT /opt/stanza/.stanza ~/.stanza\n/opt/stanza/stanza {ARGS} {FILENAME}.{EXT} -o {FILENAME} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+\\.stanza:(\\d+)\\.\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'StarLark':{
       desc: "Configuration, extensible, scripting, high-level, declarative",
@@ -8489,7 +9988,10 @@ export const languages =
       command:"starlark {ARGS} {FILENAME}.{EXT}",
       cli: 'starlark {ARGS}',
       errorRegEx: ".+?\\.star:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'StaticScript':{
       desc: "Statically typed, syntactically like TypeScript",
@@ -8541,7 +10043,10 @@ export const languages =
       command:"/opt/storm/bin/stormcompiler {FILENAME}.{EXT} {FILENAME} && /opt/storm/bin/stormrun {FILENAME}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'StormScript':{
       desc: "Scripting, dynamic, flexible, high-level, extensible",
@@ -8553,7 +10058,10 @@ export const languages =
       command:"stormscript {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Strand':{
       desc: "Concurrent, high-level, modular, functional, scalable",
@@ -8566,7 +10074,10 @@ export const languages =
       command:"/opt/strand/strand {ARGS} {FILENAME}.{EXT}",
       cli: '/opt/strand/strand',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Streem':{
       desc: "Concurrent, stream processing, functional language",
@@ -8578,7 +10089,10 @@ export const languages =
       command:"streem {ARGS} {FILENAME}.{EXT}",
       cli: 'streem',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Strela':{
       desc: "Declarative, functional, high-level, expressive, modular",
@@ -8591,7 +10105,10 @@ export const languages =
       command:"strela {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?\\.strela:(\\d+):\\d+ (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'SurgeScript':{
       desc: "Scripting, dynamic, flexible, high-level, extensible",
@@ -8603,7 +10120,10 @@ export const languages =
       command:"surgescript {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? on .+?\\.ss:(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Swift':{
       desc: "Safe, modern, fast, general-purpose",
@@ -8643,7 +10163,10 @@ export const languages =
       command:"szl {ARGS} {FILENAME}.{EXT}",
       cli: "szlsh",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Tamgu':{
       desc: "Dynamic, multi-paradigm, expressive, high-level, flexible",
@@ -8655,7 +10178,10 @@ export const languages =
       command:"/opt/tamgu/bin/tamgu {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/tamgu/bin/tamgu",
       errorRegEx: "Error line:(\\d+) (.*?)\\.tmg",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Tamsin':{
       desc: "Functional, high-level, concise, modern, type-safe",
@@ -8667,7 +10193,10 @@ export const languages =
       command:"tamsin {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Tea':{
       desc: "Concise, functional, high-level, expressive, modern",
@@ -8679,7 +10208,10 @@ export const languages =
       command:"ln -sfT /opt/tea tea && tea/bin/tea --init {FILENAME} && mv -f {FILENAME}.{EXT} {FILENAME}\ntea/bin/tea {FILENAME} && php-cgi -q {FILENAME}/dist/{FILENAME}.php > {FILENAME}.html && imshow {FILENAME}.html",
       cli: null,
       errorRegEx: ".+?:\r\n.+?\\.tea:(\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Teak':{
       desc: "Small scripting language to replace Unix shell scripts",
@@ -8705,7 +10237,9 @@ export const languages =
       cli: 'TeaScript',
       errorRegEx: "in line .*?m(\\d+).*?, column .*?m\\d+.*?:\r\n(.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/teascript"
+      dockerImage: "ryusatgat/teascript",
+      homepage: '',
+      repo: '',
     },
     'Tengo':{
       desc: "Small, dynamic, fast, secure script language for Go",
@@ -8718,7 +10252,9 @@ export const languages =
       cli: 'Tengo',
       errorRegEx: ".+?\r\n.+?\\.tengo:(\\d+):\\d+",
       keyBindings: null,
-      dockerImage: "ryusatgat/go"
+      dockerImage: "ryusatgat/go",
+      homepage: '',
+      repo: '',
     },
     'TeX':{
       desc: "Typesetting, document preparation system",
@@ -8730,7 +10266,10 @@ export const languages =
       command:"tex {ARGS} {FILENAME}.{EXT} && dvipdfm {FILENAME}.dvi && imshow {FILENAME}.pdf",
       cli: null,
       errorRegEx: ".*\r+\n.*\r+\n.*\r+\n.* line (\\d+)(.*)?",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Tcl':{
       desc: "Scripting, extensible, embeddable language",
@@ -8742,7 +10281,10 @@ export const languages =
       command:"tclsh {ARGS} {FILENAME}.{EXT}",
       cli: "tclsh {ARGS}",
       errorRegEx: ".*\r+\n.*\r+\n.*\r+\n.* line (\\d+)(.*)?",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Tcsh':{
       desc: "Command-line, scripting, interactive, Unix-based, extensible",
@@ -8753,7 +10295,10 @@ export const languages =
       icon:'mdi-emoticon-devil-outline',
       command:"chmod 755 {FILENAME}.{EXT} && tcsh {ARGS} ./{FILENAME}.{EXT}",
       cli: 'tcsh {ARGS}',
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'TerminalBasic':{
       desc: "Procedural, text-based, simple, interpreted, educational",
@@ -8766,7 +10311,10 @@ export const languages =
       command:"/opt/terminalbasic/terminalbasic {ARGS} < {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "/opt/terminalbasic/terminalbasic",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Terra':{
       desc: "Declarative, infrastructure management language",
@@ -8778,7 +10326,10 @@ export const languages =
       command:"terra {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+\\.t:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Terraform':{
       desc: "Infrastructure as code, provisioning tool",
@@ -8791,7 +10342,10 @@ export const languages =
       command:"terraform init && terraform apply {ARGS}",
       cli: null,
       errorRegEx: ".*\r+\n.*\r+\n.*\r+\n.* line (\\d+)(.*)?",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'TinyScript':{
       desc: "Scripting, designed for very tiny machines",
@@ -8804,7 +10358,9 @@ export const languages =
       cli: 'tinyscript',
       errorRegEx: null, // not supported
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'TIScript':{
       desc: "Scripting, dynamic, extensible, lightweight, high-level",
@@ -8816,7 +10372,10 @@ export const languages =
       command:"wine /opt/tiscript/bin/tis.exe {ARGS} {FILENAME}.{EXT}",
       cli: 'wine /opt/tiscript/bin/tiscript.exe {ARGS}',
       errorRegEx: "Error: .*?\r\r\n\tat .+\\(.+?:(\\d+)\\)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Tokay':{
       desc: "For ad-hoc parsing, text processing",
@@ -8829,7 +10388,9 @@ export const languages =
       cli: 'tokay',
       errorRegEx: "Line (\\d+), column \\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"      
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'TotemScript':{
       desc: "Scripting, dynamic, extensible, modular, high-level",
@@ -8842,7 +10403,10 @@ export const languages =
       command:"/opt/totemscript/TotemScriptCmd {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "Script error: .+? on line (\\d+):\\d+(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Toy':{
       desc: "Bytecode-intermediate embedded scripting",
@@ -8857,6 +10421,8 @@ export const languages =
       errorRegEx: '.*?\\[Line (\\d+)\\] Error at (.+)',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Tula':{
       desc: "Declarative, modular, high-level, concise, flexible",
@@ -8869,7 +10435,10 @@ export const languages =
       command:"tula {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".*?(\\d+):\\d+: ERROR: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Turbo Assembler':{
       desc: "Integrated, fast, assembly language compiler",
@@ -8881,7 +10450,10 @@ export const languages =
       command:"emu2 /opt/dos/tasm/tasm.exe {ARGS} {FILENAME}.{EXT} && emu2 /opt/dos/tasm/tlink.exe {FILENAME}.obj && emu2 {FILENAME}.exe",
       cli: null,
       errorRegEx: "\\*\\*(?:Error|Fatal)\\*\\* .+?\\.asm\\((\\d+)\\) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Turbo C':{
       desc: "Integrated, fast, C development environment",
@@ -8893,7 +10465,10 @@ export const languages =
       command:"unix2dos -q {FILENAME}.{EXT} && ln -sfT /opt/tc tc && emu2 tc/TCC.EXE {ARGS} {FILENAME}.{EXT} -- 'PATH=C:\\TC' && emu2 {FILENAME}.exe",
       cli: null,
       errorRegEx: ".*? (\\d+): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Turbo C++':{
       desc: "Compiled, object-oriented, efficient, legacy, integrated",
@@ -8906,7 +10481,10 @@ export const languages =
                //ln -sf /opt/tcpp101 TC && emu2 TC/bin/tcc.exe  main.cpp -- 'PATH=C:\TC\BIN' && emu2 main.exe
       cli: null,
       errorRegEx: ".*? (\\d+): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Turbo Pascal':{
       desc: "Procedural, compiled, efficient, structured, legacy",
@@ -8919,7 +10497,10 @@ export const languages =
       command:"ln -sfT /opt/tp TP && emu2 TP/tpc.exe {ARGS} {FILENAME}.{EXT} -- 'PATH=C:\\TP' && emu2 {FILENAME}.exe",
       cli: null,
       errorRegEx: ".*?\\((\\d+)\\): (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Turing':{
       desc: "Procedural, educational, high-level, simple, structured",
@@ -8931,7 +10512,10 @@ export const languages =
       command:"/opt/turing/compiler {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "Error on line (\\d+) \\[\\d+\\] of .*?: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'ubasic':{
       desc: "Simple, procedural, interpreted, educational, lightweight",
@@ -8943,7 +10527,10 @@ export const languages =
       command:"/opt/ubasic/ubx {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'uC++':{
       desc: "C++-based, modular, cross-platform, high-performance, expressive",
@@ -8969,7 +10556,9 @@ export const languages =
       cli: null,
       errorRegEx: "Error .+\\.um \\((\\d+), \\d+\\): (.+)",
       keyBindings: null,
-      dockerImage: 'ryusatgat/etc'
+      dockerImage: 'ryusatgat/etc',
+      homepage: '',
+      repo: '',
     },
     'Umple':{
       desc: "Model-oriented, code generation, UML-based language",
@@ -8983,7 +10572,10 @@ export const languages =
       cli: null,
       defaultFilename: 'Main',
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'uclang':{
       desc: "Type-safe, modern, concise, expressive, high-level",
@@ -8996,7 +10588,10 @@ export const languages =
       cli: null,
       defaultFilename: 'Main',
       errorRegEx: ".+? in file: \".+?\\.ucl\" on line: (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Unicon':{
       desc: "Extended, high-level, data-oriented language",
@@ -9008,7 +10603,10 @@ export const languages =
       command:"unicon {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.icn:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Ursa':{
       desc: "Systems programming, low-level, type-safe language",
@@ -9020,7 +10618,10 @@ export const languages =
       command:"ursa {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'V':{
       desc: "Minimalistic, statically-typed, compiled, fast, simple",
@@ -9032,7 +10633,10 @@ export const languages =
       command:"v {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: 'v {ARGS}',
       errorRegEx: ".+?:(\\d+):\\d+:(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Vala':{
       desc: "Object-oriented, type-safe, modern, concise, high-level",
@@ -9044,7 +10648,10 @@ export const languages =
       command:"valac {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?:(\\d+).\\d+-\\d+\\.\\d+:(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Verilog':{
       desc: "Hardware-oriented, procedural, descriptive, efficient, concise",
@@ -9057,7 +10664,10 @@ export const languages =
       command:"iverilog {ARGS} {FILENAME}.{EXT} && vvp {FILENAME}",
       cli: null,
       errorRegEx: ".+?:(\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'VHDL':{
       desc: "Hardware-oriented, descriptive, concurrent, precise, digital",
@@ -9069,7 +10679,10 @@ export const languages =
       command:"ghdl -a {ARGS} {FILENAME}.{EXT} && ghdl -e {FILENAME} && ghdl -r {FILENAME}",
       cli: null,
       errorRegEx: ".+?:(\\d+):\\d+:(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Victim':{
       desc: "Dynamically typed interpreted scripting",
@@ -9082,7 +10695,9 @@ export const languages =
       cli: null,
       errorRegEx: "\\(line (\\d+), column \\d+\\):\r\n(.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Vim Script':{
       desc: "Text-based, scripting, extensible, lightweight, editor-focused",
@@ -9093,7 +10708,10 @@ export const languages =
       icon:'mdi-alpha-v-box',
       command:'vim -c ":so %" {ARGS} {FILENAME}.{EXT}',
       cli: "vim",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Virgil':{
       desc: "Object-oriented, statically-typed, modular, high-level, expressive",
@@ -9106,7 +10724,10 @@ export const languages =
       command:'/opt/virgil/bin/virgil {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+?\\.v3.*?@.*?(\\d+):(\\d+)(.*)",      
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Wa':{
       desc: "General-purpose, designed for developing robustness and maintainability",
@@ -9131,7 +10752,10 @@ export const languages =
       command:"/opt/wardscript/bin/ward {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Wax':{
       desc: "Dynamic, flexible, scripting, high-level, modular",
@@ -9144,7 +10768,10 @@ export const languages =
       command:"/opt/wax/bin/waxc {ARGS} {FILENAME}.{EXT} && make {FILENAME} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?line (\\d+): (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Wenyan':{
       desc: "Ancient chinese",
@@ -9158,7 +10785,9 @@ export const languages =
       cli: null,
       errorRegEx: "Line (\\d+), (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Whitespace':{
       desc: "Esoteric, minimalistic, whitespace-based, stack-oriented, unconventional",
@@ -9185,7 +10814,9 @@ export const languages =
       errorRegEx: '.+\\.wsn:(\\d+)',
       keyBindings: null,
       insertSpaces: false,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Wisp':{
       desc: "A lisp👽 written in C++",
@@ -9198,7 +10829,9 @@ export const languages =
       cli: "wisp {ARGS}",
       errorRegEx: null, // not supported
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Wolfram Script':{
       desc: "Scriptable, mathematical, functional, symbolic, powerful",
@@ -9210,7 +10843,10 @@ export const languages =
       command:"mathics {ARGS} {FILENAME}.{EXT}",
       cli: "mathics {ARGS}",
       errorRegEx: "\\w+::\\w+: .+ \\(line (\\d+) of .*\\)(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'World':{
       desc: "General-purpose, high-level, expressive, modular, versatile",
@@ -9222,7 +10858,10 @@ export const languages =
       command:"/opt/world/world {ARGS} {FILENAME}.{EXT}",
       cli: "/opt/world/world",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Wren':{
       desc: "Lightweight, scripting, high-performance, dynamic, modular",
@@ -9234,7 +10873,10 @@ export const languages =
       command:"wren_cli {ARGS} {FILENAME}.{EXT}",
       cli: "wren_cli {ARGS}",
       errorRegEx: "\\[.+? line (\\d+)\\] (Error .+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'Wu':{
       desc: "Minimalistic, dynamic, esoteric, concise, experimental",
@@ -9246,7 +10888,10 @@ export const languages =
       command:"wu {ARGS} {FILENAME}.{EXT} && lua {FILENAME}.lua",
       cli: null,
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Wyvern':{
       desc: "Statically-typed, functional, concise, expressive, modern",
@@ -9258,7 +10903,10 @@ export const languages =
       command:"wyvern {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+? (?:at|on) line (\\d+) (column \\d+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'X10':{
       desc: "Concurrent, scalable, high-performance, distributed, modern",
@@ -9270,7 +10918,10 @@ export const languages =
       command:"x10c {ARGS} {FILENAME}.{EXT} && x10 {FILENAME}",
       cli: null,
       errorRegEx: ".+? (?:at|on) line (\\d+) (column \\d+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'xlang':{
       desc: "Concise, modern, dynamic, flexible, efficient",
@@ -9282,7 +10933,10 @@ export const languages =
       command:"xlang {ARGS} {FILENAME}.{EXT} && ./a.out",
       cli: null,
       errorRegEx: ".+?\\.x:(\\d+):\\d+ (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'XLisp':{
       desc: "Lisp-based, dynamic, extensible, high-level, expressive",
@@ -9293,7 +10947,10 @@ export const languages =
       icon:'mdi-alpha-x-box',
       command:"xlisp {ARGS} < {FILENAME}.{EXT}",
       cli: "xlisp {ARGS}",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Xion':{
       desc: "High-level, modular, expressive, dynamic, flexible",
@@ -9305,7 +10962,10 @@ export const languages =
       command:"xion {ARGS} {FILENAME}.{EXT}",
       cli: "xion {ARGS}",
       errorRegEx: ".+? on line (\\d+) at character (\\d+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'XPL0':{
       desc: "Educational, procedural, simple, interpretive, minimalistic",
@@ -9316,7 +10976,10 @@ export const languages =
       icon:'mdi-alpha-x',
       command:"echo 'N' | xpl0 {ARGS} {FILENAME} && emu2 {FILENAME}.com",
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'XL':{
       desc: "Concise, high-level, modular, expressive, modern",
@@ -9328,7 +10991,10 @@ export const languages =
       command:"/opt/xl/bin/xl {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+\\.xl:(\\d+):\\d+: (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Yacas':{
       desc: "Symbolic, algebraic, extensible, interactive, high-level",
@@ -9340,7 +11006,10 @@ export const languages =
       command:"yacas {ARGS} {FILENAME}.{EXT}",
       cli: "yacas {ARGS}",
       errorRegEx: ".+?\\.us\\((\\d+)\\) : (Error .+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Yaksha':{
       desc: "Off-side rule syntax, YakshaList sublanguage",
@@ -9366,7 +11035,10 @@ export const languages =
       command:'yasl {ARGS} {FILENAME}.{EXT}',
       cli: 'yasl',
       errorRegEx: ".+?: .+? \\(?line (\\d+)\\)?(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'YAsm':{
       desc: "Assembler, low-level, efficient, minimalistic, precise",
@@ -9379,7 +11051,10 @@ export const languages =
       command:'yasm {ARGS} {FILENAME}.{EXT} && ld -s -o {FILENAME} {FILENAME}.o && ./{FILENAME}',
       cli: null,
       errorRegEx: ".*?:(\\d+): \\w+: (.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Yorick':{
       desc: "Numerical, interactive, scripting, high-level, extensible",
@@ -9390,7 +11065,10 @@ export const languages =
       icon:'mdi-skull-outline',
       command:"yorick {ARGS} < {FILENAME}.{EXT}",
       cli: "yorick {ARGS}",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Yabasic':{
       desc: "Simple, procedural, interpreted, lightweight, educational",
@@ -9402,7 +11080,10 @@ export const languages =
       command:'yabasic {ARGS} {FILENAME}.{EXT}',
       cli: null,
       errorRegEx: ".+ line (\\d+).+\r\n(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Zang':{
       desc: "Dynamically typed, high level",
@@ -9427,7 +11108,10 @@ export const languages =
       command:"Zebra {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "\\[Line (\\d+)\\] (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Zenon':{
       desc: "Statically typed, inspired by C++",
@@ -9454,7 +11138,9 @@ export const languages =
       cli: 'zs',
       errorRegEx: "\\[.+?\\.zs:(\\d+)\\] (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'zForth':{
       desc: " Forth environment combines the compiler with an interactive shell",
@@ -9468,7 +11154,9 @@ export const languages =
       cli: 'zforth {ARGS}',
       errorRegEx: '.+?\\.zf:(\\d+): (.+)',
       keyBindings: null,
-      dockerImage: "ryusatgat/etc"
+      dockerImage: "ryusatgat/etc",
+      homepage: '',
+      repo: '',
     },
     'Zig':{
       desc: "Low-level, statically-typed, performant, concise, safety-oriented",
@@ -9494,7 +11182,10 @@ export const languages =
       command:"/opt/zimbu/zimbu {ARGS} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+\\.zu line (\\d+) (.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'Zion':{
       desc: "High-level, expressive, modular, dynamic, flexible",
@@ -9506,7 +11197,10 @@ export const languages =
       command:"export ZION_ROOT=/opt/zion\nzion {ARGS} {FILENAME}",
       cli: null,
       errorRegEx: ".+?\\.zion:(\\d+):\\d+(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     'zkl':{
       desc: "Declarative, type-safe, high-level, concise, modular",
@@ -9519,7 +11213,10 @@ export const languages =
       command:"runzkl {ARGS} {FILENAME}.{EXT}",
       cli: 'runzkl {ARGS}',
       errorRegEx: ".+?:Line (\\d+):(.+)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },    
     'Zx':{
       desc: "Tool for writing better scripts",
@@ -9532,7 +11229,9 @@ export const languages =
       cli: 'xz --repl',
       errorRegEx: ".+?\\.mjs:(\\d+)\r\n.+\r\n.+\r\n\r\n(.+)\r\n",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     '4tH':{
       desc: "Stack-based, concatenative, minimalist, esoteric, functional",
@@ -9545,7 +11244,10 @@ export const languages =
       command: "4th {ARGS} {FILENAME}.{EXT}",
       cli: "4tsh",
       errorRegEx: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     '8th':{
       desc: "Stack-based, concurrent, high-level language",
@@ -9557,7 +11259,10 @@ export const languages =
       command: "8th {ARGS} {FILENAME}.{EXT}",
       cli: "8th",
       errorRegEx: ".+: at line (\\d+) .+? in .+?\\.8th",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     '11l':{
       desc: "Concise, functional, high-level language",
@@ -9569,7 +11274,10 @@ export const languages =
       command: "11l {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
       errorRegEx: ".+?: .+?\r\n.+, line (\\d+)(.*)",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: '',
     },
     '가람':{
       desc: "High-level, functional, concise language",
@@ -9580,7 +11288,10 @@ export const languages =
       icon:'mdi-screwdriver',
       command:"garam {ARGS} < {FILENAME}.{EXT}",
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: 'https://github.com/ericlee05/Garam-Interpreter',
     },
     '누리':{
       desc: "Concise, functional, modern, type-safe, expressive",
@@ -9593,7 +11304,10 @@ export const languages =
       command:"nuri {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: ".+?, (\\d+).+",
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: 'https://nuri.donghwi.dev',
+      repo: 'https://github.com/suhdonghwi/nuri',
     },
     '아희':{
       desc: "Esoteric, minimalistic, stack-based, visual, unconventional",
@@ -9604,7 +11318,10 @@ export const languages =
       icon:'mdi-syllabary-hangul',
       command:"aheui {ARGS} {FILENAME}.{EXT}",
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: 'https://aheui.readthedocs.io/',
+      repo: 'https://github.com/aheui/c2aheui',
     },
     '약속':{
       desc: "Declarative, type-safe, expressive, concise, modern",
@@ -9615,7 +11332,10 @@ export const languages =
       icon:'mdi-hand-okay',
       command:"ysjs compile {ARGS} {FILENAME}.{EXT} && node out",
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: 'http://yaksok.org',
+      repo: 'https://github.com/yaksok/yaksok',
     },
     '엄랭':{
       desc: "Minimalistic, esoteric, stack-based, experimental, unique",
@@ -9626,7 +11346,10 @@ export const languages =
       icon:'mdi-cow',
       command:"ummc -o {FILENAME} {ARGS} {FILENAME}.{EXT} && ./{FILENAME}",
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: '',
+      homepage: '',
+      repo: 'https://github.com/rycont/umjunsik-lang',
     },
     '혀엉...':{
       desc: "Esoteric, Korean, Educational, Simple, Concise",
@@ -9637,7 +11360,10 @@ export const languages =
       icon:'mdi-heart-outline',
       command:"hyeong {ARGS} {FILENAME}.{EXT}",
       cli: null,
-      keyBindings: null
+      keyBindings: null,
+      dockerImage: 'https://gist.github.com/xnuk',
+      homepage: '',
+      repo: 'https://gist.github.com/xnuk/d9f883ede568d97caa158255e4b4d069',
     },
     'C Shell':{
       desc: "C-like syntax, job control, history mechanism, scripting features, command aliasing",
@@ -9650,7 +11376,9 @@ export const languages =
       cli: "csh",
       errorRegEx: ".+?\\.csh: line (\\d+): (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Dashell':{
       desc: "Lightweight, fast, POSIX-compliant, compatible, shell scripting",
@@ -9663,7 +11391,9 @@ export const languages =
       cli: "dash",
       errorRegEx: ".+?\\.dash: line (\\d+): (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Elvish':{
       desc: "Powerful modern shell scripting",
@@ -9676,7 +11406,9 @@ export const languages =
       cli: "elvish",
       errorRegEx: ".+?\\.elv:(\\d+):\\d+-\\d+: (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Korn Shell':{
       desc: "POSIX-compliant, Job control, Scripting features, Command aliasing",
@@ -9689,7 +11421,9 @@ export const languages =
       cli: "ksh",
       errorRegEx: ".+?\\.ksh: line (\\d+): (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Nushell':{
       desc: "New type of shell",
@@ -9702,7 +11436,9 @@ export const languages =
       cli: "nu",
       errorRegEx: ".+?\\.nu.+?m:(\\d+):\\d+\\]",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Z Shell':{
       desc: "Shell scripting, command-line, and Unix-based",
@@ -9715,7 +11451,9 @@ export const languages =
       cli: "zsh",
       errorRegEx: ".+?\\.zsh: line (\\d+): (.+)",
       keyBindings: null,
-      dockerImage: "ryusatgat/base"
+      dockerImage: "ryusatgat/base",
+      homepage: '',
+      repo: '',
     },
     'Arch Linux':{
       desc: "Simple, lightweight Linux distribution aimed for flexibility",
@@ -9728,7 +11466,9 @@ export const languages =
       cli: null,
       errorRegEx: ".*\\.sh: .+? (\\d+): (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/arch"
+      dockerImage: "ryusatgat/arch",
+      homepage: '',
+      repo: '',
     },
     'Kali Linux':{
       desc: "Penetration-testing, Security-focused, Preloaded-tools, Debian-based, Customizable",
@@ -9741,7 +11481,9 @@ export const languages =
       cli: null,
       errorRegEx: ".*\\.sh: .+? (\\d+): (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/kali"
+      dockerImage: "ryusatgat/kali",
+      homepage: '',
+      repo: '',
     },    
     'Rocky Linux 9':{
       desc: "Compatible with Red Hat Enterprise Linux",
@@ -9754,7 +11496,9 @@ export const languages =
       cli: null,
       errorRegEx: ".*\\.sh: .+? (\\d+): (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/rocky9"
+      dockerImage: "ryusatgat/rocky9",
+      homepage: '',
+      repo: '',
     },
     'Ubuntu Linux':{
       desc: "Canonical, Derived from Debian",
@@ -9767,6 +11511,8 @@ export const languages =
       cli: null,
       errorRegEx: ".*\\.sh: .+? (\\d+): (.*)",
       keyBindings: null,
-      dockerImage: "ryusatgat/ubuntu"
+      dockerImage: "ryusatgat/ubuntu",
+      homepage: '',
+      repo: '',
     },
 };

@@ -77,6 +77,7 @@ import './apl/apl.contribution.js';
 import './aplus/aplus.contribution.js';
 import './arc/arc.contribution.js';
 import './arduino/arduino.contribution.js';
+import './argon/argon.contribution.js';
 import './argile/argile.contribution.js';
 import './arkscript/arkscript.contribution.js';
 import './arnoldc/arnoldc.contribution.js';

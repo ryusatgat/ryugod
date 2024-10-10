@@ -1,0 +1,8 @@
+/*
+ *  Argon: Hello, World!
+ *  https://github.com/ArgonLang/Argon
+ */
+
+import "io"
+
+io.print("Hello, World!")

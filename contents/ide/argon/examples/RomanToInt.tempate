@@ -1,0 +1,36 @@
+import "io"
+
+func romanToInt(roman) {
+    var roman_t = {
+        "I":1,
+        "V":5,
+        "X":10,
+        "L":50,
+        "C":100,
+        "D":500,
+        "M":1000
+    }
+
+    var num = 0
+    var pre = roman_t[roman[0]]
+    var cursor, actual
+
+    for cursor of roman {
+        actual = roman_t[cursor]
+
+        if pre < actual {
+            num -= pre * 2
+        }
+
+        num += actual
+        pre = actual
+    }
+
+    return num
+}
+
+io.input(prompt="Roman number: ")[:-1]
+    |> Bytes::tostr
+    |> String::upper
+    |> romanToInt
+    |> io.print

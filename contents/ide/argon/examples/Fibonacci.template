@@ -1,0 +1,23 @@
+import "io"
+
+var nterms = Int::parse(io.input(prompt="How many terms? "), 10)
+var n1 = 0
+var n2 = 1
+var nth
+
+var count = 0
+
+if nterms <= 0 {
+    panic "Please enter a positive integer!"
+} elif nterms == 1 {
+    io.print(n1)
+    return
+}
+
+loop count < nterms {
+    io.print(n1)
+    nth = n1 + n2
+    n1 = n2
+    n2 = nth
+    count++
+}

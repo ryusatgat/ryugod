@@ -905,13 +905,4 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Language84
 ## 2024-10-10
 - Ante
-
-## To be continued
-- 42
-- Bruijn
-- Calcit
-- Claire4
-- Dry
-- KCL
-- Lawvere
-- Nox
+- Argon

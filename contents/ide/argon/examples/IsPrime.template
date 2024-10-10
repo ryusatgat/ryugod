@@ -1,0 +1,16 @@
+import "io"
+
+var num =
+    io.input(prompt="Enter a number: ")
+        |> Int::parse(10)
+
+if num > 1 {
+    for var i = 2; i < num; i++ {
+        if num % i == 0 {
+            io.print("%d is not a prime number" % num)
+            return
+        }
+    }
+}
+
+io.print("%d is a prime number" % num)

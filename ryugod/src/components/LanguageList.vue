@@ -33,12 +33,18 @@
           lg="3"
         >
           <v-card class="hover-card" style="width: 400px">
-            <v-row style="cursor: pointer;" no-gutters @click="onClick(item.language)">
+            <v-row no-gutters>
               <v-col class="pa-4">
+                <v-div @click="onClick(item.language)" style="display: block; cursor: pointer;">
                 <v-icon color="primary" class="mr-2">{{ item.icon }}</v-icon>
                 {{ item.language }}
+                </v-div>
+                <v-div>
+                  <v-icon v-if="item.homepage" color="grey" style="cursor: pointer;" @click="openSite(item.homepage)">mdi-home</v-icon>
+                  <v-icon v-if="item.repo" color="grey" style="cursor: pointer;" @click="openSite(item.repo)">mdi-github</v-icon>
+                </v-div>
               </v-col>
-              <v-col align="left" class="align-self-center grey--text text-caption"> {{ item.desc }} </v-col>
+              <v-col class="align-self-left grey--text text-caption" style="cursor: pointer;"> {{ item.desc }} </v-col>
             </v-row>
           </v-card>
           <v-spacer style="height: 5px;"></v-spacer>
@@ -67,6 +73,8 @@
           language: key,
           icon: this.languages[key].icon,
           desc: this.languages[key].desc,
+          homepage: this.languages[key].homepage,
+          repo: this.languages[key].repo,
           kor: this.languages[key].kor
         })).filter(item =>
           item.language.toLowerCase().includes(filter) ||
@@ -85,7 +93,10 @@
       onClick(language) {
         this.dialog = false
         this.$emit('navigate', language);
-      }
+      },
+      openSite: function(site) {
+        window.open(site, "_blank")
+      },
     },
     created: function() {
       this.languages = languages
