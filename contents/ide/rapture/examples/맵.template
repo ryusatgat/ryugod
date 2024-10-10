@@ -1,5 +1,5 @@
 \
-\   Rapira: map, fiter, reduce
+\   Rapture: map, fiter, reduce
 \
 
 fun map(obj, transform)

@@ -40,11 +40,11 @@
                 {{ item.language }}
                 </v-div>
                 <v-div>
-                  <v-icon v-if="item.homepage" color="grey" style="cursor: pointer;" @click="openSite(item.homepage)">mdi-home</v-icon>
-                  <v-icon v-if="item.repo" color="grey" style="cursor: pointer;" @click="openSite(item.repo)">mdi-github</v-icon>
+                  <v-icon v-if="item.homepage" :title="item.homepage" color="grey" style="cursor: pointer;" @click="openSite(item.homepage)">mdi-home</v-icon>
+                  <v-icon v-if="item.repo" :title="item.repo" color="grey" style="cursor: pointer;" @click="openSite(item.repo)">mdi-github</v-icon>
                 </v-div>
               </v-col>
-              <v-col class="align-self-left grey--text text-caption" style="cursor: pointer;"> {{ item.desc }} </v-col>
+              <v-col class="pa-4 grey--text text-caption" style="cursor: pointer;"> {{ item.desc }} </v-col>
             </v-row>
           </v-card>
           <v-spacer style="height: 5px;"></v-spacer>

@@ -1,6 +1,6 @@
 //
 //  Cheddar: Hello, World!
-//  https://github.com/chaos-lang
+//  https://github.com/cheddar-lang/Cheddar
 //
 
 print "Hello, World!"
