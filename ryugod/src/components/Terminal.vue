@@ -686,9 +686,9 @@ console.log(this.options['tabSize'])
       const reader = new FileReader()
       reader.onload = (event) => {
         if (this.connected) {
-          this.ws.send(`1\n# ℹ️  ${file.name} 파일을 전송합니다(${file.size}bytes). 완료될 때까지 기다려 주세요...\n` +
-            `cat << 'RYUGOD_EOF' | sed s/.*,// | base64 -d > '${file.name}'\n` +
-            event.target.result+`\nRYUGOD_EOF\r\n# ℹ️  ${file.name} 전송완료\n`)
+          this.ws.send(`1\n # ℹ️  ${file.name} 파일을 전송합니다(${file.size}bytes). 완료될 때까지 기다려 주세요...\n` +
+            ` cat << 'RYUGOD_EOF' | sed s/.*,// | base64 -d > '${file.name}'\n` +
+            event.target.result+`\nRYUGOD_EOF\r\n # ℹ️  ${file.name} 전송완료\n`)
         }
       }
       reader.readAsDataURL(file);
@@ -1066,7 +1066,7 @@ console.log(this.options['tabSize'])
       }
 
       const BEL = '\x07'
-      const HEREDOC_BEGIN = "cat << 'RYUGOD_EOF'"
+      const HEREDOC_BEGIN = " cat << 'RYUGOD_EOF'"
       const regex = /RYUGOD_EOF(?!')/
       const esc1337 = '\x1b[1337';
       let isContImage = false
