@@ -1,0 +1,9 @@
+# Get now time, based on localtime (time.h's 'time' function)
+s = now()
+
+# Print today, skip minute and second (if there is a second delay between test and execution)
+print(timeHour(s))
+print(timeWeek(s))
+print(timeMonth(s))
+print(timeYear(s))
+

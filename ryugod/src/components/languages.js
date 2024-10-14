@@ -1016,7 +1016,7 @@ export const languages =
       errorRegEx: "E  (\\d+)/(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/lcsirmaz',
       repo: 'https://github.com/lcsirmaz/aleph',
     },
     'Algae':{
@@ -1107,7 +1107,7 @@ export const languages =
       errorRegEx: ".+? at line (\\d+)[:.](.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/cassowarii',
       repo: 'https://github.com/cassowarii/alma',
     },
     'Alore':{
@@ -1372,7 +1372,7 @@ export const languages =
       keyBindings: null,
       dockerImage: 'ryusatgat/arduino',
       homepage: 'https://www.arduino.cc',
-      repo: '',
+      repo: 'https://github.com/arduino/arduino-cli',
     },
     'Argon':{
       desc: "",
@@ -2176,7 +2176,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://en.wikipedia.org/wiki/Borland_C%2B%2B',
-      repo: '',
+      repo: 'https://www.embarcadero.com/free-tools/ccompiler',
     },
     'Borealis':{
       desc: "High-level, concurrent, modular, extensible",
@@ -2544,7 +2544,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://www.nicholson.com/rhn/basic',
-      repo: '',
+      repo: 'http://www.nicholson.com/rhn/files',
     },
     'Cheddar':{
       desc: "Type-safe, functional, statically-typed, expressive, concise",
@@ -2588,7 +2588,7 @@ export const languages =
       errorRegEx: "ERROR on line (\\d+) of file .+",
       keyBindings: null,
       dockerImage: "ryusatgat/scheme",
-      homepage: '',
+      homepage: 'https://synthcode.com/scheme/chibi',
       repo: 'https://github.com/ashinn/chibi-scheme',
     },
     'CHICKEN Scheme':{
@@ -2604,8 +2604,8 @@ export const languages =
       errorRegEx: ".+?\\.scm:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/scheme",
-      homepage: '',
-      repo: 'https://code.call-cc.org/',
+      homepage: 'https://code.call-cc.org',
+      repo: 'https://code.call-cc.org/git/chicken-core.git',
     },
     'Chili':{
       desc: "Concurrent, Reactive, Statically-typed, Embedded, Efficient",
@@ -2619,7 +2619,7 @@ export const languages =
       errorRegEx: "error: .+?\r\n.+?.+?\\.chl:(\\d+):\\d+",
       keyBindings: null,
       dockerImage: "ryusatgat/ubuntu2004",
-      homepage: '',
+      homepage: 'https://github.com/r0nsha',
       repo: 'https://github.com/r0nsha/chili',
     },
     'Chuck':{
@@ -2666,7 +2666,7 @@ export const languages =
       errorRegEx: ".+?\\((\\d+), \\d+\\) : (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://cil-project.github.io/cil',
       repo: 'https://github.com/cil-project/cil',
     },
     'Circle':{
@@ -2682,7 +2682,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.circle-lang.org',
-      repo: '',
+      repo: 'https://github.com/seanbaxter/circle',
     },
     'Cish':{
       desc: "Minimal, performant, strongly-typed, multi-paradigmn",
@@ -2697,7 +2697,7 @@ export const languages =
       errorRegEx: ".+?\\.cish: row (\\d+), col \\d+",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/TheRealMichaelWang/cish/wiki',
       repo: 'https://github.com/TheRealMichaelWang/cish',
     },
     'Citrine':{
@@ -2729,7 +2729,7 @@ export const languages =
       errorRegEx: ".+? \\(.+\\.ctr: (\\d+)\\)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://alimpfard.github.io/citron_book/book',
       repo: 'https://github.com/alimpfard/citron',
     },
     'Clean':{
@@ -2746,7 +2746,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://clean-lang.org',
-      repo: '',
+      repo: 'https://github.com/Abhiroop/Clean',
     },
     'Clipper(harbour)':{
       desc: "Procedural, database-oriented, compiled, legacy, efficient",
@@ -2794,7 +2794,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://clojure.org',
-      repo: '',
+      repo: 'https://github.com/clojure/clojure',
     },
     'CLox':{
       desc: "ByteCode VM, lox implementation, stacked based, on-demand scanner",
@@ -2808,7 +2808,7 @@ export const languages =
       errorRegEx: "\\[line (\\d+)\\] Error at (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/HallofFamer',
       repo: 'https://github.com/HallofFamer/CLox',
     },
     'Clover':{
@@ -2823,7 +2823,7 @@ export const languages =
       errorRegEx: ".+?\\.cl (\\d+): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/ab25cq',
       repo: 'https://github.com/ab25cq/clover',
     },
     'Clue':{
@@ -2839,7 +2839,7 @@ export const languages =
       errorRegEx: "Error in .+?\\.clue:(\\d+):\\d+!\r\n(.*)",
       keyBindings: null,
       dockerImage: "ryusatgat/base",
-      homepage: '',
+      homepage: 'https://crates.io/crates/clue',
       repo: 'https://github.com/ClueLang/Clue',
     },
     'Cobol':{
@@ -2869,7 +2869,7 @@ export const languages =
       errorRegEx: ".*?: (\\d+): (.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/ajlopez',
       repo: 'https://github.com/ajlopez/CobolScript',
     },
     'Cobra':{
@@ -2901,7 +2901,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://cocolang.dev',
-      repo: '',
+      repo: 'https://github.com/sarvalabs',
     },
     'Coconut':{
       desc: "Functional, Python-based, expressive, concise, pattern-matching",
@@ -2931,7 +2931,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://www.codlang.com',
       repo: 'https://github.com/justlucdewit/cod',
     },
     'CoffeeScript':{
@@ -2962,7 +2962,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://cognate-playground.hedy.dev',
       repo: 'https://github.com/cognate-lang/cognate',
     },
     'Colm':{
@@ -2977,7 +2977,7 @@ export const languages =
       errorRegEx: ".+?\\.lm:(\\d+):\\d+: (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/colm",
-      homepage: '',
+      homepage: 'https://github.com/adrian-thurston',
       repo: 'https://github.com/adrian-thurston/colm',
     },
     'Comal':{
@@ -2993,7 +2993,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.josvisser.nl/opencomal',
-      repo: '',
+      repo: 'https://github.com/pietsch/OpenCOMAL',
     },
     'Commodore BASIC':{
       desc: "Simple, interactive, procedural, educational, vintage",
@@ -3007,7 +3007,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/mist64',
       repo: 'https://github.com/mist64/cbmbasic',
     },
     'CommonLisp':{
@@ -3022,7 +3022,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://lisp-lang.org',
-      repo: '',
+      repo: 'https://gitlab.com/gnu-clisp/clisp',
     },
     'Cone':{
       desc: "Concise, functional, statically-typed, modern, expressive",
@@ -3036,7 +3036,7 @@ export const languages =
       errorRegEx: "Error .+\r\n.+\r\n.+?\\.cone:(\\d+):(\\d+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://cone.jondgoodwin.com',
       repo: 'https://github.com/jondgoodwin/cone',
     },
     'Conure':{
@@ -3051,7 +3051,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/MichaelSDavid',
       repo: 'https://github.com/MichaelSDavid/conure-lang',
     },
     'Cor':{
@@ -3067,8 +3067,8 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'http://yosbelms.github.io/cor',
+      homepage: 'http://yosbelms.github.io/cor',
+      repo: 'https://github.com/yosbelms/cor',
     },
     'Core':{
       desc: "Modern, minimal, simplicity, readability, modifiability, stability",
@@ -3082,7 +3082,7 @@ export const languages =
       errorRegEx: "error in .+?\\.dora\" at (\\d+):\\d+: (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://core-lang.dev',
       repo: 'https://github.com/core-lang/core',
     },
     'CoreScript':{
@@ -3097,7 +3097,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/stephanbruny/corescript/blob/master/Docs/index.md',
       repo: 'https://github.com/stephanbruny/corescript',
     },
     'Cotowali':{
@@ -3113,7 +3113,7 @@ export const languages =
       errorRegEx: "error: .+?\\.li (\\d+),\\d+: (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/cotowali",
-      homepage: '',
+      homepage: 'https://cotowali.org',
       repo: 'https://github.com/cotowali/cotowali',
     },
     'CovariantScript':{
@@ -3128,7 +3128,7 @@ export const languages =
       errorRegEx: "File .+?, line (\\d+): (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'http://covscript.org.cn',
       repo: 'https://github.com/covscript/covscript',
     },
     'CppScript':{
@@ -3143,7 +3143,7 @@ export const languages =
       errorRegEx: ".+? line: ?(\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://cppscript.org',
       repo: 'https://github.com/johnsonyl/cpps',
     },
     'Crafting':{
@@ -3159,7 +3159,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
       homepage: 'https://craftinginterpreters.com',
-      repo: '',
+      repo: 'https://github.com/nibblebits/craft-compiler',
     },
     'Creed':{
       desc: "Text processing script, inspired by ed and sam",
@@ -3173,8 +3173,8 @@ export const languages =
       errorRegEx: ",token\\((\\d+):\\d+: (.*)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
-      repo: 'https://mrms.cz/creed',
+      homepage: 'https://mrms.cz/creed',
+      repo: 'https://git.sr.ht/~mrms/creed',
     },
     'Cricket':{
       desc: "Functional, object-oriented",
@@ -3189,7 +3189,7 @@ export const languages =
       errorRegEx: ".+?:(\\d+):\\d+`.",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://ryanbrewer.dev/cricket',
       repo: 'https://github.com/RyanBrewer317/cricket_rs',
     },
     'Cript':{
@@ -3205,7 +3205,7 @@ export const languages =
       errorRegEx: "ERROR: .+?\r\n.+?\\.cr:(\\d+) \\d+",
       keyBindings: null,
       dockerImage: "ryusatgat/i386",
-      homepage: '',
+      homepage: 'https://github.com/clarkok',
       repo: 'https://github.com/clarkok/cript',
     },
     'Crumb':{
@@ -3220,7 +3220,7 @@ export const languages =
       errorRegEx: ".+? @ Line (\\d+): (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/liam-ilan',
       repo: 'https://github.com/liam-ilan/crumb',
     },
     'Crystal':{
@@ -3236,7 +3236,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://crystal-lang.org',
-      repo: '',
+      repo: 'https://github.com/crystal-lang/crystal',
     },
     'CUPL/CORC':{
       desc: "Hardware-oriented, minimalistic, assembly-like, concise, low-level",
@@ -3250,8 +3250,8 @@ export const languages =
       errorRegEx: ".+?: line (\\d+), (.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: 'http://www.catb.org/~esr/cupl',
-      repo: '',
+      homepage: 'http://www.catb.org/~esr',
+      repo: 'http://www.catb.org/~esr/cupl',
     },
     'CupScript':{
       desc: "Simple scripting, for fun",
@@ -3264,7 +3264,7 @@ export const languages =
       errorRegEx: "File .*?, line (\\d+)",
       keyBindings: null,
       dockerImage: "ryusatgat/python",
-      homepage: '',
+      homepage: 'https://github.com/Fus3n',
       repo: 'https://github.com/Fus3n/cupscript',
     },
     'Curry(PAKCS)':{
@@ -3280,7 +3280,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.curry-language.org',
-      repo: '',
+      repo: 'https://github.com/curry-language/curry2go',
     },
     'Curry(Sloth)':{
       desc: "Functional, declarative, logic-based, higher-order, expressive",
@@ -3310,8 +3310,8 @@ export const languages =
       errorRegEx: ".*?(\\d+)\\|.*?(.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/headless",
-      homepage: '',
-      repo: 'https://curv3d.org',
+      homepage: 'https://curv3d.org',
+      repo: 'https://codeberg.org/doug-moen/curv',
     },
     'Cyber':{
       desc: "Fast, efficient, concurrent scripting",
@@ -3325,7 +3325,7 @@ export const languages =
       errorRegEx: ".+?\\.cy:(\\d+):\\d+:\r\n(.*)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://cyberscript.dev',
       repo: 'https://github.com/fubark/cyber',
     },
     'D(Digital Mars)':{
@@ -3341,7 +3341,7 @@ export const languages =
       errorRegEx: ".+?\\.d\\((\\d+)\\): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://dlang.org',
       repo: 'https://github.com/dlang',
     },
     'D(GNU)':{
@@ -3403,7 +3403,7 @@ export const languages =
       errorRegEx: ".+?\\((\\d+),\\d+\\): error (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/ms",
-      homepage: '',
+      homepage: 'https://github.com/loschsoftware/dassie',
       repo: 'https://github.com/loschsoftware/dc',
     },
     'Dafny':{
@@ -3435,7 +3435,7 @@ export const languages =
       errorRegEx: ".+?\\.dt:(\\d+):\\d+: error: (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/ubuntu2004",
-      homepage: '',
+      homepage: 'https://github.com/tomhrr/dale/blob/master/doc/index.md',
       repo: 'https://github.com/tomhrr/dale',
     },
     'Dart':{
@@ -3465,7 +3465,7 @@ export const languages =
       errorRegEx: "  At line (\\d+) : (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://daoscript.org',
       repo: 'https://github.com/daokoder/dao',
     },
     'daScript':{
@@ -3480,7 +3480,7 @@ export const languages =
       errorRegEx: "\\d+:(\\d+) - \\d+:\\d+\r\n(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://daslang.io',
       repo: 'https://github.com/GaijinEntertainment/daScript',
     },
     'DayBreak':{
@@ -3496,7 +3496,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/ExoKomodo',
       repo: 'https://github.com/ExoKomodo/Daybreak',
     },
     'DDP':{
@@ -3512,8 +3512,8 @@ export const languages =
       errorRegEx: ".+?\\.ddp \\(Z: (\\d+), S: \\d+\\)\r\n\r\n.*?\r\n.*\r\n\r\n.*",
       keyBindings: null,
       dockerImage: "ryusatgat/base",
-      homepage: '',
-      repo: 'https://github.com/DDP-Projekt',
+      homepage: 'https://ddp.le0n.dev/Spielplatz',
+      repo: 'https://github.com/DDP-Projekt/Kompilierer',
     },
     'DoKev':{
       desc: "Concise, expressive, functional, modern, lightweight",
@@ -3526,7 +3526,7 @@ export const languages =
       cli: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/BackGwa',
       repo: 'https://github.com/BackGwa/DoKev',
     },
     'Dictu':{
@@ -3541,7 +3541,7 @@ export const languages =
       errorRegEx: ".+\\.du',.*?line (\\d+).*\r\n(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://dictu-lang.com',
       repo: 'https://github.com/dictu-lang/Dictu',
     },
     'Dino':{
@@ -3556,7 +3556,7 @@ export const languages =
       errorRegEx: ".+?.d:(\\d+):(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/dino-lang',
       repo: 'https://github.com/dino-lang/dino',
     },
     'DogeScript':{
@@ -3574,8 +3574,23 @@ export const languages =
       homepage: 'http://dogescript.io',
       repo: 'https://github.com/dogescript/dogescript',
     },
-    'Dragon':{
-      desc: "Extensible, modular, high-level, dynamic, expressive",
+    'Dragon (Native)':{
+      desc: "Simple, trying to be natural, encourage organization and comes with transparent and visual implementation",
+      highlighting:"dragonlang",
+      ext: 'dgn',
+      kor: '드래곤',
+      template:"dragonlang",
+      icon:'🐉',
+      command:"dragon {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".*?Line \\(?(\\d+)\\)? Error (.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/dragon',
+      homepage: 'https://www.dragon-lang.org',
+      repo: 'https://native.dragon-lang.org/dragon-native',
+    },
+    'Dragon (NodeJS)':{
+      desc: "Interpreted language, built ontop of NodeJS",
       highlighting:"dragon",
       ext: 'drg',
       kor: '드래곤',
@@ -3586,7 +3601,7 @@ export const languages =
       errorRegEx: "\\[.+?\\.drg\\] \\[Line: (\\d+)\\] (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://unpkg.com/browse/fca-dragon@1.0.9',
       repo: 'https://github.com/TomPrograms/dragon',
     },
     'Drift':{
@@ -3601,7 +3616,7 @@ export const languages =
       errorRegEx: ".+?\\.ft:(\\d+)(.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://drift-lang.fun',
       repo: 'https://github.com/drift-lang/drift-cpp',
     },
     'Duck':{
@@ -3616,7 +3631,7 @@ export const languages =
       errorRegEx: ".+?on line (\\d+)(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://www.ducklang.org',
       repo: 'https://github.com/gregtour/duck-lang',
     },
     'DuckScript':{
@@ -3631,7 +3646,7 @@ export const languages =
       errorRegEx: "Error: .+\\.ds Line: (\\d+)(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://sagiegurari.github.io/duckscript',
       repo: 'https://github.com/sagiegurari/duckscript',
     },
     'Dylan':{
@@ -3663,7 +3678,7 @@ export const languages =
       errorRegEx: "(\\d+),\\d+: (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://www.piston.rs/dyon-tutorial',
       repo: 'https://github.com/PistonDevelopers/dyon',
     },
     'E':{
@@ -3679,7 +3694,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://erights.org',
-      repo: '',
+      repo: 'http://www.erights.org/download/index.html',
     },
     'EasyLang':{
       desc: "Simple, readable, intuitive, beginner-friendly, high-level",
@@ -3693,7 +3708,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/erhanbaris',
       repo: 'https://github.com/erhanbaris/EasyLang',
     },
     'eC':{
@@ -3709,7 +3724,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://ec-lang.org',
-      repo: '',
+      repo: 'https://github.com/ecere/ecere-sdk',
     },
     'Ecla':{
       desc: "Simple, effortless, interpreted",
@@ -3738,7 +3753,7 @@ export const languages =
       errorRegEx: ".+? at Line (\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/katahiromz/EGA/blob/master/EGA-Manual.md',
       repo: 'https://github.com/katahiromz/EGA',
     },
     'Egel':{
@@ -3753,7 +3768,7 @@ export const languages =
       errorRegEx: '.+?\\.eg:(\\d+):\\d+:.*',
       keyBindings: null,
       dockerImage: "ryusatgat/egel",
-      homepage: '',
+      homepage: 'https://egel-lang.github.io',
       repo: 'https://github.com/egel-lang/egel',
     },
     'Egison':{
@@ -3784,7 +3799,7 @@ export const languages =
       errorRegEx: ".+? in file .+?\\.e, line (\\d+), (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/uho',
       repo: 'https://github.com/uho/Elan',
     },
     'elastiC':{
@@ -3800,7 +3815,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://www.elasticworld.org',
-      repo: '',
+      repo: 'http://www.elasticworld.org/download.html',
     },
     'Electra':{
       desc: "Esolang, like an electrician, inspired by AsciiDots",
@@ -3814,7 +3829,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: "ryusatgat/esolang",
-      homepage: '',
+      homepage: 'https://esolangs.org/wiki/Electra',
       repo: 'https://github.com/DolphyWind/Electra-Lang',
     },
     'ELENA':{
@@ -3844,7 +3859,7 @@ export const languages =
       errorRegEx: ".+?\\((\\d+):\\d+\\): (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/KaloyanKaludov',
       repo: 'https://github.com/KaloyanKaludov/Element',
     },
     'Elm':{
@@ -3861,7 +3876,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://elm-lang.org',
-      repo: '',
+      repo: 'https://github.com/elm/compiler',
     },
     'Elixir':{
       desc: "Concurrent, functional, scalable, fault-tolerant, modern",
@@ -3891,7 +3906,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.gnu.org/software/emacs',
-      repo: '',
+      repo: 'https://www.gnu.org/software/emacs/download.html',
     },
     'Emerald':{
       desc: "Object-oriented, concurrent, modular, reflective, type-safe",
@@ -3906,7 +3921,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.emeraldprogramminglanguage.org',
-      repo: '',
+      repo: 'https://github.com/emeraldlang/emerald',
     },
     'Emo':{
       desc: "Concise, expressive, visual, dynamic, playful",
@@ -3920,7 +3935,7 @@ export const languages =
       errorRegEx: "\\[line (\\d+)\\] (.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/PsiACE',
       repo: 'https://github.com/moria-world/emo',
     },
     'EmojiCode':{
@@ -3951,7 +3966,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://emscripten.org',
-      repo: '',
+      repo: 'https://github.com/emscripten-core/emscripten',
     },
     'Emu':{
       desc: "The EMbeddable Utility Language, Clean, fast, flexible",
@@ -3965,7 +3980,7 @@ export const languages =
       errorRegEx: null,  // not supported
       keyBindings: null,
       homepage: 'https://sourceforge.net/projects/emulang',
-      repo: '',
+      repo: 'https://sourceforge.net/projects/emulang/files',
     },
     'Erlang':{
       desc: "Concurrent, fault-tolerant, functional, distributed, scalable",
@@ -3980,7 +3995,7 @@ export const languages =
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_E),
       dockerImage: "ryusatgat/erlang",
       homepage: 'https://www.erlang.org',
-      repo: '',
+      repo: 'https://github.com/erlang/otp',
     },
     'Esterel':{
       desc: "Concurrent, deterministic, real-time, reactive, formal",
@@ -3996,7 +4011,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www-sop.inria.fr/meije/esterel/esterel-eng.html',
-      repo: '',
+      repo: 'https://www-sop.inria.fr/meije/esterel/getting-esterel.html',
     },
     'Etalk':{
       desc: "A simple object-oriented language",
@@ -4011,7 +4026,7 @@ export const languages =
       errorRegEx: ">>> .+? <<<\r\n>>> in line (\\d+) <<<",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/dbetz',
       repo: 'https://github.com/dbetz/etalk',
     },
     'Euphoria':{
@@ -4044,7 +4059,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
       homepage: 'https://skarnet.org/software/execline',
-      repo: '',
+      repo: 'https://github.com/skarnet/execline',
     },
     'Expect':{
       desc: "Testing, scripting, interactive, automation, flexible",
@@ -4059,8 +4074,8 @@ export const languages =
       errorRegEx: 'file ".+?\\.exp" line (\\d+)(.*)',
       keyBindings: null,
       dockerImage: '',
-      homepage: 'https://en.wikipedia.org/wiki/Expect',
-      repo: '',
+      homepage: 'https://sourceforge.net/projects/expect',
+      repo: 'https://sourceforge.net/projects/expect/files',
     },
     'Factor':{
       desc: "Stack-based, concatenative, functional, extensible, expressive",
@@ -4090,7 +4105,7 @@ export const languages =
       errorRegEx: ".+?\r\n.+?:(\\d+):\\d+",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://github.com/nevakrien',
       repo: 'https://github.com/nevakrien/Faeyne_lang',
     },
     'Fake':{
@@ -4105,7 +4120,7 @@ export const languages =
       errorRegEx: ".+?\\.fk:(\\d+)\\) (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/fake',
-      homepage: '',
+      homepage: 'https://github.com/esrrhs',
       repo: 'https://github.com/esrrhs/fake',
     },
     'Falcon':{
@@ -4137,7 +4152,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/esolang",
       homepage: 'https://esolangs.org/wiki/FALSE',
-      repo: '',
+      repo: 'https://github.com/udonyang/dfalse',
     },
     'Fantom':{
       desc: "Cross-platform, object-oriented, modular, flexible, statically-typed",
@@ -4167,7 +4182,7 @@ export const languages =
       errorRegEx: "",
       keyBindings: null,
       dockerImage: "ryusatgat/jvm",
-      homepage: '',
+      homepage: 'http://fanx.dev',
       repo: 'https://github.com/fanx-dev/fanx',
     },
     'FatScript':{
@@ -4183,7 +4198,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
       homepage: 'https://fatscript.org',
-      repo: '',
+      repo: 'https://gitlab.com/fatscript/fry',
     },
     'Fe':{
       desc: "Concise, functional, type-safe, expressive, efficient",
@@ -4197,7 +4212,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/rxi',
       repo: 'https://github.com/rxi/fe',
     },
     'Felix':{
@@ -4212,7 +4227,7 @@ export const languages =
       errorRegEx: ".+?\\.flx: line (\\d+), (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://felix-lang.github.io/felix',
       repo: 'https://github.com/felix-lang/felix',
     },
     'Fennel':{
@@ -4242,7 +4257,7 @@ export const languages =
       errorRegEx: ".+\\.fer (\\d+)\\[\\d+\\]: (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://feral-lang.github.io/Book',
       repo: 'https://github.com/Feral-Lang/Feral',
     },
     'Ferite':{
@@ -4257,7 +4272,7 @@ export const languages =
       errorRegEx: "Error: .+?:(\\d+) (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/darkrock/ferite',
       repo: 'https://github.com/darkrock/ferite',
     },
     'Fexl':{
@@ -4288,7 +4303,7 @@ export const languages =
       errorRegEx: ".+?\\.fx:(\\d+):\\d+: error: (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/vpisarev',
       repo: 'https://github.com/vpisarev/ficus',
     },
     'Filagree':{
@@ -4303,7 +4318,7 @@ export const languages =
       errorRegEx: "\\d+ - (?:.+\r\n)?.+?\\.fg,? line (\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/ys1382',
       repo: 'https://github.com/ys1382/filagree',
     },
 /*
@@ -4335,7 +4350,7 @@ export const languages =
       errorRegEx: "",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'http://finch.stuffwithstuff.com',
       repo: 'https://github.com/munificent/finch',
     },
     'Flax':{
@@ -4350,7 +4365,7 @@ export const languages =
       errorRegEx: ".+?: .+?\r\nat: .+?\\.flx:(\\d+):(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/flax-lang',
       repo: 'https://github.com/flax-lang/flax',
     },
     'Fleng':{
@@ -4365,7 +4380,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
       homepage: 'http://www.call-with-current-continuation.org/fleng/fleng.html',
-      repo: '',
+      repo: 'https://gitlab.com/b2495/fleng',
     },
     'Flix':{
       desc: "Functional, logical, constraint-based, declarative, type-safe",
@@ -4379,8 +4394,8 @@ export const languages =
       errorRegEx: ".+\\(line (\\d+), column \\d+\\):(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'https://github.com/flix',
+      homepage: 'https://flix.dev',
+      repo: 'https://github.com/flix/flix',
     },
     'Focal':{
       desc: "Educational, interactive, simple, procedural, teaching",
@@ -4395,7 +4410,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://en.wikipedia.org/wiki/FOCAL_(programming_language)',
-      repo: '',
+      repo: 'https://github.com/AndrewSav/focal-69',
     },
     'Foma':{
       desc: "Compiler, similar to the Xerox xfst interface",
@@ -4410,8 +4425,8 @@ export const languages =
       errorRegEx: '.+? on line (\\d+). (.+)',
       keyBindings: null,
       dockerImage: "ryusatgat/ubuntu1404",
-      homepage: '',
-      repo: 'https://code.google.com/archive/p/foma',
+      homepage: 'https://code.google.com/archive/p/foma',
+      repo: 'https://code.google.com/archive/p/foma/source/default/source',
     },
     'Forte':{
       desc: "Esoteric, similar to BASIC",
@@ -4440,8 +4455,8 @@ export const languages =
       errorRegEx: ".+?:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: 'https://www.forth.com',
-      repo: '',
+      homepage: 'https://gforth.org/',
+      repo: 'https://www.complang.tuwien.ac.at/forth/gforth/Snapshots/current',
     },
     'Fortran':{
       desc: "Numerical, efficient, legacy, array-based, procedural",
@@ -4456,7 +4471,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://fortran-lang.org/',
-      repo: '',
+      repo: 'https://gcc.gnu.org/wiki/GitMirror',
     },
     'fox-lang':{
       desc: "Functional, Concise, Multiparadigm, Type-safe, Concurrent",
@@ -4470,7 +4485,7 @@ export const languages =
       errorRegEx: ".+\r\n.+?\\.fox\\((\\d+)\\)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/x768',
       repo: 'https://github.com/x768/fox-lang',
     },
     'Foxely':{
@@ -4485,7 +4500,7 @@ export const languages =
       errorRegEx: "\\[line (\\d+)\\] (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/Foxely',
       repo: 'https://github.com/Foxely/Foxely',
     },
     'Free':{
@@ -4494,14 +4509,14 @@ export const languages =
       ext: 'fr',
       kor: '프리',
       template:"free",
-      icon:'mdi-free',
+      icon:'mdi-crop-free',
       command:"fr {ARGS} {FILENAME}.{EXT} {FILENAME}.c && gcc -o {FILENAME} {FILENAME}.c && ./{FILENAME}",
       cli: "frege {ARGS}",
       defaultFilename: 'Main',
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/adam-mcdaniel',
       repo: 'https://github.com/adam-mcdaniel/free',
     },
     'Frege':{
@@ -4533,7 +4548,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://frinklang.org',
-      repo: '',
+      repo: 'https://frinklang.org/#DownloadingFrink',
     },
     'F# - mono':{
       desc: "Functional, statically-typed, .NET language",
@@ -4598,7 +4613,7 @@ export const languages =
       errorRegEx: ".*?rror: .+?ine[: ](\\d+)[: ](.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://programmingfunl.wordpress.com',
       repo: 'https://github.com/anssihalmeaho/funl',
     },
     'Futhark':{
@@ -4630,7 +4645,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/jvm",
-      homepage: '',
+      homepage: 'http://www.fuzuliproject.org',
       repo: 'https://github.com/jbytecode/fuzuli',
     },
     'Gambas':{
@@ -4645,7 +4660,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://gambas.sourceforge.net',
-      repo: '',
+      repo: 'https://gitlab.com/gambas/gambas',
     },
     'GAP':{
       desc: "Algebraic, Symbolic, Mathematical, Computational, Group-theory",
@@ -4661,7 +4676,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.gap-system.org',
-      repo: '',
+      repo: 'https://github.com/gap-system/gap',
     },
     'Gecho':{
       desc: "Stack-based, simple",
@@ -4707,7 +4722,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
       homepage: 'https://sourceforge.net/projects/gscript',
-      repo: '',
+      repo: 'https://sourceforge.net/projects/gscript/files',
     },
     'Genie':{
       desc: "Object-oriented, Python-like, High-level, GNOME, Dynamic",
@@ -4721,7 +4736,7 @@ export const languages =
       errorRegEx: ".+?:(\\d+).\\d+-\\d+\\.\\d+:(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://live.gnome.org/Vala',
       repo: 'https://github.com/vlad0337187/Genie',
     },
     'Gentee':{
@@ -4736,7 +4751,7 @@ export const languages =
       errorRegEx: "ERROR: .+? \\[(\\d+):\\d+\\] (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://docs.gentee.org',
       repo: 'https://github.com/gentee/gentee',
     },
     'Genyris':{
@@ -4751,8 +4766,8 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: 'http://www.genyris.org/lang/utilities',
-      repo: '',
+      homepage: 'http://www.genyris.org',
+      repo: 'https://github.com/birchb1024/genyris',
     },
     'Gwion':{
       desc: "Declarative, Data-centric, Rule-based, Pattern-matching, Expressive",
@@ -4767,7 +4782,7 @@ export const languages =
       errorRegEx: ".+?\\.gw.*?:(\\d+):\\d+:(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://gwion.github.io/Gwion',
       repo: 'https://github.com/Gwion/Gwion',
     },
     'Glance':{
@@ -4847,7 +4862,7 @@ export const languages =
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_G),
       dockerImage: "ryusatgat/go",
       homepage: 'https://go.dev',
-      repo: '',
+      repo: 'https://github.com/golang/go',
     },
     'Goaldi':{
       desc: "General-purpose, modern, familiar to Icon",
@@ -4861,7 +4876,7 @@ export const languages =
       errorRegEx: "At .+?\\.gd:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/proebsting/goaldi/blob/master/doc/intro.adoc',
       repo: 'https://github.com/proebsting/goaldi',
     },
     'Goat':{
@@ -4876,7 +4891,7 @@ export const languages =
       cli: "/opt/goat/goat {ARGS}",
       errorRegEx: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/kniazkov',
       repo: 'https://github.com/kniazkov/goat',
     },
     'Goby':{
@@ -4891,7 +4906,7 @@ export const languages =
       errorRegEx: "(?:.+\r\nfrom .+?\\.gb:|.+? Line: )(\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/goby-lang',
       repo: 'https://github.com/goby-lang/goby',
     },
     'GolfScript':{
@@ -4907,7 +4922,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://www.golfscript.com',
-      repo: '',
+      repo: 'https://github.com/darrenks/golfscript',
     },
     'Golo':{
       desc: "Dynamic, modular, JVM-based language",
@@ -4954,7 +4969,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/base",
       homepage: 'https://logological.org/gpp',
-      repo: '',
+      repo: 'https://github.com/logological/gpp',
     },
     'GPython':{
       desc: "Re-implementation, part port of the Python 3.4 interpreter in Go",
@@ -4968,7 +4983,7 @@ export const languages =
       errorRegEx: ".+?\\.py\", line (\\d+)(?:.*?\r\n)+?(.*?Error: .*)",
       keyBindings: null,
       dockerImage: "ryusatgat/python",
-      homepage: '',
+      homepage: 'https://github.com/go-python',
       repo: 'https://github.com/go-python/gpython',
     },
     'Grace':{
@@ -4983,7 +4998,7 @@ export const languages =
       errorRegEx: ".+?\\.grace\\[(\\d+):\\d+\\]: (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/gracelang',
       repo: 'https://github.com/gracelang/minigrace',
     },
     'Graphviz':{
@@ -5000,7 +5015,7 @@ export const languages =
       keyBindings: null,
       dockerImage: 'ryusatgat/glance',
       homepage: 'https://graphviz.org',
-      repo: '',
+      repo: 'https://gitlab.com/graphviz/graphviz',
     },
     'Gravity':{
       desc: "Scripting, Dynamic, User-friendly, Game-oriented, Lightweight",
@@ -5049,7 +5064,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://sourceforge.net/projects/gri',
-      repo: '',
+      repo: 'https://sourceforge.net/projects/gri/files',
     },
     'Groovy':{
       desc: "Dynamic, JVM-based, Scripting, Concise, Agile",
@@ -5079,7 +5094,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://r1chard.nl/gsc',
       repo: 'https://github.com/riicchhaarrd/cgsc',
     },
     'GSL':{
@@ -5095,7 +5110,7 @@ export const languages =
       errorRegEx: "\\(.+?\\.gsl (\\d+)\\)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/fjardon',
       repo: 'https://github.com/fjardon/gsl',
     },
     'Guile':{
@@ -5112,7 +5127,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.gnu.org/s/guile',
-      repo: '',
+      repo: 'https://savannah.gnu.org/git/?group=guile',
     },
     'Gura':{
       desc: "Iterator-oriented, implicit mapping, object oriented",
@@ -5127,7 +5142,7 @@ export const languages =
       errorRegEx: ".+?\\.gura:(\\d+): (.*)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'http://www.gura-lang.org',
       repo: 'https://github.com/gura-lang/gura',
     },
     'GW-BASIC':{
@@ -5144,7 +5159,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://en.wikipedia.org/wiki/GW-BASIC',
-      repo: '',
+      repo: 'https://github.com/microsoft/GW-BASIC',
     },
     'H2':{
       desc: "Java-based, Lightweight, Embedded, SQL-compatible, Fast",
@@ -5159,7 +5174,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.h2database.com',
-      repo: '',
+      repo: 'https://github.com/h2database/h2database',
     },
     'Hare':{
       desc: "Fast, safe, concurrent, systems, minimal, qbe",
@@ -5221,7 +5236,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/ubuntu2004",
       homepage: 'https://hacklang.org',
-      repo: '',
+      repo: 'https://github.com/facebook/hhvm',
     },
     'Have':{
       desc: "Minimalistic, Educational, Functional, Concise, Experimental",
@@ -5237,7 +5252,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://havelang.org',
-      repo: '',
+      repo: 'https://github.com/vrok/have',
     },
     'Haxe':{
       desc: "Cross-platform, Statically-typed, High-level, Versatile, Flexible",
@@ -5268,7 +5283,7 @@ export const languages =
       errorRegEx: ".+?\\.hg:(\\d+):(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/yangtau',
       repo: 'https://github.com/yangtau/hedgehog',
     },
     'Hell':{
@@ -5283,7 +5298,7 @@ export const languages =
       errorRegEx: null,  // not supported
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://chrisdone.github.io/hell',
       repo: 'https://github.com/chrisdone/hell',
     },
     'Hermes':{
@@ -5298,7 +5313,7 @@ export const languages =
       errorRegEx: "\\[Line (\\d+)\\] (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://en.wikipedia.org/wiki/Hermes_(programming_language)',
       repo: 'https://github.com/sebbekarlsson/hermes',
     },
     'Hexiscript':{
@@ -5313,7 +5328,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://github.com/Rion96/hexiscript',
-      repo: '',
+      repo: 'https://github.com/Rion96',
     },
     'HLA':{
       desc: "High-level assembly, portable, and systems programming",
@@ -5329,7 +5344,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.plantation-productions.com/Webster/HighLevelAsm',
-      repo: '',
+      repo: 'https://www.plantation-productions.com/Webster/HighLevelAsm/LInuxDownload.html',
     },
     'Hook':{
       desc: "Imperative, cross-platform, dynamically typed, scripting",
@@ -5343,7 +5358,7 @@ export const languages =
       errorRegEx: ".+?\r\n  at .+?\\.hk:(\\d+).*",
       keyBindings: null,
       dockerImage: "ryusatgat/hook",
-      homepage: '',
+      homepage: 'https://github.com/hook-lang',
       repo: 'https://github.com/hook-lang/hook',
     },
     'Hope':{
@@ -5358,7 +5373,7 @@ export const languages =
       errorRegEx: "line (\\d+): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/dmbaturin',
       repo: 'https://github.com/dmbaturin/hope',
     },
     'Horse64':{
@@ -5374,7 +5389,7 @@ export const languages =
       errorRegEx: ".+?\\.h64:(\\d+):\\d+: (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://codeberg.org/Horse64/core.horse64.org',
       repo: 'https://github.com/horse64/core.horse64.org',
     },
     'HQ9+':{
@@ -5420,7 +5435,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/HuoLanguage',
       repo: 'https://github.com/HuoLanguage/huo',
     },
     'Hush':{
@@ -5435,7 +5450,7 @@ export const languages =
       errorRegEx: ".+?\\(line (\\d+), column \\d+\\)(.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://hush-shell.github.io',
       repo: 'https://github.com/hush-shell/hush',
     },
     'Hy':{
@@ -5464,8 +5479,8 @@ export const languages =
       errorRegEx: ".+?\\.hylo\", line (\\d+), .+\r\n(.+\r\n.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/swift",
-      homepage: 'https://github.com/hylo-lang/hylo',
-      repo: '',
+      homepage: 'https://www.hylo-lang.org',
+      repo: 'https://github.com/hylo-lang/hylo',
     },
     'I':{
       desc: "Concise, Minimalistic, Procedural, Turing-complete, Abstract",
@@ -5479,8 +5494,8 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: '	https://github.com/mlochbaum/ILanguage',
+      homepage: 'https://github.com/mlochbaum/ILanguage/blob/master/doc/introduction.md',
+      repo: 'https://github.com/mlochbaum/ILanguage',
     },
     'ICI':{
       desc: "Interactive, dynamic, and extensible interpreter",
@@ -5494,7 +5509,7 @@ export const languages =
       errorRegEx: ".+?\\.ici, (\\d+): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/ici-language',
       repo: 'https://github.com/ici-language/ici',
     },
     'Idris':{
@@ -5525,7 +5540,7 @@ export const languages =
       errorRegEx: "Error: .+\r\n\r\n.+?:(\\d+):\\d+(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://idris-lang.org',
       repo: 'https://github.com/idris-lang/Idris2',
     },
     'Icon':{
@@ -5572,7 +5587,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://en.wikipedia.org/wiki/Inform',
       repo: 'https://github.com/ganelson/inform',
     },
     'Ink':{
@@ -5587,7 +5602,7 @@ export const languages =
       errorRegEx: ".+? \\[(\\d+):\\d+\\]( in .+?\\.ink)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://dotink.co',
       repo: 'https://github.com/thesephist/ink',
     },
     'Inko':{
@@ -5676,7 +5691,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://catseye.tc/node/Iphigeneia',
       repo: 'https://github.com/catseye/Iphigeneia',
     },
     'Ivy':{
@@ -5690,7 +5705,7 @@ export const languages =
       errorRegEx: ".+? (\\d+): Error: (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://microsoft.github.io/ivy/language.html',
       repo: 'https://github.com/jhallen/ivy-lang',
     },
     'J':{
@@ -5719,7 +5734,7 @@ export const languages =
       errorRegEx: ".+?\\[line[: ](\\d+)\\].+\r\n(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://bamless.github.io/jstar/demo',
       repo: 'https://github.com/bamless/jstar',
     },
     'Jaksel':{
@@ -5735,7 +5750,7 @@ export const languages =
       errorRegEx: null,  // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/base",
-      homepage: '',
+      homepage: 'https://www.jsdelivr.com/package/npm/jaksel-language',
       repo: 'https://github.com/RioChndr/jaksel-language',
     },
     'Jakt':{
@@ -5751,7 +5766,7 @@ export const languages =
       errorRegEx: "Error: .+?\r\n.+?\\.jakt:(\\d+):\\d+.*",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/SerenityOS',
       repo: 'https://github.com/SerenityOS/jakt',
     },
     'Jancy':{
@@ -5766,7 +5781,7 @@ export const languages =
       errorRegEx: ".+?\\.jnc\\((\\d+),\\d+\\): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://jancy.org',
       repo: 'https://github.com/vovkos/jancy',
     },
     'Janet':{
@@ -5797,7 +5812,7 @@ export const languages =
       errorRegEx: ".+?\\.j:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/jasmin-lang/jasmin/wiki',
       repo: 'https://github.com/jasmin-lang/jasmin',
     },
     'Jinx':{
@@ -5813,7 +5828,7 @@ export const languages =
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
       homepage: 'https://jamesboer.github.io/Jinx',
-      repo: '',
+      repo: 'https://github.com/JamesBoer/Jinx',
     },
     'Joao':{
       desc: "Minimalistic, Educational, Functional, Simple, Lightweight",
@@ -5827,7 +5842,7 @@ export const languages =
       errorRegEx: "LINE: (\\d+),\\d+ (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://altoids1.github.io/Joao',
       repo: 'https://github.com/Altoids1/Joao',
     },
     'JohnsonScript':{
@@ -5842,7 +5857,7 @@ export const languages =
       errorRegEx: ".+? on line (\\d+)\r\n(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/amjohnson36',
       repo: 'https://github.com/amjohnson36/johnsonscript',
     },
     'Jolie':{
@@ -5872,8 +5887,8 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: 'https://hypercubed.github.io/joy/joy.html',
-      repo: '',
+      homepage: 'http://wodan58.github.io',
+      repo: 'https://github.com/Wodan58/Joy',
     },
     'Jsish':{
       desc: "JavaScript-based, Lightweight, Embedded, Scripting, Flexible",
@@ -5887,7 +5902,7 @@ export const languages =
       errorRegEx: ".+?:(\\d+): \\w+: (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://jsish.org',
       repo: 'https://github.com/pcmacdon/jsish',
     },
     'JsonNet':{
@@ -5917,7 +5932,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://en.wikipedia.org/wiki/Jakarta_Server_Pages',
-      repo: '',
+      repo: 'https://github.com/jetty/jetty.project',
     },
     'Jq':{
       desc: "Command-line, JSON-processing, Lightweight, Functional, Filter",
@@ -5932,7 +5947,7 @@ export const languages =
       errorRegEx: "jq: error: .+, line (\\d+):(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://jqlang.github.io/jq',
       repo: 'https://github.com/jqlang/jq',
     },
     'Julia':{
@@ -5964,7 +5979,7 @@ export const languages =
       errorRegEx: "^(\\d+) \\| .+?\r\n.+?\r\n(.*)",
       keyBindings: null,
       dockerImage: "ryusatgat/clang",
-      homepage: '',
+      homepage: 'https://docs.juvix.org',
       repo: 'https://github.com/anoma/juvix',
     },
     'Jx9':{
@@ -5979,7 +5994,7 @@ export const languages =
       errorRegEx: '(\\d+) Error: (.+)',
       dockerImage: "ryusatgat/etc",
       homepage: 'https://jx9.symisc.net',
-      repo: '',
+      repo: 'https://jx9.symisc.net/downloads.html',
     },
     'Jython':{
       desc: "Python-based, JVM-compatible, Dynamic, Interpreted, Cross-platform",
@@ -5995,7 +6010,7 @@ export const languages =
       homepage: 'https://www.jython.org',
       repo: 'https://github.com/jython/jython',
     },
-    'K(kona)':{
+    'K (kona)':{
       desc: "Array-based, Concise, Functional, High-performance, Interactive",
       highlighting:"kona",
       ext: 'k',
@@ -6007,7 +6022,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/kevinlawler/kona/wiki',
       repo: 'https://github.com/kevinlawler/kona',
     },
     'Kagsa':{
@@ -6022,7 +6037,7 @@ export const languages =
       errorRegEx: '.*error.+?, line (\\d+)\\)',
       keyBindings: null,
       dockerImage: "ryusatgat/python",
-      homepage: '',
+      homepage: 'http://www.kagsa.org',
       repo: 'https://github.com/kagsa/kagsa',
     },
     'KataScript':{
@@ -6037,7 +6052,7 @@ export const languages =
       errorRegEx: 'Error at line (\\d+) at \\d+: (.+)',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://brwhale.github.io/KataScript',
       repo: 'https://github.com/brwhale/KataScript',
     },
     'Kenaf':{
@@ -6052,7 +6067,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/edmundmk',
       repo: 'https://github.com/edmundmk/kenaf',
     },
     'Ketos':{
@@ -6067,7 +6082,7 @@ export const languages =
       errorRegEx: '.+?\\.ketos:(\\d+):\\d+:(.+)',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/murarth/ketos/blob/master/docs/README.md',
       repo: 'https://github.com/murarth/ketos',
     },
     'Killa':{
@@ -6082,7 +6097,7 @@ export const languages =
       errorRegEx: ".+?\\.kia:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://elrinconde-ex.blogspot.com/2012/09/killa-my-scripting-language-based-in.html',
       repo: 'https://github.com/ex/Killa',
     },
     'Kind':{
@@ -6099,8 +6114,8 @@ export const languages =
       errorRegEx: ".+?\\.kind:(\\d+):\\d+':\r\n(.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/base",
-      homepage: '',
-      repo: 'https://github.com/HigherOrderCO/Kind1',
+      homepage: 'https://higherorderco.com',
+      repo: 'https://github.com/HigherOrderCO/Kind',
     },
     'Kitten':{
       desc: "Statically typed, stack-based, functional, simplicity, speed, safety",
@@ -6114,7 +6129,7 @@ export const languages =
       errorRegEx: ".+?\\.ktn:(\\d+)\\.\\d+-\\d+:(.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'http://kittenlang.org',
       repo: 'https://github.com/evincarofautumn/kitten',
     },
     'Kinx':{
@@ -6130,7 +6145,7 @@ export const languages =
       errorRegEx: "Error: .+? <.+?\\.kx>:(\\d+)",
       keyBindings: null,
       dockerImage: "ryusatgat/kinx",
-      homepage: '',
+      homepage: 'https://github.com/Kray-G',
       repo: 'https://github.com/Kray-G/kinx',
     },
     'Klaxon':{
@@ -6144,7 +6159,7 @@ export const languages =
       errorRegEx: "",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/Jackojc',
       repo: 'https://github.com/Jackojc/klaxon',
     },
     'Klong':{
@@ -6159,7 +6174,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
       homepage: 'https://t3x.org/klong',
-      repo: '',
+      repo: 'https://t3x.org/klong/klong20221212.tgz',
     },
     'Koka':{
       desc: "Functional, Effectful, Statically-typed, High-level, Research-oriented",
@@ -6189,7 +6204,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/kos-lang',
       repo: 'https://github.com/kos-lang/kos',
     },
     'Knight':{
@@ -6205,8 +6220,8 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'https://github.com/sampersand/knight',
+      homepage: 'https://github.com/knight-lang',
+      repo: 'https://github.com/knight-lang/knight-lang',
     },
     'Kotlin':{
       desc: "Modern, Statically-typed, JVM-compatible, Concise, Interoperable",
@@ -6222,7 +6237,7 @@ export const languages =
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_K),
       dockerImage: "ryusatgat/jvm",
       homepage: 'https://kotlinlang.org',
-      repo: '',
+      repo: 'https://github.com/JetBrains/kotlin',
     },
     'Kotlin Script':{
       desc: "Dynamic, Scriptable, Kotlin-based, Interpreted, Flexible",
@@ -6237,7 +6252,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://kotlinlang.org/docs/custom-script-deps-tutorial.html',
-      repo: '',
+      repo: 'https://github.com/JetBrains/kotlin',
     },
     'kscript':{
       desc: "Kotlin-based, Scripting, Lightweight, Interpreted, Simple",
@@ -6251,7 +6266,7 @@ export const languages =
       errorRegEx: ".+\r\n.+\r\n.+\\.ks\\' \\(line (\\d+), (.+?\\):)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://kscript.org',
       repo: 'https://github.com/ChemicalDevelopment/kscript',
     },
     'Lake':{
@@ -6267,7 +6282,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
       homepage: 'https://git.sr.ht/~lieks/lakec-old',
-      repo: '',
+      repo: 'https://github.com/min4builder/lakec',
     },
     'Language 84':{
       desc: "Self-hosting compiler, functional, designed with basic type theory",
@@ -6282,7 +6297,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/l84",
       homepage: 'http://norstrulde.org/language84',
-      repo: '',
+      repo: 'http://norstrulde.org/language84/browse/language84-0.8',
     },
     'Lark':{
       desc: "Lxperiment in designing a homoiconic, syntax inspired by SmallTalk",
@@ -6296,7 +6311,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/jvm",
-      homepage: '',
+      homepage: 'https://github.com/munificent',
       repo: 'https://github.com/munificent/lark',
     },
     'LaTeX':{
@@ -6312,7 +6327,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.latex-project.org',
-      repo: '',
+      repo: 'https://github.com/latex3/latex3',
     },
     'Latro':{
       desc: "Statically-typed, Functional, Concurrent, High-performance, Modern",
@@ -6327,7 +6342,7 @@ export const languages =
       errorRegEx: ".+?\\.l:(\\d+):\\d+:? (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/Zoetermeer',
       repo: 'https://github.com/Zoetermeer/latro',
     },
     'LAuREL':{
@@ -6342,7 +6357,7 @@ export const languages =
       errorRegEx: "LAuREL: \\(line (\\d+), column \\d+\\):",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/dvbmgr',
       repo: 'https://github.com/dvbmgr/LAuREL',
     },
     'Leafscript':{
@@ -6358,7 +6373,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/odddollar',
       repo: 'https://github.com/odddollar/Leafscript',
     },
     'Lean':{
@@ -6375,7 +6390,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.lean-lang.org',
-      repo: '',
+      repo: 'https://github.com/leanprover/lean4',
     },
     'LeekScript':{
       desc: "Minimalistic, Scripting, Lightweight, Simple, Educational",
@@ -6389,8 +6404,8 @@ export const languages =
       errorRegEx: ".*\r\n.+?\\.leek:(\\d+):(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'https://github.com/leek-wars',
+      homepage: 'https://leekwars.com',
+      repo: 'https://github.com/leek-wars/leekscript',
     },
     'Lemon':{
       desc: "Parser generator with flexible syntax",
@@ -6404,7 +6419,7 @@ export const languages =
       errorRegEx: ".+?\\.lm:(\\d+):\\d+: error: (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://www.lemon-lang.org',
       repo: 'https://github.com/lemon-lang/lemon',
     },
     'Levi':{
@@ -6419,7 +6434,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/mm-project',
       repo: 'https://github.com/mm-project/levi_scripting_language',
     },
     'LDPL':{
@@ -6450,7 +6465,7 @@ export const languages =
       errorRegEx: ".+?\\.♎️:(\\d+):\\d+ (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/rzbin',
       repo: 'https://github.com/rzbin/libra',
     },
     'LightningScript':{
@@ -6465,23 +6480,38 @@ export const languages =
       errorRegEx: ".+?\\.li:(\\d+)\\] (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'http://liscript.org',
       repo: 'https://github.com/li-script/lightning',
     },
-    'Lil':{
+    'Lil (Decker)':{
       desc: "Cross platform, HW accelerated 2d/3d graphics engine, native apps and games",
-      highlighting:"lil",
+      highlighting:"lilt",
       ext: 'lil',
       kor: '릴',
-      template:"lil",
+      template:"lilt",
       icon:'mdi-square-small',
       command:"lilt {ARGS} {FILENAME}.{EXT}",
       cli: null,
       errorRegEx: "\\((\\d+):\\d+\\) (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: 'https://lil-language.com',
-      repo: '',
+      homepage: 'https://beyondloom.com/decker/lil.html',
+      repo: 'https://github.com/JohnEarnest/Decker',
+    },
+    'Lil (Little)':{
+      desc: "Little Interpreted Language",
+      highlighting:"lil",
+      ext: 'lil',
+      kor: '릴',
+      template:"lil",
+      icon:'mdi-square-small',
+      command:"lil {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: null, // not supported
+      keyBindings: null,
+      dockerImage: "ryusatgat/etc",
+      homepage: 'https://www.ultimate.com/phil/lil',
+      repo: 'https://github.com/wsxiaoys/lil',
     },
     'Lily':{
       desc: "Functional, Concise, Statically-typed, High-level, Pattern-matching",
@@ -6557,7 +6587,7 @@ export const languages =
       errorRegEx: "",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://egordorichev.github.io/lit-wiki/docs/getting_started',
       repo: 'https://github.com/egordorichev/lit',
     },
     'Little':{
@@ -6587,7 +6617,7 @@ export const languages =
       errorRegEx: ".+ (\\d+):\\d+: (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/benhoyt',
       repo: 'https://github.com/benhoyt/littlelang',
     },
     'LiveScript':{
@@ -6617,7 +6647,7 @@ export const languages =
       errorRegEx: "^(\\d+): (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://sam.nrel.gov/lk-script.html',
       repo: 'https://github.com/NREL/lk',
     },
     'LLVM-IR':{
@@ -6634,7 +6664,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://llvm.org/docs/LangRef.html',
-      repo: '',
+      repo: 'https://github.com/llvm/llvm-project',
     },
     'Lobster':{
       desc: "Static-typed, Functional, Lightweight, Concurrent, High-performance",
@@ -6649,8 +6679,8 @@ export const languages =
       errorRegEx: ".+?\\.lobster\\((\\d+)\\): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'https://aardappel.github.io/lobster',
+      homepage: 'https://strlen.com/lobster',
+      repo: 'https://github.com/aardappel/lobster',
     },
     'Logo':{
       desc: "Educational, procedural, turtle graphics language",
@@ -6680,7 +6710,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://www.lolcode.org',
-      repo: '',
+      repo: 'https://github.com/justinmeza/lci',
     },
     'Loli':{
       desc: "Minimalistic, Concise, Educational, Experimental, Functional",
@@ -6694,7 +6724,7 @@ export const languages =
       errorRegEx: ".+\r\n    from .+?\\.li:(\\d+)(:.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/kappactf',
       repo: 'https://github.com/kappactf/loli',
     },
     'Lox':{
@@ -6709,7 +6739,7 @@ export const languages =
       errorRegEx: "\\[line (\\d+)\\] (Error.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://benhoyt.com/writings/loxlox',
       repo: 'https://github.com/benhoyt/loxlox',
     },
     'Loxido':{
@@ -6724,7 +6754,7 @@ export const languages =
       errorRegEx: "\\[line (\\d+)\\] Error(.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/ceronman',
       repo: 'https://github.com/ceronman/loxido',
     },
     'Lua':{
@@ -6740,7 +6770,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/lua",
       homepage: 'https://www.lua.org',
-      repo: '',
+      repo: 'https://github.com/lua/lua',
     },
     'LuaJIT':{
       desc: "Just-In-Time (JIT) compiler for the Lua",
@@ -6769,7 +6799,7 @@ export const languages =
       errorRegEx: ".+?\\.lua:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/lua",
-      homepage: '',
+      homepage: 'https://luau.org',
       repo: 'https://github.com/luau-lang/luau',
     },
     'Luci':{
@@ -6784,7 +6814,7 @@ export const languages =
       errorRegEx: ".+? line #(\\d+), (col #\\d+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/naegelejd',
       repo: 'https://github.com/naegelejd/luci',
     },
     'Lumi':{
@@ -6799,7 +6829,7 @@ export const languages =
       errorRegEx: ".+\\.lm\\[(\\d+)\\](.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://lumi-lang.readthedocs.io/en/latest',
       repo: 'https://github.com/meircif/lumi-lang',
     },
     'Luminique':{
@@ -6814,7 +6844,7 @@ export const languages =
       errorRegEx: ".+?\\.lmq:(\\d+) in script:(.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/base",
-      homepage: '',
+      homepage: 'https://github.com/davidoskiii',
       repo: 'https://github.com/davidoskiii/Luminique',
     },
     'Lush':{
@@ -6830,7 +6860,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/lush",
       homepage: 'https://lush.sourceforge.net',
-      repo: '',
+      repo: 'https://sourceforge.net/projects/lush/files',
     },
     'Luxury':{
       desc: "High-level, Object-oriented, Dynamic, Elegant, Expressive",
@@ -6844,7 +6874,7 @@ export const languages =
       errorRegEx: " +(\\d+) \\| (.+\r\n.*\r\n.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/strawberryhacker',
       repo: 'https://github.com/strawberryhacker/luxury',
     },
     'M4':{
@@ -6860,7 +6890,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.gnu.org/software/m4',
-      repo: '',
+      repo: 'https://ftp.gnu.org/gnu/m4',
     },
     'Magpie':{
       desc: "Small, dynamically-typed, runs on the JVM",
@@ -6874,7 +6904,7 @@ export const languages =
       errorRegEx: ".+?\\.mag \\(line (\\d+), col \\d+-\\d+\\)\\)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'http://magpie-lang.org',
       repo: 'https://github.com/munificent/magpie',
     },
     'Make':{
@@ -6890,7 +6920,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.gnu.org/software/make',
-      repo: '',
+      repo: 'https://ftp.gnu.org/gnu/make',
     },
     'Malbolge':{
       desc: "Esoteric, Obfuscated, Turing-complete, Complex, Minimalistic",
@@ -6921,7 +6951,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://github.com/k-kahora',
       repo: 'https://github.com/k-kahora/Maml',
     },
     'Mari':{
@@ -6937,7 +6967,7 @@ export const languages =
       errorRegEx: ".+?\\.mr:(\\d+):\\d+ (.+)\r\n(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/heiytor',
       repo: 'https://github.com/heiytor/mari-programming-language',
     },
     'Maroon':{
@@ -6953,7 +6983,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://github.com/adam-mcdaniel',
       repo: 'https://github.com/adam-mcdaniel/maroon-lang',
     },
     'MASM 4.0':{
@@ -6969,7 +6999,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://en.wikipedia.org/wiki/Microsoft_Macro_Assembler',
-      repo: '',
+      repo: 'https://winworldpc.com/product/macro-assembler/4x',
     },
 /*  'MAsm 5.10':{
       desc: "Assembly language for x86 processors",
@@ -7001,7 +7031,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://maude.cs.illinois.edu',
-      repo: '',
+      repo: 'https://github.com/maude-lang/Maude',
     },
     'Maxc':{
       desc: "Concise, C-like, Lightweight, High-level, Embeddable",
@@ -7014,8 +7044,8 @@ export const languages =
       cli: 'maxc',
       keyBindings: null,
       dockerImage: '',
-      homepage: 'https://github.com/k-mrm/maxc',
-      repo: '',
+      homepage: 'https://github.com/k-mrm',
+      repo: 'https://github.com/k-mrm/maxc',
     },
     'Maxima':{
       desc: "Symbolic computation, mathematical analysis system",
@@ -7044,7 +7074,7 @@ export const languages =
       errorRegEx: ".+?\\(at line (\\d+):(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://doc.melonc.io',
       repo: 'https://github.com/Water-Melon/Melon',
     },
     'MeowScript':{
@@ -7059,8 +7089,8 @@ export const languages =
       errorRegEx: "Error in line (\\d+):\r\n(.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
-      repo: 'https://codeberg.org/LabRicecat/meowscript',
+      homepage: 'https://codeberg.org/LabRicecat/meowscript',
+      repo: 'https://github.com/LabRicecat/MeowScript',
     },
     'Mercury':{
       desc: "Logic programming, strong typing, declarative",
@@ -7073,7 +7103,7 @@ export const languages =
       cli: null,
       errorRegEx: ".+?\\.m:(\\d+): (.*)",
       keyBindings: null,
-      dockerImage: '',
+      dockerImage: 'ryusatgat/mercury',
       homepage: 'https://www.mercurylang.org',
       repo: 'https://github.com/Mercury-Language/mercury',
     },
@@ -7104,7 +7134,7 @@ export const languages =
       errorRegEx: '.+?\\.ml:(\\d+):\\d+: (.+)',
       keyBindings: null,
       dockerImage: "ryusatgat/minilang",
-      homepage: '',
+      homepage: 'https://github.com/NICUP14/MiniLang/blob/main/QUICKSTART.md',
       repo: 'https://github.com/NICUP14/MiniLang',
     },
     'MiniLua':{
@@ -7119,7 +7149,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/lua",
-      homepage: '',
+      homepage: 'https://github.com/edubart',
       repo: 'https://github.com/edubart/minilua',
     },
     'Miniscript':{
@@ -7164,8 +7194,8 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'http://www.golfscript.com/minus',
+      homepage: 'http://www.golfscript.com/minus',
+      repo: 'https://www.golfscript.com/minus/implementations.html',
     },
     'Mirah':{
       desc: "Ruby-like, JVM-compatible, Statically-typed, High-performance, Concise",
@@ -7196,7 +7226,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.cs.kent.ac.uk/people/staff/dat/miranda',
-      repo: '',
+      repo: 'https://www.cs.kent.ac.uk/people/staff/dat/miranda/downloads',
     },
     'Mirth':{
       desc: "Integration-focused, Java-based, Lightweight, Messaging, Server-side",
@@ -7210,7 +7240,7 @@ export const languages =
       errorRegEx: ".+?\\.mth:(\\d+):\\d+: error:(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/mirth-lang',
       repo: 'https://github.com/mirth-lang/mirth',
     },
     'Modula-2':{
@@ -7226,7 +7256,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.modula2.org',
-      repo: '',
+      repo: 'https://www.nongnu.org/gm2/download.html',
     },
     'Modula-3':{
       desc: "Object-oriented, Modular, Type-safe, Concurrent, High-level",
@@ -7243,7 +7273,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.modula3.org',
-      repo: '',
+      repo: 'https://github.com/modula3/cm3',
     },
     'Mojo':{
       desc: "High-performance, Python-like, Statically-typed, Systems-focused, Modern",
@@ -7273,7 +7303,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.mongodb.com',
-      repo: '',
+      repo: 'https://github.com/mongodb/mongo',
     },
     'Monkey':{
       desc: "Dynamic, Scripting, Lightweight, Minimalistic, Interpreted",
@@ -7287,7 +7317,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/abhinav-upadhyay',
       repo: 'https://github.com/abhinav-upadhyay/cmonkey',
     },
     'Moo':{
@@ -7302,7 +7332,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: "ryusatgat/esolang",
-      homepage: '',
+      homepage: 'https://github.com/moratorium08',
       repo: 'https://github.com/moratorium08/moo',
     },
     'MoonScript':{
@@ -7333,7 +7363,7 @@ export const languages =
       errorRegEx: ".+?line (\\d+)\\] \\[.+",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://github.com/MotionLang/motion/blob/main/docs/Getting_Started/Installation.md',
       repo: 'https://github.com/MotionLang/motion',
     },
     'Mouse':{
@@ -7348,7 +7378,7 @@ export const languages =
       errorRegEx: 'Line : (\\d+), Pos : \\d+',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://archive.org/details/byte-magazine-1979-07-rescan/page/n199/mode/2up',
       repo: 'https://github.com/Honneamise/MOUSE',
     },
     'mruby':{
@@ -7379,7 +7409,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://mu-script.org',
-      repo: '',
+      repo: 'https://github.com/mu-script/mu',
     },
     'MUMPS':{
       desc: "Database-focused, procedural, hierarchical language",
@@ -7394,7 +7424,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.cs.uni.edu/~okane',
-      repo: '',
+      repo: 'https://threadsafebooks.com/source/MUMPS-MDH',
     },
     'Mun':{
       desc: "Embeddable, scripting, statically typed, cross compilation",
@@ -7407,7 +7437,7 @@ export const languages =
       errorRegEx: 'error: .+?\r\n --> .+?\\.mun:(\\d+):\\d+',
       keyBindings: null,
       dockerImage: "ryusatgat/mun",
-      homepage: '',
+      homepage: 'https://mun-lang.org',
       repo: 'https://github.com/mun-lang/mun',
     },
     'Muon':{
@@ -7423,7 +7453,7 @@ export const languages =
       errorRegEx: ".+\r\n-> .+?\\.mu:(\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/nickmqb',
       repo: 'https://github.com/nickmqb/muon',
     },
     'Myrddin':{
@@ -7453,7 +7483,7 @@ export const languages =
       errorRegEx: "Error:\r\n.+?Ln (\\d+), Col \\d+\r\n.+?\r\n(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://paladin-t.github.io/my_basic',
       repo: 'https://github.com/paladin-t/my_basic',
     },
     'MySQL(mariadb)':{
@@ -7470,7 +7500,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://mariadb.org',
-      repo: '',
+      repo: 'https://github.com/MariaDB',
     },
     'Mythryl':{
       desc: "Functional, strongly-typed, high-performance language",
@@ -7491,7 +7521,7 @@ export const languages =
       desc: "Query language, concise, expressive syntax",
       highlighting:"nanoquery",
       ext: 'nano',
-      kor: '네코',
+      kor: '나노쿼리',
       template:"nanoquery",
       icon:'mdi-gesture',
       command:"nq {ARGS} {FILENAME}.{EXT}",
@@ -7526,11 +7556,11 @@ export const languages =
       errorRegEx: '.+?\\.n:(\\d+):\\d+: (.+)',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://nature-lang.org',
       repo: 'https://github.com/nature-lang/nature',
     },
     'Nectar':{
-      desc: "Concurrent, functional, high-level language",
+      desc: "Object-orentied, procedural, comprises a combination of both high-level and low-level language",
       highlighting:"nectar",
       ext: 'nec',
       kor: '넥타르',
@@ -7542,7 +7572,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/tasosxak',
       repo: 'https://github.com/tasosxak/nectar-lang',
     },
     'Nelua':{
@@ -7606,7 +7636,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/ubuntu1404",
       homepage: 'http://nemerle.org',
-      repo: '',
+      repo: 'http://nemerle.org/Downloads',
     },
     'Never':{
       desc: "Esoteric, Minimalistic, Obfuscated, Turing-complete, Experimental",
@@ -7620,7 +7650,7 @@ export const languages =
       errorRegEx: ".+?\\.nev:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://never-lang.readthedocs.io',
       repo: 'https://github.com/never-lang/never',
     },
     'NewLisp':{
@@ -7636,7 +7666,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.newlisp.org',
-      repo: '',
+      repo: 'https://www.newlisp.org/downloads',
     },
     'NewtonScript':{
       desc: "Object-oriented, dynamic, scripting language",
@@ -7665,7 +7695,7 @@ export const languages =
       errorRegEx: ".+?\\.n:(\\d+)> (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/iamsubhranil',
       repo: 'https://github.com/iamsubhranil/Next',
     },
     'NGS':{
@@ -7680,7 +7710,7 @@ export const languages =
       errorRegEx: ".+?\\.ngs:(\\d+):\\d+ - \\d+:\\d+",
       keyBindings: null,
       dockerImage: 'ryusatgat/ngs',
-      homepage: '',
+      homepage: 'https://ngs-lang.org',
       repo: 'https://github.com/ngs-lang/ngs',
     },
     'Nial':{
@@ -7710,8 +7740,8 @@ export const languages =
       errorRegEx: "nibbles: .+?: .*\r\nat line: (\\d+), char: (\\d+):",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'http://www.golfscript.com/nibbles',
+      homepage: 'http://www.golfscript.com/nibbles',
+      repo: 'https://github.com/darrenks/nibbles',
     },
     'Nice':{
       desc: "Object-oriented, statically-typed, extensible language",
@@ -7727,7 +7757,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://nice.sourceforge.net',
-      repo: '',
+      repo: 'https://nice.sourceforge.net/install.html',
     },
     'Nickle':{
       desc: "High-level, numerical, scripting language",
@@ -7802,7 +7832,7 @@ export const languages =
       errorRegEx: '.+?\\.noja:(\\d+)',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/cozis',
       repo: 'https://github.com/cozis/Noja',
     },
     'Noumenon':{
@@ -7817,7 +7847,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/twied',
       repo: 'https://github.com/twied/noumenon',
     },
     'Novus':{
@@ -7833,7 +7863,7 @@ export const languages =
       errorRegEx: ".+?\\.ns:(\\d+):(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/BastianBlokland',
       repo: 'https://github.com/BastianBlokland/novus',
     },
     'Nuua':{
@@ -7848,7 +7878,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://nuua.io',
       repo: 'https://github.com/nuua-io/Nuua',
     },
     'Nyx':{
@@ -7863,7 +7893,7 @@ export const languages =
       errorRegEx: ".+?Error: .+? at line (\\d+), (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://github.com/kelthuzadx',
       repo: 'https://github.com/kelthuzadx/nyx',
     },
     'Oak':{
@@ -7879,7 +7909,7 @@ export const languages =
       errorRegEx: "(\\d+) \\| (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://crates.io/crates/oakc',
       repo: 'https://github.com/adam-mcdaniel/oakc',
     },
     'Oberon':{
@@ -7925,7 +7955,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://en.wikipedia.org/wiki/Objective-C',
-      repo: '',
+      repo: 'https://gcc.gnu.org/git.html',
     },
     'OCaml':{
       desc: "Functional, statically-typed, type inference",
@@ -7940,7 +7970,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/ocaml",
       homepage: 'https://ocaml.org',
-      repo: '',
+      repo: 'https://github.com/ocaml/ocaml',
     },
     'Octave':{
       desc: "Numerical computing, MATLAB-compatible syntax",
@@ -7955,7 +7985,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://octave.org',
-      repo: '',
+      repo: 'https://github.com/gnu-octave/octave',
     },
     'Odin':{
       desc: "Static typing, manual memory management",
@@ -8000,7 +8030,7 @@ export const languages =
       errorRegEx: ".+?\\.ooc:(\\d+):\\d+ (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://ooc-lang.org',
       repo: 'https://github.com/ooc-lang/the-ooc-language',
     },
     'Opal':{
@@ -8046,7 +8076,7 @@ export const languages =
       errorRegEx: ".+?\\.spin\\((\\d+):\\d+\\) : (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://packages.guix.gnu.org/packages/openspin',
       repo: 'https://github.com/parallaxinc/OpenSpin',
     },
     'Oracle':{
@@ -8063,7 +8093,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.oracle.com',
-      repo: '',
+      repo: 'https://container-registry.oracle.com/ords/f?p=113:10::::::',
     },
     'Orc':{
       desc: "Parallel execution and dataflow",
@@ -8092,7 +8122,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/Wafelack',
       repo: 'https://github.com/Wafelack/orion',
     },
     'Otto':{
@@ -8107,7 +8137,7 @@ export const languages =
       errorRegEx: ".+?: Line (\\d+):\\d+ (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'http://godoc.org/github.com/robertkrimen/otto',
       repo: 'https://github.com/robertkrimen/otto',
     },
     'Otus Lisp':{
@@ -8137,7 +8167,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://objectscript.sourceforge.net',
-      repo: '',
+      repo: 'https://sourceforge.net/projects/objectscript/files',
     },
     'Oz':{
       desc: "Multiparadigm programming and constraint solving",
@@ -8183,7 +8213,7 @@ export const languages =
       errorRegEx: ".+?\\.p\\+\\+\\], line ~(\\d+)>\r\n(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/tumtumtum',
       repo: 'https://github.com/tumtumtum/pplusplus',
     },
     'Pagan':{
@@ -8198,7 +8228,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/prwoodbury',
       repo: 'https://github.com/prwoodbury/pagan',
     },
     'Par':{
@@ -8214,7 +8244,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://par-lang.org',
-      repo: '',
+      repo: 'https://github.com/karthikv/par',
     },
     'PARI/GP':{
       desc: "Mathematical computation and algebra system",
@@ -8230,7 +8260,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://pari.math.u-bordeaux.fr',
-      repo: '',
+      repo: 'https://pari.math.u-bordeaux.fr/pub/pari/unix',
     },
     'ParaSail':{
       desc: "Concurrent programming language for safety",
@@ -8261,7 +8291,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://www.parser.ru/en',
       repo: 'https://github.com/artlebedev/parser3',
     },
     'Pascal':{
@@ -8292,7 +8322,7 @@ export const languages =
       errorRegEx: ".+?\\.pn:(\\d+):\\d+",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://passerine.io',
       repo: 'https://github.com/vrtbl/passerine',
     },
     'Pawn':{
@@ -8307,8 +8337,8 @@ export const languages =
       errorRegEx: ".+?\\((\\d+)\\) : (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'https://github.com/pawn-lang',
+      homepage: 'https://github.com/pawn-lang',
+      repo: 'https://github.com/pawn-lang/compiler',
     },
     'Pepper':{
       desc: "Visual programming environment for robots",
@@ -8322,7 +8352,7 @@ export const languages =
       errorRegEx: "(\\d+):\\d+: .+",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/dannyvankooten',
       repo: 'https://github.com/dannyvankooten/pepper-lang',
     },
 /* still, 32bit environment does not supported
@@ -8355,7 +8385,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.perl.org',
-      repo: '',
+      repo: 'https://github.com/Perl/perl5',
     },
     'PForth':{
       desc: "Portable ANS-like Forth written in ANSI 'C'",
@@ -8370,7 +8400,7 @@ export const languages =
       errorRegEx: ".+?:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://www.softsynth.com/pforth',
       repo: 'https://github.com/philburk/pforth',
     },
     'Pharo':{
@@ -8418,7 +8448,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.gnu.org/software/plotutils/manual/en/html_node/pic2plot-Introduction.html',
-      repo: '',
+      repo: 'https://sourceforge.net/projects/plotutils/files',
     },
     'Picat':{
       desc: "Declarative, Logic programming, Constraint-solving, High-level, Flexible",
@@ -8433,7 +8463,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://picat-lang.org',
-      repo: '',
+      repo: 'https://github.com/rurban/picat-lang',
     },
     'PicoC':{
       desc: "Embedded, C-like, Lightweight, Interpreted, Simple",
@@ -8447,7 +8477,7 @@ export const languages =
       errorRegEx: ".+?\\.c:(\\d+):\\d+ (.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://code.google.com/archive/p/picoc',
       repo: 'https://github.com/jpoirier/picoc',
     },
     'PicoLisp':{
@@ -8507,7 +8537,7 @@ export const languages =
       errorRegEx: "error in '.+?\\.pn' on line (\\d+):\r\n(.*)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'http://pinecone-lang.herokuapp.com',
       repo: 'https://github.com/wmww/Pinecone',
     },
     'Pkl':{
@@ -8585,7 +8615,7 @@ export const languages =
       errorRegEx: ".+\r\n.+?\\.pk\":(\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://thakeenathees.github.io/pocketlang',
       repo: 'https://github.com/ThakeeNathees/pocketlang',
     },
     'Pocketpy':{
@@ -8633,7 +8663,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.polyml.org',
-      repo: '',
+      repo: 'https://github.com/polyml/polyml',
     },
     'Poplog':{
       desc: "Multi-paradigm, AI-focused, Prolog-based, Lisp-based, Interactive",
@@ -8663,7 +8693,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.ghostscript.com/',
-      repo: '',
+      repo: 'https://www.ghostscript.com/releases/gsdnld.html',
     },
     'PostgreSQL':{
       desc: "Relational, SQL-based, Open-source, Extensible, High-performance",
@@ -8678,7 +8708,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.postgresql.org',
-      repo: '',
+      repo: 'https://www.postgresql.org/download',
     },
     'Potion':{
       desc: "Object-oriented, Functional, Lightweight, Minimalistic, Dynamic",
@@ -8724,7 +8754,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.fon.hum.uva.nl/praat',
-      repo: '',
+      repo: 'https://www.fon.hum.uva.nl/praat/download_linux.html',
     },
     'Pro*C':{
       desc: "Embedded SQL, C integration language",
@@ -8740,7 +8770,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://en.wikipedia.org/wiki/Pro*C',
-      repo: '',
+      repo: 'https://www.oracle.com/database/technologies/instant-client/precompiler-downloads.html',
     },
     'Processing':{
       desc: "Visual, interactive, artistic programming language",
@@ -8789,7 +8819,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.swi-prolog.org',
-      repo: '',
+      repo: 'https://www.swi-prolog.org/download',
     },
     'PROMELA - Spin':{
       desc: "Model-checking, Concurrent, Formal, Declarative, Verification",
@@ -8804,7 +8834,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://spinroot.com',
-      repo: '',
+      repo: 'https://github.com/nimble-code/Spin',
     },
     'PROSE':{
       desc: "Pattern-based, Programming, Transformation, High-level, Tool-oriented",
@@ -8819,7 +8849,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://sourceforge.net/projects/prose',
-      repo: '',
+      repo: 'https://sourceforge.net/projects/prose/files',
     },
     'PSL':{
       desc: "Embeddable, scripting",
@@ -8833,7 +8863,7 @@ export const languages =
       errorRegEx: "error .+?\\.psl (\\d+),\\d+: (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://twitter.com/P9Silica',
       repo: 'https://github.com/Silica/PSL',
     },
     'Pug':{
@@ -8878,7 +8908,7 @@ export const languages =
       errorRegEx: ".+? at line: (\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/marxn',
       repo: 'https://github.com/marxn/pupp',
     },
     'Puppet':{
@@ -8940,7 +8970,7 @@ export const languages =
       errorRegEx: ".*?\r\n【行 (\\d+)】在 脚本",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://anonymousaaardvark.github.io/qi',
       repo: 'https://github.com/AnonymousAAArdvark/qi',
     },
     'QBE':{
@@ -8970,7 +9000,7 @@ export const languages =
       errorRegEx: ".+? at .+?\\.q:(\\d+)(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://qore.org',
       repo: 'https://github.com/qorelanguage/qore',
     },
     'QuickBASIC':{
@@ -8986,7 +9016,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://en.wikipedia.org/wiki/QuickBASIC',
-      repo: '',
+      repo: 'https://winworldpc.com/product/quickbasic/45',
     },
     'QuickJS':{
       desc: "Small and embeddable Javascript engine, fast interpreter",
@@ -9001,7 +9031,7 @@ export const languages =
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
       homepage: 'https://bellard.org/quickjs',
-      repo: '',
+      repo: 'https://winworldpc.com/product/quickbasic/45',
     },
     'Quirrel':{
       desc: "Based on Squirrel, inspired by Python, Lexical scoping",
@@ -9030,7 +9060,7 @@ export const languages =
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_R),
       dockerImage: '',
       homepage: 'https://www.r-project.org',
-      repo: '',
+      repo: 'https://cran.r-project.org/mirrors.html',
     },
     'Racket':{
       desc: "Functional, Lisp-based, Language-oriented, Macro-enabled, Educational",
@@ -9058,7 +9088,7 @@ export const languages =
       cli: "rakudo {ARGS}",
       errorRegEx: ".*?at (?:line )?(?:.+?:)?(\\d+)(.*)",
       keyBindings: null,
-      dockerImage: 'https://github.com/topics/raku-lang',
+      dockerImage: '',
       homepage: 'https://raku.org',
       repo: 'https://github.com/rakudo/rakudo',
     },
@@ -9074,8 +9104,8 @@ export const languages =
       errorRegEx: "\\*\\*\\*Error .+\r\n.+?Line number: (\\d+)\r\n.+\r\n( +.+\r\n)*",
       keyBindings: null,
       dockerImage: '',
-      homepage: 'https://en.wikipedia.org/wiki/Rapira',
-      repo: '',
+      homepage: 'https://code.google.com/archive/p/rerap',
+      repo: 'https://github.com/freeduke33/rerap2',
     },
     'Rapture':{
       desc: "Concise, High-level, Functional, Lightweight, Turing-complete",
@@ -9089,7 +9119,7 @@ export const languages =
       errorRegEx: "Error @ line (\\d+):\\d+\r\n(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://www.ironrealms.com/rapture/manual/files/Overview-txt.html',
       repo: 'https://github.com/mattmikolay/rapture',
     },
     'Ratfor':{
@@ -9119,7 +9149,7 @@ export const languages =
       errorRegEx: 'ravi: .+?\\.ravi:(\\d+): (.+)',
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'http://ravilang.github.io',
       repo: 'https://github.com/dibyendumajumdar/ravi',
     },
     'Rebol':{
@@ -9165,7 +9195,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://redis.io',
-      repo: '',
+      repo: 'https://github.com/redis/redis',
     },
     'REXX (Reginia)':{
       desc: "Scripting, Procedural, Easy-to-learn, IBM, Text-processing",
@@ -9194,7 +9224,7 @@ export const languages =
       errorRegEx: "(\\d+): .*",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://crates.io/crates/rhai',
       repo: 'https://github.com/rhaiscript/rhai',
     },
     'RIGAL':{
@@ -9209,8 +9239,23 @@ export const languages =
       errorRegEx: " Error in file .+?\\.rig\r\n Line= +?(\\d+)\r\n (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'http://git.kylepdavis.com/KylePDavis/RIGAL',
+      homepage: 'http://git.kylepdavis.com/KylePDavis/RIGAL',
+      repo: 'http://git.kylepdavis.com/KylePDavis/RIGAL.git',
+    },
+    'ric-script':{
+      desc: "Resembles Python and Javascript",
+      highlighting:"ric",
+      ext: 'ric',
+      kor: 'RIC스크립트',
+      template:"ric",
+      icon:'mdi-script',
+      command:"ric {ARGS} {FILENAME}.{EXT}",
+      cli: null,
+      errorRegEx: ".+?\\.ric:(\\d+): (.+)",
+      keyBindings: null,
+      dockerImage: 'ryusatgat/etc',
+      homepage: 'https://github.com/Ricardicus',
+      repo: 'https://github.com/Ricardicus/ric-script',
     },
     'Ring':{
       desc: "High-level, general-purpose, scripting language",
@@ -9225,7 +9270,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://ring-lang.github.io',
-      repo: '',
+      repo: 'https://github.com/ring-lang/ring',
     },
     'Rix':{
       desc: "Concise, Functional, Minimalistic, High-level, Experimental",
@@ -9240,7 +9285,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/riolet',
       repo: 'https://github.com/riolet/rix',
     },
     'Rk':{
@@ -9255,7 +9300,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://rk.tryitonline.net',
       repo: 'https://github.com/aaronryank/rk-lang',
     },
     'Roc':{
@@ -9272,7 +9317,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/roc",
       homepage: 'https://www.roc-lang.org',
-      repo: '',
+      repo: 'https://github.com/roc-lang/roc',
     },
     'Rockstar':{
       desc: "Esoteric, Minimalistic, Humor-oriented, Turing-complete, Syntax-driven",
@@ -9286,8 +9331,8 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'https://github.com/RockstarLang',
+      homepage: 'https://codewithrockstar.com',
+      repo: 'https://github.com/RockstarLang/rockstar',
     },
     'Roff':{
       desc: "Text-formatting, procedural, simple, macro-based, legacy",
@@ -9303,7 +9348,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.gnu.org/software/groff',
-      repo: '',
+      repo: 'https://ftp.gnu.org/gnu/groff',
     },
     'RPL/2':{
       desc: "Stack-based, procedural, numeric, high-level, concise",
@@ -9318,7 +9363,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://www.rpl2.net',
-      repo: '',
+      repo: 'http://www.rpl2.net/telechargements.php',
     },
     'Rubi':{
       desc: "Concise, dynamic, object-oriented, modern, high-level",
@@ -9332,7 +9377,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/sysprog21',
       repo: 'https://github.com/sysprog21/rubi'
     },
     'Ruby':{
@@ -9348,7 +9393,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/ruby",
       homepage: 'https://www.ruby-lang.org',
-      repo: '',
+      repo: 'https://github.com/ruby/ruby',
     },
     'Rutger':{
       desc: "Functional, high-level, concise, expressive, modern",
@@ -9362,7 +9407,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/cairdcoinheringaahing',
       repo: 'https://github.com/cairdcoinheringaahing/Rutger',
     },
     'Rust':{
@@ -9407,7 +9452,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://mkhan45.github.io/RustScript2',
       repo: 'https://github.com/mkhan45/RustScript2',
     },
     'Rune':{
@@ -9422,7 +9467,7 @@ export const languages =
       errorRegEx: '.+?\r\n.+?\\.rn:(\\d+):(\\d+)',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://rune-rs.github.io',
       repo: 'https://github.com/rune-rs/rune',
     },
     'S-Lang':{
@@ -9438,7 +9483,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.jedsoft.org/slang',
-      repo: '',
+      repo: 'https://www.jedsoft.org/releases/slang',
     },
     'Sac':{
       desc: "Single-Assignment C, array programming language, high performance",
@@ -9453,7 +9498,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/sac",
       homepage: 'https://www.sac-home.org',
-      repo: '',
+      repo: 'https://gitlab.sac-home.org/sac-group/sac2c',
     },
     'Sacalon':{
       desc: "Optimal, maintainable, reliable, and efficient, rebranded from Hascal",
@@ -9484,7 +9529,7 @@ export const languages =
       errorRegEx: ".+? error: \\d+: at line (\\d+), .+",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://adam-mcdaniel.net/sage-website',
       repo: 'https://github.com/adam-mcdaniel/sage',
     },
     'Sass':{
@@ -9500,7 +9545,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://sass-lang.com',
-      repo: '',
+      repo: 'https://github.com/sass/sass',
     },
     'Saturnus':{
       desc: "Lua targeted, easy-to-learn, fast compilation times, scripting",
@@ -9514,7 +9559,7 @@ export const languages =
       errorRegEx: ".+?\\.sass (\\d+):\\d+(.*)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/sigmasoldi3r',
       repo: 'https://github.com/sigmasoldi3r/saturnus',
     },
     'Saffire':{
@@ -9529,8 +9574,8 @@ export const languages =
       errorRegEx: ".+\\.sf on line (\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'https://github.com/saffire',
+      homepage: 'http://www.saffire-lang.org',
+      repo: 'https://github.com/saffire/saffire',
     },
     'Sather':{
       desc: "Object-oriented, statically-typed, modular, efficient, concise",
@@ -9545,7 +9590,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.gnu.org/software/sather',
-      repo: '',
+      repo: 'https://ftp.gnu.org/gnu/sather',
     },
     'Saurus':{
       desc: "Concise, high-level, expressive, modern, flexible",
@@ -9559,7 +9604,7 @@ export const languages =
       errorRegEx: ".+?\\.su ?: ?(\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/andreas-jonsson',
       repo: 'https://github.com/andreas-jonsson/saurus-dynamic',
     },
     'SBCL':{
@@ -9633,7 +9678,7 @@ export const languages =
       cli: "gsi",
       dockerImage: "ryusatgat/scheme",
       homepage: 'https://gambitscheme.org',
-      repo: '',
+      repo: 'https://github.com/gambit/gambit',
     },
     'Scheme(MIT)':{
       desc: "Functional, minimalist, dialect, recursive, expressive",
@@ -9647,7 +9692,7 @@ export const languages =
       cli: "mit-scheme --interactive",
       dockerImage: "ryusatgat/scheme",
       homepage: 'https://www.gnu.org/software/mit-scheme',
-      repo: '',
+      repo: 'https://ftp.gnu.org/gnu/mit-scheme',
     },
     'Scilab':{
       desc: "Numerical, scientific, high-level, matrix-based, open-source",
@@ -9663,7 +9708,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.scilab.org',
-      repo: '',
+      repo: 'https://github.com/scilab/scilab',
     },
     'Scopes':{
       desc: "Expression-based, statically typed, general purpose",
@@ -9678,7 +9723,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/scopes",
       homepage: 'http://scopes.rocks',
-      repo: '',
+      repo: 'https://hg.sr.ht/~duangle/scopes',
     },
     'Scriptol':{
       desc: "Scripting, high-level, easy-to-learn, portable, expressive",
@@ -9694,7 +9739,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.scriptol.com',
-      repo: '',
+      repo: 'https://github.com/Scriptol/JavaScript-Compiler',
     },
     'SCSS':{
       desc: "CSS-based, preprocessor, modular, dynamic, flexible",
@@ -9773,7 +9818,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://seq-lang.org',
-      repo: '',
+      repo: 'https://github.com/seq-lang/seq',
     },
     'SETL':{
       desc: "Set-oriented, high-level, declarative, mathematical, expressive",
@@ -9789,7 +9834,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://setl.org/setl',
-      repo: '',
+      repo: 'https://github.com/davidjbacon/SETL',
     },
     'SGScript':{
       desc: "C-like syntax, highly optimized, register-based VM",
@@ -9804,7 +9849,7 @@ export const languages =
       errorRegEx: "Error: \\[line (\\d+)\\] (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'http://www.sgscript.org',
       repo: 'https://github.com/archo5/sgscript',
     },
     'Shen':{
@@ -9820,7 +9865,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://shenlanguage.org',
-      repo: '',
+      repo: 'https://github.com/Shen-Language/shen-sources',
     },
     'Shiika':{
       desc: "Statically-typed, object-oriented, written in Rust",
@@ -9835,8 +9880,8 @@ export const languages =
       errorRegEx: '.*?Error: .+?\r\n.+?\\.sk:(\\d+):\\d+.+',
       keyBindings: null,
       dockerImage: "ryusatgat/clang",
-      homepage: '',
-      repo: 'https://github.com/shiika-lang',
+      homepage: 'https://github.com/shiika-lang',
+      repo: 'https://github.com/shiika-lang/shiika',
     },
     'ShnooTalk':{
       desc: "Implemented in C++, LLVM",
@@ -9851,7 +9896,7 @@ export const languages =
       errorRegEx: "ERROR in Line (\\d+) Col \\d+",
       keyBindings: null,
       dockerImage: "ryusatgat/shnootalk",
-      homepage: '',
+      homepage: 'https://github.com/RainingComputers',
       repo: 'https://github.com/RainingComputers/ShnooTalk',
     },
     'Simula':{
@@ -9868,7 +9913,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.freshports.org/lang/cim',
-      repo: '',
+      repo: 'https://github.com/freebsd/freebsd-ports/tree/main/lang/cim',
     },
     'Sink':{
       desc: "Stream-based, minimalistic, functional, efficient, concise",
@@ -9882,7 +9927,7 @@ export const languages =
       errorRegEx: ".+\\.sink:(\\d+):\\d+:(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/velipso',
       repo: 'https://github.com/velipso/sink',
     },
     'Sisal':{
@@ -9897,7 +9942,7 @@ export const languages =
       errorRegEx: ".+?\\.sis:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://kestrel.nmt.edu/~raymond/software/sisal/sisal.xhtml',
       repo: 'https://github.com/qram9/sisal',
     },
     'Skew':{
@@ -9973,7 +10018,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://schemer.in/slogan',
       repo: 'https://github.com/vijaymathew/slogan',
     },
     'SmallBasic':{
@@ -9988,7 +10033,7 @@ export const languages =
       errorRegEx: '\\* .+?:(\\d+) \\*',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://smallbasic.github.io',
       repo: 'https://github.com/smallbasic/SmallBASIC',
     },
     'Smalltalk':{
@@ -10018,7 +10063,7 @@ export const languages =
       errorRegEx: ".+?\\.sm:(\\d+): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://www.smile.dev',
       repo: 'https://github.com/seanofw/smile',
     },
     'SML/NJ':{
@@ -10049,7 +10094,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://sourceforge.net/projects/snobol4',
-      repo: '',
+      repo: 'https://sourceforge.net/projects/snobol4/files',
     },
     'Snobol4(spitbol)':{
       desc: "Pattern-oriented, text-processing, procedural, dynamic, legacy",
@@ -10063,7 +10108,7 @@ export const languages =
       errorRegEx: ".+?\\((\\d+(?:,\\d+)?)\\) : (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/spitbol/spitbol-docs',
       repo: 'https://github.com/spitbol/x64',
     },
     'SoftScript':{
@@ -10078,7 +10123,7 @@ export const languages =
       errorRegEx: "Line (\\d+) in .+?\\.ss\r\nError: (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/been-jamming/SoftScript/wiki',
       repo: 'https://github.com/been-jamming/SoftScript',
     },
     'Sol':{
@@ -10094,7 +10139,7 @@ export const languages =
       errorRegEx: ".+?\r\n\\(at lines (\\d+)-\\d+, cols \\d+-\\d+\\)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://sol-lang.github.io',
       repo: 'https://github.com/sol-lang/sol',
     },
     'Solidity':{
@@ -10126,8 +10171,8 @@ export const languages =
       errorRegEx: "Error: .+? in line (\\d+)\\. .+:(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
-      repo: 'http://som-st.github.io',
+      homepage: 'http://som-st.github.io',
+      repo: 'https://github.com/SOM-st/SOM',
     },
     'Sophia':{
       desc: "Smart contract, blockchain, functional language",
@@ -10155,7 +10200,7 @@ export const languages =
       errorRegEx: ".+?\\.sp\\((\\d+)\\) : error \\d+: (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/sourcepawn',
-      homepage: '',
+      homepage: 'https://github.com/alliedmodders',
       repo: 'https://github.com/alliedmodders/sourcepawn',
     },
     'Sparkling':{
@@ -10170,7 +10215,7 @@ export const languages =
       errorRegEx: ".+? line (?:\x1B\\[\\d+m)?(\\d+).*? char .*?\\d+.*?:? (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://h2co3.github.io',
       repo: 'https://github.com/H2CO3/Sparkling',
     },
     'SPL':{
@@ -10185,7 +10230,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://en.wikipedia.org/wiki/Systems_Programming_Language',
       repo: 'https://github.com/marcinlimanski/Compiler-for-SPL-language',
     },
     'Spow':{
@@ -10200,7 +10245,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/Gioyik',
       repo: 'https://github.com/Gioyik/Spow',
     },
     'Squirrel':{
@@ -10230,7 +10275,7 @@ export const languages =
       keyBindings: monaco.KeyMod.chord(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_M, monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S),
       dockerImage: '',
       homepage: 'https://www.sqlite.org',
-      repo: '',
+      repo: 'https://github.com/sqlite/sqlite',
     },
     'SQL Server':{
       desc: "Relational database management system",
@@ -10246,7 +10291,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/ms",
       homepage: 'https://en.wikipedia.org/wiki/Microsoft_SQL_Server',
-      repo: '',
+      repo: 'https://www.microsoft.com/en-us/sql-server/sql-server-downloads',
     },
     'Stanza':{
       desc: "Concise, modular, expressive, high-level, flexible",
@@ -10261,7 +10306,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://lbstanza.org',
-      repo: '',
+      repo: 'https://github.com/StanzaOrg/lbstanza',
     },
     'StarLark':{
       desc: "Configuration, extensible, scripting, high-level, declarative",
@@ -10275,7 +10320,7 @@ export const languages =
       errorRegEx: ".+?\\.star:(\\d+):\\d+: (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/bazelbuild/starlark/blob/master/users.md',
       repo: 'https://github.com/bazelbuild/starlark',
     },
     'StaticScript':{
@@ -10290,7 +10335,7 @@ export const languages =
       errorRegEx: 'line (\\d+):\\d+ (.+)',
       keyBindings: null,
       dockerImage: 'ryusatgat/clang',
-      homepage: '',
+      homepage: 'https://staticscript.org',
       repo: 'https://github.com/StaticScript/StaticScript',
     },
     'Steel':{
@@ -10306,7 +10351,7 @@ export const languages =
       errorRegEx: ".+?\r\n.+?\\.scm:(\\d+):\\d+",
       keyBindings: null,
       dockerImage: "ryusatgat/scheme",
-      homepage: '',
+      homepage: 'https://mattwparas.github.io/steel/book',
       repo: 'https://github.com/mattwparas/steel',
     },
     'Stork':{
@@ -10321,7 +10366,7 @@ export const languages =
       errorRegEx: '^\\((\\d+)\\) (.+)',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/esrrhs',
       repo: 'https://github.com/esrrhs/fake',
     },
     'Storm':{
@@ -10336,7 +10381,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://stormscript.dev',
       repo: 'https://github.com/stormprograms/Storm',
     },
     'StormScript':{
@@ -10351,7 +10396,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://stormscript.dev',
       repo: 'https://github.com/stormprograms/StormScript',
     },
     'Strand':{
@@ -10382,7 +10427,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/matz',
       repo: 'https://github.com/matz/streem',
     },
     'Strela':{
@@ -10398,7 +10443,7 @@ export const languages =
       errorRegEx: ".+?\\.strela:(\\d+):\\d+ (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/sunverwerth',
       repo: 'https://github.com/sunverwerth/strela',
     },
     'SurgeScript':{
@@ -10430,7 +10475,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/swift",
       homepage: 'https://developer.apple.com/kr/swift',
-      repo: '',
+      repo: 'https://github.com/swiftlang/swift',
     },
     'Syphon':{
       desc: "Community-Driven, fast performance, open-software, modern",
@@ -10445,7 +10490,7 @@ export const languages =
       errorRegEx: ".+?\\.sy:(\\d+):\\d+: (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/syphon-lang',
       repo: 'https://github.com/syphon-lang/syphon',
     },
     'SZL':{
@@ -10460,7 +10505,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://dimakrasner.com/szl',
       repo: 'https://github.com/dimkr/szl',
     },
     'Tamgu':{
@@ -10475,7 +10520,7 @@ export const languages =
       errorRegEx: "Error line:(\\d+) (.*?)\\.tmg",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/naver',
       repo: 'https://github.com/naver/tamgu',
     },
     'Tamsin':{
@@ -10490,7 +10535,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://catseye.tc/node/Tamsin',
       repo: 'https://github.com/catseye/Tamsin',
     },
     'Tea':{
@@ -10520,7 +10565,7 @@ export const languages =
       errorRegEx: "Error on line (\\d+) of .+?",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/nakst',
       repo: 'https://github.com/nakst/teak',
     },
     'TeaScript':{
@@ -10536,7 +10581,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/teascript",
       homepage: 'https://tea-age.solutions/teascript',
-      repo: '',
+      repo: 'https://github.com/Florian-Thake/TeaScript-Cpp-Library',
     },
     'Tengo':{
       desc: "Small, dynamic, fast, secure script language for Go",
@@ -10550,7 +10595,7 @@ export const languages =
       errorRegEx: ".+?\r\n.+?\\.tengo:(\\d+):\\d+",
       keyBindings: null,
       dockerImage: "ryusatgat/go",
-      homepage: '',
+      homepage: 'https://tengolang.com',
       repo: 'https://github.com/d5/tengo',
     },
     'TeX':{
@@ -10581,7 +10626,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.tcl.tk',
-      repo: '',
+      repo: 'https://github.com/tcltk/tcl',
     },
     'Tcsh':{
       desc: "Command-line, scripting, interactive, Unix-based, extensible",
@@ -10610,7 +10655,7 @@ export const languages =
       errorRegEx: "/opt/terminalbasic/terminalbasic",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://sourceforge.net/projects/terminal-basic',
       repo: 'https://github.com/terminal-basic-team/terminalbasic',
     },
     'Terra':{
@@ -10656,7 +10701,7 @@ export const languages =
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://www.totalspectrum.ca',
       repo: 'https://github.com/totalspectrum/tinyscript',
     },
     'TIScript':{
@@ -10671,7 +10716,7 @@ export const languages =
       errorRegEx: "Error: .*?\r\r\n\tat .+\\(.+?:(\\d+)\\)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/gfx',
       repo: 'https://github.com/gfx/tiscript',
     },
     'Tokay':{
@@ -10686,7 +10731,7 @@ export const languages =
       errorRegEx: "Line (\\d+), column \\d+: (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://tokay.dev',
       repo: 'https://github.com/tokay-lang/tokay',
     },
     'TotemScript':{
@@ -10702,7 +10747,7 @@ export const languages =
       errorRegEx: "Script error: .+? on line (\\d+):\\d+(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://tdsmale.github.io/totemscript',
       repo: 'https://github.com/tdsmale/TotemScript',
     },
     'Toy':{
@@ -10718,7 +10763,7 @@ export const languages =
       errorRegEx: '.*?\\[Line (\\d+)\\] Error at (.+)',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://toylang.com',
       repo: 'https://github.com/Ratstail91/Toy',
     },
     'Tula':{
@@ -10734,7 +10779,7 @@ export const languages =
       errorRegEx: ".*?(\\d+):\\d+: ERROR: (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/tsoding',
       repo: 'https://github.com/tsoding/tula',
     },
     'Turbo Assembler':{
@@ -10856,7 +10901,7 @@ export const languages =
       errorRegEx: "Error .+\\.um \\((\\d+), \\d+\\): (.+)",
       keyBindings: null,
       dockerImage: 'ryusatgat/etc',
-      homepage: '',
+      homepage: 'https://vtereshkov.github.io/umka-lang',
       repo: 'https://github.com/vtereshkov/umka-lang',
     },
     'Umple':{
@@ -10889,7 +10934,7 @@ export const languages =
       errorRegEx: ".+? in file: \".+?\\.ucl\" on line: (\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/izuzanak',
       repo: 'https://github.com/izuzanak/uclang',
     },
     'Unicon':{
@@ -10995,7 +11040,7 @@ export const languages =
       errorRegEx: "\\(line (\\d+), column \\d+\\):\r\n(.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/Sekomer',
       repo: 'https://github.com/Sekomer/Victim',
     },
     'Vim Script':{
@@ -11010,7 +11055,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.vim.org',
-      repo: '',
+      repo: 'https://github.com/vim/vim',
     },
     'Virgil':{
       desc: "Object-oriented, statically-typed, modular, high-level, expressive",
@@ -11025,7 +11070,7 @@ export const languages =
       errorRegEx: ".+?\\.v3.*?@.*?(\\d+):(\\d+)(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/titzer',
       repo: 'https://github.com/titzer/virgil',
     },
     'Wa':{
@@ -11040,7 +11085,7 @@ export const languages =
       errorRegEx: '.+?\\.wa:(\\d+):\\d+: (.+)',
       keyBindings: null,
       dockerImage: "ryusatgat/wa",
-      homepage: '',
+      homepage: 'https://wa-lang.github.io',
       repo: 'https://github.com/wa-lang/wa',
     },
     'WardScript':{
@@ -11055,7 +11100,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://luisalbizo.github.io/WardScript',
       repo: 'https://github.com/LuisAlbizo/WardScript',
     },
     'Wax':{
@@ -11071,7 +11116,7 @@ export const languages =
       errorRegEx: ".+?line (\\d+): (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://waxc.netlify.app',
       repo: 'https://github.com/LingDong-/wax',
     },
     'Wenyan':{
@@ -11087,7 +11132,7 @@ export const languages =
       errorRegEx: "Line (\\d+), (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/base",
-      homepage: '',
+      homepage: 'https://wy-lang.org',
       repo: 'https://github.com/wenyan-lang/wenyan',
     },
     'Whitespace':{
@@ -11102,7 +11147,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       insertSpaces: false,
-      homepage: '',
+      homepage: 'https://esolangs.org/wiki/Whitespace',
       repo: 'https://github.com/Romejanic/Whitespace',
     },
     'Wisnia':{
@@ -11127,13 +11172,13 @@ export const languages =
       ext: 'lisp',
       kor: '위스프',
       template:"wisp",
-      icon:'mdi-ghost-outline',
+      icon:'👻',
       command:"wisp {ARGS} {FILENAME}.{EXT}",
       cli: "wisp {ARGS}",
       errorRegEx: null, // not supported
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://github.com/adam-mcdaniel',
       repo: 'https://github.com/adam-mcdaniel/wisp',
     },
     'Wolfram Script':{
@@ -11149,7 +11194,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://www.wolfram.com/wolframscript',
-      repo: '',
+      repo: 'https://account.wolfram.com/products/downloads/wolframscript',
     },
     'World':{
       desc: "General-purpose, high-level, expressive, modular, versatile",
@@ -11163,7 +11208,7 @@ export const languages =
       errorRegEx: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'http://world-lang.org',
       repo: 'https://github.com/Geomol/World',
     },
     'Wren':{
@@ -11224,7 +11269,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'http://x10-lang.org/',
-      repo: '',
+      repo: 'https://github.com/x10-lang/x10',
     },
     'xlang':{
       desc: "Concise, modern, dynamic, flexible, efficient",
@@ -11238,7 +11283,7 @@ export const languages =
       errorRegEx: ".+?\\.x:(\\d+):\\d+ (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/pritamzope',
       repo: 'https://github.com/pritamzope/xlang',
     },
     'XLisp':{
@@ -11252,7 +11297,7 @@ export const languages =
       cli: "xlisp {ARGS}",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://en.wikipedia.org/wiki/XLISP',
       repo: 'https://github.com/dbetz/xlisp',
     },
     'Xion':{
@@ -11267,7 +11312,7 @@ export const languages =
       errorRegEx: ".+? on line (\\d+) at character (\\d+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/kreativekorp/openxion/blob/master/README.md',
       repo: 'https://github.com/kreativekorp/openxion',
     },
     'XPL0':{
@@ -11296,7 +11341,7 @@ export const languages =
       errorRegEx: ".+\\.xl:(\\d+):\\d+: (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://c3d.github.io/xl',
       repo: 'https://github.com/c3d/xl',
     },
     'Yacas':{
@@ -11342,7 +11387,7 @@ export const languages =
       errorRegEx: ".+?: .+? \\(?line (\\d+)\\)?(.*)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://yasl-lang.github.io/playground/interpreter.html',
       repo: 'https://github.com/yasl-lang/yasl',
     },
     'YAsm':{
@@ -11359,7 +11404,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://yasm.tortall.net',
-      repo: '',
+      repo: 'https://github.com/yasm/yasm',
     },
     'Yorick':{
       desc: "Numerical, interactive, scripting, high-level, extensible",
@@ -11387,8 +11432,8 @@ export const languages =
       errorRegEx: ".+ line (\\d+).+\r\n(.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: 'https://2484.de/yabasic',
-      repo: '',
+      homepage: 'http://www.yabasic.de',
+      repo: 'https://github.com/marcIhm/yabasic',
     },
     'Zang':{
       desc: "Dynamically typed, high level",
@@ -11402,7 +11447,7 @@ export const languages =
       errorRegEx: ".+?\r\n.+?\\.zang, line (\\d+)",
       keyBindings: null,
       dockerImage: "ryusatgat/python",
-      homepage: '',
+      homepage: 'https://zanglanguage.wordpress.com',
       repo: 'https://github.com/cmspeedrunner/Zang',
     },
     'Zebra':{
@@ -11417,7 +11462,7 @@ export const languages =
       errorRegEx: "\\[Line (\\d+)\\] (.+)",
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/tbui468',
       repo: 'https://github.com/tbui468/zebra',
     },
     'Zenon':{
@@ -11464,7 +11509,7 @@ export const languages =
       errorRegEx: '.+?\\.zf:(\\d+): (.+)',
       keyBindings: null,
       dockerImage: "ryusatgat/etc",
-      homepage: '',
+      homepage: 'https://sourceforge.net/projects/zforth',
       repo: 'https://github.com/zevv/zForth',
     },
     'Zig':{
@@ -11601,7 +11646,7 @@ export const languages =
       cli: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/ericlee05',
       repo: 'https://github.com/ericlee05/Garam-Interpreter',
     },
     '누리':{
@@ -11659,7 +11704,7 @@ export const languages =
       cli: null,
       keyBindings: null,
       dockerImage: '',
-      homepage: '',
+      homepage: 'https://github.com/rycont',
       repo: 'https://github.com/rycont/umjunsik-lang',
     },
     '혀엉...':{
@@ -11688,7 +11733,7 @@ export const languages =
       errorRegEx: ".+?\\.csh: line (\\d+): (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/base",
-      homepage: '',
+      homepage: 'https://docs-archive.freebsd.org/44doc/usd/04.csh/paper.html',
       repo: 'https://github.com/shradhasehgal/C-Shell',
     },
     'Dashell':{
@@ -11703,7 +11748,7 @@ export const languages =
       errorRegEx: ".+?\\.dash: line (\\d+): (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/base",
-      homepage: '',
+      homepage: 'https://github.com/olalonde',
       repo: 'https://github.com/olalonde/dashell',
     },
     'Elvish':{
@@ -11718,7 +11763,7 @@ export const languages =
       errorRegEx: ".+?\\.elv:(\\d+):\\d+-\\d+: (.+)",
       keyBindings: null,
       dockerImage: "ryusatgat/base",
-      homepage: '',
+      homepage: 'https://elv.sh',
       repo: 'https://github.com/elves/elvish',
     },
     'Fish':{
@@ -11734,7 +11779,7 @@ export const languages =
       keyBindings: null,
       dockerImage: '',
       homepage: 'https://fishshell.com',
-      repo: '',
+      repo: 'https://github.com/fish-shell/fish-shell',
     },
     'Korn Shell':{
       desc: "POSIX-compliant, Job control, Scripting features, Command aliasing",
@@ -11749,7 +11794,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/base",
       homepage: 'http://www.kornshell.com',
-      repo: '',
+      repo: 'https://github.com/ksh93/ksh',
     },
     'Nushell':{
       desc: "New type of shell",
@@ -11764,7 +11809,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/base",
       homepage: 'https://www.nushell.sh',
-      repo: '',
+      repo: 'https://github.com/nushell/nushell',
     },
     'Z Shell':{
       desc: "Shell scripting, command-line, and Unix-based",
@@ -11779,7 +11824,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/base",
       homepage: 'https://wiki.zshell.dev',
-      repo: '',
+      repo: 'https://github.com/z-shell/zi',
     },
     'Arch Linux':{
       desc: "Simple, lightweight Linux distribution aimed for flexibility",
@@ -11794,7 +11839,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/arch",
       homepage: 'https://archlinux.org',
-      repo: '',
+      repo: 'https://github.com/archlinux/linux',
     },
     'Kali Linux':{
       desc: "Penetration-testing, Security-focused, Preloaded-tools, Debian-based, Customizable",
@@ -11809,7 +11854,7 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/kali",
       homepage: 'https://www.kali.org',
-      repo: '',
+      repo: 'https://www.kali.org/get-kali',
     },
     'Rocky Linux 9':{
       desc: "Compatible with Red Hat Enterprise Linux",
@@ -11823,8 +11868,8 @@ export const languages =
       errorRegEx: ".*\\.sh: .+? (\\d+): (.*)",
       keyBindings: null,
       dockerImage: "ryusatgat/rocky9",
-      homepage: '',
-      repo: 'https://rockylinux.org',
+      homepage: 'https://rockylinux.org',
+      repo: 'https://github.com/rocky-linux',
     },
     'Ubuntu Linux':{
       desc: "Canonical, Derived from Debian",
@@ -11839,6 +11884,6 @@ export const languages =
       keyBindings: null,
       dockerImage: "ryusatgat/ubuntu",
       homepage: 'https://ubuntu.com',
-      repo: '',
+      repo: 'https://github.com/ubuntu',
     },
 };

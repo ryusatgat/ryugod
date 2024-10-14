@@ -1,0 +1,7 @@
+u = ["text",12] // Array
+w = true // boolean
+x = 10 // integer
+y = 1.61803 // float
+z = "abcd" // string
+
+showln x // Ok, 90 converts to "90"

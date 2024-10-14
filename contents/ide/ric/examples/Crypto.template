@@ -1,0 +1,78 @@
+# Testing some crypto functions
+
+# String
+a = "hejsan"
+
+# Hashing string
+print(sha256(a))
+print(md5(a))
+
+# Hashing raw data
+testFile = "testfile.txt"
+fp = fileOpen(testFile)
+fp.fileWrite(a)
+fp.fileClose()
+
+# Read raw data
+fp = fileOpen(testFile)
+content = fp.fileReadAll()
+fp.fileClose()
+
+sha256_raw = sha256(content)
+md5_raw = md5(content)
+
+# Encoding raw data
+sha256_base64 = base64(sha256_raw)
+md5_base64 = base64(md5_raw)
+
+print(sha256_base64)
+print(md5_base64)
+
+sha256_hex = hex(sha256_raw)
+md5_hex = hex(md5_raw)
+
+print(sha256_hex)
+print(md5_hex)
+
+# Encoding string
+s = "hejsan"
+str_base64 = base64(s)
+str_hex = hex(s)
+
+print(str_base64)
+print(str_hex)
+
+# Decoding string
+s = base64Dec(str_base64)
+print(s)
+
+s = hexDec(str_hex)
+print(text(s))
+
+# Blowfish
+user_key = sha256("hello world")
+key = blowfishKeys(user_key)
+
+message = "hejsan"
+
+enc = key.blowfish(message)
+print(enc.hex())
+print(enc.base64())
+dec = key.blowfishDec(enc)
+print(text(dec))
+
+# serialization test
+ser_base64 = enc.base64()
+ser_hex = enc.hex()
+
+enc = base64Dec(ser_base64)
+dec = key.blowfishDec(enc)
+print(text(dec))
+
+enc = hexDec(ser_hex)
+dec = key.blowfishDec(enc)
+print(text(dec))
+
+
+
+

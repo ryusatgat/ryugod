@@ -1,10 +1,13 @@
+import { match } from "core-js/fn/symbol";
+
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 export var conf = {
     comments: {
-        lineComment: '#',
+        lineComment: '//',
+        blockComment: ["/*", "*/"]
     },
     brackets: [
         ['{', '}'],
@@ -16,12 +19,14 @@ export var conf = {
         { open: '[', close: ']' },
         { open: '(', close: ')' },
         { open: '"', close: '"', notIn: ['string'] },
+        { open: "'", close: "'", notIn: ['string', 'comment'] }
     ],
     surroundingPairs: [
         { open: '{', close: '}' },
         { open: '[', close: ']' },
         { open: '(', close: ')' },
         { open: '"', close: '"' },
+        { open: "'", close: "'" }
     ],
     folding: {
         offSide: true,
@@ -33,69 +38,80 @@ export var conf = {
 };
 export var language = {
     defaultToken: 'invalid',
-    tokenPostfix: '.lil',
+    tokenPostfix: '.dgn',
     keywords: [
-        'if',
+        'select',
+        'show',
+        'showln',
+        'true',
+        'false',
         'while',
+        'end',
+        'do',
         'for',
-        'foreach',
-        'return',
-        'set',
-        'local',
+        'showln',
         'func',
-        'try',
-        'not',
-        'and',
-        
+        'return',
+        'class',
+        'extract',
+        'match',
+        'case',
+        'include',
+        'if',
+        'else',
     ],
     builtins: [
-        'reflect',
-        'rename',
-        'unusedname',
-        'quote',
-        'eval',
-        'topeval',
-        'upeval',
-        'downeval',
-        'enveval',
-        'jaileval',
-        'count',
-        'index',
-        'indexof',
-        'filter',
-        'list',
-        'append',
-        'slice',
-        'subst',
-        'concat',
-        'expr',
-        'inc',
-        'dec',
-        'read',
-        'store',
-        'char',
-        'charat',
-        'codeat',
-        'substr',
-        'strpos',
+        'ARGS',
+        'arrayCombine',
+        'arrayKeyExists',
+        'arrayKeys',
+        'arrayValues',
+        'charAt',
+        'echo',
+        'indexOf',
+        'join',
+        'lastIndexOf',
         'length',
-        'trim',
-        'ltrim',
-        'rtrim',
-        'strcmp',
-        'streq',
-        'repstr',
-        'split',
-        'source',
-        'lmap',
+        'newarray',
+        'parseInt',
+        'parseLong',
         'rand',
-        'catcher',
-        'error',
-        'exit',
+        'range',
+        'readln',
+        'replace',
+        'replaceAll',
+        'replaceFirst',
+        'sleep',
+        'sort',
+        'split',
+        'sprintf',
+        'substring',
+        'sync',
+        'thread',
+        'time',
+        'toChar',
+        'toHexString',
+        'toLowerCase',
+        'toUpperCase',
+        'trim',
+        'try',
     ],
     typeKeywords: [
-        'write',
-        'print',
+        'OBJECT',
+        'NUMBER',
+        'STRING',
+        'ARRAY',
+        'MAP',
+        'FUNCTION',
+        'byte',
+        'double',
+        'float',
+        'int',
+        'long',
+        'number',
+        'short',
+        'string',
+        'typeof',
     ],
     brackets: [
         { open: '{', close: '}', token: 'delimiter.curly' },
@@ -109,9 +125,9 @@ export var language = {
             { include: '@strings' },
             [/[,:;]/, 'delimiter'],
             [/[{}\[\]()]/, '@brackets'],
-            [/\$[a-zA-Z_]\w*/, 'metatag'],
+            [/@[a-zA-Z_]\w*/, 'tag'],
             [
-                /[a-zA-Z_][\-\w]*/,
+                /[a-zA-Z_]\w*/,
                 {
                     cases: {
                         '@keywords': 'keyword',
@@ -125,7 +141,13 @@ export var language = {
         // Deal with white space, including single and multi-line comments
         whitespace: [
             [/\s+/, 'white'],
-            [/(#.*$)/, 'comment'],
+            [/(\/\/.*$)/, 'comment'],
+            [/\/\*/, 'comment', '@comment'],
+        ],
+        comment: [
+            [/[^\/*]+/, 'comment'],
+            [/\*\//, 'comment', '@pop'],
+            [/[\/*]/, 'comment']
         ],
         // Recognize hex, negatives, decimals, imaginaries, longs, and scientific notation
         numbers: [
@@ -134,11 +156,18 @@ export var language = {
         ],
         // Recognize strings, including those broken across lines with \ (but not without)
         strings: [
-            [/"$/, 'string.escape', '@popall'],
+            [/'$/, 'string.escape', '@popall'],
+            [/'/, 'string.escape', '@stringBody'],
             [/"/, 'string.escape', '@dblStringBody']
         ],
+        stringBody: [
+            [/[^\\']+$/, 'string', '@popall'],
+            [/[^\\']+/, 'string'],
+            [/\\./, 'string'],
+            [/'/, 'string.escape', '@popall'],
+            [/\\$/, 'string']
+        ],
         dblStringBody: [
-            [/[^\\"]+$/, 'string', '@popall'],
             [/[^\\"]+/, 'string'],
             [/\\./, 'string'],
             [/"/, 'string.escape', '@popall'],

@@ -1,0 +1,14 @@
+# A function that will be recursive
+@ recursive(a) {
+  ? [ a == 0 ] {
+    print("I am done with the recursion now!")
+  } ~ {
+    print("-- a: " + a)
+    recursive( a - 1 )
+    print("++ a: " + a)
+  }
+}
+
+recursive(100)
+
+print("Yey! The interpreter is doing recursion all fine!")

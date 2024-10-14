@@ -1,0 +1,6 @@
+# Check the arguments passed
+
+print("Number of arguments: " + args.len())
+printf("args: ")
+args.print()
+

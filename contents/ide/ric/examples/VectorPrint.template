@@ -1,0 +1,147 @@
+s = ["hej", 1337, "hejsan"]
+
+print(s)
+
+print(s[0])
+print(s[1])
+print(s[2])
+
+a = 1337
+
+q = [a, s]
+
+print(q)
+
+print(q[0])
+print(q[1])
+
+print(q[1][0])
+print(q[1][1])
+print(q[1][2])
+
+f = [1337, q]
+
+print(f[1][1][0])
+print(f[1][1][1])
+print(f[1][1][2])
+
+h = ["foo"]
+
+h.append("bar")
+
+h.print()
+
+print( h.len() )
+
+# For each loop
+. ( h ... entry ) {
+	print(entry)
+}
+
+h.append("foo")
+h.append("bar")
+
+h[0] = "Foobar! foo "
+
+print(h[0])
+
+# For each loop
+. ( h ... entry ) {
+	print(entry)
+}
+
+print(h)
+
+s = [ "hejsan" ]
+s = [s, "hej"]
+print(s)
+
+@ foo () {
+  print("foo")
+}
+
+@ bar () {
+  print("bar")
+}
+
+s = [foo, bar]
+s[0]()
+s[1]()
+
+# Testing libstd 'contains' function
+s = ["foobar", 1337]
+print(s.contains(1338))
+print(s.contains(1337))
+print(s.contains("barfoo"))
+print(s.contains("foobar"))
+
+# Testing libstring 'split' function
+s = "hejsan hoppsan falleralera"
+v = s.split(" ")
+print(v)
+
+# List multiplication
+s = ["hejsan", 1, 3, 4]
+s2 = 2 * s
+s3 = s * 3
+
+print(s)
+print(s2)
+print(s3)
+
+# Some indexing with [e]:[e]
+@ aNumber (a) { -> a }
+big = [(100 ... i) { i }]
+small = [(5 ... i) { i }]
+print(big[40:50])
+print(big[:aNumber(4)])
+print(small[:])
+print(small[2:])
+print(small[1:2])
+print(small[:len(small)])
+print(small[1:-2])
+print(small[::1])
+print(small[::-1])
+print(big[90:-1:-2])
+
+# Creating fibbonacci series through advanced
+# list initialization
+s = [(15 ... i ) {
+  @ fibPos (a) {
+    ? [ a == 0 ] { -> 0 }
+    ? [ a == 1 ] { -> 1 }
+    -> fibPos(a-1) + fibPos(a-2) 
+  }
+  fibPos(i)
+}]
+print(s)
+
+# Popping
+s = [(10 ... i) { i }]
+print(s)
+print(s.pop() + " " + s.pop() + " " + s.pop())
+print(s)
+
+# Pushing
+. ( 10 ... i ) { s.push(i) }
+print(s)
+
+
+# Sorting vectors
+s = [23,123,4,234,1,321]
+print(s.sort())
+
+s = [bigInt(3132), bigInt(2), bigInt(123), bigInt(12334)]
+s = s.sort()
+print(s)
+
+# Pop first
+print(s.popFirst())
+print(s)
+
+# Indexing backwards
+s = [(10 ... i) { i }]
+p = [(10 ... i) { s[-i] }]
+print(p)
+
+

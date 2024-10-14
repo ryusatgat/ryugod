@@ -1,0 +1,6 @@
+//
+//  Dragon: Hello, World!
+//  https://dragon-lang.org
+//
+
+show "Hello, World!\n" 

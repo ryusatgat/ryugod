@@ -1,0 +1,6 @@
+#
+#  ric-script: Hello, World!
+#  https://github.com/Ricardicus/ric-script
+#
+
+print("Hello, World!")

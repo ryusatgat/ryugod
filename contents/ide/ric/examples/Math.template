@@ -1,0 +1,78 @@
+# Testing square root
+print( sqrt(4) )
+print( sqrt(8) )
+print( sqrt(2) )
+
+# Testing power
+print( pow(2,3) )
+print( pow(2,4) )
+print( pow(2,5) )
+
+# Testing logarithm
+print(log(100))
+print(log(200))
+print(log(1000))
+
+# Testing sin, cos, sin
+print(sin(3.14))
+print(sin(0))
+print(cos(3.14))
+print(cos(0))
+print(tan(3.14))
+print(tan(0))
+
+# Testing exponent
+print(exp(1))
+print(exp(2))
+
+# Testing abs
+print(abs(-2.0))
+print(abs(2.0))
+print(abs(-1337))
+print(abs(1337))
+
+# Testing floor, ceiling
+print(floor(1337.1))
+print(ceil(1337.1))
+
+# Testing random numbers
+i = 0
+. [ i < 100 ] {
+
+  s = randomInt(10, 100)
+  ? [ s > 100 ] {
+    print("Error random!")
+  }
+  ? [ s < 10 ] {
+    print("Error random!")
+  }
+
+  i = i + 1
+  @
+}
+
+i = 0
+. [ i < 100 ] {
+
+  s = random()
+  ? [ s < 0 ] {
+    print("Error random!")
+  }
+  ? [ s > 1 ] {
+    print("Error random!")
+  }
+
+  i += 1
+  @
+}
+
+# Testing some conversions
+print(textBase(32891, 2))
+print(textBase(32321, 8))
+print(textBase(1337,10))
+
+print(intBase("1000000001111011",2))
+print(intBase("77101",8))
+print(intBase("1337",10))
+
+

@@ -1,0 +1,38 @@
+i = 0
+while i < 5 {
+  show i++
+}
+
+// or
+
+i = 0
+while (i < 5) {
+  show i++
+}
+
+// or
+
+i = 0
+while (i < 5) 
+  show i++
+end
+
+i = 0
+do {
+  show i++
+} while i < 5
+
+// or
+
+i = 0
+do {
+  show i++
+} while (i < 5)
+
+// or
+
+i = 0
+do 
+  show i++
+end
+while (i < 5)

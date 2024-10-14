@@ -1,0 +1,20 @@
+# A script showing how the GCD of two numbers can be determined
+
+@ calcGCD(a, b) {
+    ? [ b == 0 ] { 
+      -> a
+    } ~ { 
+      -> calcGCD(b , (a % b) )
+    }
+}
+
+? [ len(args) < 4 ] {
+	print('usage: ' + args[0] + ' number1 number2')
+	exit(1)
+}
+
+# Numbers to calculate GCD of
+x = args[2]
+y = args[3]
+
+print("GCD of " + x + " and " + y + ", is: " + calcGCD(x, y) )

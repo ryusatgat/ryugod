@@ -1,5 +1,6 @@
 #
-#   Lil: Hello, World!
+#  Lil: Hello, World!
+#  https://github.com/wsxiaoys/lil
 #
 
-print["Hello, World!"]
+print "Hello, World!"

@@ -1,0 +1,73 @@
+# Dealing with large numbers
+s = bigInt("9999999999999")
+s.print()
+
+s = bigInt(2)
+s.print()
+
+s = 231321321321321 + 32323232323232
+s.print()
+
+s = s * 1000000
+s.print()
+
+s = 2 + 32132132132132132
+s.print()
+
+s = 231321321321321 + 2
+s.print()
+
+s = 9999999999999 - 8888888888888
+s.print()
+
+s = s - 9999999999999 
+s.print()
+
+s = 88888888888888 % 77777777777777
+s.print()
+
+s = 6666666666666666 / 3
+s.print()
+
+s = 8888888888888881 / 4
+s.print()
+
+s = pow(bigInt(2), 32)
+s.print()
+s = pow(bigInt(2), 128)
+s.print()
+
+# Ridiculously big numbers
+s = pow(bigInt(81), 100)
+print(s)
+s = pow(bigInt(81), 500)
+print(s)
+s = pow(bigInt(99), 50) * -1
+print(s)
+print(abs(s))
+
+print("Ett stort tal: " + pow(bigInt(81), 1000))
+
+# In conditions
+? [ 9999999999999999999 ] {
+  print("hej")
+}
+
+? [ 9999999999999999999 > 0 ] {
+  print("hejsan")
+}
+
+? [ 9999999999999999999 < 10 ] {
+  print("inget hej")
+}
+
+? [ 10 < 9999999999999999999 ] {
+  print("hej igen")
+}
+
+? [ 9999999999999999999 <= 9999999999999999999 ] {
+  print("hejsan igen")
+}
+
+print(textBase(321321321312, 2))
+

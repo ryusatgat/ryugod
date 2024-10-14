@@ -1,0 +1,5 @@
+#
+#   Lil: Hello, World!
+#
+
+print["Hello, World!"]
