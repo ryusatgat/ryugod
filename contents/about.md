@@ -912,3 +912,9 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Dragon
 - Lil (Little)
 - ric-script
+## 2024-10-15
+- Plasma
+## 2024-10-22
+- Dosato
+## 2024-10-23
+- Melang

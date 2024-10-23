@@ -1,0 +1,13 @@
+//
+//  Plazma: Hello, World!
+//  https://plasmalang.org
+//
+
+module main
+
+entrypoint
+func main() uses IO -> Int {
+    print!("Hello, World!\n")
+
+    return 0
+}

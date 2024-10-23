@@ -1,0 +1,6 @@
+//
+//  Dosato: Hello, World!
+//  https://github.com/Robotnik08/cdosato
+//
+
+do sayln("Hello, World!")

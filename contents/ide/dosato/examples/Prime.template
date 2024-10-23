@@ -1,0 +1,32 @@
+define bool isPrime (long number) {
+    // below 2 is not prime
+    return false when number < 2
+    
+    // 2 is only even prime number
+    return true when number == 2
+    
+    // even numbers are not prime
+    return false when number % 2 == 0
+
+    
+    // check if number is divisible by any number from 3 to sqrt(number)
+    make i = null
+    return false when number % i == 0 for range(3, ^/number, 2) => i
+    return true
+}
+
+do sayln(isPrime(1))
+do sayln(isPrime(2))
+
+do sayln(isPrime(3))
+do sayln(isPrime(4))
+
+do sayln(isPrime(11))
+do sayln(isPrime(12))
+
+do sayln(isPrime(13))
+do sayln(isPrime(97))
+
+do sayln(isPrime(2428095424617)) // 2428095424617 is not prime
+do sayln(isPrime(2428095424618)) // 2428095424618 is not prime
+do sayln(isPrime(2428095424619)) // 2428095424619 is prime

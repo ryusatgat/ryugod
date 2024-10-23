@@ -1,0 +1,17 @@
+sys = Import('sys');
+
+@foo ()
+{
+  sys = Import('sys');
+  sys.print('foo');
+}
+a = 'foo';
+a();
+
+human {
+  name;
+  age;
+}
+s = 'human';
+Tom = $s;
+sys.print(Tom);

@@ -1,0 +1,12 @@
+// Simple recursive Fibonacci function
+define long fib (long n) {
+    make a, b = 0, 1
+    set a, b = b, a + b for range(n - 1) => _
+    return b
+}
+
+do sayln(fib(0)) // 1
+do sayln(fib(3)) // 2
+do sayln(fib(5)) // 5
+do sayln(fib(10)) // 55
+do sayln(fib(15)) // 610

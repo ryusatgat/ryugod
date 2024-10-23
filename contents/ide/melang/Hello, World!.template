@@ -1,0 +1,7 @@
+//
+//  Melang: Hello, World!
+//  https://github.com/Water-Melon/Melang
+//
+
+sys = Import('sys');
+sys.print("Hello, World!");

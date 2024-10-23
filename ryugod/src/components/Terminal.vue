@@ -459,7 +459,6 @@ export default {
         this.options[`${this.languages[this.selectedLanguage].template}.args`] = options.args
         if (!this.languages[this.selectedLanguage].tabSize)
           this.editor.getModel().updateOptions({tabSize:this.options['tabSize']})
-console.log(this.options['tabSize'])
       }
       this.optionControl('save')
       this.showSnackbar(this.$t('savedOptions'))
@@ -680,14 +679,14 @@ console.log(this.options['tabSize'])
     },
     sendFile: function (file) {
       if (file.size > 1024*1024*10) {
-        this.showSnackbar(`ℹ️  최대 10M까지 가능합니다(${file.name}, ${file.size}바이트)`)
+        this.showSnackbar(`ℹ️  MAX 10MB (${file.name}, ${file.size}bytes)`)
         return
       }
       const reader = new FileReader()
       reader.onload = (event) => {
         if (this.connected) {
-          this.ws.send(`1\n # ℹ️  ${file.name} 파일을 전송합니다(${file.size}bytes). 완료될 때까지 기다려 주세요...\n` +
-            ` cat << 'RYUGOD_EOF' | sed s/.*,// | base64 -d > '${file.name}'\n` +
+          this.ws.send(`1\n # ℹ️  ${file.name} is transfering(${file.size}bytes). please wait...\n` +
+            ` cat <<- 'RYUGOD_EOF' | sed s/.*,// | base64 -d > '${file.name}'\n` +
             event.target.result+`\nRYUGOD_EOF\r\n # ℹ️  ${file.name} 전송완료\n`)
         }
       }
@@ -778,13 +777,6 @@ console.log(this.options['tabSize'])
         this.showSnackbar('')
         return
       }
-/*
-      if (!(this.termStr && this.termStr.match(/.*(\$|#) $/i))) {
-
-        this.showSnackbar("셸명령이 가능한 상태에서 파일 업로드가 가능합니다")
-        return
-      }
-*/
       e = e || window.event
       e.preventDefault()
 
@@ -898,17 +890,6 @@ console.log(this.options['tabSize'])
         this.befHeight = monaco.style.height
       this.fitSize()
     },
-    /*
-    getTemplate: function(ext) {
-      axios.get(`/contents/templates/${ext}.template`, {headers: {'Content-Type':'application/x-www-form-urlencoded;charset=utf-8'}})
-        .then((res) => {
-          this.editor.setValue(res.data)
-        })
-        .catch(() => {
-          console.log(`${ext} template does not exist`)
-        })
-    },
-    */
     messageBox: function(id, width) {
       if (id == 'help') {
         const path = `/contents/help_${this.locale}.md`
@@ -930,7 +911,6 @@ console.log(this.options['tabSize'])
       const con_html = document.getElementById('con-html')
 
       if(filename.startsWith('code|')) {
-        //console.log(Buffer.from(decodeURI(split[1]), "base64").toString())
         this.addTab(filename.split('|')[1], Buffer.from(decodeURI(split[1]), "base64").toString())
         return
       }
@@ -1004,12 +984,10 @@ console.log(this.options['tabSize'])
       const ansiRegEx = new RegExp(ansi, "g")
       let match = null
 
-      // console.log(regexp, data)
       while ((match = regexp.exec(data)) !== null) {
         if (match.length >= 2) {
           const row = parseInt(match[1])
           const matched = match[0]
-          //console.log(matched)
           this.decorations.push({
             range: new monaco.Range(row,1,row,1),
             options: {
@@ -1022,7 +1000,6 @@ console.log(this.options['tabSize'])
             }
           })
 
-          // console.log( this.decorations)
           this.befDecorations = this.editor.deltaDecorations(this.befDecorations, this.decorations)
           this.editor.revealLineInCenter(row)
           this.editor.setPosition({column: 0, lineNumber: row})
@@ -1037,12 +1014,7 @@ console.log(this.options['tabSize'])
       }
 
       this.terminalTab = "tab-0"
-//      vm.disconnect()
-
       const term = vm.term
-      //const reset = '\x1bc\x1b[!p\x1b[?3;4l\x1b[4l\x1b>'
-
-      //term.write(reset)
       term.clear()
       term.write(this.$t('connectToServer'))
       let host;
@@ -1066,7 +1038,7 @@ console.log(this.options['tabSize'])
       }
 
       const BEL = '\x07'
-      const HEREDOC_BEGIN = " cat << 'RYUGOD_EOF'"
+      const HEREDOC_BEGIN = " cat <<- 'RYUGOD_EOF'"
       const regex = /RYUGOD_EOF(?!')/
       const esc1337 = '\x1b[1337';
       let isContImage = false

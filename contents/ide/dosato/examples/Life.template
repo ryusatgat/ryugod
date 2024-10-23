@@ -1,0 +1,60 @@
+make int size = 10
+make array board = *([[0] * size] * size)
+
+define void printBoard () {
+    make i = 0
+    do {
+        make var j = 0
+        do say(j ? "#" : ".") for i => j
+        do say("\n")
+    } for board => i
+}
+
+define bool getFrom (int x, int y) {
+    return board#x#y when x >= 0 && x < size && y >= 0 && y < size
+    return false
+}
+
+define bool getAlive (int x, int y) {
+    make int neighbors = 
+        getFrom(x - 1, y - 1) +
+        getFrom(x - 1, y) +
+        getFrom(x - 1, y + 1) +
+        getFrom(x, y - 1) +
+        getFrom(x, y + 1) +
+        getFrom(x + 1, y - 1) +
+        getFrom(x + 1, y) +
+        getFrom(x + 1, y + 1)
+    return getFrom(x, y) ? (neighbors == 2 || neighbors == 3) : (neighbors == 3)
+}
+
+define void nextGen () {
+    make array newBoard = *board
+    make int i = 0
+    do {
+        make int j = 0
+        do {
+            set newBoard#i#j = getAlive(i, j)
+        } for range(board#i) => j
+    } for range(board) => i
+    
+    set board = newBoard
+}
+
+// Glider
+set board#1#3 = 1
+set board#2#1 = 1
+set board#2#3 = 1
+set board#3#2 = 1
+set board#3#3 = 1
+
+
+make int max_iteration = 25
+make int i = 0
+do {
+    do clear()
+    do sayln("Generation " + i)
+    do printBoard()
+    do nextGen()
+    do sleep(0.5)
+} for range(max_iteration) => i
