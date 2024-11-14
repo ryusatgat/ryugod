@@ -1,0 +1,10 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN ln -s /opt/goal/goal /usr/local/bin
+
+ADD opt /opt/
+
+USER $USERNAME
+
+RUN echo 'export GOALLIB=/opt/goal/lib' >> ~/.bashrc

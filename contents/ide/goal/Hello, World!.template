@@ -1,0 +1,6 @@
+//
+//  Goal: Hello, World!
+//  https://codeberg.org/anaseto/goal
+//
+
+say("Hello, World!")

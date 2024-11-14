@@ -1,0 +1,9 @@
+func factorial(n) {
+  if n == 1 {
+    ret n
+  } else {
+    ret n * factorial(n - 1)
+  }
+}
+
+print(factorial(10))

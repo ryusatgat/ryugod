@@ -686,8 +686,8 @@ export default {
       reader.onload = (event) => {
         if (this.connected) {
           this.ws.send(`1\n # ℹ️  ${file.name} is transfering(${file.size}bytes). please wait...\n` +
-            ` cat <<- 'RYUGOD_EOF' | sed s/.*,// | base64 -d > '${file.name}'\n` +
-            event.target.result+`\nRYUGOD_EOF\r\n # ℹ️  ${file.name} 전송완료\n`)
+            ` stty -echo;echo @RYUGOD_EOF@\n echo "${event.target.result}" | sed s/.*,// | base64 -d > '${file.name}';echo @RYUGOD_EOF@\n echo -e "\\033[2J\\033[H";stty echo\n` +
+            ` # ℹ️  ${file.name} transfer completed\n`)
         }
       }
       reader.readAsDataURL(file);
@@ -1038,8 +1038,8 @@ export default {
       }
 
       const BEL = '\x07'
-      const HEREDOC_BEGIN = " cat <<- 'RYUGOD_EOF'"
-      const regex = /RYUGOD_EOF(?!')/
+      const HEREDOC_BEGIN = "@RYUGOD_EOF@"
+      const regex = /@RYUGOD_EOF@/
       const esc1337 = '\x1b[1337';
       let isContImage = false
       let isHereDoc = false
@@ -1052,11 +1052,14 @@ export default {
         if (isHereDoc) {
           if (regex.exec(data) !== null) {
             isHereDoc = false
+            /*
             const last = data.toString().split(regex)
+            
             if (last[1]) {
               vm.termStr = last[1]
               term.write(last[1])
             }
+            */
           }
           return
         } else if (isContImage) {
@@ -1185,12 +1188,12 @@ export default {
           if (!args)
             args = this.languages[this.selectedLanguage].args?this.languages[this.selectedLanguage].args:""
 
-          command = (" stty -echo\n cat <<- 'RYUGOD_EOF' > {FILENAME}.{EXT}\n{SOURCE}\nRYUGOD_EOF\n clear;stty echo\n" +
+          command = (" #@RYUGOD_EOF@\n (stty -echo; echo {SOURCE} | base64 -d > {FILENAME}.{EXT}; echo -e \"\\033[2J\\033[H\"; stty echo);#@RYUGOD_EOF@\n" +
             this.languages[this.selectedLanguage].command)
             .replace(/{ARGS}/g, args)
             .replace(/{FILENAME}/g, this.filename.replace(`.${ext}`, ''))
             .replace(/{EXT}/g, ext)
-            .replace('{SOURCE}', this.editor.getValue().replaceAll('$','$$$$'))
+            .replace('{SOURCE}', Buffer.from(this.editor.getValue()).toString('base64'))
 //            .replace(/\t/g, '    ')
           if (this.inputValue)
             command += `\n${this.inputValue}\n`

@@ -1,0 +1,6 @@
+#
+#  Tug: Hello, World!
+#  https://github.com/tuglang/tug
+#
+
+print("Hello, World!")

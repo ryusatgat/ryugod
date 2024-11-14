@@ -1,0 +1,19 @@
+#!/bin/bash
+# a simple iTerm2 sequences
+# written by Ryusatgat 2021-05-28
+
+if [ $# -eq 0 ]; then
+  echo usage: $0 [file]
+  exit 0
+else
+  tp=`echo -n "code|"$(basename $1)|base64 -w 0`
+  fname=$1
+fi
+
+echo $1
+
+if [ -e "$fname" ]; then
+  echo -e "\x1b[1337;${tp};inline=1:`base64 -w 0 $fname`\a"
+else
+  echo "$fname: file not found"
+fi

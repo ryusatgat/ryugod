@@ -1,0 +1,16 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt update && apt upgrade -y
+
+# install Java JDK
+RUN apt install -y openjdk-21-jdk
+
+RUN mkdir /opt/tug && curl -skL https://github.com/tuglang/tug/raw/refs/heads/main/build/tug.jar > /opt/tug/tug.jar && \
+echo '#!/bin/bash \n\
+\n\
+export TUG_HOME=/opt/tug \n\
+java -jar $TUG_HOME/tug.jar $*' > /opt/tug/tug && chmod 755 /opt/tug/tug && \
+ln -s /opt/tug/tug /usr/local/bin
+
+USER $USERNAME

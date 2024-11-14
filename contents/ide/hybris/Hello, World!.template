@@ -1,0 +1,8 @@
+/*
+     Hybris: Hello, World!
+     https://github.com/evilsocket/hybris
+*/
+
+import std.io.console;
+
+println("Hello, World!");

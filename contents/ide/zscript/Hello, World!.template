@@ -1,0 +1,6 @@
+//
+//  zScript: Hello, World!
+//  https://github.com/zccrs/zScript
+//
+
+console.log("Hello, World!");

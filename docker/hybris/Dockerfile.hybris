@@ -1,0 +1,8 @@
+ARG FROM_IMAGE=ryusatgat/ubuntu
+FROM $FROM_IMAGE
+
+RUN apt install -y libpcre3
+
+ADD usr /usr/
+
+USER $USERNAME

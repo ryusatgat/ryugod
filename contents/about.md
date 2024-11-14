@@ -918,3 +918,11 @@ const tag = `<a href="${url}">🚀 Test your code</a>`
 - Dosato
 ## 2024-10-23
 - Melang
+## 2024-10-24
+- zScript
+## 2024-10-25
+- Hybris
+## 2024-10-31
+- Tug
+## 2024-11-05
+- Goal
